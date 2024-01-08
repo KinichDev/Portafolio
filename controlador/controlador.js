@@ -47,6 +47,9 @@ function contenidoInicio() {
             texto_actualizacion.addEventListener("mouseup",function(){
                 window.open("https://kinichdev.github.io/Portafolio/index_.html","_blank")
             })
+            texto_actualizacion.style.heigth = "80px"
+            texto_actualizacion.style.padding = "6px"
+            texto_actualizacion.style.color = "blue"
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia Destacada",

@@ -59,7 +59,8 @@
     --colorRed: #f04141;
     --colorRedHover: #ff6969;
     --colorRed_: rgb(38, 66, 72);
-
+    --colorGreenW:#0bc20b;
+    --colorGreenWHover:#60bc60;
     --colorPink:#f45f85;
     --colorAzul:#0e3d5d;
 
@@ -135,6 +136,7 @@ img{
     position: relative;
     padding: 3px;
     padding-left: 12px;
+    align-items: center;
 }
 
 .cont_img_header{
@@ -181,7 +183,7 @@ img{
     border-radius: 75%;
     width: min-content;
     height: min-content;
-    transition: background-color .3s ease,;
+    transition: background-color 1.7s ease;
     cursor: pointer;
 }.contenedor_img_header:hover{
     background-color: var(--colorHoverDark);
@@ -714,6 +716,7 @@ img{
     padding: 2px;
     cursor: pointer;
     transition: background-color 0.5s ease; /* Agrega una transición gradual de 0.3 segundos en el cambio de color de fondo */
+    height: 100%;
 }.calendario_celda:hover{
     background-color: var(--colorVerde);
 }
@@ -845,8 +848,10 @@ img{
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.5s ease;
+    background-color: var(--colorlight);
+    padding: 3px;
 }.cont_cerrar_ventana:hover{
-    background-color: #000;
+    background-color: var(--colorRedHover);
 }
 .cerrar_ventana{
     -webkit-user-drag: none;
@@ -1117,6 +1122,7 @@ img{
     justify-content: center;
     flex-wrap: wrap;
     padding: 12px;
+    height: min-content;
 }
 
 .hipercapa_etiqueta_actividades{
@@ -1151,13 +1157,17 @@ img{
 .ventana_descripcion_actividad_footer{
     padding: 6px;
     height: 60px;
-    background-color: #0e0e0e;
-    box-shadow: 0 0 7px var(--colordark);
+    background-color: var(--colorGreenW);
+    box-shadow: 0 0 7px var(--colorHoverDark);
     color: white;
     /* font-size: large; */
     text-align: center;
     font-family: helvetica;
     font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}.ventana_descripcion_actividad_footer:hover{
+    background-color: var(--colorGreenWHover);
 }
 
 .ventana_descripcion_actividad_cuerpo_fila{
@@ -1317,3 +1327,72 @@ img{
     list-style-type: square; /* Cambia el estilo de la viñeta según tu preferencia 
   } */
   
+
+  .ventana_calendarios{
+    height: min-content;
+    flex-direction: column;
+    padding: 6px;
+  }
+
+  .calendario_input {
+    width: 450px;
+    height: min-content;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    transition: box-shadow 0.3s ease;
+    padding: 6px;
+    margin-bottom: 12px;
+  }
+  
+  .cont_input_calendario_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cont_tittle_calendario_input {
+    background-color: var(--colorAzul);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  
+  .tittle_calendario_input {
+    margin: 0;
+  }
+  
+  .nodo_cont_input_calendario_input {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .in_calendario_input {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .in_calendario_input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
+  }
+  
+  .calendario_input:focus-within {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  }
+  
+
+  .contenedor_calendario{
+    padding: 6px;
+  }

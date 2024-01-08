@@ -176,12 +176,12 @@ function mkObjInput(nodo,c,i,type,t,p,f,s,color){ // ! CREAR UN OBJETO INPUT (cl
     let obj_temp = mkObj(nodo,c,i)
 
     // ? [STYLER]
-        stylerWidth(obj_temp,"250px")
-        stylerHeight(obj_temp,"min-content")
+        // stylerWidth(obj_temp,"250px")
+        // stylerHeight(obj_temp,"min-content")
         
         let cont_temp = mkObj(obj_temp,cont_clase,cont_id)
         // ? [STYLER]
-            stylerFlexDirection(cont_temp,"column")
+            // stylerFlexDirection(cont_temp,"column")
 
             let cont_titulo = mkObj(cont_temp,cont_titulo_clase,cont_titulo_id)
                 let titulo_temp = mkText(cont_titulo,titulo_clase,titulo_id,t)
@@ -191,10 +191,10 @@ function mkObjInput(nodo,c,i,type,t,p,f,s,color){ // ! CREAR UN OBJETO INPUT (cl
 
                     let input_temp = input(input_clase,input_id,p)
                     // ? [STYLER]
-                        stylerColor(input_temp,color)
-                        stylerFontFamily(input_temp,f) 
-                        stylerFontSize(input_temp,s)
-                        stylerPadding(input_temp,"6px")
+                        // stylerColor(input_temp,color)
+                        // stylerFontFamily(input_temp,f) 
+                        // stylerFontSize(input_temp,s)
+                        // stylerPadding(input_temp,"6px")
 
                     input_temp.setAttribute("type",type)
                     cont_input.appendChild(input_temp)
@@ -6198,6 +6198,8 @@ function placerMenu(btn,menu) {
 
 
 
+
+
 // // // ACTUALIZADO DE -> STYLER VALIDACION DE INPUTS POR A9
 // // ACTUALIZADO EN -> mkDomer/controlador/bibliotecaPruevas.js
 // // gest //FOR//FOR//FOR//FOR//FOR///////////// 
@@ -6233,89 +6235,89 @@ function placerMenu(btn,menu) {
 // // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest 
 
 
-// function stylerColor(element,color) {
-//     element.style.color=color
-//     // console.log(element)
-//     return element
-// }
+function stylerColor(element,color) {
+    element.style.color=color
+    // console.log(element)
+    return element
+}
 
-// function stylerFontFamily(element,font) {
-//     element.style.fontFamily=font
-//     // console.log(element)
-//     return element
-// }
+function stylerFontFamily(element,font) {
+    element.style.fontFamily=font
+    // console.log(element)
+    return element
+}
 
-// function stylerFontSize(element,size) {
-//     element.style.fontSize=size
-//     // console.log(element)
-//     return element
-// }
+function stylerFontSize(element,size) {
+    element.style.fontSize=size
+    // console.log(element)
+    return element
+}
 
-// function stylerPadding(element,padding) {
-//     element.style.padding=padding
-//     // console.log(element)
-//     return element
-// }
+function stylerPadding(element,padding) {
+    element.style.padding=padding
+    // console.log(element)
+    return element
+}
 
-// function stylerFlexDirection(element,direction) {
-//     element.style.flexDirection=direction
-//     // console.log(element)
-//     return element
-// }
+function stylerFlexDirection(element,direction) {
+    element.style.flexDirection=direction
+    // console.log(element)
+    return element
+}
 
-// function stylerWidth(element,width) {
-//     element.style.width=width
-//     // console.log(element)
-//     return element
-// }
+function stylerWidth(element,width) {
+    element.style.width=width
+    // console.log(element)
+    return element
+}
 
-// function stylerHeight(element,height) {
-//     element.style.height=height
-//     // console.log(element)
-//     return element
-// }
+function stylerHeight(element,height) {
+    element.style.height=height
+    // console.log(element)
+    return element
+}
 
-// function stylerUserSelect(element,userSelect) {
-//     element.style.userSelect=userSelect   
-//     // console.log(element)
-//     return element
-// }
+function stylerUserSelect(element,userSelect) {
+    element.style.userSelect=userSelect   
+    // console.log(element)
+    return element
+}
 
-// function stylerAlingItems(element,alignItems) {
-//     element.style.alignItems=alignItems
-//     // console.log(element)
-//     return element
-// }
+function stylerAlingItems(element,alignItems) {
+    element.style.alignItems=alignItems
+    // console.log(element)
+    return element
+}
 
-// function stylerJustifyContent(element,justifyContent) {
-//     element.style.justifyContent=justifyContent
-//     // console.log(element)
-//     return element
-// }
+function stylerJustifyContent(element,justifyContent) {
+    element.style.justifyContent=justifyContent
+    // console.log(element)
+    return element
+}
 
-// function stylerCursor(element,cursor) {
-//     element.style.cursor=cursor
-//     // console.log(element)
-//     return element
-// }
+function stylerCursor(element,cursor) {
+    element.style.cursor=cursor
+    // console.log(element)
+    return element
+}
 
-// function stylerBackground(element,background) {
-//     element.style.background=background
-//     // console.log(element)
-//     return element
-// }
+function stylerBackground(element,background) {
+    element.style.background=background
+    // console.log(element)
+    return element
+}
 
-// function stylerWordWrap(element,wordWrap) {
-//     element.style.wordWrap=wordWrap
-//     // console.log(element)
-//     return element
-// }
+function stylerWordWrap(element,wordWrap) {
+    element.style.wordWrap=wordWrap
+    // console.log(element)
+    return element
+}
 
-// function stylerMaxWidth(element,maxWidth) {
-//     element.style.maxWidth = maxWidth
-//     // console.log(element)
-//     return element
-// }
+function stylerMaxWidth(element,maxWidth) {
+    element.style.maxWidth = maxWidth
+    // console.log(element)
+    return element
+}
 
 // // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest // gest 
 
@@ -6363,7 +6365,7 @@ function etiquetaElemento(nodo,clase,id,titulo,img_ruta,descripcion) {
             let ventana_descripcion_actividad = mkObj(hipercapa_temp,"ventana_descripcion_actividad","ventana_descripcion_actividad_"+id)
 
                 let ventana_descripcion_actividad_header = mkObj(ventana_descripcion_actividad,"ventana_descripcion_actividad_header","ventana_descripcion_actividad_header"+id)
-                    let ventana_descripcion_actividad_header_titulo = mkText(ventana_descripcion_actividad_header,"ventana_descripcion_actividad_header_titulo","ventana_descripcion_actividad_header_titulo"+id,"Solicitar Cotización de Cancelería "+titulo)
+                    let ventana_descripcion_actividad_header_titulo = mkText(ventana_descripcion_actividad_header,"ventana_descripcion_actividad_header_titulo","ventana_descripcion_actividad_header_titulo"+id,"Información de Actividades "+titulo)
                     let ventana_descripcion_actividad_header_cerrar = mkObjImg(ventana_descripcion_actividad_header,"ventana_descripcion_actividad_header_cerrar","ventana_descripcion_actividad_header_cerrar"+id,"./vista/img/cerrar_ventana.png")
                         ventana_descripcion_actividad_header_cerrar.addEventListener("mouseup",function () {
                             hipercapa_temp.remove()
@@ -6375,23 +6377,26 @@ function etiquetaElemento(nodo,clase,id,titulo,img_ruta,descripcion) {
 
                         let ventana_descripcion_actividad_cuerpo_fila_img = mkObjImg(ventana_descripcion_actividad_cuerpo_fila_producto,"ventana_descripcion_actividad_cuerpo_fila_img","ventana_descripcion_actividad_cuerpo_fila_img"+id,img_ruta)
 
-                        // let ventana_descripcion_actividad_cuerpo_fila_descripcion = mkText(ventana_descripcion_actividad_cuerpo_fila_producto,"ventana_descripcion_actividad_cuerpo_fila_descripcion","ventana_descripcion_actividad_cuerpo_fila_descripcion"+id,titulo+"<br>"+descripcion)
-                        //     let img_whatsapp = mkObjImg(ventana_descripcion_actividad_cuerpo_fila_descripcion,"img_contacto","img_whatsapp","./vista/img/whatsapp.png")
-
-                        //         img_whatsapp.addEventListener("mouseup",function () {
-                        //             console.log(img_whatsapp)
-                        //             // window.open(`https://wa.me/5528215430?text=Hola,%20quiero%20cotizar%20una%20Cancelería%20para%20${titulo}.`, '_blank');
-                        //         })
-
                 let ventana_descripcion_actividad_footer = mkObj(ventana_descripcion_actividad,"ventana_descripcion_actividad_footer","ventana_descripcion_actividad_footer"+id)
                     let ventana_descripcion_actividad_footer_contactos = mkTextList(ventana_descripcion_actividad_footer,"ventana_descripcion_actividad_footer_contactos","ventana_descripcion_actividad_footer_contactos"+id,
-                        "Contáctar con WhatsApp: 9331118796",
+                        "Solicitas mas informes por WhatsApp: 81 3101 0497",
                     )
+                        ventana_descripcion_actividad_footer_contactos.addEventListener("mouseup",function () {
+                            mandarMensajeWhats("8131010497","Informes acerca de "+titulo)
+                        })
+
+
+                function mandarMensajeWhats(phone,text) {
+                    text = text.replace(/[\s]/g,"%20")
+                    url = "https://wa.me/"
+                    window.open(url+phone+"?text=[Mensaje automático de Portafolio]: "+text)
+                }
 
                 // Agregar evento para manipular el historial al cerrar la ventana
                 window.addEventListener("popstate", function () {
                     if (hipercapa_temp) {
-                        hipercapa_temp.remove();
+                        // hipercapa_temp.remove();
+                        this.location.reload()
                     }
                 });
 

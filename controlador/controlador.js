@@ -1,209 +1,79 @@
-var contenedor_principal = document.getElementById("contenedor_principal")
-var letterAnimation = document.getElementById("letterAnimation")
-var btn_menu_header_principal = document.getElementById("btn_menu_header_principal")
-var menu_header_principal = document.getElementById("menu_header_principal")
-// MENÚ
-btn_menu_header_principal.addEventListener("click",function() {
-    menu_header_principal.style.display="flex"
+const body = document.body
+let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_principal")
+    let header = mkObj(contenedor_principal,"header","header")
+        let  = mkObj(header,"contenedor_img_header","contenedor_img_header")
 
-    document.addEventListener("mouseup",function(x) {
-        if (!menu_header_principal.contains(x.target)) {
-            menu_header_principal.style.display="none"
-        }
-    })
-    
-})
-// FUNCION VISUALIZAR VENTANAS
-var pestaña_inicio = document.getElementById("pestaña_inicio")
-var pestaña_dominio_lenguajes = document.getElementById("pestaña_dominio_lenguajes")
-var pestaña_acerca_de_mi = document.getElementById("pestaña_acerca_de_mi")
-var pestaña_portafolio_trabajo = document.getElementById("pestaña_portafolio_trabajo")
-var pestaña_cv = document.getElementById("pestaña_cv")
+            let container = mkObj(contenedor_img_header,"container")
+                let circle = mkObj(container,"circle")
 
-var btn_logo = document.getElementById("contenedor_logo")
-var btn_inicio = document.getElementById("btn_inicio")
-var btn_ddl = document.getElementById("btn_ddl")
-var btn_acm = document.getElementById("btn_acm")
-var btn_pdt = document.getElementById("btn_pdt")
-var btn_cv = document.getElementById("btn_cv")
-
-var obj_ddl = document.getElementById("obj_ddl")
-var obj_adm = document.getElementById("obj_adm")
-var obj_ptfoll = document.getElementById("obj_ptfoll")
-var obj_cv = document.getElementById("obj_cv")
-
-document.addEventListener("click",function(x) {
-
-  // console.log(x)
-  
-  if (btn_logo.contains(x.target)) {
-    verInicio()
-  }
-  if (btn_inicio.contains(x.target)) {
-    verInicio()
-    objHash(x)
-  }
-  if (btn_ddl.contains(x.target)){
-    verDominioLenguajes()
-    objHash(x)
-  }
-  if (obj_ddl.contains(x.target)){
-    verDominioLenguajes()
-    objHash(x)
-  }
-  if(obj_adm.contains(x.target)){
-    verAcercaDeMi()
-    objHash(x)
-  }
-  if (obj_ptfoll.contains(x.target)) {
-    verPortafolioTrabajo()
-    objHash(x)
-  }
-
-  if (obj_cv.contains(x.target)) {
-    verCV()
-    objHash(x)
-  }
-
-})
-
-function verInicio(event) {
-  pestaña_inicio.style.display="flex"
-  pestaña_dominio_lenguajes.style.display="none"
-  pestaña_acerca_de_mi.style.display="none"
-  pestaña_portafolio_trabajo.style.display="none"
-  pestaña_cv.style.display="none"
-  pestaña_inicio.style.animation="fadeIn .5s forwards"
-  resetHash()
-}
-
-function verDominioLenguajes() {
-  pestaña_inicio.style.display="none"
-  pestaña_dominio_lenguajes.style.display="flex"
-  pestaña_acerca_de_mi.style.display="none"
-  pestaña_portafolio_trabajo.style.display="none"
-  pestaña_cv.style.display="none"
-  pestaña_dominio_lenguajes.style.animation="fadeIn .5s forwards"
-  resetHash()
-}
-
-function verAcercaDeMi() {
-  pestaña_inicio.style.display="none"
-  pestaña_dominio_lenguajes.style.display="none"
-  pestaña_acerca_de_mi.style.display="flex"
-  pestaña_portafolio_trabajo.style.display="none"
-  pestaña_cv.style.display="none"
-  pestaña_acerca_de_mi.style.animation="fadeIn .5s forwards"
-  resetHash()
-}
-
-function verPortafolioTrabajo() {
-  pestaña_inicio.style.display="none"
-  pestaña_dominio_lenguajes.style.display="none"
-  pestaña_acerca_de_mi.style.display="none"
-  pestaña_portafolio_trabajo.style.display="flex"
-  pestaña_cv.style.display="none"
-  pestaña_portafolio_trabajo.style.animation="fadeIn .5s forwards"
-  resetHash()
-}
-
-function verCV() {
-  pestaña_inicio.style.display="none"
-  pestaña_dominio_lenguajes.style.display="none"
-  pestaña_acerca_de_mi.style.display="none"
-  pestaña_portafolio_trabajo.style.display="none"
-  pestaña_cv.style.display="flex"
-  pestaña_cv.style.animation="fadeIn .5s forwards"
-  resetHash()
-}
-
-//cript
-let img_perfil = document.getElementById("img_perfil")
-img_perfil.addEventListener("contextmenu",function(e) {
-  e.preventDefault()
-})
-function i_cv() {
-
-  let pso_cv = document.getElementById("pso_cv")
-  if (!pso_cv) {
-    let mk_img_pso_cv = document.createElement("img")
-    mk_img_pso_cv.setAttribute("id","pso_cv")
-      document.getElementById("fila_pestaña_cuerpo_foto_cv").appendChild(mk_img_pso_cv)
-  }
-}
-// FUNCION IMAGENES
-function verImg(event){
-
-  let temp_img = event.target
-
-  let mk_hipercapa_img = document.createElement("div")
-  mk_hipercapa_img.setAttribute("class","hipercapa")
-    contenedor_principal.appendChild(mk_hipercapa_img)
-
-    let mk_ventana_img = document.createElement("div")
-    mk_ventana_img.setAttribute("class","ventana_img")
-      mk_hipercapa_img.appendChild(mk_ventana_img)
-
-      let mk_header_ventana_img = document.createElement("div")
-      mk_header_ventana_img.setAttribute("class","header_ventana_img")
-        mk_ventana_img.appendChild(mk_header_ventana_img)
-
-        let mk_titulo_hvi = document.createElement("div")
-        mk_titulo_hvi.setAttribute("class","mk_titulo_header_ventana_img")
-        mk_titulo_hvi.innerHTML=temp_img.getAttribute("src").split("/").pop()
-          mk_header_ventana_img.appendChild(mk_titulo_hvi)
-
-        let mk_btn_cerrar_ventana_img = document.createElement("div")
-        mk_btn_cerrar_ventana_img.setAttribute("class","btn_cerrar_ventana_img")
-        mk_btn_cerrar_ventana_img.innerHTML="X"
-          mk_header_ventana_img.appendChild(mk_btn_cerrar_ventana_img)
-
-          mk_btn_cerrar_ventana_img.addEventListener("click",function() {
-            history.replaceState({},document.title,window.location.href.replace(/#.*$/,""))
-            mk_hipercapa_img.remove()
-          })
-
-      let mk_cuerpo_ventana_img = document.createElement("div")
-      mk_cuerpo_ventana_img.setAttribute("class","cuerpo_ventana_img")
-          mk_ventana_img.appendChild(mk_cuerpo_ventana_img)
-
-        let mk_img_hipercap = document.createElement("img")
-        mk_img_hipercap.setAttribute("class","img_hipercap")
-        mk_img_hipercap.setAttribute("src",temp_img.getAttribute("src"))
-          mk_cuerpo_ventana_img.appendChild(mk_img_hipercap)
-
-          history.pushState({},"",'#img')
-}
-function clickImg(event) {
-  let e=event.target.closest(".obj_pestaña_carpeta_trabajo")
-  let i=e.querySelector("img")
-  // console.log(i)
-  i.click()
-}
-
-window.addEventListener("popstate",function(){
-  if (location.hash !== "#img") {
-    let f = document.querySelectorAll(".hipercapa")
-    for (let i = 0; i < f.length; i++) {
-      f[i].remove()
-    }
-  }
-  if (location.hash=="") {
-    verInicio()
-  }
-})
-window.addEventListener("popstate",function(x) {
-  console.log(location)
-})
-
-///HASHING
-resetHash=()=>history.replaceState({},document.title,window.location.pathname) 
-objHash=(event)=>history.pushState([],"","#"+event.target.innerHTML)
+        contenedor_img_header.addEventListener("mouseenter",function () {
+            circle.className="circle_white"
+        })
+        contenedor_img_header.addEventListener("mouseleave",function () {
+            circle.className="circle"
+        })
+        contenedor_img_header.addEventListener("mouseup",function () {
+            location.reload()
+        })
+        
+                    
 
 
 
+        let contenedor_menu_header = mkObj(header,"contenedor_menu_header","contenedor_menu_header")
+            let menu_header = mkObjImg(contenedor_menu_header,"menu_header","menu_header","./vista/img/menu.png")
+            let pestaña_menu_header = mkObj(header,"pestaña_menu_header","pestaña_menu_header")
+                let header_opcion_inicio = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Portal de Inicio")
+                let header_opcion_login = mkText(pestaña_menu_header,"header_opcion","header_opcion_login","Ingresar/Registrar")
+                let header_opcion_crear_agenda = mkText(pestaña_menu_header,"header_opcion","header_opcion_crear_agenda","Crear Agenda")
+                let header_opcion_informacion = mkText(pestaña_menu_header,"header_opcion","header_opcion_informacion","Completa tu información")
+                let header_opcion_cerrar_sesion = mkText(pestaña_menu_header,"header_opcion","header_opcion_cerrar_sesion","Cerrar Sesión")
+                header_opcion_crear_agenda.style.display="none"
+                header_opcion_informacion.style.display="none"
+                header_opcion_cerrar_sesion.style.display="none"
+    placerMenu(menu_header,pestaña_menu_header)
+
+    let cuerpo = mkObj(contenedor_principal,"cuerpo","cuerpo")
 
 
-function name(params) {
-  
+    contenidoInicio()
+function contenidoInicio() {
+
+    cuerpo.innerHTML=""
+
+    let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
+
+        let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
+            "Experiencia Destacada",
+            "Automatización de tareas repetitivas",
+            "Mejora continua en metodología y toma de desiciones",
+            "Conocimiento amplio en el manejo de PC"
+        )
+
+        let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
+            "Habilidades Destacadas en Desarrollo Web",
+            "Diseño responsivo y adaptativo",
+            "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript)",
+            "Integración de APIs y servicios web",
+            "Optimización de rendimiento y velocidad del sitio",
+            "Manejo de control de versiones (Git)",
+            "Conocimientos en seguridad web"
+        );
+
+
+
+        let contenido_etiquetas_actividades = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
+
+            let etiqueta_actividades_sistema_usuarios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_sistema_usuarios","Sistema de Usuarios.","./vista/img/actividades_login.png","Registro, autentificación, gestión de perfiles, seguridad de contraseñas...")
+            let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
+            let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
+            // let etiqueta_actividades_formularios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Formularios.","./vista/img/actividades_formularios.png","Formularios con validaciones de datos...")
+            // let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","encuestas_sugerencias.","./vista/img/actividades_encuestas_sugerencias.png","encuestas_sugerencias con validaciones de datos...")
+
+        
+
+            
+
+
+return cuerpo_inicio
 }

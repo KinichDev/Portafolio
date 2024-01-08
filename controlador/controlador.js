@@ -43,6 +43,11 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
+        let texto_actualizacion = mkText(cuerpo_inicio,"texto_actualizacion","texto_actualizacion","Version anterior: kinichdev.github.io/Portafolio/index_.html")
+            texto_actualizacion.addEventListener("mouseup",function(){
+                window.open("https://kinichdev.github.io/Portafolio/index_.html","_blank")
+            })
+    
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia Destacada",
 

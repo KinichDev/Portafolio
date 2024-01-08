@@ -43,42 +43,42 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
-        // let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
-        //     "Experiencia Destacada",
+        let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
+            "Experiencia Destacada",
 
-        //     "Automatización de tareas repetitivas, ",
-        //     "Mejora continua en metodología y toma de desiciones",
-        //     "Conocimiento amplio en el manejo de PC"
-        // )
+            "Automatización de tareas repetitivas, ",
+            "Mejora continua en metodología y toma de desiciones",
+            "Conocimiento amplio en el manejo de PC"
+        )
 
-        // let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
-        //     "Habilidades Destacadas en Desarrollo Web",
-        //     "Diseño responsivo y adaptativo",
-        //     "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript)",
-        //     "Integración de APIs y servicios web",
-        //     "Optimización de rendimiento y velocidad del sitio",
-        //     "Manejo de control de versiones (Git)",
-        //     "Conocimientos en seguridad web"
-        // );
+        let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
+            "Habilidades Destacadas en Desarrollo Web",
+            "Diseño responsivo y adaptativo",
+            "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript)",
+            "Integración de APIs y servicios web",
+            "Optimización de rendimiento y velocidad del sitio",
+            "Manejo de control de versiones (Git)",
+            "Conocimientos en seguridad web"
+        );
 
-        // let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
-        //     "Habilidades Destacadas en Administracion.",
-        //     "Excel avanzado",
-        //     "Elavoración de reportes",
-        //     "Diseño de Formatos",
-        //     "Bases de datos",
-        //     ""
-        // );
+        let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
+            "Habilidades Destacadas en Administracion.",
+            "Excel avanzado",
+            "Elavoración de reportes",
+            "Diseño de Formatos",
+            "Bases de datos",
+            ""
+        );
 
 
 
-        // let contenido_etiquetas_actividades = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
+        let contenido_etiquetas_actividades = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
 
-        //     let etiqueta_actividades_sistema_usuarios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_sistema_usuarios","Sistema de Usuarios.","./vista/img/actividades_login.png","Registro, autentificación, gestión de perfiles, seguridad de contraseñas...")
-        //     let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
-        //     let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
-        //     let etiqueta_actividades_formularios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Formularios.","./vista/img/actividades_formularios.png","Formularios con validaciones de datos...")
-        //     let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","encuestas_sugerencias.","./vista/img/actividades_encuestas_sugerencias.png","encuestas_sugerencias con validaciones de datos...")
+            let etiqueta_actividades_sistema_usuarios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_sistema_usuarios","Sistema de Usuarios.","./vista/img/actividades_login.png","Registro, autentificación, gestión de perfiles, seguridad de contraseñas...")
+            let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
+            let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
+            let etiqueta_actividades_formularios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Formularios.","./vista/img/actividades_formularios.png","Formularios con validaciones de datos...")
+            let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","encuestas_sugerencias.","./vista/img/actividades_encuestas_sugerencias.png","encuestas_sugerencias con validaciones de datos...")
 
         let contenido_calendarios_personalizados = mkObj(cuerpo_inicio,"contenido_calendarios_personalizados","contenido_calendarios_personalizados")
         

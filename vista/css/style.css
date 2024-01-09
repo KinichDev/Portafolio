@@ -1316,7 +1316,8 @@ img{
   
   /* Estilo adicional para el texto "Experiencia Destacada" */
   #sub_text_contenido_experiencia_destacada_0,
-  #sub_text_habilidades_destacadas_web_0 {
+  #sub_text_habilidades_destacadas_web_0,
+  #sub_text_habilidades_destacadas_administracion_0 {
     font-weight: bold; /* Hace que este texto sea más destacado, puedes ajustar según sea necesario */
     color: #007bff; /* Cambia el color según tu preferencia */
     padding-left: 0px; /* Añade un margen a la izquierda según sea necesario */

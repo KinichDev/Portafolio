@@ -43,6 +43,14 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
+        let texto_actualizacion = mkText(cuerpo_inicio,"texto_actualizacion","texto_actualizacion","Version anterior: kinichdev.github.io/Portafolio/index_.html")
+            texto_actualizacion.addEventListener("mouseup",function(){
+                window.open("https://kinichdev.github.io/Portafolio/index_.html","_blank")
+            })
+            texto_actualizacion.style.heigth = "80px"
+            texto_actualizacion.style.padding = "6px"
+            texto_actualizacion.style.color = "blue"
+    
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia Destacada",
 
@@ -81,6 +89,13 @@ function contenidoInicio() {
             let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","encuestas_sugerencias.","./vista/img/actividades_encuestas_sugerencias.png","encuestas_sugerencias con validaciones de datos...")
 
         let contenido_calendarios_personalizados = mkObj(cuerpo_inicio,"contenido_calendarios_personalizados","contenido_calendarios_personalizados")
+
+            let descripcion_calendario = mkObjTextarea(contenido_calendarios_personalizados,"descripcion_calendario","descripcion_calendario",
+                "Calendario",
+                "Calendario de eventos",
+                "Registro a travez de descripciones",
+                "Distribucion de información a traves de un solo registro",
+            )
         
             let ventana_calendarios = mkObj(contenido_calendarios_personalizados,"ventana_calendarios","ventana_calendarios") 
 
@@ -301,15 +316,5 @@ function contenidoInicio() {
                     console.log(obj_temp)
                     return obj_temp
                 }
-
-
-
-                
-
-        
-
-            
-
-
 return cuerpo_inicio
 }

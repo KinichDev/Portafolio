@@ -1396,3 +1396,7 @@ img{
   .contenedor_calendario{
     padding: 6px;
   }
+
+  .cont_texto_actualizacion{
+    height: min-content;
+  }

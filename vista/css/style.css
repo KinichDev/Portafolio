@@ -700,6 +700,8 @@ img{
     background-color: var(--colorAzul);
     padding: 12px;
     border-radius: 8px;
+    position: relative;
+    height: min-content;
 }
 
 /* Estilo de las filas del calendario */
@@ -779,7 +781,7 @@ img{
     color: #fff;
     font-family: Arial, sans-serif;
     max-width: 900px;
-    height: 80%;
+    height: 90%;
     animation: fadeIn .5s forwards;
 }
 
@@ -1331,12 +1333,12 @@ img{
   .ventana_calendarios{
     height: min-content;
     flex-direction: column;
-    padding: 6px;
+    padding: 12px;
   }
 
   .calendario_input {
     width: 450px;
-    height: min-content;
+    height: 175px;
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
@@ -1361,6 +1363,7 @@ img{
     box-sizing: border-box;
     border-radius: 6px;
     font-weight: bold;
+    align-items: center;
   }
   
   .tittle_calendario_input {
@@ -1399,4 +1402,37 @@ img{
 
   .cont_texto_actualizacion{
     height: min-content;
+    cursor: pointer;
+  }.cont_texto_actualizacion:hover{
+    background-color: #daecff;
+  }
+
+  .contenido_calendarios_personalizados{
+
+    flex-direction: column;
+    padding: 4px;
+    height: min-content;
+  }
+
+  /* Estilo para el contenedor principal */
+.cont_descripcion_calendario {
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #f8f8f8; /* Color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    height: min-content;
+  }
+  
+  /* Estilo para los subtextos dentro del contenedor */
+  .cont_sub_text_descripcion_calendario {
+    /* margin-bottom: 15px; */
+    height: min-content;
+    padding: 9px;
+  }
+
+  #cont_sub_text_descripcion_calendario_0{
+    color: #007bff;
+    padding-left: 0px;
+    font-size: 28px;
   }

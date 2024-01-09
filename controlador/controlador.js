@@ -146,10 +146,10 @@ function contenidoInicio() {
                         mkFormatoInputFechaCalendario()
 
                         
-                        // console.log("fecha: "+fecha_)
+                        console.log("fecha: "+fecha_)
 
                         function mkFormatoIsoString() {
-                            dia_ = fecha_.getDay();
+                            dia_ = fecha_.getDay()+1;
                             dias_transcurridos = dia_ === 0 ? 6 : dia_
                             lunes = new Date(fecha_.getTime() - (dias_transcurridos * milisegundos_dia) + milisegundos_dia);
                             martes = new Date(lunes.getTime() + milisegundos_dia)
@@ -318,6 +318,22 @@ function contenidoInicio() {
 
             let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
             let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
+
+        let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"contenido_catalogo_ficha_tecnica","contenido_catalogo_ficha_tecnica",
+            "Catágolos y Fichas Técnicas.",
+            "Sistema de pedidos y almacenamiento en base de datos.",
+            "Automatización de formatos para pedidos",
+            "",
+            "",
+        )
+
+        let contenido_etiquetas_actividades_catalogo = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades_catalogo","contenido_etiquetas_actividades_catalogo")
+
+            let etiqueta_actividades_catalogo_fichas_tecnicas = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_fichas_tecnicas","Catálogos y fichas técnicas.","./vista/img/catalogo_fichas_tecnicas.png","Catágos con fichas técnicas, sistema de pedidos")
+            let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
+            // catalogo_fichas_tecnicas.png
+
+
 
             
             

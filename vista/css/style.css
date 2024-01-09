@@ -1128,7 +1128,7 @@ img{
 }
 
 .hipercapa_etiqueta_actividades{
-    background-color: #000000cf;
+    background-color: #000000e0;
     padding: 12px;
     align-items: center;
     justify-content: center;
@@ -1146,6 +1146,7 @@ img{
     align-items: center;
     box-shadow: 0 0 7px var(--colordark);
     height: 75px;
+    border-radius: 6px;
 }
 
 .ventana_descripcion_actividad_cuerpo{
@@ -1435,4 +1436,18 @@ img{
     color: #007bff;
     padding-left: 0px;
     font-size: 28px;
+  }
+
+
+  .cont_contenido_catalogo_ficha_tecnica{
+    flex-direction: column;
+    height: min-content;
+    padding: 8px;
+    
+  }
+
+  
+
+  .contenido_etiquetas_actividades_catalogo{
+    justify-content: center;
   }

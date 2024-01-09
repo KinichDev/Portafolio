@@ -6379,7 +6379,7 @@ function etiquetaElemento(nodo,clase,id,titulo,img_ruta,descripcion) {
 
                 let ventana_descripcion_actividad_footer = mkObj(ventana_descripcion_actividad,"ventana_descripcion_actividad_footer","ventana_descripcion_actividad_footer"+id)
                     let ventana_descripcion_actividad_footer_contactos = mkTextList(ventana_descripcion_actividad_footer,"ventana_descripcion_actividad_footer_contactos","ventana_descripcion_actividad_footer_contactos"+id,
-                        "Solicitas mas informes por WhatsApp: 81 3101 0497",
+                        "Solicitar más informes por WhatsApp: 81 3101 0497 (click)",
                     )
                         ventana_descripcion_actividad_footer_contactos.addEventListener("mouseup",function () {
                             mandarMensajeWhats("8131010497","Informes acerca de "+titulo)

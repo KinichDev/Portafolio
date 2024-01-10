@@ -1452,3 +1452,13 @@ img{
   .contenido_etiquetas_actividades_catalogo{
     justify-content: center;
   }
+
+  .cont_img_pc{
+    padding: 16px;
+    height: min-content;
+    justify-content: center;
+  }
+
+  .img_pc{
+    border-radius: 6px;
+  }

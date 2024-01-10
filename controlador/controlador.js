@@ -319,6 +319,8 @@ function contenidoInicio() {
             let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
             let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
 
+        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/background_row.png")
+
         let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"descripcion_calendario","descripcion_calendario",
             "Catágolos y Fichas Técnicas.",
             "Sistema de pedidos y almacenamiento en base de datos.",

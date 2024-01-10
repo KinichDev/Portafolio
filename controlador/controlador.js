@@ -48,7 +48,7 @@ function contenidoInicio() {
                 window.open("https://kinichdev.github.io/Portafolio/index_.html","_blank")
             })
             texto_actualizacion.style.heigth = "80px"
-            texto_actualizacion.style.padding = "6px"
+            texto_actualizacion.style.padding = "16px"
             texto_actualizacion.style.color = "blue"
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
@@ -96,7 +96,7 @@ function contenidoInicio() {
         
             let ventana_calendarios = mkObj(contenido_calendarios_personalizados,"ventana_calendarios","ventana_calendarios") 
 
-                let calendario_input = mkObjInput(ventana_calendarios,"calendario_input","calendario_input","date","Inserta Una Fecha")
+                let calendario_input = mkObjInput(ventana_calendarios,"calendario_input","calendario_input","date","Inserta una fecha para ver el calendario.")
                 let contenedor_calendario = mkObj(ventana_calendarios,"contenedor_calendario","contenedor_calendario")
                     calendario_input.addEventListener("input",function () {
                         let fecha = calendario_input.querySelector("input").value
@@ -345,6 +345,38 @@ function contenidoInicio() {
             "Introducción al Plan de Negocios. CECATI.",
             "Mantenimiento Básico a PC. CECATI.",
             "Mantenimiento Básico a Laptop. CECATI.",
+        )
+
+        let contenido_habilidades_destacadas = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_habilidades_destacadas",
+            "Habilidades Destacadas.",
+            "Programación Funcional. (programación)",
+            "Diseño de imágenes.",
+            "Diseño de Formatos.",
+            ".",
+            ".",
+        )
+
+
+        
+
+
+
+
+
+
+
+
+
+
+        // !
+        // !
+        // !
+        // !
+
+        let contenido_footer = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_footer",
+                "Diseño es completamente personalizado desde 0",
+                "Codigo limpio",
+                "Rendimiento - Seguridad",
         )
 
 

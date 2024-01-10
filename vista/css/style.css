@@ -1478,3 +1478,26 @@ img{
     font-family: Helvetica;
     border-radius: 6px;
   }
+
+  #cont_contenido_footer{
+    flex-direction: row;
+    background-color: #0e3d5d;
+    color: white;
+    border-radius: 0;
+  }
+
+  #cont_sub_text_contenido_footer_0{
+    justify-content: center;
+  }
+
+  #cont_sub_text_contenido_footer_1{
+    justify-content: center;
+  }
+
+  #cont_sub_text_contenido_footer_2{
+    justify-content: center;
+  }
+
+  #cont_sub_text_contenido_footer_3{
+    justify-content: center;
+  }

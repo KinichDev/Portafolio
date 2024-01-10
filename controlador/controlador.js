@@ -319,6 +319,11 @@ function contenidoInicio() {
             let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
             let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
 
+        let contenido_diseño_responsivo = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_diseño_responsivo",
+            "Diseños Multiplataforma",
+        )
+
+
         let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/background_row.png")
 
         let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"descripcion_calendario","descripcion_calendario",
@@ -334,6 +339,14 @@ function contenidoInicio() {
             let etiqueta_actividades_catalogo_fichas_tecnicas = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_fichas_tecnicas","Catálogos y fichas técnicas.","./vista/img/catalogo_fichas_tecnicas.png","Catágos con fichas técnicas, sistema de pedidos")
             let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
             // catalogo_fichas_tecnicas.png
+
+        let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_constancias",
+            "Constancias.",
+            "Introducción al Plan de Negocios. CECATI.",
+            "Mantenimiento Básico a PC. CECATI.",
+            "Mantenimiento Básico a Laptop. CECATI.",
+        )
+
 
 
 

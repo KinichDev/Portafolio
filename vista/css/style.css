@@ -1317,7 +1317,8 @@ img{
   /* Estilo adicional para el texto "Experiencia Destacada" */
   #sub_text_contenido_experiencia_destacada_0,
   #sub_text_habilidades_destacadas_web_0,
-  #sub_text_habilidades_destacadas_administracion_0 {
+  #sub_text_habilidades_destacadas_administracion_0,
+  #cont_sub_text_contenido_constancias_0 {
     font-weight: bold; /* Hace que este texto sea más destacado, puedes ajustar según sea necesario */
     color: #007bff; /* Cambia el color según tu preferencia */
     padding-left: 0px; /* Añade un margen a la izquierda según sea necesario */
@@ -1451,14 +1452,29 @@ img{
 
   .contenido_etiquetas_actividades_catalogo{
     justify-content: center;
+    height: min-content;
   }
 
   .cont_img_pc{
-    padding: 16px;
+    padding: 9px;
     height: min-content;
     justify-content: center;
   }
 
   .img_pc{
+    border-radius: 6px;
+  }
+
+  #cont_contenido_diseño_responsivo{
+    padding-bottom: 0;
+  }
+
+  #cont_sub_text_contenido_diseño_responsivo_0{
+    background-color: var(--colorHoverDark);
+    
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: Helvetica;
     border-radius: 6px;
   }

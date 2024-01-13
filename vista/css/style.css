@@ -1318,6 +1318,13 @@ img{
   #sub_text_contenido_experiencia_destacada_0,
   #sub_text_habilidades_destacadas_web_0,
   #sub_text_habilidades_destacadas_administracion_0,
+  #cont_sub_text_descripcion_calendario_0,
+  #sub_text_contenido_habilidades_destacadas_0,
+  #sub_text_contenido_dominio_lenguajes_html_0,
+  #cont_sub_text_contenido_dominio_lenguajes_css_0,
+  #cont_sub_text_contenido_dominio_lenguajes_js_0,
+  #cont_sub_text_contenido_dominio_lenguajes_php_0,
+
   #cont_sub_text_contenido_constancias_0 {
     font-weight: bold; /* Hace que este texto sea más destacado, puedes ajustar según sea necesario */
     color: #007bff; /* Cambia el color según tu preferencia */
@@ -1434,11 +1441,11 @@ img{
     padding: 9px;
   }
 
-  #cont_sub_text_descripcion_calendario_0{
+  /* #cont_sub_text_descripcion_calendario_0{
     color: #007bff;
     padding-left: 0px;
     font-size: 28px;
-  }
+  } */
 
 
   .cont_contenido_catalogo_ficha_tecnica{
@@ -1500,4 +1507,50 @@ img{
 
   #cont_sub_text_contenido_footer_3{
     justify-content: center;
+  }
+
+  .cont_img_dominio_lenguaje{
+    width: 100%;
+    height: min-content;
+  }
+
+  .img_dominio_lenguaje{
+    width: 100%;
+  }
+
+  .contenido_mapas{
+    /* padding: 62px; */
+    /* width: 80%; */
+    /* height: 80%; */
+    flex-direction: column;
+    padding: 10px;
+    padding-left: 55px;
+    padding-right: 55px;
+    justify-content: center;
+  }
+
+  /* .mapa{
+    width: 100%;
+  } */
+
+
+  /* //// */
+
+  .ol-viewport{
+    flex-direction: column;
+    border-radius: 8px;
+    justify-content: center;
+  }
+
+  .ol-overlaycontainer{
+    display: none;
+  }
+
+  .ol-overlaycontainer-stopevent{
+    /* height: 203px; */
+    display: none;
+  }
+
+  .mapa{
+    width: 800px;
   }

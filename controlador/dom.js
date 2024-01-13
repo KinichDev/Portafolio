@@ -6362,6 +6362,9 @@ function etiquetaElemento(nodo,clase,id,titulo,img_ruta,descripcion) {
         hipercapa_temp.style.position="absolute"
         hipercapa_temp.style.zIndex="255"
 
+                        var nuevaURL = window.location.href.replace('&actividades', '');
+
+
             let ventana_descripcion_actividad = mkObj(hipercapa_temp,"ventana_descripcion_actividad","ventana_descripcion_actividad_"+id)
 
                 let ventana_descripcion_actividad_header = mkObj(ventana_descripcion_actividad,"ventana_descripcion_actividad_header","ventana_descripcion_actividad_header"+id)
@@ -6369,7 +6372,14 @@ function etiquetaElemento(nodo,clase,id,titulo,img_ruta,descripcion) {
                     let ventana_descripcion_actividad_header_cerrar = mkObjImg(ventana_descripcion_actividad_header,"ventana_descripcion_actividad_header_cerrar","ventana_descripcion_actividad_header_cerrar"+id,"./vista/img/cerrar_ventana.png")
                         ventana_descripcion_actividad_header_cerrar.addEventListener("mouseup",function () {
                             hipercapa_temp.remove()
-                            history.back()
+                            
+                            // Crear una nueva URL eliminando '&actividades'
+                            // var nuevaURL = window.location.href.replace('&actividades', '');
+
+                            // Cambiar la URL y el título sin recargar la página
+                            history.pushState({}, document.title, nuevaURL);
+                            
+                            // history.back()
                         })
 
                 let ventana_descripcion_actividad_cuerpo = mkObj(ventana_descripcion_actividad,"ventana_descripcion_actividad_cuerpo","ventana_descripcion_actividad_cuerpo"+id)
@@ -6395,15 +6405,227 @@ function etiquetaElemento(nodo,clase,id,titulo,img_ruta,descripcion) {
                 // Agregar evento para manipular el historial al cerrar la ventana
                 window.addEventListener("popstate", function () {
                     if (hipercapa_temp) {
-                        // hipercapa_temp.remove();
-                        this.location.reload()
+                        hipercapa_temp.remove();
+                        // Crear una nueva URL eliminando '&actividades'
+                        // var nuevaURL = window.location.href.replace('&actividades', '');
+
+                        // Cambiar la URL y el título sin recargar la página
+                        history.pushState({}, document.title, nuevaURL);
+                        
                     }
                 });
 
                 // Modificar el historial al abrir la ventana
-                history.pushState({ action: "open" }, null, "cotizacion"); // Puedes personalizar la URL según tu necesidad
+                history.pushState({ action: "open" }, null, "&actividades"); // Puedes personalizar la URL según tu necesidad
 
     })
 
     return obj_temp
 }
+
+                // TODO CALENDARIO
+
+                function mkCalendario(n, c, i, t, input_fecha, ...filas) { // nodo clase id titulo fecha filas
+                    n = n || "";c = c || "";i = i || "";t = t || "";input_fecha = input_fecha || "";
+                    filas = filas || [];
+
+                    let array_dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"];
+
+                    let expresion_regular_1 = /^\d{2}-\d{2}-\d{4}$/; // dd-mm-aa
+                    let expresion_regular_2 = /^\d{2}\/\d{2}\/\d{4}$/; // dd/mm/aa
+                    let fecha_;let dia_;let dias_transcurridos;let lunes;let dates = [];
+
+                    let milisegundos_dia = 24 * 60 * 60 * 1000 //86,400,000 milisegundos por dia
+
+                    if (
+                            input_fecha && 
+                            (Date.parse(input_fecha) || 
+                            expresion_regular_1.test(input_fecha) || 
+                            expresion_regular_2.test(input_fecha))
+                            
+                        ) {
+
+                        function mkFormatoInputFechaCalendario() {
+                            if (expresion_regular_1.test(input_fecha)) {
+                                let [d, m, y] = input_fecha.split("-").map(Number);
+                                fecha_ = new Date(y, m - 1, d);
+
+                            } else if (expresion_regular_2.test(input_fecha)) {
+                                let [d, m, y] = input_fecha.split("/").map(Number);
+                                fecha_ = new Date(y, m - 1, d);
+
+                            } else {
+                                fecha_=new Date(input_fecha)
+                            }    
+                        }
+                        mkFormatoInputFechaCalendario()
+
+                        
+                        console.log("fecha: "+fecha_)
+
+                        function mkFormatoIsoString() {
+                            dia_ = fecha_.getDay()+1;
+                            dias_transcurridos = dia_ === 0 ? 6 : dia_
+                            lunes = new Date(fecha_.getTime() - (dias_transcurridos * milisegundos_dia) + milisegundos_dia);
+                            martes = new Date(lunes.getTime() + milisegundos_dia)
+                            miercoles = new Date(martes.getTime() + milisegundos_dia)
+                            jueves = new Date(miercoles.getTime() + milisegundos_dia)
+                            viernes = new Date(jueves.getTime() + milisegundos_dia)
+                            sabado = new Date(viernes.getTime() + milisegundos_dia)
+                            domingo = new Date(sabado.getTime() + milisegundos_dia)
+                    
+                            lunes.setUTCHours(0, 0, 0, 0)
+                            martes.setUTCHours(0, 0, 0, 0)
+                            miercoles.setUTCHours(0, 0, 0, 0)
+                            jueves.setUTCHours(0, 0, 0, 0)
+                            viernes.setUTCHours(0, 0, 0, 0)
+                            sabado.setUTCHours(0, 0, 0, 0)
+                            domingo.setUTCHours(0, 0, 0, 0)
+                    
+                            lunes = lunes.toISOString()
+                            martes = martes.toISOString()
+                            miercoles = miercoles.toISOString()
+                            jueves = jueves.toISOString()
+                            viernes = viernes.toISOString()
+                            sabado = sabado.toISOString()
+                            domingo = domingo.toISOString()
+                        }
+
+                        mkFormatoIsoString()
+
+                    } else {
+                        console.error("Formato de fecha incorrecto, revisa el formato: " + input_fecha)
+                        return
+                    }
+
+                    dates.push(lunes,martes,miercoles,jueves,viernes,sabado,domingo)
+                    let meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+
+                    let obj_temp = mkObj(n,c,i)
+                        obj_temp.style.flexDirection="column"
+
+                    for (let j = 0; j < filas.length + 1; j++) {
+                        let element_j = filas[j]
+                        let fila_calendario = div(c + "_fila", i + "_fila_" + filas[j-1]);
+                        fila_calendario.setAttribute("date", input_fecha);
+                        obj_temp.appendChild(fila_calendario);
+
+                        for (let j_ = 0; j_ < array_dias.length + 1; j_++) {
+                            let element_day = array_dias[j_]
+
+                            let celda_calendario = div(c + "_celda", i + "_celda_" + array_dias[j_ - 1] + "_fila_" + filas[j - 1]+"_columna_"+array_dias[j_-1]);
+                            if (j === 0 && j_ === 0) {  //ESQUINA
+                                let p_titulo_table_celda_calendario = mkText(celda_calendario,"p_celda_titulo_"+c,"p_celda_titulo_"+i,t+"<br>"+meses[fecha_.getMonth()])
+                                celda_calendario.setAttribute("class", c + "_celda_titulo_table");
+                                celda_calendario.setAttribute("id", i + "_celda_titulo_table_");
+                    
+                            } else if (j === 0 && j_ > 0) { //HEADER
+                                let dateCalendario = dates[j_-1].replace(/T00:00:00.000Z/,"")//;console.log(dateCalendario)
+                                let [año,mes,dia]=dateCalendario.split("-")
+                                dateCalendario=dia+" - "+meses[parseInt(mes-1)]
+                                let p_head_table_celda_calendario = mkText(celda_calendario,"p_celda_head_"+c,"p_celda_head_"+i,array_dias[j_-1]+"<br>"+dateCalendario)
+                                celda_calendario.setAttribute("class", c + "_celda_day");
+                                celda_calendario.setAttribute("id", i + "_day_table" + "_celda_" + array_dias[j_ - 1] + "_" + j_);
+                    
+                            } else if (j > 0 && j_ === 0) { //COLUMNA PRINCIPAL
+                                let p_columna_main_table_celda_calendario = mkText(celda_calendario,"p_columna_main_"+c,"p_columna_main_"+i,filas[j-1])
+                                celda_calendario.setAttribute("class", c + "_celda_titulo_fila");
+                                celda_calendario.setAttribute("id", i + "_celda_titulo_fila_main" + filas[j-1] + "_columna_main");
+                            } else {                        //CONTENIDO TABLA
+                                celda_calendario.setAttribute("date",dates[j_-1])
+                                celda_calendario.setAttribute("id","cell_fila_"+filas[j-1]+"_columna_"+array_dias[j_-1])
+                                celda_calendario.setAttribute("fila_name",filas[j - 1])
+                    
+                                peticionCategoriaFecha(celda_calendario,"./modelo/solicitudCeldaCalendario.php")
+
+                                function peticionCategoriaFecha(obj,dir) {
+                                    let ot_c = obj.getAttribute("class")
+                                    let ot_i = obj.getAttribute("id")
+                                    let ot_date = obj.getAttribute("date")
+                                    let ot_r_name = obj.getAttribute("fila_name")
+                                
+                                    let formData = new FormData()
+                                    formData.append("categoria",ot_r_name)
+                                    formData.append("fecha",ot_date)
+                                
+                                    let peticionCellCalendario = new XMLHttpRequest()
+                                    peticionCellCalendario.open("POST",dir)
+                                    peticionCellCalendario.send(formData)
+                                    peticionCellCalendario.onreadystatechange=function() {
+                                        if (peticionCellCalendario.readyState==4&&peticionCellCalendario.status==200) {
+                                            let res = peticionCellCalendario.response
+                                            console.log(res)
+                                            let obj_text = mkText(obj,"p_"+ot_c,"p_"+ot_i,res)
+                                        }
+                                    }
+                                }
+                                // celda_calendario.innerHTML="Registro dinámico"
+                                let obj_text = mkText(celda_calendario,"p_","p_","Registro en bases de datos")
+
+                    
+                                celda_calendario.addEventListener("click",(x)=>{
+
+                                let ventana_update_celda = mkObj(obj_temp,"ventana_update_celda_"+c,"ventana_update_celda_"+i)
+                                    ventana_update_celda.innerHTML=""
+                                    let header_update_celda = mkObj(ventana_update_celda,"header_update_celda","header_update_celda")
+                                        let header_update_celda_titulo = mkText(header_update_celda,"header_update_celda_titulo","header_update_celda_titulo","Editar: "+celda_calendario.getAttribute("fila_name")+" | "+celda_calendario.getAttribute("date").replace("T00:00:00.000Z",""))
+                                        let cerrar_ventana = mkObjImg(header_update_celda,"cerrar_ventana","cerrar_ventana","./vista/img/cerrar_ventana.png")
+                                            cerrar_ventana.addEventListener("mouseup",function () {
+                                                ventana_update_celda.remove()
+                                            })
+                                    let input_update_celda_titulo = mkObjTextarea(ventana_update_celda,"input_update_celda_"+c,"input_update_celda_titulo"+i,"Actualizar Celda")
+                                    let input_update_celda_descripcion = mkObjTextarea(ventana_update_celda,"input_update_celda_"+c,"input_update_celda_descripcion"+i,"Actualizar Descripción")
+                                    let btn_update_celda = mkObjButton(ventana_update_celda,"btn_update_celda","btn_update_celda","Actualizar Información")
+
+
+                                    input_update_celda_titulo.querySelector("textarea").value = (celda_calendario.querySelector("p").innerHTML).replace(/<br>/g, '');
+                                    input_update_celda_titulo.querySelector("textarea").focus()
+
+                                        btn_update_celda.addEventListener("click",function () {
+                                            let in_update_celda_titulo = input_update_celda_titulo.querySelector("textarea")
+                                            let in_update_celda_descripcion = input_update_celda_descripcion.querySelector("textarea")
+
+                                            let p_celda = celda_calendario.querySelector("p")
+                                            console.log(p_celda)
+                                            p_celda.innerHTML = input_update_celda_descripcion.value
+
+                    
+                                                // console.log(in_update_celda.value)
+
+                                                let formData = new FormData()
+                                                formData.append("titulo",encodeURIComponent(in_update_celda_titulo.value))
+                                                formData.append("descripcion",encodeURIComponent(in_update_celda_descripcion.value))
+                                                formData.append("categoria",celda_calendario.getAttribute("fila_name"))
+                                                formData.append("fecha",celda_calendario.getAttribute("date"))
+                    
+                                                let peticion = new XMLHttpRequest()
+                                                peticion.open("POST","./modelo/actualizarCeldaCalendario.php")
+                                                peticion.send(formData)
+                                                peticion.onreadystatechange=function() {
+                                                    if (peticion.readyState==4&&peticion.status==200) {
+                                                        let res = peticion.response
+                                                        console.log(res)
+                                                        if (verificarPeticion(res)) {
+                                                            celda_calendario.innerHTML=""
+                                                            peticionCategoriaFecha(celda_calendario,"./modelo/solicitudCeldaCalendario.php")
+                                                            ventana_update_celda.remove()
+                                                            celda_calendario.scrollIntoView()
+                                                        } else {
+                                                            console.log(res)
+                                                        }
+                                                    }
+                                                }
+
+                                        })
+
+                            })
+                        }
+                        fila_calendario.appendChild(celda_calendario);
+
+
+                    }
+                    }
+                    console.log(obj_temp)
+                    return obj_temp
+                }
+

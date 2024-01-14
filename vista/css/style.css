@@ -226,7 +226,8 @@ img{
 
 .cuerpo{
     flex-wrap: wrap;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     animation: fadeIn .5s forwards;
     max-width: 100%;
 }
@@ -1323,6 +1324,8 @@ img{
   #sub_text_contenido_dominio_lenguajes_html_0,
   #cont_sub_text_contenido_dominio_lenguajes_css_0,
   #cont_sub_text_contenido_dominio_lenguajes_js_0,
+  #cont_sub_text_descripcion_mapa_0,
+
   #cont_sub_text_contenido_dominio_lenguajes_php_0,
 
   #cont_sub_text_contenido_constancias_0 {
@@ -1460,6 +1463,7 @@ img{
   .contenido_etiquetas_actividades_catalogo{
     justify-content: center;
     height: min-content;
+    flex-wrap: wrap;
   }
 
   .cont_img_pc{
@@ -1470,6 +1474,8 @@ img{
 
   .img_pc{
     border-radius: 6px;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   #cont_contenido_diseño_responsivo{
@@ -1521,12 +1527,13 @@ img{
   .contenido_mapas{
     /* padding: 62px; */
     /* width: 80%; */
-    /* height: 80%; */
+    height: min-content;
     flex-direction: column;
     padding: 10px;
     padding-left: 55px;
     padding-right: 55px;
     justify-content: center;
+    align-items: center;
   }
 
   /* .mapa{

@@ -134,6 +134,27 @@ function contenidoInicio() {
             let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
             // catalogo_fichas_tecnicas.png
 
+        let descripcion_mapa = mkTextList(cuerpo_inicio,"descripcion_calendario","descripcion_mapa",
+            "Elaboración de reportes con rutas en KML",
+            "KML es un estándar de codificación XML utilizado para representar datos geoespaciales, incluidas rutas y puntos de interés.",
+            "Almacenamiento de información relevante en bases de datos.",
+        )
+
+
+        let contenido_mapas = mkObj(cuerpo_inicio,"contenido_mapas","contenido_mapas")
+
+
+            let input_mapa = mkObjInput(contenido_mapas,"calendario_input","input_mapa","file","Crea una ruta en Google MyMaps, exporta la informacion en KML e inserta aqui el archivo .kml","INSERTA AQUI EL ARCHIVO KML","helvetica","13px","black");
+            let mapa = mkObj(contenido_mapas,"mapa","mapa");         
+            
+            // Escuchar el evento 'change' del input
+            let in_mapa = input_mapa.querySelector("input")
+            console.log(in_mapa)
+            
+
+            in_mapa.addEventListener('change', mapaRuta);
+
+
         let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_constancias",
             "Constancias.",
             "Introducción al Plan de Negocios. CECATI.",
@@ -186,224 +207,19 @@ function contenidoInicio() {
         )
             let img_dominio_php = mkObjImg(cuerpo_inicio,"img_dominio_lenguaje","img_dominio_php","./vista/img/diagrama_php.png")
 
-        let contenido_mapas = mkObj(cuerpo_inicio,"contenido_mapas","contenido_mapas")
-
-            let descripcion_mapa = mkTextList(contenido_mapas,"descripcion_calendario","descripcion_mapa",
-                "Almacenamiento de rutas a travéz de archivos .csv (kmz,kml)",
-            )
-
-            let input_mapa = mkObjInput(contenido_mapas,"calendario_input","input_mapa","file","Inserta una ruta de Mymaps en csv","INSERTA UN ARCHIVO KMZ","helvetica","13px","black");
-            let mapa = mkObj(contenido_mapas,"mapa","mapa");         
-            
-            // Escuchar el evento 'change' del input
-            let in_mapa = input_mapa.querySelector("input")
-            console.log(in_mapa)
-            
-
-            // Agregar un evento de cambio al elemento con el id 'in_mapa'
-            in_mapa.addEventListener('change', handleFileSelect);
-            
-
-            // Función que maneja la selección de un archivo
-            function handleFileSelect(event) {
 
 
-
-                // Obtener el archivo seleccionado
-                let fileInput = event.target;
-                let file = fileInput.files[0];
-
-                // Verificar si se ha seleccionado un archivo
-                if (file) {
-                    // Crear un lector de archivos
-                    let reader = new FileReader();
-
-                    // Configurar la función que se ejecutará cuando se cargue el archivo
-                    reader.onload = function (e) {
-                        // Obtener el contenido del archivo
-                        let contenido = e.target.result;
-
-                        // Parsear el contenido CSV
-                        let datos = parseCSV(contenido);
-
-                        // Mostrar las coordenadas
-                        // mostrarCoordenadas(datos);
-
-                        let arreglo_coordenadas = insertarCoordenadas(datos);
-
-                        let arreglo_ruta = []
-                        arreglo_coordenadas.forEach(element => {
-                            let l_a = parseFloat(element[0])
-                            console.log(l_a)
-                            let l_b = parseFloat(element[1])
-                            console.log(l_b)
-                            let punto = ol.proj.fromLonLat([l_b, l_a])
-                            console.log(punto)
-                            arreglo_ruta.push(punto)
-                        });
-                        console.log(arreglo_ruta)
-
-
-                        // Converit las coordenadas de la Ciudad de México de longitud/latidu a la proyeccion del mapa
-                        let ciudad_mexico = ol.proj.fromLonLat([-99.1332, 19.4326])
-
-                        // Crear una capa de mapa base utilizando OpenStreetMap (OSM)
-                        let capa_osm = new ol.layer.Tile({
-                            source: new ol.source.OSM()
-                        })
-
-                        // Crear una capa de vectores para la ruta
-                        let capa_ruta = new ol.layer.Vector({
-                            source: new ol.source.Vector()
-                        })
-
-                        let mapa = new ol.Map({
-                            target:"mapa",
-                            layers: [capa_osm,capa_ruta], // las capas que se mostraran en el mapa
-                            view: new ol.View({
-                                center: ciudad_mexico,
-                                zoom: 11
-                            })
-                        })
-
-                        // let arreglo_ruta = []
-                        // respuesta.forEach(element => {
-                        //     let punto = ol.proj.fromLonLat([element["latitud"], element["longitud"]])
-                
-                        //     arreglo_ruta.push(punto)
-                        // });
-                        // console.log(arreglo_ruta)
-                
-                        // Crear una linea (ruta) que pasa por los puntos de inicio intermedio y fin
-                        let ruta_feature = new ol.Feature({
-                            geometry: new ol.geom.LineString(arreglo_ruta)
-                        })
-                
-                        // Definir el estilo de la linea de la ruta
-                        let estilo_ruta = new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: 'blue',
-                                width: 5
-                            })
-                        })
-                
-                        // Aplicar el estilo de ruta
-                        ruta_feature.setStyle(estilo_ruta)
-                
-                        // Agregregar la ruta a la capa de vectores
-                        capa_ruta.getSource().addFeature(ruta_feature)
-                
-                
-
-                    };
-
-
-
-                    // Leer el contenido del archivo como texto
-                    reader.readAsText(file);
-                }
-            }
-
-            // Función para parsear contenido CSV en un arreglo bidimensional
-            function parseCSV(content) {
-                // Dividir el contenido en filas y luego cada fila en columnas
-                let filas = content.split('\n');
-                let datos = [];
-
-                // Iterar sobre las filas
-                filas.forEach(function (fila) {
-                    // Dividir la fila en columnas
-                    let columnas = fila.split(',');
-
-                    // Agregar las columnas al arreglo de datos
-                    datos.push(columnas);
-                });
-
-                // Devolver el arreglo de datos
-                return datos;
-            }
-
-            // Función para extraer las coordenadas de una cadena WKT
-            function extraerCoordenadas(wkt) {
-                // Utilizar una expresión regular para extraer las coordenadas
-                var matches = wkt.match(/\((-?\d+\.\d+) (-?\d+\.\d+)\)/);
-
-                // Verificar si se encontraron las coordenadas
-                if (matches && matches.length === 3) {
-                    // Devolver un objeto con las coordenadas de latitud y longitud
-                    return { latitud: parseFloat(matches[2]), longitud: parseFloat(matches[1]) };
-                }
-
-                // Devolver null si no se pudieron extraer las coordenadas
-                return null;
-            }
-
-            // Función para mostrar las coordenadas en la consola
-            function mostrarCoordenadas(datos) {
-                // Iterar sobre los datos e imprimir las coordenadas
-                datos.forEach(function (element) {
-                    // Extraer las coordenadas de la primera columna de cada fila
-                    let coordenadas = extraerCoordenadas(element[0]);
-                    // console.log(coordenadas)
-
-                    // Verificar si se extrajeron las coordenadas
-                    if (coordenadas) {
-                        // Mostrar el nombre y las coordenadas en la consola
-                        // console.log(`Nombre: ${element[1]}, Coordenadas: ${coordenadas.latitud}, ${coordenadas.longitud}`);
-                    } else {
-                        // Mostrar un mensaje si no se pudieron extraer las coordenadas
-                        console.log(`No se pudieron extraer coordenadas para: ${element[1]}`);
-                    }
-                });
-            }
-
-            function insertarCoordenadas(datos) {
-                let arreglo_coordenadas = []
-
-                datos.forEach(function (element) {
-                    // Extraer las coordenadas de la primera columna de cada fila
-                    let coordenadas = extraerCoordenadas(element[0]);
-
-
-                    // Verificar si se extrajeron las coordenadas
-                    if (coordenadas) {
-                        // Mostrar el nombre y las coordenadas en la consola
-                        // console.log(`Nombre: ${element[1]}, Coordenadas: ${coordenadas.latitud}, ${coordenadas.longitud}`);
-                        arreglo_coordenadas.push([coordenadas.latitud,coordenadas.longitud])
-                    } else {
-                        // Mostrar un mensaje si no se pudieron extraer las coordenadas
-                        console.log(`No se pudieron extraer coordenadas para: ${element[1]}`);
-                    }
-                });
-                return arreglo_coordenadas
-            }
-
-
-
-
-
-        
-
-
-
-
-        // !
-        // !
-        // !
-        // !
+    // !
+    // !
+    // !
+    // !
 
         let contenido_footer = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_footer",
-                "Diseño es completamente personalizado desde 0",
+                "Completa personalización del contenido",
                 "Codigo limpio",
                 "Rendimiento - Seguridad",
+                "Buenas prácticas",
         )
-
-
-
-
-
-            
-            
 
 return cuerpo_inicio
 }

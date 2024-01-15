@@ -1561,3 +1561,11 @@ img{
   .mapa{
     width: 800px;
   }
+  
+  .cont_img_escritorio_trabajo{
+    justify-content: center;
+    height: 70%;
+    padding: 6px;
+  }.img_escritorio_trabajo{
+    border-radius: 8px;
+  }

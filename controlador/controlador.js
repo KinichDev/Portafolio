@@ -43,23 +43,16 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
-        let texto_actualizacion = mkText(cuerpo_inicio,"texto_actualizacion","texto_actualizacion","Version anterior de portafolio (2022-2023): kinichdev.github.io/Portafolio/index_.html")
-            texto_actualizacion.addEventListener("mouseup",function(){
-                window.open("https://kinichdev.github.io/Portafolio/index_.html","_blank")
-            })
-            texto_actualizacion.style.heigth = "80px"
-            texto_actualizacion.style.padding = "16px"
-            texto_actualizacion.style.color = "blue"
-
-        let img_escritorio_trabajo = mkObjImg(cuerpo_inicio,"img_escritorio_trabajo","img_escritorio_trabajo","./vista/img/escritorio_trabajo.png")
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia Destacada",
 
-            "Automatización de tareas repetitivas, ",
-            "Mejora continua en metodología y toma de desiciones",
-            "Conocimiento amplio en el manejo de PC"
+            "Automatización de tareas repetitivas, formularios automáticos.",
+            "Mejora e implementación de sistemas para control en tiempo real.",
+            "Desarrollo de software"
         )
+
+        let img_escritorio_trabajo = mkObjImg(cuerpo_inicio,"img_escritorio_trabajo","img_escritorio_trabajo","./vista/img/escritorio_trabajo.png")
 
         let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
             "Habilidades Destacadas en Desarrollo Web",
@@ -158,7 +151,7 @@ function contenidoInicio() {
 
 
         let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_constancias",
-            "Constancias.",
+            "Constancias Educativas.",
             "Introducción al Plan de Negocios. CECATI.",
             "Mantenimiento Básico a PC. CECATI.",
             "Mantenimiento Básico a Laptop. CECATI.",
@@ -166,11 +159,11 @@ function contenidoInicio() {
 
         let contenido_habilidades_destacadas = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_habilidades_destacadas",
             "Habilidades Destacadas.",
-            "Programación Funcional. (programación)",
-            "Diseño de imágenes.",
-            "Diseño de Formatos.",
-            ".",
-            ".",
+            "Programación Funcional. (JavaScript)",
+            "Programación orientada a objetos. (php)",
+            "Automatización bases de datos. (php,SQL)",
+            "Diseño de imágenes. (GIMP, Adobe Ilustrator)",
+            "Diseño de Formatos. (PDF, GIMP, Adobe Ilustrator)",
         )
 
         let contenido_dominio_lenguajes_html = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_html",

@@ -1566,6 +1566,7 @@ img{
     justify-content: center;
     height: 70%;
     padding: 6px;
+    padding-bottom: 32px;
   }.img_escritorio_trabajo{
     border-radius: 8px;
   }

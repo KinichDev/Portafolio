@@ -23,14 +23,7 @@ let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_princip
         let contenedor_menu_header = mkObj(header,"contenedor_menu_header","contenedor_menu_header")
             let menu_header = mkObjImg(contenedor_menu_header,"menu_header","menu_header","./vista/img/menu.png")
             let pestaña_menu_header = mkObj(header,"pestaña_menu_header","pestaña_menu_header")
-                let header_opcion_inicio = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Portal de Inicio")
-                let header_opcion_login = mkText(pestaña_menu_header,"header_opcion","header_opcion_login","Ingresar/Registrar")
-                let header_opcion_crear_agenda = mkText(pestaña_menu_header,"header_opcion","header_opcion_crear_agenda","Crear Agenda")
-                let header_opcion_informacion = mkText(pestaña_menu_header,"header_opcion","header_opcion_informacion","Completa tu información")
-                let header_opcion_cerrar_sesion = mkText(pestaña_menu_header,"header_opcion","header_opcion_cerrar_sesion","Cerrar Sesión")
-                header_opcion_crear_agenda.style.display="none"
-                header_opcion_informacion.style.display="none"
-                header_opcion_cerrar_sesion.style.display="none"
+                let header_opcion_inicio = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Menús desplegables")
     placerMenu(menu_header,pestaña_menu_header)
 
     let cuerpo = mkObj(contenedor_principal,"cuerpo","cuerpo")
@@ -42,6 +35,11 @@ function contenidoInicio() {
     cuerpo.innerHTML=""
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
+
+    // var canvas = document.createElement('canvas');
+    // cuerpo_inicio.appendChild(canvas);
+
+
 
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
@@ -64,13 +62,18 @@ function contenidoInicio() {
             "Conocimientos en seguridad web"
         );
 
+        let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
+            "vista/img/mkDom.png",
+            "vista/img/mkDomDinamico.png",
+        )    
+
+
         let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
             "Habilidades Destacadas en Administracion.",
             "Excel avanzado",
             "Elavoración de reportes",
             "Diseño de Formatos",
             "Bases de datos",
-            ""
         );
 
 
@@ -94,6 +97,7 @@ function contenidoInicio() {
                 let calendario_input = mkObjInput(ventana_calendarios,"calendario_input","calendario_input","date","Inserta una fecha para ver el calendario.")
                 let contenedor_calendario = mkObj(ventana_calendarios,"contenedor_calendario","contenedor_calendario")
                     calendario_input.addEventListener("input",function () {
+                        contenedor_calendario.innerHTML=""
                         let fecha = calendario_input.querySelector("input").value
                         let calendario = mkCalendario(contenedor_calendario,"calendario","calendario","Calendarios dinámicos con bases de datos.",fecha,
                             "Elemento ejemplo 1",
@@ -103,13 +107,14 @@ function contenidoInicio() {
                         )
                     })
 
+
         let contenido_etiquetas_actividades_ = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
 
             let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
             let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
 
         let contenido_diseño_responsivo = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_diseño_responsivo",
-            "Diseños Multiplataforma",
+            "Diseños Responsivos",
         )
 
 
@@ -136,6 +141,7 @@ function contenidoInicio() {
         )
 
 
+
         let contenido_mapas = mkObj(cuerpo_inicio,"contenido_mapas","contenido_mapas")
 
 
@@ -151,7 +157,7 @@ function contenidoInicio() {
 
 
         let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_constancias",
-            "Constancias Educativas.",
+            "Capacitaciones Educativas.",
             "Introducción al Plan de Negocios. CECATI.",
             "Mantenimiento Básico a PC. CECATI.",
             "Mantenimiento Básico a Laptop. CECATI.",
@@ -176,7 +182,6 @@ function contenidoInicio() {
             "Documentación web para publicitar productos o servicios, información personal, opinion pública, CV o Carpetas de Trabajo.",
             "Sistema web automatizada con tareas.",
         )
-            let img_dominio_html = mkObjImg(cuerpo_inicio,"img_dominio_lenguaje","img_dominio_html","./vista/img/diagrama_html.png")
 
         let contenido_dominio_lenguajes_css = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_css",
             "CSS",
@@ -184,15 +189,18 @@ function contenidoInicio() {
             "Completa personalizacion de diseño.",
             "Animaciones.",
         )
-            let img_dominio_css = mkObjImg(cuerpo_inicio,"img_dominio_lenguaje","img_dominio_css","./vista/img/diagrama_css.png")
 
-            let contenido_dominio_lenguajes_js = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_js",
+        let carrusel_programacion = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
+            "vista/img/diagrama_html.png",
+            "vista/img/diagrama_css.png",
+        )    
+
+        let contenido_dominio_lenguajes_js = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_js",
             "Java Script",
             "Diseño dinámico.",
             "Completa personalizacion de diseño.",
             "Animaciones.",
         )
-            let img_dominio_js = mkObjImg(cuerpo_inicio,"img_dominio_lenguaje","img_dominio_js","./vista/img/diagrama_js.png")
 
         let contenido_dominio_lenguajes_php = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_php",
             "PHP",
@@ -200,7 +208,11 @@ function contenidoInicio() {
             "Completa personalizacion de diseño.",
             "Animaciones.",
         )
-            let img_dominio_php = mkObjImg(cuerpo_inicio,"img_dominio_lenguaje","img_dominio_php","./vista/img/diagrama_php.png")
+
+        let carrusel_programacion_sec = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
+            "vista/img/diagrama_js.png",
+            "vista/img/diagrama_php.png",
+        )    
 
 
 

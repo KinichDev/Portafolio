@@ -163,8 +163,6 @@ function mkObjDatalist(n,c,i,...elementos){ // compatibilidad con objetos
 }
 
 
-// ACTUALIZADO [SI] : DE [VALIDACION A9/controlador/biblioteca.js]
-    // MODIFICACIONES [parametros -> fuente, tamaño, color del texto]
 function mkObjInput(nodo,c,i,type,t,p,f,s,color){ // ! CREAR UN OBJETO INPUT (clase, id, placeholder, type, titulo_obj, placeholder, fuente, tamaño, color del texto)
     nodo?true:nodo="";c?true:c="";i?true:i="";t?true:t="";p?true:p="";f?true:f="";s?true:s="";color?true:color="";
     c?cont_clase="cont_input_"+c:cont_clase="";i?cont_id="cont_input_"+i:cont_id="";c?cont_titulo_clase="cont_tittle_"+c:cont_titulo_clase="";
@@ -175,29 +173,19 @@ function mkObjInput(nodo,c,i,type,t,p,f,s,color){ // ! CREAR UN OBJETO INPUT (cl
 
     let obj_temp = mkObj(nodo,c,i)
 
-    // ? [STYLER]
-        // stylerWidth(obj_temp,"250px")
-        // stylerHeight(obj_temp,"min-content")
-        
         let cont_temp = mkObj(obj_temp,cont_clase,cont_id)
-        // ? [STYLER]
-            // stylerFlexDirection(cont_temp,"column")
-
             let cont_titulo = mkObj(cont_temp,cont_titulo_clase,cont_titulo_id)
                 let titulo_temp = mkText(cont_titulo,titulo_clase,titulo_id,t)
 
             let nodo_cont_input = mkObj(cont_temp,nodo_cont_input_class,nodo_cont_input_id)
                 let cont_input = mkObj(nodo_cont_input,cont_input_clase,cont_input_id)
-
                     let input_temp = input(input_clase,input_id,p)
-                    // ? [STYLER]
-                        // stylerColor(input_temp,color)
-                        // stylerFontFamily(input_temp,f) 
-                        // stylerFontSize(input_temp,s)
-                        // stylerPadding(input_temp,"6px")
-
                     input_temp.setAttribute("type",type)
                     cont_input.appendChild(input_temp)
+
+                        obj_temp.addEventListener("mouseup",function () {
+                            input_temp.focus()
+                        })
 
     return obj_temp
 }
@@ -266,6 +254,10 @@ function mkObjInputPassword(nodo,c,i,t,p,url){// ! CREAR UN OBJETO INPUT (clase,
                         input_temp.type = "password"
                     }
                 })
+                console.log(obj_temp)
+    obj_temp.addEventListener("mouseup",function () {
+        obj_temp.querySelector("input").focus()
+    })
 
     return obj_temp
 }
@@ -3319,114 +3311,6 @@ function placerMenu(btn,menu) {
 
 //     n.appendChild(data_list_temp)
 //     return data_list_temp
-// }
-
-
-// // ACTUALIZADO [SI] : DE [VALIDACION A9/controlador/biblioteca.js]
-//     // MODIFICACIONES [parametros -> fuente, tamaño, color del texto]
-// function mkObjInput(nodo,c,i,type,t,p,f,s,color){ // ! CREAR UN OBJETO INPUT (clase, id, placeholder, type, titulo_obj, placeholder, fuente, tamaño, color del texto)
-//     nodo?true:nodo="";c?true:c="";i?true:i="";t?true:t="";p?true:p="";f?true:f="";s?true:s="";color?true:color="";
-//     c?cont_clase="cont_input_"+c:cont_clase="";i?cont_id="cont_input_"+i:cont_id="";c?cont_titulo_clase="cont_tittle_"+c:cont_titulo_clase="";
-//     i?cont_titulo_id="cont_tittle_"+i:cont_titulo_id="";c?titulo_clase="tittle_"+c:titulo_clase="";i?titulo_id="tittle_"+i:titulo_id="";
-//     c?nodo_cont_input_class="nodo_cont_input_"+c:nodo_cont_input_class="";i?nodo_cont_input_id="nodo_cont_input_"+i:nodo_cont_input_id="";
-//     c?cont_input_clase="cont_in_"+c:cont_input_clase="";i?cont_input_id="cont_in_"+i:cont_input_id="";c?input_clase="in_"+c:input_clase="";
-//     i?input_id="in_"+i:input_id="";input_placeholder=p;
-
-//     let obj_temp = mkObj(nodo,c,i)
-
-//     // ? [STYLER]
-//         stylerWidth(obj_temp,"250px")
-//         stylerHeight(obj_temp,"min-content")
-        
-//         let cont_temp = mkObj(obj_temp,cont_clase,cont_id)
-//         // ? [STYLER]
-//             stylerFlexDirection(cont_temp,"column")
-
-//             let cont_titulo = mkObj(cont_temp,cont_titulo_clase,cont_titulo_id)
-//                 let titulo_temp = mkText(cont_titulo,titulo_clase,titulo_id,t)
-
-//             let nodo_cont_input = mkObj(cont_temp,nodo_cont_input_class,nodo_cont_input_id)
-//                 let cont_input = mkObj(nodo_cont_input,cont_input_clase,cont_input_id)
-
-//                     let input_temp = input(input_clase,input_id,p)
-//                     // ? [STYLER]
-//                         stylerColor(input_temp,color)
-//                         stylerFontFamily(input_temp,f) 
-//                         stylerFontSize(input_temp,s)
-//                         stylerPadding(input_temp,"6px")
-
-//                     input_temp.setAttribute("type",type)
-//                     cont_input.appendChild(input_temp)
-
-//     return obj_temp
-// }
-
-// function mkObjInputPassword(nodo,c,i,t,p,url){// ! CREAR UN OBJETO INPUT (clase, id, placeholder, titulo, placeholder, directorio_img)
-//     nodo?true:nodo="";c?true:c="";i?true:i="";t?true:t="";p?true:p="";
-//     c?cont_clase="cont_input_"+c:cont_clase="";i?cont_id="cont_input_"+i:cont_id="";c?cont_titulo_clase="cont_tittle_"+c:cont_titulo_clase="";
-//     i?cont_titulo_id="cont_tittle_"+i:cont_titulo_id="";c?titulo_clase="tittle_"+c:titulo_clase="";i?titulo_id="tittle_"+i:titulo_id="";
-//     c?nodo_cont_input_class="nodo_cont_input_"+c:nodo_cont_input_class="";i?nodo_cont_input_id="nodo_cont_input_"+i:nodo_cont_input_id="";
-//     c?cont_input_clase="cont_in_"+c:cont_input_clase="";i?cont_input_id="cont_in_"+i:cont_input_id="";c?input_clase="in_"+c:input_clase="";
-//     i?input_id="in_"+i:input_id="";c?img_ver_pass_clase="ver_pass_"+c:img_ver_pass_clase="";i?img_ver_pass_id="ver_pass_"+i:img_ver_pass_id="";
-//     c?ver_pass_clase="ver_pass_"+c:ver_pass_clase="";i?ver_pass_id="ver_pass_"+i:ver_pass_id="";
-
-//     input_placeholder=p
-
-//     let obj_temp = div(c,i)
-//     nodo.appendChild(obj_temp)
-
-//         let cont_temp = div(cont_clase,cont_id)
-//         obj_temp.appendChild(cont_temp)
-
-//             let cont_titulo = div(cont_titulo_clase,cont_titulo_id)
-//             cont_temp.appendChild(cont_titulo)
-
-//                 let titulo_temp = mkText(cont_titulo,titulo_clase,titulo_id,t)
-
-//                 //
-//             let obj_cont_input = div(nodo_cont_input_class,nodo_cont_input_id)
-//             cont_temp.appendChild(obj_cont_input)
-//                 //
-
-//             let cont_input = div(cont_input_clase,cont_input_id)
-//             obj_cont_input.appendChild(cont_input)
-
-//                 let input_temp = input(input_clase,input_id,p)
-//                 input_temp.style.padding="6px"
-//                 input_temp.setAttribute("type","password")
-//                 cont_input.appendChild(input_temp)
-
-//             let ver_pass = div(ver_pass_clase,ver_pass_id)
-//             obj_cont_input.appendChild(ver_pass)
-
-//                 let img_ver_pass = mkObjImg(ver_pass,"img_"+img_ver_pass_clase,"img_"+img_ver_pass_id,url)
-
-//                 toggleVerContraseña(img_ver_pass)
-
-//                 function toggleVerContraseña(x) {
-//                     let obj_temp = document.getElementById(x.getAttribute("id"))
-
-//                     obj_temp.addEventListener("mouseup",function () {
-//                         let style_temp = window.getComputedStyle(obj_temp).backgroundColor
-//                         console.log(style_temp)
-//                         if (style_temp==="rgb(255, 255, 255)") {
-//                             obj_temp.style.background="var(--colorButtonToggle)"
-//                         } else {
-//                             obj_temp.style.background="white"
-//                         }
-//                     })
-
-//                 }
-
-//                 ver_pass.addEventListener("mouseup",function() {
-//                     if (input_temp.type==="password"){
-//                         input_temp.type = "text"
-//                     } else{
-//                         input_temp.type = "password"
-//                     }
-//                 })
-
-//     return obj_temp
 // }
 
 // function mkObjTextarea(nodo,c,i,t,p){ // ! CREAR UN OBJETO TEXTAREA (clase, id, titulo_obj, placeholder)
@@ -6629,3 +6513,54 @@ function etiquetaElemento(nodo,clase,id,titulo,img_ruta,descripcion) {
                     return obj_temp
                 }
 
+function mkCarrusel(nodo,clase,id,...url_imagenes) {
+    nodo = nodo || "";
+    clase = clase || "";
+    id = id || "";
+
+    let carrusel = mkObj(nodo,clase,id)
+    carrusel.style.flexDirection="column"
+    carrusel.style.position="relative"
+
+        let contenedor_imagenes = mkObj(carrusel,"contenedor_imagenes_"+clase,"contenedor_imagenes_"+id)
+            url_imagenes.forEach(url => {
+                let formato = url.split(".")[1]
+                console.log(formato)
+                if (formato==="png"||formato==="svg") {
+                    let img = mkObjImg(contenedor_imagenes,"img_carrusel_"+clase,"img_carrusel_"+id,url)
+                }
+                if (formato==="mp4") {
+                    let video = mkObjVideoLoop(contenedor_imagenes,"img_carrusel_"+clase,"img_carrusel_"+id,url)
+                }
+            });
+
+        let contenedor_controles = mkObj(carrusel,"contenedor_controles_"+clase,"contenedor_controles_"+id)
+        contenedor_controles.style.position="absolute"
+
+            let btn_control_carrusel_anterior = mkObjButton(contenedor_controles,"btn_control_carrusel_"+clase,"btn_control_carrusel_anterior_"+id,"<")
+            let btn_control_carrusel_siguiente = mkObjButton(contenedor_controles,"btn_control_carrusel_"+clase,"btn_control_carrusel_siguiente_"+id,">")
+            btn_control_carrusel_siguiente.style.justifyContent="end"
+
+            btn_control_carrusel_anterior.addEventListener('click', () => cambiarImagen(-1));
+            btn_control_carrusel_siguiente.addEventListener('click', () => cambiarImagen(1));
+
+    let imagenActual = 1;
+    let numero_imagenes = url_imagenes.length
+
+    function cambiarImagen(direccion) {
+        imagenActual += direccion;
+
+        // Ajustar la imagen actual si se llega al límite
+        if (imagenActual > numero_imagenes) {
+            imagenActual = 1;
+        } else if (imagenActual < 1) {
+            imagenActual = numero_imagenes;
+        }
+
+        // Calcular la posición de la transformación
+        let posicionTransform = -100 * (imagenActual - 1);
+        contenedor_imagenes.style.transform = `translateX(${posicionTransform}%)`;
+    }
+
+    setInterval(() => cambiarImagen(1), 6000);
+}

@@ -224,15 +224,15 @@ function contenidoInicio() {
             "vista/img/diagrama_php.png",
         )    
 
-        let proyecto_decipo = mkTextList(cuerpo_inicio,"descripcion_calendario","proyecto_decipo",
-            "DECIPO - Desarrollo Civil Potenciado",
-            "Sistema de clasificación y posicionamiento de proyectos sociocomerciales",
-        )
+        // let proyecto_decipo = mkTextList(cuerpo_inicio,"descripcion_calendario","proyecto_decipo",
+        //     "DECIPO - Desarrollo Civil Potenciado",
+        //     "Sistema de clasificación y posicionamiento de proyectos sociocomerciales",
+        // )
 
-        let carrusel_decipo = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
-            "vista/img/.png",
-            "vista/img/diagrama_php.png",
-        )    
+        // let carrusel_decipo = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
+        //     "vista/img/.png",
+        //     "vista/img/diagrama_php.png",
+        // )    
 
 
 

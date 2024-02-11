@@ -59,7 +59,8 @@ function contenidoInicio() {
             "Integración de APIs y servicios web",
             "Optimización de rendimiento y velocidad del sitio",
             "Manejo de control de versiones (Git)",
-            "Conocimientos en seguridad web"
+            "Conocimientos en seguridad web",
+            "Creación de biblioteca orientada a programación funcional - mkDom",
         );
 
         let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
@@ -140,6 +141,15 @@ function contenidoInicio() {
             "Almacenamiento de información relevante en bases de datos.",
         )
 
+        let carrusel_guia_mapas = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_guia_mapas",
+            "vista/img/kml_guide_1_mymaps.svg",
+            "vista/img/kml_guide_2_indicaciones.svg",
+            "vista/img/kml_guide_3_ruta.svg",
+            "vista/img/kml_guide_4_opciones.svg",
+            "vista/img/kml_guide_5_archivo.svg",
+            "vista/img/kml_guide_6_reporte.svg",
+        )
+
 
 
         let contenido_mapas = mkObj(cuerpo_inicio,"contenido_mapas","contenido_mapas")
@@ -213,6 +223,18 @@ function contenidoInicio() {
             "vista/img/diagrama_js.png",
             "vista/img/diagrama_php.png",
         )    
+
+        let proyecto_decipo = mkTextList(cuerpo_inicio,"descripcion_calendario","proyecto_decipo",
+            "DECIPO - Desarrollo Civil Potenciado",
+            "Sistema de clasificación y posicionamiento de proyectos sociocomerciales",
+        )
+
+        let carrusel_decipo = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
+            "vista/img/.png",
+            "vista/img/diagrama_php.png",
+        )    
+
+
 
 
 

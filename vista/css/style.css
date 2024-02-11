@@ -1475,8 +1475,8 @@ img{
   }
 
   .cont_img_pc{
-    padding: 9px;
-    height: min-content;
+    padding: 16px;
+    height: 60%;
     justify-content: center;
   }
 
@@ -1603,18 +1603,22 @@ img{
 .contenedor_imagenes_carrusel {
     transition: transform 0.5s ease-in-out;
     overflow: visible; 
-    /* padding: 8px; */
+    padding: 36px;
 }
 
 .cont_img_carrusel_carrusel {
     min-width: 100%;
     height: auto;
-    justify-content: center;}
+    justify-content: center;
+    margin-right: 72px;
+}
+    
 
 .img_carrusel_carrusel {
     height: auto;
-    border-radius: 6px;
-    box-shadow: 0 0 6px black;
+    border-radius: 12px;
+    box-shadow: 0 0 9px black;
+    
 }
 
 .contenedor_controles_carrusel{

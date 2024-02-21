@@ -119,7 +119,7 @@ function contenidoInicio() {
         )
 
 
-        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/background_row.png")
+        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/logo_logistic.png")
 
         let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"descripcion_calendario","descripcion_calendario",
             "Catágolos y Fichas Técnicas.",

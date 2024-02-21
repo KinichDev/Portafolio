@@ -1618,7 +1618,7 @@ img{
     height: auto;
     border-radius: 12px;
     box-shadow: 0 0 9px black;
-    
+    width: 100%;
 }
 
 .contenedor_controles_carrusel{

@@ -136,7 +136,7 @@ img{
 }
 
 .header{
-    height: 110px;
+    height: 65px;
     position: relative;
     padding: 3px;
     padding-left: 12px;
@@ -340,7 +340,8 @@ img{
 
 .cont_img_hablidades_software{
     padding: 12px;
-    justify-content: ;
+    justify-content: center;
+    align-items: center;
 }
 
 .cont_sub_text_descripcion_habilidades{
@@ -505,7 +506,7 @@ img{
 /*CONTENIDO LOGIN*/
 
 .header_login{
-    height: 110px;
+    height: 65px;
     padding: 6px;
     animation: var(--placeIn);
 }
@@ -1734,20 +1735,18 @@ img{
 .contenedor_imagenes_carrusel {
     transition: transform 0.5s ease-in-out;
     overflow: visible; 
-    padding: 6px;
-    align-items: center;
+    padding: 36px;
 }
 
 .cont_img_carrusel_carrusel {
     min-width: 100%;
     height: auto;
     justify-content: center;
-    /* margin-right: 5%; */
+    margin-right: 72px;
 }
     
 
 .img_carrusel_carrusel {
-    max-width: 100%;
     height: min-content;
     border-radius: 12px;
     box-shadow: 0 0 9px black;
@@ -1758,7 +1757,6 @@ img{
 .contenedor_controles_carrusel{
     position: absolute;
     z-index: 3;
-    opacity: .6;
 }
 
 .cont_btn_control_carrusel_carrusel{

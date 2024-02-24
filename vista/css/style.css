@@ -256,8 +256,8 @@ img{
 }
 
 .disc {
-    width: 2px; 
-    height: 2px;
+    width: 4px; 
+    height: 4px;
     background-color: var(--colora); 
     border-radius: 50%;
     position: absolute;
@@ -1713,9 +1713,6 @@ img{
   .contenedor_carrusel{
         
   }
-  .cont_img_carrusel_carrusel{
-    min-width: 100%;
-  }
 
   .carrusel_{
     height: 78%;
@@ -1726,9 +1723,11 @@ img{
     /* width: 300px; */
     overflow: hidden;
     min-height: min-content;
-    max-height: 100%;
+    max-height: 80%;
     padding-bottom: 32px;
     position: relative;
+}#carrusel_guia_mapas{
+    height: min-content;
 }
 
 .contenedor_imagenes_carrusel {
@@ -1746,10 +1745,11 @@ img{
     
 
 .img_carrusel_carrusel {
-    height: auto;
+    height: min-content;
     border-radius: 12px;
     box-shadow: 0 0 9px black;
-    width: 100%;
+    width: min-content;
+    max-height: 80%;
 }
 
 .contenedor_controles_carrusel{

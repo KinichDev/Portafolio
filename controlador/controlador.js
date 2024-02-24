@@ -80,9 +80,11 @@ function contenidoInicio() {
 
         let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
             "Habilidades Destacadas en Administracion",
-            "Excel avanzado.",
-            "Elavoración de reportes.",
-            "Diseño de Formatos.",
+
+            "Buena mecanografía.",
+            "Aplicaciones de excel para empresas.",
+            "Diseño y control de reportes.",
+            "Diseño de formularios.",
             "Bases de datos.",
             "Graficación Javascrip.",
         );

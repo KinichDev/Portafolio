@@ -70,7 +70,7 @@
 
     --colorBlueLight:#1aa8e5;
 
-    --distDisc: 15px;
+    --distDisc: 20px;
     --paddingDisc: 4px;
 
 }
@@ -175,23 +175,23 @@ img{
 }
 
 .menu{
-    width: min-content;
     padding: 6px;
     align-items: center;
     justify-content: end;
-    background-color: white;
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     border-radius: 6px;
-    align-items: center;
     justify-content: center;
 }
 
 .contenedor_puntos_menu{
     flex-direction: column;
+    background-color: white;
+    align-items: center;
+
     width: min-content;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     align-items: center;
     justify-content: center;
     position: relative;

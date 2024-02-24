@@ -47,69 +47,6 @@ function contenidoInicio() {
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
 
-    let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software")
-        let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
-        let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades_excel",
-            "Hablidades:",
-            "Diseño y captura",
-            "Diseño de tablas dinámicas",
-            "Diseño de formulariós dinámicos",
-            "Control de inventario",
-            "Centralización de datos global de documentos",
-            "Gráficas",
-            "Macros",
-            "Google Drive",
-            "Google Sheets",
-        )
-        
-
-
-    let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",
-    
-    "Proyectos.",
-
-    "Bloquera Vac",
-    "<a href='https://bloqueravac.com'>bloqueraVac.com</a>",
-    "Ecommerce para proveedora materialista.",
-    "Sistema de pedidos.",
-    "Validación de pedido.",
-    "Sistema de correos.",
-    "Sistema de sugerencias.",
-
-    "Tranportes Aldoli.",
-    "<a href='https://transportesaldoli.com.mx'>https://transportesaldoli.com.mx</a>",
-    "Plataforma administrava de logística empresarial.",
-    "Agenda de viajes.",
-    "Control de reportes de kilometrajes, diesel, rendimineto de unidades, nominas, recuperaciones y utilidades.",
-    "Sistema automatico de alertas de mantenimiento por kilometraje.",
-    "Sistema jerárquico de usuarios.",
-
-    "LunaKar.",
-    "<a href='https://lunakarcp.github.io/LunaKar'>https://lunakarcp.github.io/LunaKar.github.io/LunaKar</a>",
-    "Pagina informativa, red de trabajo para consultoría y desarrollo digital.",
-    "Red de trabajo freelance orientado al desarrollo de software logístico.",
-    "Asistensia CFDI con complemento carta porte.",
-    "Asistencia y orientación en programación de gestión seguros.",
-    "Transición de información excel a bases de datos más potentes y centralizadas.",
-
-    "Refacciones La Barata",
-    "<a href='https://labaratamr.com'>https://labaratamr.com</a>",
-    "Mantenimiento general de la página.",
-    "Mantenimiento general de la página.",
-    "Optimización de contenido",
-    "Sistema de identificación de refacciones",
-
-    "Un Mundo de Cancelería",
-    "<a href='https://cristalesycanceles.com'>https://cristalesycanceles.com</a>",
-    "Ecommerce básico para negocio de vidrios y canceles.",
-    "Sistema de administración de pedidos.",
-    "Sistema de usuarios.",
-
-
-
-
-)
-
 
 
     
@@ -296,6 +233,65 @@ function contenidoInicio() {
             "vista/img/diagrama_js.png",
             "vista/img/diagrama_php.png",
         )    
+
+
+
+        let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software")
+            let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
+            let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades_excel",
+                "Hablidades:",
+                "Diseño y captura",
+                "Diseño de tablas dinámicas",
+                "Diseño de formulariós dinámicos",
+                "Control de inventario",
+                "Centralización de datos global de documentos",
+                "Gráficas",
+                "Macros",
+                "Google Drive",
+                "Google Sheets",
+            )
+
+        let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",
+        
+        "Proyectos.",
+
+        "Bloquera Vac",
+        "<a href='https://bloqueravac.com'>bloqueraVac.com</a>",
+        "Ecommerce para proveedora materialista.",
+        "Sistema de pedidos.",
+        "Validación de pedido.",
+        "Sistema de correos.",
+        "Sistema de sugerencias.",
+
+        "Tranportes Aldoli.",
+        "<a href='https://transportesaldoli.com.mx'>https://transportesaldoli.com.mx</a>",
+        "Plataforma administrava de logística empresarial.",
+        "Agenda de viajes.",
+        "Control de reportes de kilometrajes, diesel, rendimineto de unidades, nominas, recuperaciones y utilidades.",
+        "Sistema automatico de alertas de mantenimiento por kilometraje.",
+        "Sistema jerárquico de usuarios.",
+
+        "LunaKar.",
+        "<a href='https://lunakarcp.github.io/LunaKar'>https://lunakarcp.github.io/LunaKar.github.io/LunaKar</a>",
+        "Pagina informativa, red de trabajo para consultoría y desarrollo digital.",
+        "Red de trabajo freelance orientado al desarrollo de software logístico.",
+        "Asistensia CFDI con complemento carta porte.",
+        "Asistencia y orientación en programación de gestión seguros.",
+        "Transición de información excel a bases de datos más potentes y centralizadas.",
+
+        "Refacciones La Barata",
+        "<a href='https://labaratamr.com'>https://labaratamr.com</a>",
+        "Mantenimiento general de la página.",
+        "Mantenimiento general de la página.",
+        "Optimización de contenido",
+        "Sistema de identificación de refacciones",
+
+        "Un Mundo de Cancelería",
+        "<a href='https://cristalesycanceles.com'>https://cristalesycanceles.com</a>",
+        "Ecommerce básico para negocio de vidrios y canceles.",
+        "Sistema de administración de pedidos.",
+        "Sistema de usuarios.",
+        )
 
 
 

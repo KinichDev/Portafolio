@@ -53,7 +53,7 @@
     /* --colorFondo: rgb(161, 237, 242); */
     --colorVerde: #7cdac9;
     --colordark: #1e1e1e;
-    --colorlight: #fff;
+    --colorlight: #f8f8f8;
     --colorHover: #c1ffff;
     --colorHoverDark: #3d3d3d;
     --colorRed: #f04141;
@@ -69,6 +69,10 @@
     --placeIn: fadeIn .5s forwards;
 
     --colorBlueLight:#1aa8e5;
+
+    --distDisc: 15px;
+    --paddingDisc: 4px;
+
 }
 
 *{
@@ -127,16 +131,17 @@ img{
 
 .contenedor_principal{
     background-color: var(--colorFondo);
+    background-color: var(--colordark);
     flex-direction: column;
 }
 
 .header{
-    background-color: var(--colorFondo);
-    height: 95px;
+    height: 110px;
     position: relative;
     padding: 3px;
     padding-left: 12px;
     align-items: center;
+    padding: 12px;
 }
 
 .cont_img_header{
@@ -160,7 +165,7 @@ img{
 }
 
 .cont_menu_header{
-    padding: 18px;
+    padding: 6px;
     width: 70px;
     height: 70px;
 }
@@ -169,11 +174,93 @@ img{
 
 }
 
-.menu_header{
-    background-color: var(--colorlight);
-    box-shadow: 0 0 9px var(--colorHoverDark);
+.menu{
+    width: min-content;
+    padding: 6px;
+    align-items: center;
+    justify-content: end;
+    background-color: white;
+    width: 60px;
+    height: 60px;
     border-radius: 6px;
-    padding: 3px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor_puntos_menu{
+    flex-direction: column;
+    width: min-content;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 6px;
+    box-shadow: 0 0 6px var(--colorBorderBlackOpacity);
+}
+
+.c_disc {
+    width: 10px;
+    height: 10px;
+    background: conic-gradient(from -90deg, transparent 0%, #333 10%, #333 80%, transparent 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Color del texto en el centro */
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute; /* Agregado para posicionar correctamente el centro blanco */
+}
+
+#c_disco_menu_superior{
+    top: var(--paddingDisc);
+    transition: top 0.3s ease;
+    left: var(--distDisc);
+}
+
+#c_disco_menu_central{
+
+}
+
+#c_disco_menu_inferior{
+    bottom: var(--paddingDisc);
+    right: var(--distDisc);
+    transition: bottom 0.3s ease;
+    
+}
+
+
+.contenedor_puntos_menu:hover #c_disco_menu_superior {
+    top: var(--distDisc);
+    animation: disc_left .6s ease 0.3s forwards;
+}
+
+.contenedor_puntos_menu:hover #c_disco_menu_inferior {
+    bottom: var(--distDisc);
+    animation: disc_right .6s ease 0.3s forwards;
+}
+
+@keyframes disc_left {
+    to {
+        left: var(--paddingDisc);
+    }
+}
+
+@keyframes disc_right {
+    to {
+        right: var(--paddingDisc);
+    }
+}
+
+.disc {
+    width: 2px; 
+    height: 2px;
+    background-color: var(--colora); 
+    border-radius: 50%;
+    position: absolute;
 }
 
 .contenedor_img_header{
@@ -214,14 +301,14 @@ img{
     align-items: center;
     justify-content: center;
     margin-right: 6px;
-    background-color: var(--colordark);
+    background-color: var(--colorAzul);
     color: var(--colorlight);
     cursor: pointer;
     user-select: none;
     padding: 6px;
     margin-bottom: 3px;
 }.cont_header_opcion:hover{
-    background-color: var(--colorHoverDark);
+    background-color: var(--colorGreenWHover);
 }
 
 .header_opcion{
@@ -234,10 +321,48 @@ img{
     flex-wrap: wrap;
     overflow-y: auto;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+
     animation: fadeIn .5s forwards;
+    background-color: var(--colorlight);
+    border-radius: 8px;
     max-width: 100%;
 }
+
 #cuerpo_inicio{
+    scroll-behavior: smooth;
+}
+
+.contenido_habilidades_software{
+    /* flex-direction: column; */
+    height: min-content;
+}
+
+.cont_img_hablidades_software{
+    padding: 12px;
+}
+
+.cont_sub_text_descripcion_habilidades{
+    padding: 6px;
+}
+
+.cont_sub_text_descripcion_habilidades{
+    font-family: Helvetica, sans-serif;
+}
+
+.img_hablidades_software{
+    border-radius: 16px;
+    width: 235px;
+    height: 235px;
+}
+
+.cont_descripcion_habilidades{
+    flex-direction: column;
+    height: min-content;
+}
+
+.descripcion_habilidades{
+    
 }
 
 .cont_texto_contenido{
@@ -1136,7 +1261,7 @@ img{
 }
 
 .hipercapa_etiqueta_actividades{
-    background-color: #000000e0;
+    background-color: #ffffffce;
     padding: 12px;
     align-items: center;
     justify-content: center;
@@ -1250,20 +1375,20 @@ img{
   }
 
   .circle {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     border-radius: 50%;
-    border: 4px solid black;
+    border: 6px solid white;
     border-top:none;
     border-bottom: none;
     animation: flash 2s infinite;
   }.circle_white {
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     border-radius: 50%;
-    border: 4px solid white;
+    border: 4px solid rgb(156, 255, 255);
     border-top:none;
     border-bottom: none;
     animation: flash 2s infinite;
@@ -1296,6 +1421,9 @@ img{
     }
   } 
 
+  .in_view{
+    opacity: 1;
+  }
 
   /* ? */  /* ? */  /* ? */
   /* ! */  /* ! */  /* ! */
@@ -1310,7 +1438,7 @@ img{
 
   .cont_sub_text_contenido_experiencia_destacada{
     height: min-content;
-
+    padding: 4px;
   }
   
   /* Estilo para los elementos de texto dentro del contenedor */
@@ -1326,7 +1454,7 @@ img{
   #sub_text_contenido_experiencia_destacada_0,
   #sub_text_habilidades_destacadas_web_0,
   #sub_text_habilidades_destacadas_administracion_0,
-  #cont_sub_text_descripcion_calendario_0,
+  #cont_sub_text_descripcion_inicio_0,
   #sub_text_contenido_habilidades_destacadas_0,
   #sub_text_contenido_dominio_lenguajes_html_0,
   #cont_sub_text_contenido_dominio_lenguajes_css_0,
@@ -1339,6 +1467,7 @@ img{
     font-weight: bold; /* Hace que este texto sea más destacado, puedes ajustar según sea necesario */
     color: #007bff; /* Cambia el color según tu preferencia */
     padding-left: 0px; /* Añade un margen a la izquierda según sea necesario */
+    font-family: Helvetica, sans-serif;
 
   }
   
@@ -1436,7 +1565,7 @@ img{
   }
 
   /* Estilo para el contenedor principal */
-.cont_descripcion_calendario {
+.cont_descripcion_inicio {
     flex-direction: column;
     padding: 20px;
     border-radius: 10px; /* Bordes redondeados */
@@ -1446,13 +1575,14 @@ img{
   }
   
   /* Estilo para los subtextos dentro del contenedor */
-  .cont_sub_text_descripcion_calendario {
+  .cont_sub_text_descripcion_inicio {
     /* margin-bottom: 15px; */
+    font-family: Helvetica, sans-serif;
     height: min-content;
     padding: 9px;
   }
 
-  /* #cont_sub_text_descripcion_calendario_0{
+  /* #cont_sub_text_descripcion_inicio_0{
     color: #007bff;
     padding-left: 0px;
     font-size: 28px;
@@ -1646,3 +1776,19 @@ img{
 #cont_btn_control_carrusel_siguiente {
     justify-content: flex-end;
 }
+
+#cont_sub_text_contenido_proyectos_0{
+    background-color: var(--colorAzul);
+    color: white;
+    border-radius: 6px;
+}
+
+#cont_sub_text_contenido_proyectos_1,
+#cont_sub_text_contenido_proyectos_8,
+#cont_sub_text_contenido_proyectos_15,
+#cont_sub_text_contenido_proyectos_22,
+#cont_sub_text_contenido_proyectos_28
+{
+    font-size: 20px;
+}
+

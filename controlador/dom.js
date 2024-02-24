@@ -39,6 +39,14 @@ function mkObj(n,obj_class,obj_id,inner) {  // ! CREAR UN OBJETO DIV (nodo, clas
     return obj_temp
 }
 
+function mkObjObj(n,obj_class,obj_id,inner) {  // ! CREAR UN OBJETO DIV (nodo, clase, id, inner)
+    n?true:n="";obj_class?true:obj_class="";obj_id?true:obj_id="";inner?true:inner="";
+    let obj_temp=mkObj(n,"c_"+obj_class,"c_"+obj_id)
+    let obj_temp_=mkObj(obj_temp,obj_class,obj_id)
+    console.log()
+    return obj_temp
+}
+
 // TODO IMAGES ///////////////////////////////////
 
 function img(c,i,src) { // ! CREAR UNA ETIQUETA IMG (clase, id, inner)
@@ -975,4 +983,37 @@ function mkCarrusel(nodo,clase,id,...url_imagenes) {
                 // clearInterval(intervaloCarrusel); // Detener el intervalo al hacer clic
                 // iniciarIntervalo(); // Volver a iniciar el intervalo después de cambiar la imagen manualmente
             })
+}
+function displayScroll(parentContainer) {
+    var elements = Array.from(parentContainer.children);
+    console.log(elements);
+
+    elements.forEach(element => {
+        element.style.transition = "opacity 1.7s";
+        element.style.opacity = "0"; // Establecer la opacidad inicial en 0
+    });
+
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    }
+
+    function checkVisibility() {
+        elements.forEach(function (element) {
+            if (isElementInViewport(element)) {
+                element.style.opacity = "1"; // Cambiar la opacidad a 1 si está en la vista
+            } else {
+                element.style.opacity = "0"; // Cambiar la opacidad a 0 si está fuera de la vista
+            }
+        });
+    }
+
+    // Agregar evento de desplazamiento al contenedor
+    parentContainer.addEventListener('scroll', checkVisibility);
+
+    // Llamar a la función inicialmente para verificar elementos visibles al cargar la página
+    checkVisibility();
 }

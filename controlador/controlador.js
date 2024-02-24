@@ -21,10 +21,20 @@ let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_princip
 
 
         let contenedor_menu_header = mkObj(header,"contenedor_menu_header","contenedor_menu_header")
-            let menu_header = mkObjImg(contenedor_menu_header,"menu_header","menu_header","./vista/img/menu.png")
+            let menu = mkObj(contenedor_menu_header,"menu","menu")
+            let contenedor_puntos_menu = mkObj(menu,"contenedor_puntos_menu","contenedor_puntos_menu")
+                let disco_menu_superior = mkObjObj(contenedor_puntos_menu,"disc","disco_menu_superior") 
+                let disco_menu_central = mkObjObj(contenedor_puntos_menu,"disc","disco_menu_central") 
+                let disco_menu_inferior = mkObjObj(contenedor_puntos_menu,"disc","disco_menu_inferior") 
+
+            // let menu_header = mkObjImg(contenedor_menu_header,"menu_header","menu_header","./vista/img/menu.png")
             let pestaña_menu_header = mkObj(header,"pestaña_menu_header","pestaña_menu_header")
-                let header_opcion_inicio = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Menús desplegables")
-    placerMenu(menu_header,pestaña_menu_header)
+                let header_opcion_inicio = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Paginación de plataformas.")
+                let header_opcion_creacion_contenido = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Creación de contenido.")
+                let header_opcion_seguridad = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Seguridad.")
+                let header_opcion_informatica = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Informática.")
+                let header_opcion_administracion_logistica = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Administración y logística.")
+    placerMenu(menu,pestaña_menu_header)
 
     let cuerpo = mkObj(contenedor_principal,"cuerpo","cuerpo")
 
@@ -36,31 +46,93 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
-    // var canvas = document.createElement('canvas');
-    // cuerpo_inicio.appendChild(canvas);
+
+    let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software")
+        let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
+        let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades_excel",
+            "Hablidades:",
+            "Diseño y captura",
+            "Diseño de tablas dinámicas",
+            "Diseño de formulariós dinámicos",
+            "Control de inventario",
+            "Centralización de datos global de documentos",
+            "Gráficas",
+            "Macros",
+            "Google Drive",
+            "Google Sheets",
+        )
+        
+
+
+    let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",
+    
+    "Proyectos.",
+
+    "Bloquera Vac",
+    "<a href='https://bloqueravac.com'>bloqueraVac.com</a>",
+    "Ecommerce para proveedora materialista.",
+    "Sistema de pedidos.",
+    "Validación de pedido.",
+    "Sistema de correos.",
+    "Sistema de sugerencias.",
+
+    "Tranportes Aldoli.",
+    "<a href='https://transportesaldoli.com.mx'>https://transportesaldoli.com.mx</a>",
+    "Plataforma administrava de logística empresarial.",
+    "Agenda de viajes.",
+    "Control de reportes de kilometrajes, diesel, rendimineto de unidades, nominas, recuperaciones y utilidades.",
+    "Sistema automatico de alertas de mantenimiento por kilometraje.",
+    "Sistema jerárquico de usuarios.",
+
+    "LunaKar.",
+    "<a href='https://lunakarcp.github.io/LunaKar'>https://lunakarcp.github.io/LunaKar.github.io/LunaKar</a>",
+    "Pagina informativa, red de trabajo para consultoría y desarrollo digital.",
+    "Red de trabajo freelance orientado al desarrollo de software logístico.",
+    "Asistensia CFDI con complemento carta porte.",
+    "Asistencia y orientación en programación de gestión seguros.",
+    "Transición de información excel a bases de datos más potentes y centralizadas.",
+
+    "Refacciones La Barata",
+    "<a href='https://labaratamr.com'>https://labaratamr.com</a>",
+    "Mantenimiento general de la página.",
+    "Mantenimiento general de la página.",
+    "Optimización de contenido",
+    "Sistema de identificación de refacciones",
+
+    "Un Mundo de Cancelería",
+    "<a href='https://cristalesycanceles.com'>https://cristalesycanceles.com</a>",
+    "Ecommerce básico para negocio de vidrios y canceles.",
+    "Sistema de administración de pedidos.",
+    "Sistema de usuarios.",
+
+
+
+
+)
 
 
 
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
-            "Experiencia Destacada",
-
-            "Automatización de tareas repetitivas, formularios automáticos.",
-            "Mejora e implementación de sistemas para control en tiempo real.",
-            "Desarrollo de software"
+            "Experiencia General.",
+            "8 de trabajo en entornos empresariales.",
+            "Captura de datos -> Control de Inventarios -> Administración Logística -> Desarrollo de software.",
+            "Programación orientada al control de inventario, administración logística, corrección de errores y validadción de datos.",
+            "Mejora e implementación de sistemas para manejo de información en tiempo real.",
         )
 
-        let img_escritorio_trabajo = mkObjImg(cuerpo_inicio,"img_escritorio_trabajo","img_escritorio_trabajo","./vista/img/escritorio_trabajo.png")
+        // let img_escritorio_trabajo = mkObjImg(cuerpo_inicio,"img_escritorio_trabajo","img_escritorio_trabajo","./vista/img/escritorio_trabajo.png")
 
         let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
             "Habilidades Destacadas en Desarrollo Web",
-            "Diseño responsivo y adaptativo",
-            "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript)",
-            "Integración de APIs y servicios web",
-            "Optimización de rendimiento y velocidad del sitio",
-            "Manejo de control de versiones (Git)",
-            "Conocimientos en seguridad web",
-            "Creación de biblioteca orientada a programación funcional - mkDom",
+            "Diseño responsivo y adaptativo.",
+            "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript).",
+            "Integración de APIs y servicios web.",
+            "Optimización de rendimiento y velocidad del sitio.",
+            "Manejo de control de versiones (Git).",
+            "Conocimientos en seguridad web.",
+            "Creación de biblioteca orientada a programación funcional - mkDom.",
+            "Diseño de contenido.",
         );
 
         let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
@@ -70,11 +142,12 @@ function contenidoInicio() {
 
 
         let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
-            "Habilidades Destacadas en Administracion.",
-            "Excel avanzado",
-            "Elavoración de reportes",
-            "Diseño de Formatos",
-            "Bases de datos",
+            "Habilidades Destacadas en Administracion",
+            "Excel avanzado.",
+            "Elavoración de reportes.",
+            "Diseño de Formatos.",
+            "Bases de datos.",
+            "Graficación Javascrip.",
         );
 
 
@@ -87,7 +160,7 @@ function contenidoInicio() {
 
         let contenido_calendarios_personalizados = mkObj(cuerpo_inicio,"contenido_calendarios_personalizados","contenido_calendarios_personalizados")
 
-            let descripcion_calendario = mkTextList(contenido_calendarios_personalizados,"descripcion_calendario","descripcion_calendario",
+            let descripcion_inicio = mkTextList(contenido_calendarios_personalizados,"descripcion_inicio","descripcion_inicio",
                 "Calendarización de eventos.",
                 "Registro de eventos a traves de calendarios personalizados.",
                 "Distribución de la informacion a través de un solo registro",
@@ -114,14 +187,14 @@ function contenidoInicio() {
             let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
             let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
 
-        let contenido_diseño_responsivo = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_diseño_responsivo",
+        let contenido_diseño_responsivo = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_diseño_responsivo",
             "Diseños Responsivos",
         )
 
 
         let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/logo_logistic.png")
 
-        let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"descripcion_calendario","descripcion_calendario",
+        let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"descripcion_inicio","descripcion_inicio",
             "Catágolos y Fichas Técnicas.",
             "Sistema de pedidos y almacenamiento en base de datos.",
             "Automatización de formatos para pedidos",
@@ -135,7 +208,7 @@ function contenidoInicio() {
             let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
             // catalogo_fichas_tecnicas.png
 
-        let descripcion_mapa = mkTextList(cuerpo_inicio,"descripcion_calendario","descripcion_mapa",
+        let descripcion_mapa = mkTextList(cuerpo_inicio,"descripcion_inicio","descripcion_mapa",
             "Elaboración de reportes con rutas en KML",
             "KML es un estándar de codificación XML utilizado para representar datos geoespaciales, incluidas rutas y puntos de interés.",
             "Almacenamiento de información relevante en bases de datos.",
@@ -166,14 +239,14 @@ function contenidoInicio() {
             in_mapa.addEventListener('change', mapaRuta);
 
 
-        let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_constancias",
+        let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_constancias",
             "Capacitaciones Educativas.",
             "Introducción al Plan de Negocios. CECATI.",
             "Mantenimiento Básico a PC. CECATI.",
             "Mantenimiento Básico a Laptop. CECATI.",
         )
 
-        let contenido_habilidades_destacadas = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_habilidades_destacadas",
+        let contenido_habilidades_destacadas = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_habilidades_destacadas",
             "Habilidades Destacadas.",
             "Programación Funcional. (JavaScript)",
             "Programación orientada a objetos. (php)",
@@ -182,7 +255,7 @@ function contenidoInicio() {
             "Diseño de Formatos. (PDF, GIMP, Adobe Ilustrator)",
         )
 
-        let contenido_dominio_lenguajes_html = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_html",
+        let contenido_dominio_lenguajes_html = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_html",
             "HTML",
             "Maquetación dinámica con JS",
             "Uso exclusivo de scripts para dinámica de DOM",
@@ -193,7 +266,7 @@ function contenidoInicio() {
             "Sistema web automatizada con tareas.",
         )
 
-        let contenido_dominio_lenguajes_css = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_css",
+        let contenido_dominio_lenguajes_css = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_css",
             "CSS",
             "Diseño dinámico.",
             "Completa personalizacion de diseño.",
@@ -205,14 +278,14 @@ function contenidoInicio() {
             "vista/img/diagrama_css.png",
         )    
 
-        let contenido_dominio_lenguajes_js = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_js",
+        let contenido_dominio_lenguajes_js = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_js",
             "Java Script",
             "Diseño dinámico.",
             "Completa personalizacion de diseño.",
             "Animaciones.",
         )
 
-        let contenido_dominio_lenguajes_php = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_dominio_lenguajes_php",
+        let contenido_dominio_lenguajes_php = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_php",
             "PHP",
             "Diseño dinámico.",
             "Completa personalizacion de diseño.",
@@ -224,31 +297,15 @@ function contenidoInicio() {
             "vista/img/diagrama_php.png",
         )    
 
-        // let proyecto_decipo = mkTextList(cuerpo_inicio,"descripcion_calendario","proyecto_decipo",
-        //     "DECIPO - Desarrollo Civil Potenciado",
-        //     "Sistema de clasificación y posicionamiento de proyectos sociocomerciales",
-        // )
-
-        // let carrusel_decipo = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
-        //     "vista/img/.png",
-        //     "vista/img/diagrama_php.png",
-        // )    
 
 
-
-
-
-    // !
-    // !
-    // !
-    // !
-
-        let contenido_footer = mkTextList(cuerpo_inicio,"descripcion_calendario","contenido_footer",
-                "Completa personalización del contenido",
-                "Codigo limpio",
-                "Rendimiento - Seguridad",
-                "Buenas prácticas",
+        let contenido_footer = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_footer",
+            "Completa personalización del contenido",
+            "Codigo limpio",
+            "Rendimiento - Seguridad",
+            "Buenas prácticas",
         )
+        displayScroll(cuerpo_inicio)
 
 return cuerpo_inicio
 }

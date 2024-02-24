@@ -46,9 +46,13 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
-
-
-
+        let contenido_perfil = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
+            "Perfil.",
+            "Leonardo K. Luna",
+            "Informática, logística y desarrollo",
+            "Nacimiento: México D.F. (CDMX) - 1997.",
+            "Soy una persona comprometida con el trabajo que realizo, me enfoco en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
+        )
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia General.",
@@ -241,12 +245,12 @@ function contenidoInicio() {
         let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software")
             let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
             let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades_excel",
-                "Hablidades:",
+                "Hablidades Excel:",
                 "Diseño y captura",
                 "Diseño de tablas dinámicas",
                 "Diseño de formulariós dinámicos",
                 "Control de inventario",
-                "Centralización de datos global de documentos",
+                "Centralización global de datos con documentos excel",
                 "Gráficas",
                 "Macros",
                 "Google Drive",

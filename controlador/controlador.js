@@ -45,12 +45,88 @@ function contenidoInicio() {
     cuerpo.innerHTML=""
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
+        
+        let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_excel")
+            let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
+            let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades",
+                "Habilidades Excel:",
+                "Diseño de formularios y captura de datos",
+                "Diseño de tablas dinámicas.",
+                "Diseño de formulariós dinámicos.",
+                "Control de inventario.",
+                "Centralización global de datos con documentos excel.",
+                "Gráficas.",
+                "Macros.",
+                "Google Drive.",
+                "Google Sheets.",
+            )
 
+        let contenido_habilidades_software_windows = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_windows")
+            let descripcion_habilidades_windows = mkTextList(contenido_habilidades_software_windows,"descripcion_habilidades","descripcion_habilidades",
+                "Hablidades Microsoft Windows:",
+                "Configuración y actualización de versiones.",
+                "Solución de problemas comunes.",
+                "Manejo del simbolo del sistema (cmd | bash).",
+                "Mantenimiento general del equipo físico.",
+                "Administración y consultoría remota.",
+                "Gestión de software y actualizaciones.",
+                "Virtualización de entornos.",
+                "Soporte general.",
+            )
+            let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_hablidades_software","img_windows","./vista/img/img_windows.svg")
 
+        let contenido_habilidades_software_debian = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_debian")
+            let img_debian = mkObjImg(contenido_habilidades_software_debian,"img_hablidades_software","img_debian","./vista/img/img_debian.svg")
+            let descripcion_habilidades_debian = mkTextList(contenido_habilidades_software_debian,"descripcion_habilidades","descripcion_habilidades",
+                "Hablidades Debian:",
+                "Instalación y configuración.",
+                "Shell Script.",
+                "Virtualización.",
+                "Gestión de paquetería y depencias.",
+                "Virtualización de entornos.",
+                "Soporte general.",
+            )
+        let contenido_habilidades_software_ubuntu = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_ubuntu")
+            let descripcion_habilidades_ubuntu = mkTextList(contenido_habilidades_software_ubuntu,"descripcion_habilidades","descripcion_habilidades",
+                "Hablidades Ubuntu:",
+                "Instalación y configuración.",
+                "Shell Script.",
+                "Virtualización.",
+                "Gestión de paquetería y depencias.",
+                "Virtualización de entornos.",
+                "Soporte general.",
+            )
+            let img_ubuntu = mkObjImg(contenido_habilidades_software_ubuntu,"img_hablidades_software","img_ubuntu","./vista/img/img_ubuntu.svg")
 
-            
+        let contenido_habilidades_software_pase_tag = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_pase_tag")
+            let img_pase_tag = mkObjImg(contenido_habilidades_software_pase_tag,"img_hablidades_software","img_pase_tag","./vista/img/img_pase_tag.svg")
+            let descripcion_habilidades_pase_tag = mkTextList(contenido_habilidades_software_pase_tag,"descripcion_habilidades","descripcion_habilidades",
+                "Hablidades Pase Tag:",
+                "Sistema corporativo Pase Tag App.",
+                "Automatización de recarga.",
+                "Gestión de aclaraciones.",
+                "Mapeo de casetas (MyMaps - Pase Tag).",
+                "Sistema PHP local para elaboración automática de reportes con información de plataforma.",
+            )
 
+        let contenido_habilidades_software_github = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_github")
+            let descripcion_habilidades_github = mkTextList(contenido_habilidades_software_github,"descripcion_habilidades","descripcion_habilidades",
+                "Hablidades Github:",
+                "Control de versiones.",
+                "Documentación (.md).",
+                "Github Pages.",
+            )
+            let img_github = mkObjImg(contenido_habilidades_software_github,"img_hablidades_software","img_github","./vista/img/img_github.svg")
 
+        let contenido_habilidades_software_mastrack = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_mastrack")
+            let img_mastrack = mkObjImg(contenido_habilidades_software_mastrack,"img_hablidades_software","img_mastrack","./vista/img/img_mastrack.svg")
+            let descripcion_habilidades_mastrack = mkTextList(contenido_habilidades_software_mastrack,"descripcion_habilidades","descripcion_habilidades",
+                "Hablidades Mastrack:",
+                "Localización.",
+                "Generación de reportes.",
+                "Alertas y notificaciones.",
+                "Geocercas.",
+            )
 
         let contenido_perfil = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Perfil.",
@@ -91,12 +167,12 @@ function contenidoInicio() {
         let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
             "Habilidades Destacadas en Administracion",
 
-            "Buena mecanografía.",
-            "Aplicaciones de excel para empresas.",
+            "Mecanografía fluida.",
+            "Aplicaciones de sistemas excel para empresas.",
             "Diseño y control de reportes.",
             "Diseño de formularios.",
-            "Bases de datos.",
-            "Graficación Javascrip.",
+            "Control de bases de datos.",
+            "Graficación Javascrip - CSS.",
         );
 
 
@@ -246,87 +322,7 @@ function contenidoInicio() {
             "vista/img/diagrama_php.png",
         )    
 
-        let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_excel")
-
-        let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
-        let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades",
-            "Habilidades Excel:",
-            "Diseño de formularios y captura de datos",
-            "Diseño de tablas dinámicas.",
-            "Diseño de formulariós dinámicos.",
-            "Control de inventario.",
-            "Centralización global de datos con documentos excel.",
-            "Gráficas.",
-            "Macros.",
-            "Google Drive.",
-            "Google Sheets.",
-        )
-
-    let contenido_habilidades_software_windows = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_windows")
-        let descripcion_habilidades_windows = mkTextList(contenido_habilidades_software_windows,"descripcion_habilidades","descripcion_habilidades",
-            "Hablidades Microsoft Windows:",
-            "Configuración y actualización de versiones.",
-            "Solución de problemas comunes.",
-            "Manejo del simbolo del sistema (cmd | bash).",
-            "Mantenimiento general del equipo físico.",
-            "Administración y consultoría remota.",
-            "Gestión de software y actualizaciones.",
-            "Virtualización de entornos.",
-            "Soporte general.",
-        )
-        let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_hablidades_software","img_windows","./vista/img/img_windows.svg")
-
-    let contenido_habilidades_software_debian = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_debian")
-        let img_debian = mkObjImg(contenido_habilidades_software_debian,"img_hablidades_software","img_debian","./vista/img/img_debian.svg")
-        let descripcion_habilidades_debian = mkTextList(contenido_habilidades_software_debian,"descripcion_habilidades","descripcion_habilidades",
-            "Hablidades Debian:",
-            "Instalación y configuración.",
-            "Shell Script.",
-            "Virtualización.",
-            "Gestión de paquetería y depencias.",
-            "Virtualización de entornos.",
-            "Soporte general.",
-        )
-    let contenido_habilidades_software_ubuntu = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_ubuntu")
-        let descripcion_habilidades_ubuntu = mkTextList(contenido_habilidades_software_ubuntu,"descripcion_habilidades","descripcion_habilidades",
-            "Hablidades Ubuntu:",
-            "Instalación y configuración.",
-            "Shell Script.",
-            "Virtualización.",
-            "Gestión de paquetería y depencias.",
-            "Virtualización de entornos.",
-            "Soporte general.",
-        )
-        let img_ubuntu = mkObjImg(contenido_habilidades_software_ubuntu,"img_hablidades_software","img_ubuntu","./vista/img/img_ubuntu.svg")
-
-    let contenido_habilidades_software_pase_tag = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_pase_tag")
-        let img_pase_tag = mkObjImg(contenido_habilidades_software_pase_tag,"img_hablidades_software","img_pase_tag","./vista/img/img_pase_tag.svg")
-        let descripcion_habilidades_pase_tag = mkTextList(contenido_habilidades_software_pase_tag,"descripcion_habilidades","descripcion_habilidades",
-            "Hablidades Pase Tag:",
-            "Sistema corporativo Pase Tag App.",
-            "Automatización de recarga.",
-            "Gestión de aclaraciones.",
-            "Mapeo de casetas (MyMaps - Pase Tag).",
-        )
-
-    let contenido_habilidades_software_github = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_github")
-        let descripcion_habilidades_github = mkTextList(contenido_habilidades_software_github,"descripcion_habilidades","descripcion_habilidades",
-            "Hablidades Github:",
-            "Control de versiones.",
-            "Documentación (.md).",
-            "Github Pages.",
-        )
-        let img_github = mkObjImg(contenido_habilidades_software_github,"img_hablidades_software","img_github","./vista/img/img_github.svg")
-
-    let contenido_habilidades_software_mastrack = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_mastrack")
-        let img_mastrack = mkObjImg(contenido_habilidades_software_mastrack,"img_hablidades_software","img_mastrack","./vista/img/img_mastrack.svg")
-        let descripcion_habilidades_mastrack = mkTextList(contenido_habilidades_software_mastrack,"descripcion_habilidades","descripcion_habilidades",
-            "Hablidades Mastrack:",
-            "Localización.",
-            "Generación de reportes.",
-            "Alertas y notificaciones.",
-            "Geocercas.",
-        )
+       
 
 
 

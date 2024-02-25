@@ -349,6 +349,8 @@ img{
 
 .cont_sub_text_descripcion_habilidades{
     padding: 6px;
+    align-items: center;
+    justify-content: center;
 }
 
 .cont_sub_text_descripcion_habilidades{

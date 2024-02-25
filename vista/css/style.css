@@ -336,6 +336,9 @@ img{
 .contenido_habilidades_software{
     /* flex-direction: column; */
     height: min-content;
+    padding: 65px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .cont_img_hablidades_software{
@@ -351,6 +354,11 @@ img{
 .cont_sub_text_descripcion_habilidades{
     font-family: Helvetica, sans-serif;
 }
+#cont_sub_text_descripcion_habilidades_0{
+    font-size: 22px;
+    font-weight: bold;
+
+}
 
 .img_hablidades_software{
     border-radius: 16px;
@@ -361,6 +369,8 @@ img{
 .cont_descripcion_habilidades{
     flex-direction: column;
     height: min-content;
+    justify-content: center;
+    align-items: center;
 }
 
 .descripcion_habilidades{
@@ -1448,6 +1458,8 @@ img{
     font-size: 16px; /* Cambia el tamaño de fuente según tu preferencia */
     color: #333; /* Cambia el color del texto según tu preferencia */
     margin: 0; /* Elimina el margen predeterminado del párrafo */
+    font-family: Helvetica, sans-serif;
+
     padding-left: 20px; /* Añade un margen a la izquierda según sea necesario */
 
   }

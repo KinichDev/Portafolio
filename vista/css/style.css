@@ -351,11 +351,10 @@ img{
     padding: 6px;
     align-items: center;
     justify-content: center;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
 }
 
-.cont_sub_text_descripcion_habilidades{
-    font-family: Helvetica, sans-serif;
-}
 #cont_sub_text_descripcion_habilidades_0{
     font-size: 22px;
     font-weight: bold;

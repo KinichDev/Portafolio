@@ -46,6 +46,22 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
         
+        let contenido_perfil = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
+            "Perfil.",
+            "Leonardo K. Luna",
+            "Informática, logística y desarrollo",
+            "Nacimiento: México D.F. (CDMX) - 1997.",
+            "Soy una persona comprometida con el trabajo con el trabajo que se realiza, enfocado en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
+        )
+    
+        let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
+            "Experiencia General.",
+            "8 de trabajo en entornos empresariales.",
+            "Captura de datos -> Control de Inventarios -> Administración Logística -> Desarrollo de software.",
+            "Programación orientada al control de inventario, administración logística, corrección de errores y validadción de datos.",
+            "Mejora e implementación de sistemas para manejo de información en tiempo real.",
+        )
+
         let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_excel")
             let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
             let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades",
@@ -118,8 +134,21 @@ function contenidoInicio() {
             )
             let img_github = mkObjImg(contenido_habilidades_software_github,"img_hablidades_software","img_github","./vista/img/img_github.svg")
 
+
+        let contenido_habilidades_software_gimp = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_gimp")
+            let img_gimp = mkObjImg(contenido_habilidades_software_gimp,"img_hablidades_software","img_gimp","./vista/img/img_gimp.svg")
+            let descripcion_habilidades_gimp = mkTextList(contenido_habilidades_software_gimp,"descripcion_habilidades","descripcion_habilidades",
+                "Hablidades Gimp:",
+                "Diseño Gráfico.",
+                "Familiaridad de interfáz.",
+                "Eliminación de fondos.",
+                "Creación de logos con diseño original.",
+            )
+
+
+        
+
         let contenido_habilidades_software_mastrack = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_mastrack")
-            let img_mastrack = mkObjImg(contenido_habilidades_software_mastrack,"img_hablidades_software","img_mastrack","./vista/img/img_mastrack.svg")
             let descripcion_habilidades_mastrack = mkTextList(contenido_habilidades_software_mastrack,"descripcion_habilidades","descripcion_habilidades",
                 "Hablidades Mastrack:",
                 "Localización.",
@@ -127,24 +156,9 @@ function contenidoInicio() {
                 "Alertas y notificaciones.",
                 "Geocercas.",
             )
+            let img_mastrack = mkObjImg(contenido_habilidades_software_mastrack,"img_hablidades_software","img_mastrack","./vista/img/img_mastrack.svg")
 
-        let contenido_perfil = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
-            "Perfil.",
-            "Leonardo K. Luna",
-            "Informática, logística y desarrollo",
-            "Nacimiento: México D.F. (CDMX) - 1997.",
-            "Soy una persona comprometida con el trabajo con el trabajo que se realiza, enfocado en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
-        )
-    
-        let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
-            "Experiencia General.",
-            "8 de trabajo en entornos empresariales.",
-            "Captura de datos -> Control de Inventarios -> Administración Logística -> Desarrollo de software.",
-            "Programación orientada al control de inventario, administración logística, corrección de errores y validadción de datos.",
-            "Mejora e implementación de sistemas para manejo de información en tiempo real.",
-        )
 
-        // let img_escritorio_trabajo = mkObjImg(cuerpo_inicio,"img_escritorio_trabajo","img_escritorio_trabajo","./vista/img/escritorio_trabajo.png")
 
         let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
             "Habilidades Destacadas en Desarrollo Web",
@@ -215,10 +229,7 @@ function contenidoInicio() {
         let contenido_diseño_responsivo = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_diseño_responsivo",
             "Diseños Responsivos",
         )
-
-
-        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/logo_logistic.png")
-
+        
         let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"descripcion_inicio","descripcion_inicio",
             "Catágolos y Fichas Técnicas.",
             "Sistema de pedidos y almacenamiento en base de datos.",
@@ -322,11 +333,7 @@ function contenidoInicio() {
             "vista/img/diagrama_php.png",
         )    
 
-       
-
-
-
-
+        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/logo_logistic.png")
 
         let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",
         

@@ -46,12 +46,34 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
+        let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software")
+            let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
+            let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades_excel",
+                "Habilidades Excel:",
+                "Diseño y captura",
+                "Diseño de tablas dinámicas",
+                "Diseño de formulariós dinámicos",
+                "Control de inventario",
+                "Centralización global de datos con documentos excel",
+                "Gráficas",
+                "Macros",
+                "Google Drive",
+                "Google Sheets",
+            )
+
+            let contenido_habilidades_software_ = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software")
+            let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_hablidades_software","img_windows","./vista/img/img_windows.svg")
+            let descripcion_habilidades_windows = mkTextList(contenido_habilidades_software_windows,"descripcion_habilidades","descripcion_habilidades_windows",
+                "Hablidades windows:",
+            )
+
+
         let contenido_perfil = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Perfil.",
             "Leonardo K. Luna",
             "Informática, logística y desarrollo",
             "Nacimiento: México D.F. (CDMX) - 1997.",
-            "Soy una persona comprometida con el trabajo que realizo, me enfoco en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
+            "Persona comprometida con el trabajo que se realiza, enfocado en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
         )
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
@@ -242,20 +264,6 @@ function contenidoInicio() {
 
 
 
-        let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software")
-            let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
-            let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades_excel",
-                "Hablidades Excel:",
-                "Diseño y captura",
-                "Diseño de tablas dinámicas",
-                "Diseño de formulariós dinámicos",
-                "Control de inventario",
-                "Centralización global de datos con documentos excel",
-                "Gráficas",
-                "Macros",
-                "Google Drive",
-                "Google Sheets",
-            )
 
         let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",
         

@@ -299,7 +299,7 @@ img{
     /* background-color: #99d7b6; */
     box-shadow: 0 0 7px var(--colordark);
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     margin-right: 6px;
     background-color: var(--colorAzul);
     color: var(--colorlight);

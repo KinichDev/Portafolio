@@ -49,14 +49,14 @@ function contenidoInicio() {
         let contenido_perfil = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Perfil.",
             "Leonardo K. Luna",
-            "Informática, logística y desarrollo",
+            "Informática, monitoreo, logística y desarrollo",
             "Nacimiento: México D.F. (CDMX) - 1997.",
-            "Soy una persona comprometida con el trabajo con el trabajo que se realiza, enfocado en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
+            "Soy una persona comprometida con el trabajo que se realiza, enfocado en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
         )
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia General.",
-            "8 de trabajo en entornos empresariales.",
+            "8 años de experiencia en entornos empresariales.",
             "Captura de datos -> Control de Inventarios -> Administración Logística -> Desarrollo de software.",
             "Programación orientada al control de inventario, administración logística, corrección de errores y validadción de datos.",
             "Mejora e implementación de sistemas para manejo de información en tiempo real.",

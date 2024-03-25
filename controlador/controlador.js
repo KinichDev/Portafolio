@@ -62,8 +62,42 @@ function contenidoInicio() {
             "Mejora e implementación de sistemas para manejo de información en tiempo real.",
         )
 
+        let contenido_habilidades_software_js = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_js")
+            let img_js = mkObjImg(contenido_habilidades_software_js,"img_habilidades_software","img_js","./vista/img/img_js.png")
+            let descripcion_habilidades_js = mkTextList(contenido_habilidades_software_js,"descripcion_habilidades","descripcion_habilidades",
+                "Habilidades JavaScript:",
+                "Desarrollo de aplicaciones web interactivas.",
+                "Manipulación del DOM.",
+                "Gestión de eventos.",
+                "Ajax y comunicación asíncrona.",
+                "Manipulación de JSON.",
+                "Implementación de animaciones y efectos.",
+                "Desarrollo de aplicaciones de una sola página (SPA).",
+                "Uso de frameworks como React, Angular",
+                "Programación funcional y orientada a objetos.",
+                "Gestión de errores y depuración de código.",
+                "Pruebas unitarias y pruebas de integración.",
+            )
+
+            let contenido_habilidades_software_php = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_php")
+                let descripcion_habilidades_php = mkTextList(contenido_habilidades_software_php,"descripcion_habilidades","descripcion_habilidades",
+                    "Habilidades PHP:",
+                    " PDO (PHP Data Objects), interacción con bases de datos.",
+                    "Enfoque de programación modular.",
+                    "POO (Programación orientada a objetos).",
+                    "Creación y consumo de clases y objetos.",
+                    "Encapsulación, herencia y polimorfismo.",
+                    "Uso de espacios de nombres (namespaces) para la organización y modularidad del código.",
+                    "Aplicación de patrones de diseño orientado a objetos en PHP.",
+                    "Seguridad en la manipulación de datos y prevención de vulnerabilidades.",
+                    "Optimización del rendimiento y eficiencia del código PHP.",
+                )
+                let img_php = mkObjImg(contenido_habilidades_software_php,"img_habilidades_software","img_php","./vista/img/img_php.png")
+            
+
+
         let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_excel")
-            let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_hablidades_software","img_excel","./vista/img/img_excel.svg")
+            let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_habilidades_software","img_excel","./vista/img/img_excel.svg")
             let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades",
                 "Habilidades Excel:",
                 "Diseño de formularios y captura de datos",
@@ -89,10 +123,10 @@ function contenidoInicio() {
                 "Virtualización de entornos.",
                 "Soporte general.",
             )
-            let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_hablidades_software","img_windows","./vista/img/img_windows.svg")
+            let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_habilidades_software","img_windows","./vista/img/img_windows.svg")
 
         let contenido_habilidades_software_debian = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_debian")
-            let img_debian = mkObjImg(contenido_habilidades_software_debian,"img_hablidades_software","img_debian","./vista/img/img_debian.svg")
+            let img_debian = mkObjImg(contenido_habilidades_software_debian,"img_habilidades_software","img_debian","./vista/img/img_debian.svg")
             let descripcion_habilidades_debian = mkTextList(contenido_habilidades_software_debian,"descripcion_habilidades","descripcion_habilidades",
                 "Hablidades Debian:",
                 "Instalación y configuración.",
@@ -112,10 +146,10 @@ function contenidoInicio() {
                 "Virtualización de entornos.",
                 "Soporte general.",
             )
-            let img_ubuntu = mkObjImg(contenido_habilidades_software_ubuntu,"img_hablidades_software","img_ubuntu","./vista/img/img_ubuntu.svg")
+            let img_ubuntu = mkObjImg(contenido_habilidades_software_ubuntu,"img_habilidades_software","img_ubuntu","./vista/img/img_ubuntu.svg")
 
         let contenido_habilidades_software_pase_tag = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_pase_tag")
-            let img_pase_tag = mkObjImg(contenido_habilidades_software_pase_tag,"img_hablidades_software","img_pase_tag","./vista/img/img_pase_tag.svg")
+            let img_pase_tag = mkObjImg(contenido_habilidades_software_pase_tag,"img_habilidades_software","img_pase_tag","./vista/img/img_pase_tag.svg")
             let descripcion_habilidades_pase_tag = mkTextList(contenido_habilidades_software_pase_tag,"descripcion_habilidades","descripcion_habilidades",
                 "Hablidades Pase Tag:",
                 "Sistema corporativo Pase Tag App.",
@@ -132,11 +166,11 @@ function contenidoInicio() {
                 "Documentación (.md).",
                 "Github Pages.",
             )
-            let img_github = mkObjImg(contenido_habilidades_software_github,"img_hablidades_software","img_github","./vista/img/img_github.svg")
+            let img_github = mkObjImg(contenido_habilidades_software_github,"img_habilidades_software","img_github","./vista/img/img_github.svg")
 
 
         let contenido_habilidades_software_gimp = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_gimp")
-            let img_gimp = mkObjImg(contenido_habilidades_software_gimp,"img_hablidades_software","img_gimp","./vista/img/img_gimp.svg")
+            let img_gimp = mkObjImg(contenido_habilidades_software_gimp,"img_habilidades_software","img_gimp","./vista/img/img_gimp.svg")
             let descripcion_habilidades_gimp = mkTextList(contenido_habilidades_software_gimp,"descripcion_habilidades","descripcion_habilidades",
                 "Hablidades Gimp:",
                 "Diseño Gráfico.",
@@ -156,7 +190,7 @@ function contenidoInicio() {
                 "Alertas y notificaciones.",
                 "Geocercas.",
             )
-            let img_mastrack = mkObjImg(contenido_habilidades_software_mastrack,"img_hablidades_software","img_mastrack","./vista/img/img_mastrack.svg")
+            let img_mastrack = mkObjImg(contenido_habilidades_software_mastrack,"img_habilidades_software","img_mastrack","./vista/img/img_mastrack.svg")
 
 
 
@@ -365,7 +399,6 @@ function contenidoInicio() {
 
         "Refacciones La Barata",
         "<a href='https://labaratamr.com'>https://labaratamr.com</a>",
-        "Mantenimiento general de la página.",
         "Mantenimiento general de la página.",
         "Optimización de contenido",
         "Sistema de identificación de refacciones",

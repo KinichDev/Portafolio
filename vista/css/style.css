@@ -1807,3 +1807,105 @@ img{
     font-size: 20px;
 }
 
+.contenido_square{
+    height: min-content;
+    justify-content: center;
+    padding: 40px;
+}
+
+.contenedor_square {
+    position: relative;
+    max-width:600px;
+    height: 70px;
+}
+.square {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: rotateFractal 6s infinite linear;
+}
+.square:nth-child(2) {
+    animation-delay: -2s;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.square:nth-child(3) {
+    animation-delay: -4s;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.square:nth-child(4) {
+    animation-delay: -6s;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+@keyframes rotateFractal {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.square:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+.square:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+.square:nth-child(3) {
+    bottom: 0;
+    left: 0;
+}
+.square:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+
+.contenido_colage{
+    padding: 10px;
+    max-height: 175px;
+    margin-bottom: 30px;
+}
+
+.contenedor_colage {
+    position: relative;
+    max-height: 400px;
+
+}
+.colage {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 60%;
+    animation: pulseFractal 3s infinite ease-in-out;
+}
+@keyframes pulseFractal {
+    0%, 100% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+/* Distribuir círculos de manera más desordenada y asignar colores */
+/* .colage:nth-child(1) { top: 18%; left: 5%; background-color: #ff5733; animation-delay: 0s; }
+.colage:nth-child(2) { top: 67%; left: 92%; background-color: #33ff57; animation-delay: 0.1s; }
+.colage:nth-child(3) { top: 25%; left: 73%; background-color: #3357ff; animation-delay: 0.2s; }
+.colage:nth-child(4) { top: 80%; left: 35%; background-color: #ff33a8; animation-delay: 0.3s; }
+.colage:nth-child(5) { top: 45%; left: 88%; background-color: #ffbd33; animation-delay: 0.4s; }
+.colage:nth-child(6) { top: 75%; left: 12%; background-color: #33a8ff; animation-delay: 0.5s; }
+.colage:nth-child(7) { top: 53%; left: 62%; background-color: #f0e68c; animation-delay: 0.6s; }
+.colage:nth-child(8) { top: 9%; left: 15%; background-color: #ff6347; animation-delay: 0.7s; }
+.colage:nth-child(9) { top: 34%; left: 52%; background-color: #adff2f; animation-delay: 0.8s; }
+.colage:nth-child(10) { top: 60%; left: 27%; background-color: #8a2be2; animation-delay: 0.9s; }
+.colage:nth-child(11) { top: 72%; left: 42%; background-color: #ff1493; animation-delay: 1s; }
+.colage:nth-child(12) { top: 15%; left: 51%; background-color: #20b2aa; animation-delay: 1.1s; }
+.colage:nth-child(13) { top: 50%; left: 24%; background-color: #d2691e; animation-delay: 1.2s; }
+.colage:nth-child(14) { top: 40%; left: 82%; background-color: #ff4500; animation-delay: 1.3s; }
+.colage:nth-child(15) { top: 25%; left: 17%; background-color: #9370db; animation-delay: 1.4s; }
+.colage:nth-child(16) { top: 58%; left: 78%; background-color: #ffa07a; animation-delay: 1.5s; }
+.colage:nth-child(17) { top: 10%; left: 84%; background-color: #7fff00; animation-delay: 1.6s; }
+.colage:nth-child(18) { top: 65%; left: 31%; background-color: #00bfff; animation-delay: 1.7s; }
+.colage:nth-child(19) { top: 48%; left: 67%; background-color: #f08080; animation-delay: 1.8s; }
+.colage:nth-child(20) { top: 35%; left: 18%; background-color: #00fa9a; animation-delay: 1.9s; } */

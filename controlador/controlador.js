@@ -45,6 +45,34 @@ function contenidoInicio() {
     cuerpo.innerHTML=""
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
+
+    let contenido_colage = mkObj(cuerpo_inicio,'contenido_colage','contenido_colage')
+    let contenedor_colage = mkObj(contenido_colage,"contenedor_colage","contenedor_colage")
+        const style = document.createElement('style');
+        document.head.appendChild(style);
+
+        let estilos = '';
+
+        for (let i = 0; i < 250; i++) {
+
+            let top = Math.random() * 100 + '%';
+            let left = Math.random() * 100 + '%';
+            let color = `#${Math.floor(Math.random()*16777215).toString(16)}`;  // Generar un color aleatorio
+            let delay = (i * 0.1) + 's';  // Retraso en la animación
+            
+            estilos += `
+                .colage:nth-child(${i}) {
+                    top: ${top};
+                    left: ${left};
+                    background-color: ${color};
+                    animation-delay: ${delay};
+                }
+            `;
+
+            let colage = mkObj(contenedor_colage,"colage")  
+        }
+
+        style.textContent = estilos;
         
         let contenido_perfil = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Perfil.",
@@ -53,7 +81,14 @@ function contenidoInicio() {
             "Nacimiento: México D.F. (CDMX) - 1997.",
             "Soy una persona comprometida con el trabajo que se realiza, enfocado en brindar soluciones prácticas a procesos repetitivos para optimizar el proceso de ventas y desarrollo creativo.",
         )
-    
+
+        let contenido_square = mkObj(cuerpo_inicio,"contenido_square","contenido_square")
+            let contenedor_square = mkObj(contenido_square,"contenedor_square","contenedor_square")
+                for (let i = 0; i < 4; i++) {
+                    let square = mkObj(contenedor_square,"square")
+                }
+
+        
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia General.",
             "8 años de experiencia en entornos empresariales.",
@@ -61,6 +96,8 @@ function contenidoInicio() {
             "Programación orientada al control de inventario, administración logística, corrección de errores y validadción de datos.",
             "Mejora e implementación de sistemas para manejo de información en tiempo real.",
         )
+
+
 
         let contenido_habilidades_software_js = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_js")
             let img_js = mkObjImg(contenido_habilidades_software_js,"img_habilidades_software","img_js","./vista/img/img_js.png")

@@ -1207,7 +1207,7 @@ img{
     padding: 20px;
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 400px;
+    min-height: 400px;
     width: 280px;
     margin: 10px;
     cursor: pointer;
@@ -1562,6 +1562,7 @@ img{
     height: min-content;
     flex-wrap: wrap;
     background-color: white ;
+    z-index: 0;
   }
 
   .cont_img_pc{
@@ -1970,6 +1971,14 @@ img{
     height: 200px;
 }
 
+.cont_img_graficas{
+    height: min-content;
+    position: relative;
+}
+.img_graficas{
+    height: 200px;
+}
+
 .cont_img_fondo{
     position: absolute;
     z-index: 0;
@@ -1990,9 +1999,10 @@ img{
     height: 350px;
 }
 
-.contenido_seguridad_informatica{
+.contenido_infografia{
     background-color: white;
-    height: max-content;
+    height: initial;
+    padding: 7px;
     z-index: 1;
 }
 

@@ -30,12 +30,30 @@ let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_princip
 
             // let menu_header = mkObjImg(contenedor_menu_header,"menu_header","menu_header","./vista/img/menu.png")
             let pestaña_menu_header = mkObj(header,"pestaña_menu_header","pestaña_menu_header")
-                let header_opcion_inicio = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Paginación de plataformas.")
-                let header_opcion_creacion_contenido = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Creación de contenido.")
-                let header_opcion_seguridad = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Seguridad.")
-                let header_opcion_informatica = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Informática.")
-                let header_opcion_administracion_logistica = mkText(pestaña_menu_header,"header_opcion","header_opcion_inicio","Administración y logística.")
+                let header_opcion_github = mkText(pestaña_menu_header,"header_opcion","header_opcion_github","Github")
+                let header_opcion_linkedin = mkText(pestaña_menu_header,"header_opcion","header_opcion_linkedin","LinkedIn")
+                let header_opcion_instagram = mkText(pestaña_menu_header,"header_opcion","header_opcion_instagram","Instagram")
+                let header_opcion_facebook = mkText(pestaña_menu_header,"header_opcion","header_opcion_facebook","Facebook")
+                let header_opcion_x = mkText(pestaña_menu_header,"header_opcion","header_opcion_x","X")
     placerMenu(menu,pestaña_menu_header)
+
+    document.addEventListener("mouseup",function (event) {
+        if (header_opcion_github.contains(event.target)) {
+            window.open("https://github.com/KinichDev","_blank","width=800,height=600")
+        }
+        if (header_opcion_linkedin.contains(event.target)) {
+            window.open("https://www.linkedin.com/in/leonardo-kinich-7a22902a9/","_blank","width=800,height=600")
+        }
+        if (header_opcion_instagram.contains(event.target)) {
+            window.open("https://www.instagram.com/leonardo_luna.tdt/","_blank","width=800,height=600")
+        }
+        if (header_opcion_facebook.contains(event.target)) {
+            window.open("https://web.facebook.com/Siklalcuicani/","_blank","width=800,height=600")
+        }
+        if (header_opcion_x.contains(event.target)) {
+            window.open("https://x.com/Leonard85961498","_blank","width=800,height=600")
+        }
+    })
 
     let cuerpo = mkObj(contenedor_principal,"cuerpo","cuerpo")
     // cuerpo.contenidoInfografiaPHP()
@@ -319,58 +337,20 @@ function contenidoInicio() {
                   img_fondo.querySelector("img").setAttribute("src","")
                 }
               });
-              
 
+        let contenido_etiquetas_actividades_catalogo = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades_catalogo","contenido_etiquetas_actividades_catalogo")
+            let etiqueta_actividades_catalogo_fichas_tecnicas = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_fichas_tecnicas","Catálogos y fichas técnicas.","./vista/img/catalogo_fichas_tecnicas.png","Catágos con fichas técnicas, sistema de pedidos")
+            let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
 
         let contenido_habilidades_software_js = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_js")
             let img_js = mkObjImg(contenido_habilidades_software_js,"img_habilidades_software","img_js","./vista/img/img_js.png")
             let descripcion_habilidades_js = mkTextList(contenido_habilidades_software_js,"descripcion_habilidades","descripcion_habilidades",
                 "Habilidades JavaScript:",
-                "Desarrollo de aplicaciones web interactivas.",
-                "Manipulación del DOM.",
-                "Gestión de eventos.",
                 "Ajax y comunicación asíncrona.",
-                "Manipulación de JSON.",
-                "Implementación de animaciones y efectos.",
                 "Desarrollo de aplicaciones de una sola página (SPA).",
                 "Uso de frameworks como React, Angular",
-                "Programación funcional y orientada a objetos.",
-                "Gestión de errores y depuración de código.",
                 "Pruebas unitarias y pruebas de integración.",
-                "Biblioteca personal.",
-                "Programación nativa.",
-                "Exportación EXCEL Y PDF.",
             )
-        // let img_ciudad = mkObjImg(cuerpo_inicio,"img_ciudad","img_ciudad","./vista/img/oficinas.jpg")
-        //     let capa_difuminado_oficina = mkObj(img_ciudad,"capa_difuminado","capa_difuminado_oficina")
-        let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
-            "vista/img/mkDom.png",
-            "vista/img/mkDomDinamico.png",
-        )    
-
-            // let contenido_calendarios_personalizados = mkObj(cuerpo_inicio,"contenido_calendarios_personalizados","contenido_calendarios_personalizados")
-
-            // let descripcion_inicio = mkTextList(contenido_calendarios_personalizados,"descripcion_inicio","descripcion_inicio",
-            //     "Calendarización de eventos.",
-            //     "Registro de eventos a traves de calendarios personalizados.",
-            //     "Distribución de la informacion a través de un solo registro",
-            // )
-        
-            // let ventana_calendarios = mkObj(contenido_calendarios_personalizados,"ventana_calendarios","ventana_calendarios") 
-
-            //     let calendario_input = mkObjInput(ventana_calendarios,"calendario_input","calendario_input","date","Inserta una fecha para ver el calendario.")
-            //     let contenedor_calendario = mkObj(ventana_calendarios,"contenedor_calendario","contenedor_calendario")
-            //         calendario_input.addEventListener("input",function () {
-            //             contenedor_calendario.innerHTML=""
-            //             let fecha = calendario_input.querySelector("input").value
-            //             let calendario = mkCalendario(contenedor_calendario,"calendario","calendario","Calendarios dinámicos con bases de datos.",fecha,
-            //                 "Elemento ejemplo 1",
-            //                 "Actividades Ejemplos",
-            //                 "Leonardo K. Luna",
-            //                 "81 3101 0497"
-            //             )
-            //         })
-
 
         let contenido_etiquetas_actividades_ = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
 
@@ -383,18 +363,12 @@ function contenidoInicio() {
             let contenido_habilidades_software_php = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_php")
                 let descripcion_habilidades_php = mkTextList(contenido_habilidades_software_php,"descripcion_habilidades","descripcion_habilidades",
                     "Habilidades PHP:",
-                    " PDO (PHP Data Objects), interacción con bases de datos.",
-                    "Enfoque de programación modular.",
+                    "PDO (PHP Data Objects), interacción con bases de datos.",
                     "POO (Programación orientada a objetos).",
-                    "Creación y consumo de clases y objetos.",
-                    "Encapsulación, herencia y polimorfismo.",
-                    "Uso de espacios de nombres (namespaces) para la organización y modularidad del código.",
-                    "Aplicación de patron1es de diseño orientado a objetos en PHP.",
+                    "Aplicación de patrones de diseño orientado a objetos en PHP.",
                     "Seguridad en la manipulación de datos y prevención de vulnerabilidades.",
-                    "Optimización del rendimiento y eficiencia del código PHP.",
                 )
                 let img_php = mkObjImg(contenido_habilidades_software_php,"img_habilidades_software","img_php","./vista/img/img_php.png")
-
             let img_seguridad = mkObjImg(cuerpo_inicio,"img_seguridad","img_seguridad")
                 let capa_difuminado_seguridad = mkObj(img_seguridad,"capa_difuminado","capa_difuminado_seguridad")
                 img_seguridad.onScrollIntoView((entry) => {
@@ -408,7 +382,7 @@ function contenidoInicio() {
                     }
                 });
 
-            let contenido_seguridad_informatica = mkObj(cuerpo_inicio,"contenido_seguridad_informatica","contenido_seguridad_informatica")
+            let contenido_seguridad_informatica = mkObj(cuerpo_inicio,"contenido_infografia","contenido_seguridad_informatica")
             contenido_seguridad_informatica.contenidoInfografiaPHP()
 
 
@@ -416,28 +390,38 @@ function contenidoInicio() {
             let img_excel = mkObjImg(contenido_habilidades_software_excel,"img_habilidades_software","img_excel","./vista/img/img_excel.svg")
             let descripcion_habilidades_excel = mkTextList(contenido_habilidades_software_excel,"descripcion_habilidades","descripcion_habilidades",
                 "Habilidades Excel:",
-                "Diseño de formularios y captura de datos",
                 "Diseño de tablas dinámicas.",
-                "Diseño de formulariós dinámicos.",
-                "Control de inventario.",
-                "Centralización global de datos con documentos excel.",
-                "Gráficas.",
                 "Macros.",
-                "Google Drive.",
-                "Google Sheets.",
+                "Control de inventario.",
+                "Gráficas.",
             )
+
+        let contenido_excel = mkObj(cuerpo_inicio,"contenido_infografia","contenido_excel")
+        contenido_excel.contenidoInfografiaExcel()
+
+
+        let img_graficas = mkObjImg(cuerpo_inicio,"img_graficas","img_graficas",)
+            let capa_difuminado_graficas = mkObj(img_graficas,"capa_difuminado","capa_difuminado_graficas")
+            img_graficas.onScrollIntoView((entry) => {
+                if (entry.isIntersecting) {
+                  console.log('The element is visible:', entry.target);
+                  img_fondo.querySelector("img").setAttribute("src","./vista/img/graficas.jpg")
+                  img_fondo.style.display = "flex"; // Show the element
+                } else {
+                  console.log('The element is out of view:', entry.target);
+                  img_fondo.querySelector("img").setAttribute("src","")
+                }
+              });
+              
+
 
         let contenido_habilidades_software_windows = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_windows")
             let descripcion_habilidades_windows = mkTextList(contenido_habilidades_software_windows,"descripcion_habilidades","descripcion_habilidades",
                 "Hablidades Microsoft Windows:",
-                "Configuración y actualización de versiones.",
                 "Solución de problemas comunes.",
-                "Manejo del simbolo del sistema (cmd | bash).",
                 "Mantenimiento general del equipo físico.",
                 "Administración y consultoría remota.",
                 "Gestión de software y actualizaciones.",
-                "Virtualización de entornos.",
-                "Soporte general.",
             )
             let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_habilidades_software","img_windows","./vista/img/img_windows.svg")
 
@@ -483,6 +467,13 @@ function contenidoInicio() {
                 "Github Pages.",
             )
             let img_github = mkObjImg(contenido_habilidades_software_github,"img_habilidades_software","img_github","./vista/img/img_github.svg")
+
+        let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
+            "vista/img/mkDom.png",
+            "vista/img/mkDomDinamico.png",
+        )    
+    
+    
 
 
         let contenido_habilidades_software_gimp = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_gimp")
@@ -550,11 +541,6 @@ function contenidoInicio() {
             "",
         )
 
-        let contenido_etiquetas_actividades_catalogo = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades_catalogo","contenido_etiquetas_actividades_catalogo")
-
-            let etiqueta_actividades_catalogo_fichas_tecnicas = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_fichas_tecnicas","Catálogos y fichas técnicas.","./vista/img/catalogo_fichas_tecnicas.png","Catágos con fichas técnicas, sistema de pedidos")
-            let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
-            // catalogo_fichas_tecnicas.png
 
         let descripcion_mapa = mkTextList(cuerpo_inicio,"descripcion_inicio","descripcion_mapa",
             "Elaboración de reportes con rutas en KML",

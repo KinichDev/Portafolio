@@ -98,3 +98,107 @@ function createSection(titleText, descriptionText, imgSrc, imgAlt, highlightText
 
     return section;
 }
+
+HTMLElement.prototype.contenidoInfografiaExcel = function () {
+    // Contenedor principal
+    const contenedor_infografia = document.createElement("div");
+    contenedor_infografia.className = "contenedor_infografia";
+    contenedor_infografia.style.display = "block";
+
+    // Sección Excel
+    const sectionExcel = createSection(
+        "¿Qué es Excel?",
+        "Excel es una herramienta de hoja de cálculo desarrollada por Microsoft, ampliamente utilizada para organizar, analizar y visualizar datos. Es conocida por su versatilidad y su capacidad para gestionar grandes volúmenes de datos.",
+        "./vista/img/excel.png",
+        "Logo de Microsoft Excel",
+        "Dato Curioso: ¡Excel tiene más de 30 años en el mercado y sigue siendo una de las herramientas más utilizadas en el mundo empresarial!"
+    );
+    this.appendChild(sectionExcel);
+
+    // Sección Funciones Clave
+    const sectionFunctions = createSection(
+        "Funciones Clave de Excel",
+        "Excel ofrece una amplia gama de funciones para el análisis y la gestión de datos, entre las cuales se destacan:",
+        "./vista/img/calculo.jpg",
+        "Ilustración de funciones clave de Excel"
+    );
+    const functionsList = document.createElement("ul");
+    ["Fórmulas y funciones avanzadas para cálculos complejos.",
+     "Tablas dinámicas para resumir datos rápidamente.",
+     "Herramientas de visualización como gráficos y diagramas.",
+     "Capacidades de automatización mediante macros."].forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        functionsList.appendChild(listItem);
+    });
+    sectionFunctions.appendChild(functionsList);
+    this.appendChild(sectionFunctions);
+
+    // Sección Aplicaciones Comunes
+    const sectionApplications = createSection(
+        "Aplicaciones Comunes de Excel",
+        "Excel es utilizado en diversos sectores para múltiples propósitos, como:",
+        "./vista/img/documentos.jpg",
+        "Ilustración de aplicaciones comunes de Excel"
+    );
+    const applicationsList = document.createElement("ul");
+    ["Gestión Financiera: Seguimiento de presupuestos y cálculos contables.",
+     "Análisis de Datos: Filtrado y organización de grandes conjuntos de datos.",
+     "Planeación: Creación de cronogramas y planificación de proyectos.",
+     "Reportes: Generación de informes profesionales."].forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `<strong>${item.split(":")[0]}:</strong>${item.split(":")[1]}`;
+        applicationsList.appendChild(listItem);
+    });
+    sectionApplications.appendChild(applicationsList);
+    this.appendChild(sectionApplications);
+
+    // Sección Importancia Industrial
+    const sectionIndustry = createSection(
+        "Importancia Industrial de Excel",
+        "Excel desempeña un papel crucial en varias industrias, gracias a sus capacidades avanzadas y facilidad de uso:",
+        "./vista/img/almacen.jpg",
+        "Ilustración del impacto industrial de Excel"
+    );
+    const industryList = document.createElement("ul");
+    ["Finanzas: Análisis financiero y predicción de tendencias.",
+     "Educación: Organización de datos académicos y evaluación.",
+     "Salud: Gestión de datos médicos y análisis estadístico.",
+     "Marketing: Seguimiento de campañas y análisis de mercado."].forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item;
+        industryList.appendChild(listItem);
+    });
+    sectionIndustry.appendChild(industryList);
+    this.appendChild(sectionIndustry);
+
+    // Crear Sección
+    function createSection(titleText, descriptionText, imgSrc, imgAlt, highlightText) {
+        const section = document.createElement("div");
+        section.className = "section";
+
+        const title = document.createElement("h2");
+        title.textContent = titleText;
+        section.appendChild(title);
+
+        const description = document.createElement("p");
+        description.textContent = descriptionText;
+        section.appendChild(description);
+
+        if (imgSrc) {
+            const img = document.createElement("img");
+            img.src = imgSrc;
+            img.alt = imgAlt || "";
+            section.appendChild(img);
+        }
+
+        if (highlightText) {
+            const highlight = document.createElement("div");
+            highlight.className = "highlight";
+            highlight.textContent = highlightText;
+            section.appendChild(highlight);
+        }
+
+        return section;
+    }
+};

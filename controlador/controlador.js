@@ -1,7 +1,8 @@
 const body = document.body
-// let ejemplo.mkDiv()
+// let ejemplo.mkObj()
 let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_principal")
     let header = mkObj(contenedor_principal,"header","header")
+    header.style.display = "none"
         let  = mkObj(header,"contenedor_img_header","contenedor_img_header")
 
             let container = mkObj(contenedor_img_header,"container")
@@ -29,11 +30,12 @@ let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_princip
                 let disco_menu_inferior = mkObjObj(contenedor_puntos_menu,"disc","disco_menu_inferior") 
 
             // let menu_header = mkObjImg(contenedor_menu_header,"menu_header","menu_header","./vista/img/menu.png")
-            let pestaña_menu_header = mkObj(header,"pestaña_menu_header","pestaña_menu_header")
+            let pestaña_menu_header = mkObj(contenedor_principal,"pestaña_menu_header","pestaña_menu_header")
                 let header_opcion_github = mkText(pestaña_menu_header,"header_opcion","header_opcion_github","Github")
+                let header_opcion_mkdom = mkText(pestaña_menu_header,"header_opcion","header_opcion_mkdom","mkDom.js")
                 let header_opcion_linkedin = mkText(pestaña_menu_header,"header_opcion","header_opcion_linkedin","LinkedIn")
                 let header_opcion_instagram = mkText(pestaña_menu_header,"header_opcion","header_opcion_instagram","Instagram")
-                let header_opcion_facebook = mkText(pestaña_menu_header,"header_opcion","header_opcion_facebook","Facebook")
+                // let header_opcion_facebook = mkText(pestaña_menu_header,"header_opcion","header_opcion_facebook","Facebook")
                 let header_opcion_x = mkText(pestaña_menu_header,"header_opcion","header_opcion_x","X")
     placerMenu(menu,pestaña_menu_header)
 
@@ -41,15 +43,18 @@ let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_princip
         if (header_opcion_github.contains(event.target)) {
             window.open("https://github.com/KinichDev","_blank","width=800,height=600")
         }
+        if (header_opcion_mkdom.contains(event.target)) {
+            window.open("https://github.com/KinichDev/mkDom.js","_blank","width=800,height=600")
+        }
         if (header_opcion_linkedin.contains(event.target)) {
             window.open("https://www.linkedin.com/in/leonardo-kinich-7a22902a9/","_blank","width=800,height=600")
         }
         if (header_opcion_instagram.contains(event.target)) {
             window.open("https://www.instagram.com/leonardo_luna.tdt/","_blank","width=800,height=600")
         }
-        if (header_opcion_facebook.contains(event.target)) {
-            window.open("https://web.facebook.com/Siklalcuicani/","_blank","width=800,height=600")
-        }
+        // if (header_opcion_facebook.contains(event.target)) {
+        //     window.open("https://web.facebook.com/Siklalcuicani/","_blank","width=800,height=600")
+        // }
         if (header_opcion_x.contains(event.target)) {
             window.open("https://x.com/Leonard85961498","_blank","width=800,height=600")
         }
@@ -69,26 +74,42 @@ function contenidoInicio() {
         let img_fondo = mkObjImg(cuerpo_inicio,"img_fondo","img_fondo")
         img_fondo.style.display = "none"
 
-
         function contenidoDesktopScreen(ventana) {
             if (document.getElementById("barra_herramientas")) {
                 document.getElementById("barra_herramientas").remove()
             }
-            let barra_herramientas = mkDiv(ventana,"barra_herramientas","barra_herramientas")
-                let menu_opciones = mkDivImg(barra_herramientas,"menu_opciones","menu_opciones","./vista/img/menu_opciones.png")
+            let barra_herramientas = mkObj(ventana,"barra_herramientas","barra_herramientas")
+            barra_herramientas.style.display = "flex"
 
-                    let barra_aplicaciones = mkDiv(contenedor_principal,"barra_aplicaciones","barra_aplicaciones")
+            cuerpo_inicio.addEventListener('scroll', function () {
+                let porcentaje = cuerpo_inicio.nivelScroll();
+                console.log(porcentaje)
+                if (parseFloat(porcentaje)<=0.75) {
+                    // barra_herramientas.displayFlex()
+                    barra_herramientas.style.display = "flex"
+                    header.style.display = "none"
+                } else {
+                    // barra_herramientas.displayNone()
+                    barra_herramientas.style.display = "none"
+                    header.style.display = "flex"
+                }
+
+            });
+        
+                let menu_opciones = mkObjImg(barra_herramientas,"menu_opciones","menu_opciones","./vista/img/menu_opciones.png")
+
+                    let barra_aplicaciones = mkObj(contenedor_principal,"barra_aplicaciones","barra_aplicaciones")
                     barra_aplicaciones.style.display = "none"
                     placerMenu(menu_opciones,barra_aplicaciones)
 
-                        let opcion_aplicaciones_imagenes = mkDivImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_imagenes","./vista/img/imagen.png")
+                        let opcion_aplicaciones_imagenes = mkObjImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_imagenes","./vista/img/imagen.png")
 
                             opcion_aplicaciones_imagenes.addEventListener("click", function () {
                                 ventana_imagenes.style.display = "flex";
                                 contenidoImagenes(ventana_imagenes)
                             });
 
-                            let ventana_imagenes = mkDiv(cuerpo,"ventana","ventana_imagenes")
+                            let ventana_imagenes = mkObj(cuerpo,"ventana","ventana_imagenes")
                             ventana_imagenes.style.display="none"
                 
                             flexWindow(ventana_imagenes)
@@ -99,14 +120,14 @@ function contenidoInicio() {
                                 }
                             });
 
-                        let opcion_aplicaciones_estatus_unidades = mkDivImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_estatus_unidades","./vista/img/estatus.png")
+                        let opcion_aplicaciones_estatus_unidades = mkObjImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_estatus_unidades","./vista/img/estatus.png")
 
                             opcion_aplicaciones_estatus_unidades.addEventListener("click", function () {
                                 ventana_estatus.style.display = "flex";
                                 contenidoEstatus(ventana_estatus)
                             });
 
-                            let ventana_estatus = mkDiv(cuerpo,"ventana","ventana_estatus")
+                            let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
                             ventana_estatus.style.display="none"
                 
                             flexWindow(ventana_estatus)
@@ -119,23 +140,14 @@ function contenidoInicio() {
         }
         
 
-    let porcentaje = cuerpo_inicio.nivelScroll();
-    cuerpo_inicio.addEventListener('scroll', function () {
-        porcentaje = cuerpo_inicio.nivelScroll();
-        if (porcentaje!="0.00") {
-            console.log(false)
-        } else {
-            console.log(true)
-        }
-    });
-    if (cuerpo_inicio.nivelScroll()==="0.00") {
-        //console.log(true)
-    }
 
 
     let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/ciudad.jpg")
     contenido_imagen_ciudad.style.position = "relative"
     contenido_imagen_ciudad.querySelector("img").entradaSuave()
+
+    contenidoDesktopScreen(contenido_imagen_ciudad)
+
 
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
 
@@ -143,32 +155,8 @@ function contenidoInicio() {
     contenido_colage.style.position = "absolute"
 
     let contenedor_colage = mkObj(contenido_colage,"contenedor_colage","contenedor_colage")
-        const style = document.createElement('style');
-        document.head.appendChild(style);
-
-        let estilos = '';
-
-        for (let i = 0; i < 1000; i++) {
-
-            let top = Math.random() * 90 + '%';
-            let left = Math.random() * 100 + '%';
-            let color = "#0e0e0e" //`#${Math.floor(Math.random()*16777215).toString(16)}`;  // Generar un color aleatorio
-            let delay = (i * 0.1) + 's';  // Retraso en la animación
-            
-            estilos += `
-                .colage:nth-child(${i}) {
-                    top: ${top};
-                    left: ${left};
-                    background-color: ${color};
-                    animation-delay: ${delay};
-                }
-            `;
-
-            let colage = mkObj(contenedor_colage,"colage")  
-        }
-
-        style.textContent = estilos;
-
+    // contenedor_colage.contenidoColage("1000")
+    contenedor_colage.contenidoColage(750)
         
         // let contenido_perfil = mkTextList(contenido_imagen_ciudad,"contenido_experiencia_destacada","contenido_experiencia_destacada_perfil_personal",
         //     "Perfil.",
@@ -181,11 +169,11 @@ function contenidoInicio() {
         //     "Diseño.",
         // );contenido_perfil.style.position = "absolute"
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
-            "Bienvenido, gracias por visitar mi portafolio.",
-            "Aquí encontrarás mis proyectos y habilidades destacadas.",
+            "Gracias por visitar mi portafolio.",
             "Cada trabajo refleja mi pasión y creatividad.",
             "Estoy abierto a nuevos desafíos y colaboraciones.",
             "Espero que disfrutes navegando y contactes pronto.",
+            "Aquí encontrarás mis proyectos y habilidades destacadas.",
         )
 
         function animateText(texts) {
@@ -313,34 +301,42 @@ function contenidoInicio() {
         
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia General.",
-            "8 años de experiencia en entornos empresariales.",
-            "Captura de datos -> Control de Inventarios -> Administración Logística -> Monitoreo -> Desarrollo de software.",
-            "Programación orientada al control de inventario, administración logística, corrección de errores y validadción de datos.",
-            "Mejora e implementación de sistemas para manejo de información en tiempo real.",
+            "11 años de experiencia en entornos empresariales.",
+            "Control y automatización de Inventarios -> Administración Logística -> Bitácora y Monitoreo -> Desarrollo de software.",
         )
 
         let contenido_etiquetas_actividades = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
+        contenido_etiquetas_actividades.style.borderBottom = "solid 1px rgba(0, 0, 0, 0.33)"
 
             let etiqueta_actividades_sistema_usuarios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_sistema_usuarios","Sistema de Usuarios.","./vista/img/actividades_login.png","Registro, autentificación, gestión de perfiles, seguridad de contraseñas...")
             let etiqueta_actividades_formularios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Formularios.","./vista/img/actividades_formularios.png","Formularios con validaciones de datos...")
             let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Encuestas  y cajas de sujerencias.","./vista/img/actividades_encuestas_sugerencias.png","Encuestas y caja de sugerencias personalizadas para validaciones de datos...")
+
+        let video_web = mkObjVideoLoop(cuerpo_inicio,"video_web","video_web","./vista/video/web.mp4")
+
+        let contenido_etiquetas_actividades_catalogo = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades_catalogo","contenido_etiquetas_actividades_catalogo")
+        contenido_etiquetas_actividades_catalogo.style.borderTop = "solid 1px rgba(0, 0, 0, 0.33)"
+
+            let etiqueta_actividades_catalogo_fichas_tecnicas = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_fichas_tecnicas","Catálogos y fichas técnicas.","./vista/img/catalogo_fichas_tecnicas.png","Catágos con fichas técnicas, sistema de pedidos")
+            let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
+
 
         let img_escritorio = mkObjImg(cuerpo_inicio,"img_escritorio","img_escritorio",)
             let capa_difuminado_escritorio = mkObj(img_escritorio,"capa_difuminado","capa_difuminado_escritorio")
             img_escritorio.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {
                   console.log('The element is visible:', entry.target);
-                  img_fondo.querySelector("img").setAttribute("src","./vista/img/escritorio.jpg")
+                  img_fondo.querySelector("img").setAttribute("src","./vista/img/escritorio.jpg" + "?" + new Date().getTime())
                   img_fondo.style.display = "flex"; // Show the element
                 } else {
                   console.log('The element is out of view:', entry.target);
-                  img_fondo.querySelector("img").setAttribute("src","")
+                  img_fondo.style.display = "none"
+                  setTimeout(() => {
+                    img_fondo.querySelector("img").setAttribute("src","")
+                }, 500);
                 }
               });
 
-        let contenido_etiquetas_actividades_catalogo = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades_catalogo","contenido_etiquetas_actividades_catalogo")
-            let etiqueta_actividades_catalogo_fichas_tecnicas = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_fichas_tecnicas","Catálogos y fichas técnicas.","./vista/img/catalogo_fichas_tecnicas.png","Catágos con fichas técnicas, sistema de pedidos")
-            let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
 
         let contenido_habilidades_software_js = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_js")
             let img_js = mkObjImg(contenido_habilidades_software_js,"img_habilidades_software","img_js","./vista/img/img_js.png")
@@ -351,6 +347,8 @@ function contenidoInicio() {
                 "Uso de frameworks como React, Angular",
                 "Pruebas unitarias y pruebas de integración.",
             )
+
+        let diagrama_js = mkObjImg(cuerpo_inicio,"diagrama","diagrama_js","./vista/img/diagrama_js.png")
 
         let contenido_etiquetas_actividades_ = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
 
@@ -378,7 +376,11 @@ function contenidoInicio() {
                     img_fondo.style.display = "flex"; // Show the element
                     } else {
                     console.log('The element is out of view:', entry.target);
-                    img_fondo.querySelector("img").setAttribute("src","")
+                    img_fondo.style.display = "none"
+                    setTimeout(() => {
+                      img_fondo.querySelector("img").setAttribute("src","")
+                  }, 500);
+  
                     }
                 });
 
@@ -409,7 +411,11 @@ function contenidoInicio() {
                   img_fondo.style.display = "flex"; // Show the element
                 } else {
                   console.log('The element is out of view:', entry.target);
-                  img_fondo.querySelector("img").setAttribute("src","")
+                  img_fondo.style.display = "none"
+                  setTimeout(() => {
+                    img_fondo.querySelector("img").setAttribute("src","")
+                }, 500);
+
                 }
               });
               
@@ -425,6 +431,7 @@ function contenidoInicio() {
             )
             let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_habilidades_software","img_windows","./vista/img/img_windows.svg")
 
+
         let contenido_habilidades_software_debian = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_debian")
             let img_debian = mkObjImg(contenido_habilidades_software_debian,"img_habilidades_software","img_debian","./vista/img/img_debian.svg")
             let descripcion_habilidades_debian = mkTextList(contenido_habilidades_software_debian,"descripcion_habilidades","descripcion_habilidades",
@@ -436,6 +443,9 @@ function contenidoInicio() {
                 "Virtualización de entornos.",
                 "Soporte general.",
             )
+
+        let video_programacion = mkObjVideoLoop(cuerpo_inicio,"video_programacion","video_programacion","./vista/video/programming.mp4")
+        
         let contenido_habilidades_software_ubuntu = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_ubuntu")
             let descripcion_habilidades_ubuntu = mkTextList(contenido_habilidades_software_ubuntu,"descripcion_habilidades","descripcion_habilidades",
                 "Hablidades Ubuntu:",

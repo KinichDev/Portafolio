@@ -50,12 +50,13 @@
     --colorGreenWHover:#60bc60;
     --colorPink:#f45f85;
     --colorAzul:#0e3d5d;
-
+    --colorblue: #1e3a8a ;
+    
     --colorBlueLetra: #103eb9;
 
     --placeIn: fadeIn .5s forwards;
 
-    --colorBlueLight:#1aa8e5;
+    --colorBlueLight:#007bff;
 
     --distDisc: 22px;
     --paddingDisc: 12px;
@@ -125,12 +126,14 @@ img{
 }
 
 .header{
-    height: 35px;
+    height: 38px;
     position: relative;
     padding: 3px;
     padding-left: 12px;
     align-items: center;
     padding: 3px;
+    animation: fadeIn .5s forwards;
+    background-color: var(--colorblue) ;
 }
 
 .cont_img_header{
@@ -268,7 +271,7 @@ img{
 .pestaña_menu_header{
     background-color: white;
     position: absolute;
-    top: 78px;
+    top: 50px;
     box-shadow: 0 0 12px var(--colordark);
     padding: 12px;
     opacity: 0.92;
@@ -277,9 +280,10 @@ img{
     animation: fadeIn .5s forwards;
     z-index: 255;
     width: min-content;
-    right: 0;
+    right: 15px;
     flex-direction: column;
     padding: 6px;
+    z-index: 1000;
 }
 
 .cont_header_opcion{
@@ -290,14 +294,14 @@ img{
     align-items: center;
     /* justify-content: center; */
     margin-right: 6px;
-    background-color: var(--colorAzul);
+    background-color: #0056b3 ;
     color: var(--colorlight);
     cursor: pointer;
     user-select: none;
     padding: 6px;
-    margin-bottom: 3px;
+    margin-bottom: 7px;
 }.cont_header_opcion:hover{
-    background-color: var(--colorGreenWHover);
+    background-color: #4a7fb9 ;
 }
 
 .header_opcion{
@@ -1353,7 +1357,7 @@ img{
 }
 
 .cont_ventana_descripcion_actividad_header_cerrar{
-    width: min-content;
+    width: 50px;
     padding: 3px;
     border-radius: 7px;
     transition: background-color .25s ease;
@@ -2004,6 +2008,7 @@ img{
     height: initial;
     padding: 7px;
     z-index: 1;
+    border-bottom: solid 20px white;
 }
 
 .cont_contenido_experiencia_destacada {
@@ -2042,3 +2047,379 @@ img{
 #sub_text_contenido_experiencia_destacada_4 {
     font-style: italic;
 }
+
+
+.cont_video_web{
+    justify-content: end;
+    background-color: white;
+    height: min-content;
+    z-index: 1;
+}
+
+.video_web{
+    height: 370px;
+}
+.cont_video_programacion{
+    background-color: white;
+    height: min-content;
+    padding: 5px;
+    z-index: 1;
+    justify-content: center;
+}
+
+.video_programacion{
+    height: 370px;
+    box-shadow: 0 0 9px var(--colordark);
+    border-radius: 6px;
+}
+
+
+.cont_diagrama{
+    justify-content: center;
+    height: 70%;
+    z-index: 1;
+    background-color: white;
+    padding: 15px 0px ;
+}
+
+.diagrama{
+}
+
+
+
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+
+
+.barra_herramientas {
+    color: var(--colorTextWhite);
+    background-color: #1e3a8a ;
+    box-shadow: 0 0 3px white;
+    align-items: center;
+    justify-content: space-between;
+    height: min-content;
+    position: absolute;
+    bottom: 11px;
+    z-index: 1000;
+    border-radius: 15px;
+    animation: fadeIn .5s forwards;
+}
+
+.aviso_usuario {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--colorRedHover);
+    color: var(--colorTextWhite);
+    text-align: center;
+    border-radius: 4px;
+    animation: fadeIn 1s;
+}
+
+
+.ventana {
+    position: absolute;
+    background-color: var(--colorlight);
+    border-radius: 8px;
+    box-shadow: 0 0 19px rgba(0, 0, 0, 0.514);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+    width: min-content;
+    height: min-content;
+}
+
+.cont_menu_opciones{
+    width: min-content;
+    height: 40px;
+    width: 40px;
+
+}
+
+.menu_opciones {
+    padding: 2px;
+    cursor: pointer;
+    transition: padding 0.15s ease;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.menu_opciones:hover {
+    padding: 3px;
+}
+
+.barra_aplicaciones{
+    position: absolute;
+    flex-direction: column;
+    border-radius: 20px;
+    width: min-content;
+    min-width: 50px;
+    min-height: 150px;
+    height: min-content;
+    box-shadow: 0 0 19px rgba(0, 0, 0, 0.514);
+    bottom: 100px;
+    left: 40px;
+    padding: 6px;
+    background-color: white;
+}
+
+.img_opcion_aplicaciones{
+    cursor: pointer;
+}.img_opcion_aplicaciones:hover{
+    background-color: var(--colorAzulHover);
+
+}
+
+.pestaña{
+    /* position: relative; */
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.contenedor_opcion_aplicaciones{
+    /* background-color: black; */
+}
+
+.img_minimizar_pestaña{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}.img_minimizar_pestaña:hover{
+    opacity: .6;
+}
+
+.contenedor_minimizar_pestaña{
+    top: 10px;
+    right: 10px;
+    justify-content: end;
+}
+
+.hipercapa{
+    height: 100%;
+    width: 100%;
+}
+
+.header_pestaña{
+    height: 50px;
+    position: relative;
+    padding: 10px;
+}
+
+.cuerpo_pestaña{
+    flex-direction: column;
+    background-color: white;
+    min-width: 600px;
+    overflow: auto;
+    max-height: 90%;
+}
+
+.cont_btn{
+    height: min-content ;
+    padding: 12px;
+    justify-content: center;
+}
+
+.cont_formulario_imagenes{
+    padding: 6px;
+    height: min-content;
+}
+
+/* Contenedor principal */
+.cont_tittle_header_pestaña {
+    background-color: #f8f9fa; /* Fondo claro */
+    border-radius: 8px;
+    box-shadow: 0 0px 4px black; /* Sombra sutil */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transiciones suaves */
+    position: relative;
+    justify-content: center;
+  }
+  
+  /* Estilo del texto */
+  .tittle_header_pestaña {
+    font-family: 'Roboto', sans-serif; /* Fuente similar a Google */
+    font-size: 16px;
+    color: #202124; /* Color oscuro estándar */
+    font-weight: 500; /* Peso medio */
+  }
+  
+  /* Efecto hover */
+  .cont_tittle_header_pestaña:hover {
+    background-color: #e8f0fe; /* Fondo azul claro en hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Mayor sombra en hover */
+  }
+  
+  /* Efecto activo */
+  .cont_tittle_header_pestaña:active {
+    background-color: #d2e3fc; /* Fondo más oscuro en clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más marcada */
+  }
+  
+/* Menú desplegable */
+.menu_header_pestaña {
+    position: absolute;
+    background-color: white;
+    display: none; /* Inicialmente oculto */
+    top: 70px; /* Ajusta según la ubicación deseada */
+    left: 10px; /* Ajusta según la ubicación deseada */
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Sombra con mayor suavidad */
+    flex-direction: column;
+    min-width: 200px; /* Tamaño mínimo del menú */
+    z-index: 1000; /* Para asegurarse de que quede encima de otros elementos */
+    height: max-content;
+  }
+  
+  /* Contenedor de las opciones */
+  .cont_option_menu_header {
+    padding: 12px 16px; /* Espaciado interno */
+    border-bottom: 1px solid #e0e0e0; /* Separador entre opciones */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Última opción sin borde inferior */
+  .cont_option_menu_header:last-child {
+    border-bottom: none;
+  }
+  
+  /* Estilo de las opciones */
+  .option_menu_header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #202124; /* Color oscuro */
+    font-weight: 400; /* Peso normal */
+  }
+  
+  /* Efecto hover en las opciones */
+  .cont_option_menu_header:hover {
+    background-color: #f1f3f4; /* Fondo claro en hover */
+  }
+  
+  /* Efecto activo (clic) */
+  .cont_option_menu_header:active {
+    background-color: #e8f0fe; /* Fondo azul claro en clic */
+    color: #1a73e8; /* Color azul para el texto */
+  }
+  
+  /* Contenedor principal del input */
+.input {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #dce6f1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:hover {
+    border-color: #0073b1;
+    box-shadow: 0 4px 8px rgba(0, 115, 177, 0.2);
+}
+
+/* Contenido del input */
+.contenido_input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Contenedor del título */
+.contenedor_titulo_input {
+    display: flex;
+    align-items: center;
+}
+
+/* Título del input */
+.titulo_input {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 4px;
+}
+
+/* Contenido del campo de texto */
+.contenido_input_input {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor_input_input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Campo de entrada */
+.input_input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #dce6f1;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #f9fafb;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input_input:focus {
+    border-color: #0073b1;
+    background-color: #ffffff;
+}
+
+.input_input::placeholder {
+    color: #a6a6a6;
+}
+
+.input_input:hover::placeholder {
+    color: #0073b1;
+}
+
+
+/* Contenedor principal */
+.cont_estatus {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff; /* Fondo blanco para profesionalismo */
+    border: 1px solid #d6d9dc; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 16px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo */
+    margin: 16px auto; /* Centramos el contenedor */
+    cursor: pointer;
+}.cont_estatus:hover{
+    background-color: var(--colorAzulClaro);
+}
+
+/* Texto general */
+.cont_estatus .estatus {
+    color: #333333; /* Color oscuro para el texto */
+    font-size: 14px; /* Tamaño estándar */
+    line-height: 1.6; /* Altura de línea agradable */
+}
+
+/* Destacar títulos */
+.cont_estatus .estatus strong {
+    color: #0073b1; /* Azul profesional estilo LinkedIn */
+    font-weight: 600; /* Resaltamos el título */
+}
+
+/* Espaciado entre líneas */
+.cont_estatus .estatus br {
+    margin-bottom: 8px; /* Espacio entre líneas */
+}
+
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+

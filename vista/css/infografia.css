@@ -28,7 +28,7 @@
 
 /* Scrollbar styles */
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 3px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -82,6 +82,7 @@ h1 {
     transition: background-color 0.3s ease;
     flex-direction: column;
     margin: 5px;
+    justify-content: space-between;
 }
 
 .section:hover {
@@ -95,14 +96,12 @@ h2 {
 
 p {
     line-height: 1.6;
-    margin-bottom: 15px;
 }
 
 img {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
-    margin: 10px 0;
 }
 
 ul {

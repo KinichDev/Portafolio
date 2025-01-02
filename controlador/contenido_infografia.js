@@ -19,7 +19,7 @@ HTMLElement.prototype.contenidoInfografiaPHP = function () {
 
     // Sección PDO
     const sectionPDO = createSection(
-        "Introducción a PDO",
+        "PHP Data Objects",
         "PDO (PHP Data Objects) es una biblioteca de acceso a bases de datos para PHP que proporciona una forma uniforme de interactuar con múltiples sistemas de bases de datos.",
         "./vista/img/pdo.png",
         "Ilustración del uso de PDO"

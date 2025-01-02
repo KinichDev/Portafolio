@@ -17,7 +17,160 @@
 // mkDomer            #
 // mkDomer             ##
 
-// TODO DIVS ///////////////////////////////////
+HTMLElement.prototype.displayNone = function () {
+    this.style.animation = "fadeOut 0.5s forwards"
+    setTimeout(() => {
+        this.style.display = "none"
+        this.style.animation = false
+
+        return this
+    }, 1000)
+};
+
+HTMLElement.prototype.displayFlex = function () {
+    this.style.animation = "fadeIn 0.5s forwards"
+    setTimeout(() => {
+        this.style.display = "flex"
+        this.style.animation = false
+
+        return this
+    }, 1000)
+};
+
+// 
+// 
+// 
+//  ANIMACIONES
+// entradaSuave
+HTMLElement.prototype.entradaSuave = function () {
+    if (!(this instanceof HTMLElement)) {
+        console.error("Este método solo se puede usar en elementos HTML.");
+        return;
+    }
+
+    let animacionEstilos = `
+        @keyframes tomasCinematicasLentas {
+            0% {
+                background-color: black;
+                filter: brightness(0.2) blur(10px);
+                transform: scale(1) translate(0, 0);
+            }
+            25% {
+                background-color: black;
+                filter: brightness(0.4) blur(8px);
+                transform: scale(1.2) translate(10%, -10%);
+            }
+            50% {
+                background-color: black;
+                filter: brightness(0.6) blur(6px);
+                transform: scale(1.3) translate(20%, -12%);
+            }
+            75% {
+                background-color: black;
+                filter: brightness(0.8) blur(3px);
+                transform: scale(1.2) translate(10%, 10%);
+            }
+            100% {
+                background-color: transparent;
+                filter: brightness(1) blur(0);
+                transform: scale(1) translate(0, 0);
+            }
+        }
+    `;
+
+    // Insertar los estilos en el documento si no están ya definidos
+    if (!document.querySelector("style#tomasCinematicasLentas")) {
+        let estilo = document.createElement("style");
+        estilo.id = "tomasCinematicasLentas";
+        estilo.textContent = animacionEstilos;
+        document.head.appendChild(estilo);
+    }
+
+    // Configuración del elemento para repetir la animación infinitamente
+    this.style.animation = "tomasCinematicasLentas 60s ease-in-out infinite";
+};
+
+
+
+
+
+// 
+// /////////////////////////
+
+HTMLElement.prototype.onScrollIntoView = function (callback, options = { root: null, threshold: 0.1 }) {
+    if (typeof callback !== 'function') {
+      throw new Error('Callback must be a function.');
+    }
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        callback(entry); // Pass the entry to the callback
+      });
+    }, options);
+  
+    // Start observing the current element
+    observer.observe(this);
+  
+    // Return the observer instance to allow manual disconnect if needed
+    return observer;
+  };
+    
+  
+
+
+
+// Extensión de HTMLElement para calcular el nivel de scroll
+HTMLElement.prototype.nivelScroll = function () {
+    let scrollTop = this.scrollTop; // Distancia desde la parte superior
+    let scrollHeight = this.scrollHeight; // Altura total del contenido
+    let clientHeight = this.clientHeight; // Altura visible del contenedor
+
+    // Calcula el porcentaje de scroll
+    let porcentajeScroll = (scrollTop / (scrollHeight - clientHeight)) * 100;
+    return porcentajeScroll.toFixed(2); // Retorna el porcentaje con dos decimales
+};
+
+HTMLElement.prototype.removeElement = function () {
+    this.style.animation = "fadeOut 0.3s forwards";
+
+    setTimeout(() => {
+        if (this.parentNode) {
+            this.remove();
+        }
+    }, 1000); 
+};
+
+HTMLElement.prototype.mkObjw = function (nodo,clase,id,inner) {
+    c?true:c=""
+    i?true:i=""
+    inner?true:inner=""
+
+    let div = document.createElement("div")
+    c=""?true:div.setAttribute("class",c)
+    i=""?true:div.setAttribute("id",i)
+    inner=""?true:div.innerHTML=inner
+
+    return div
+};
+HTMLElement.prototype.toggleDisplayFlexNone = function () {
+    if (!(this instanceof HTMLElement)) {
+        console.error("Esta función solo se puede llamar con objetos HTML.");
+        return;
+    }
+
+    // Obtén el estilo actual del elemento
+    let currentDisplay = getComputedStyle(this).display;
+
+    // Alterna entre 'flex' y 'none'
+    if (currentDisplay === "none") {
+        this.style.display = "flex";
+    } else if (currentDisplay === "flex") {
+        this.style.display = "none";
+    } else {
+        console.warn("Este elemento no cuenta con los estilos necesarios:", currentDisplay);
+    }
+};
+
 
 function div(c,i,inner) { // ! CREAR UNA ETIQUETA DIV (clase, id, inner)
     c?true:c="";i?true:i="";inner?true:inner="";
@@ -989,7 +1142,7 @@ function displayScroll(parentContainer) {
     console.log(elements);
 
     elements.forEach(element => {
-        element.style.transition = "opacity 1.7s";
+        element.style.transition = "opacity 1s";
         element.style.opacity = "0"; // Establecer la opacidad inicial en 0
     });
 

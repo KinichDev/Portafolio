@@ -1,4 +1,5 @@
 const body = document.body
+// let ejemplo.mkDiv()
 let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_principal")
     let header = mkObj(contenedor_principal,"header","header")
         let  = mkObj(header,"contenedor_img_header","contenedor_img_header")
@@ -37,6 +38,7 @@ let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_princip
     placerMenu(menu,pestaña_menu_header)
 
     let cuerpo = mkObj(contenedor_principal,"cuerpo","cuerpo")
+    // cuerpo.contenidoInfografiaPHP()
 
 
     contenidoInicio()
@@ -46,8 +48,76 @@ function contenidoInicio() {
 
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
+        let img_fondo = mkObjImg(cuerpo_inicio,"img_fondo","img_fondo")
+        img_fondo.style.display = "none"
+
+
+        function contenidoDesktopScreen(ventana) {
+            if (document.getElementById("barra_herramientas")) {
+                document.getElementById("barra_herramientas").remove()
+            }
+            let barra_herramientas = mkDiv(ventana,"barra_herramientas","barra_herramientas")
+                let menu_opciones = mkDivImg(barra_herramientas,"menu_opciones","menu_opciones","./vista/img/menu_opciones.png")
+
+                    let barra_aplicaciones = mkDiv(contenedor_principal,"barra_aplicaciones","barra_aplicaciones")
+                    barra_aplicaciones.style.display = "none"
+                    placerMenu(menu_opciones,barra_aplicaciones)
+
+                        let opcion_aplicaciones_imagenes = mkDivImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_imagenes","./vista/img/imagen.png")
+
+                            opcion_aplicaciones_imagenes.addEventListener("click", function () {
+                                ventana_imagenes.style.display = "flex";
+                                contenidoImagenes(ventana_imagenes)
+                            });
+
+                            let ventana_imagenes = mkDiv(cuerpo,"ventana","ventana_imagenes")
+                            ventana_imagenes.style.display="none"
+                
+                            flexWindow(ventana_imagenes)
+
+                            document.addEventListener("mouseup", function (event) {
+                                if (!ventana_imagenes.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
+                                    ventana_imagenes.style.display = "none";
+                                }
+                            });
+
+                        let opcion_aplicaciones_estatus_unidades = mkDivImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_estatus_unidades","./vista/img/estatus.png")
+
+                            opcion_aplicaciones_estatus_unidades.addEventListener("click", function () {
+                                ventana_estatus.style.display = "flex";
+                                contenidoEstatus(ventana_estatus)
+                            });
+
+                            let ventana_estatus = mkDiv(cuerpo,"ventana","ventana_estatus")
+                            ventana_estatus.style.display="none"
+                
+                            flexWindow(ventana_estatus)
+
+                            document.addEventListener("mouseup", function (event) {
+                                if (!ventana_estatus.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
+                                    ventana_estatus.style.display = "none";
+                                }
+                            });
+        }
+        
+
+    let porcentaje = cuerpo_inicio.nivelScroll();
+    cuerpo_inicio.addEventListener('scroll', function () {
+        porcentaje = cuerpo_inicio.nivelScroll();
+        if (porcentaje!="0.00") {
+            console.log(false)
+        } else {
+            console.log(true)
+        }
+    });
+    if (cuerpo_inicio.nivelScroll()==="0.00") {
+        //console.log(true)
+    }
+
+
     let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/ciudad.jpg")
     contenido_imagen_ciudad.style.position = "relative"
+    contenido_imagen_ciudad.querySelector("img").entradaSuave()
 
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
 
@@ -82,16 +152,16 @@ function contenidoInicio() {
         style.textContent = estilos;
 
         
-        let contenido_perfil = mkTextList(contenido_imagen_ciudad,"contenido_experiencia_destacada","contenido_experiencia_destacada_perfil_personal",
-            "Perfil.",
-            "Leonardo K. Luna",
-            "Informática, monitoreo, logística y desarrollo",
-            "México D.F. (CDMX) - 2025.",
-            "Especialista en desarrollo Web.",
-            "Fullstack Development.",
-            "Logística.",
-            "Diseño.",
-        );contenido_perfil.style.position = "absolute"
+        // let contenido_perfil = mkTextList(contenido_imagen_ciudad,"contenido_experiencia_destacada","contenido_experiencia_destacada_perfil_personal",
+        //     "Perfil.",
+        //     "Leonardo K. Luna",
+        //     "Informática, monitoreo, logística y desarrollo",
+        //     "México D.F. (CDMX) - 2025.",
+        //     "Especialista en desarrollo Web.",
+        //     "Fullstack Development.",
+        //     "Logística.",
+        //     "Diseño.",
+        // );contenido_perfil.style.position = "absolute"
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
             "Bienvenido, gracias por visitar mi portafolio.",
             "Aquí encontrarás mis proyectos y habilidades destacadas.",
@@ -118,7 +188,6 @@ function contenidoInicio() {
             });
         }
 
-        // Iniciar la animación
         animateText(texto_code);
 
         let inicio_mapa = mkObj(contenido_imagen_ciudad,"inicio_mapa","inicio_mapa")
@@ -222,17 +291,7 @@ function contenidoInicio() {
             generarEdificiosAleatorios();
             moveIcon();
         }
-
-        // Inicia el mapa en el div con id "miDiv"
         initMapa(inicio_mapa);
-
-
-        let contenido_square = mkObj(cuerpo_inicio,"contenido_square","contenido_square")
-            let contenedor_square = mkObj(contenido_square,"contenedor_square","contenedor_square")
-                for (let i = 0; i < 4; i++) {
-                    let square = mkObj(contenedor_square,"square")
-                }
-
         
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia General.",
@@ -247,6 +306,20 @@ function contenidoInicio() {
             let etiqueta_actividades_sistema_usuarios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_sistema_usuarios","Sistema de Usuarios.","./vista/img/actividades_login.png","Registro, autentificación, gestión de perfiles, seguridad de contraseñas...")
             let etiqueta_actividades_formularios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Formularios.","./vista/img/actividades_formularios.png","Formularios con validaciones de datos...")
             let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Encuestas  y cajas de sujerencias.","./vista/img/actividades_encuestas_sugerencias.png","Encuestas y caja de sugerencias personalizadas para validaciones de datos...")
+
+        let img_escritorio = mkObjImg(cuerpo_inicio,"img_escritorio","img_escritorio",)
+            let capa_difuminado_escritorio = mkObj(img_escritorio,"capa_difuminado","capa_difuminado_escritorio")
+            img_escritorio.onScrollIntoView((entry) => {
+                if (entry.isIntersecting) {
+                  console.log('The element is visible:', entry.target);
+                  img_fondo.querySelector("img").setAttribute("src","./vista/img/escritorio.jpg")
+                  img_fondo.style.display = "flex"; // Show the element
+                } else {
+                  console.log('The element is out of view:', entry.target);
+                  img_fondo.querySelector("img").setAttribute("src","")
+                }
+              });
+              
 
 
         let contenido_habilidades_software_js = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_js")
@@ -268,10 +341,12 @@ function contenidoInicio() {
                 "Programación nativa.",
                 "Exportación EXCEL Y PDF.",
             )
-            let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
-                "vista/img/mkDom.png",
-                "vista/img/mkDomDinamico.png",
-            )    
+        // let img_ciudad = mkObjImg(cuerpo_inicio,"img_ciudad","img_ciudad","./vista/img/oficinas.jpg")
+        //     let capa_difuminado_oficina = mkObj(img_ciudad,"capa_difuminado","capa_difuminado_oficina")
+        let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
+            "vista/img/mkDom.png",
+            "vista/img/mkDomDinamico.png",
+        )    
 
             // let contenido_calendarios_personalizados = mkObj(cuerpo_inicio,"contenido_calendarios_personalizados","contenido_calendarios_personalizados")
 
@@ -314,12 +389,27 @@ function contenidoInicio() {
                     "Creación y consumo de clases y objetos.",
                     "Encapsulación, herencia y polimorfismo.",
                     "Uso de espacios de nombres (namespaces) para la organización y modularidad del código.",
-                    "Aplicación de patrones de diseño orientado a objetos en PHP.",
+                    "Aplicación de patron1es de diseño orientado a objetos en PHP.",
                     "Seguridad en la manipulación de datos y prevención de vulnerabilidades.",
                     "Optimización del rendimiento y eficiencia del código PHP.",
                 )
                 let img_php = mkObjImg(contenido_habilidades_software_php,"img_habilidades_software","img_php","./vista/img/img_php.png")
-            
+
+            let img_seguridad = mkObjImg(cuerpo_inicio,"img_seguridad","img_seguridad")
+                let capa_difuminado_seguridad = mkObj(img_seguridad,"capa_difuminado","capa_difuminado_seguridad")
+                img_seguridad.onScrollIntoView((entry) => {
+                    if (entry.isIntersecting) {
+                    console.log('The element is visible:', entry.target);
+                    img_fondo.querySelector("img").setAttribute("src","./vista/img/seguridad.jpg")
+                    img_fondo.style.display = "flex"; // Show the element
+                    } else {
+                    console.log('The element is out of view:', entry.target);
+                    img_fondo.querySelector("img").setAttribute("src","")
+                    }
+                });
+
+            let contenido_seguridad_informatica = mkObj(cuerpo_inicio,"contenido_seguridad_informatica","contenido_seguridad_informatica")
+            contenido_seguridad_informatica.contenidoInfografiaPHP()
 
 
         let contenido_habilidades_software_excel = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_excel")
@@ -491,7 +581,7 @@ function contenidoInicio() {
             
             // Escuchar el evento 'change' del input
             let in_mapa = input_mapa.querySelector("input")
-            console.log(in_mapa)
+            //console.log(in_mapa)
             
 
             in_mapa.addEventListener('change', mapaRuta);

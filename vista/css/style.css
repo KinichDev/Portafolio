@@ -284,6 +284,7 @@ img{
     flex-direction: column;
     padding: 6px;
     z-index: 1000;
+    border-radius: 12px;
 }
 
 .cont_header_opcion{
@@ -1850,6 +1851,10 @@ img{
     z-index: 50;
 }
 
+#capa_difuminado_github{
+    background: linear-gradient(to bottom, var(--colorlight), transparent,var(--colorlight));
+}
+
 .cont_text{
     position: absolute;
     width: max-content;
@@ -2453,8 +2458,10 @@ img{
     justify-content: center;
     max-height: 50%;
     overflow: auto;
-    margin: 5px 25%;
+    margin: 5px;
     box-shadow: 0 0 4px black;
+    min-width: 600px;
+    position: relative;
 }
 
 .markdown-body{
@@ -2473,4 +2480,125 @@ img{
 
 .markdown-body h1{
     color: #007bff;
+}
+
+
+
+#cont_habilidades_destacadas_web {
+    background: #f9f9f9; /* Fondo claro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s;
+    opacity: 1;
+    background-color: white;
+    z-index: 1;
+}
+
+#cont_sub_text_habilidades_destacadas_web_0,
+#cont_sub_text_habilidades_destacadas_web_1,
+#cont_sub_text_habilidades_destacadas_web_2,
+#cont_sub_text_habilidades_destacadas_web_3,
+#cont_sub_text_habilidades_destacadas_web_4,
+#cont_sub_text_habilidades_destacadas_web_5,
+#cont_sub_text_habilidades_destacadas_web_6,
+#cont_sub_text_habilidades_destacadas_web_7,
+#cont_sub_text_habilidades_destacadas_web_8 {
+    margin-bottom: 10px;
+}
+
+#sub_text_habilidades_destacadas_web_0,
+#sub_text_habilidades_destacadas_web_1,
+#sub_text_habilidades_destacadas_web_2,
+#sub_text_habilidades_destacadas_web_3,
+#sub_text_habilidades_destacadas_web_4,
+#sub_text_habilidades_destacadas_web_5,
+#sub_text_habilidades_destacadas_web_6,
+#sub_text_habilidades_destacadas_web_7,
+#sub_text_habilidades_destacadas_web_8 {
+    font-family: 'Open Sans', sans-serif;
+    color: #333; /* Color de texto oscuro */
+    margin: 0;
+    padding: 10px;
+    background: #fff; /* Fondo blanco para los textos */
+    border-left: 4px solid #2f55d4; /* Barra lateral azul */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+#sub_text_habilidades_destacadas_web_0 {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#cont_habilidades_destacadas_administracion {
+    background: #f9f9f9; /* Fondo claro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s;
+    opacity: 1;
+    background-color: white;
+    z-index: 1;
+}
+
+#cont_sub_text_habilidades_destacadas_administracion_0,
+#cont_sub_text_habilidades_destacadas_administracion_1,
+#cont_sub_text_habilidades_destacadas_administracion_2,
+#cont_sub_text_habilidades_destacadas_administracion_3,
+#cont_sub_text_habilidades_destacadas_administracion_4,
+#cont_sub_text_habilidades_destacadas_administracion_5,
+#cont_sub_text_habilidades_destacadas_administracion_6,
+#cont_sub_text_habilidades_destacadas_administracion_7,
+#cont_sub_text_habilidades_destacadas_administracion_8 {
+    margin-bottom: 10px;
+}
+
+#sub_text_habilidades_destacadas_administracion_0,
+#sub_text_habilidades_destacadas_administracion_1,
+#sub_text_habilidades_destacadas_administracion_2,
+#sub_text_habilidades_destacadas_administracion_3,
+#sub_text_habilidades_destacadas_administracion_4,
+#sub_text_habilidades_destacadas_administracion_5,
+#sub_text_habilidades_destacadas_administracion_6,
+#sub_text_habilidades_destacadas_administracion_7,
+#sub_text_habilidades_destacadas_administracion_8 {
+    font-family: 'Open Sans', sans-serif;
+    color: #333; /* Color de texto oscuro */
+    margin: 0;
+    padding: 10px;
+    background: #fff; /* Fondo blanco para los textos */
+    border-left: 4px solid #d4922f; /* Barra lateral azul */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+#sub_text_habilidades_destacadas_administracion_0 {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.markdown-body pre code, .markdown-body pre tt{
+    color: darkorange;
+}
+
+.markdown-body h3 {
+    color: yellow;
+}
+
+.markdown-body strong {
+    color: rgb(47, 255, 0);
+}
+
+.window{
+    top: 30px;
+    left: 30px;
+    position: absolute;
+    z-index: 1000;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 0 12px var(--colorlight);
+    max-width: max-content;
+    max-height: max-content;
+    padding: 30px;
 }

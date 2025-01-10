@@ -282,9 +282,9 @@ HTMLElement.prototype.contenidoInfografiaWindows = function() {
                 <h2>Configuración de accesibilidad en Windows</h2>
                 <p>Windows incluye características diseñadas para hacer que el sistema operativo sea accesible para todos los usuarios:</p>
                 <ul>
-                    <li><b>Narrador:</b> Una herramienta integrada que lee texto en la pantalla para usuarios con discapacidades visuales.</li>
-                    <li><b>Ampliador de Pantalla:</b> Permite aumentar el contenido de la pantalla para facilitar su visualización.</li>
-                    <li><b>Reconocimiento de Voz:</b> Funcionalidad que permite controlar el dispositivo y escribir usando comandos de voz.</li>
+                    <li><b>Narrador:</b> Configfuración de herramienta integrada para lectura texto en la pantalla para usuarios con discapacidades visuales.</li>
+                    <li><b>Configuración y ajustes de vídeo:</b> Incremento el contenido de la pantalla para facilitar visualización, expansión de escritorios y montaje de setup para propositos de monitoreo en general.</li>
+                    <li><b>Reconocimiento de Voz:</b> Configuración de funcionalidad para controlar el dispositivo a travez de comandos por voz.</li>
                     <li><b>Teclado en Pantalla:</b> Ideal para usuarios con dificultades para usar teclados físicos.</li>
                 </ul>
             </section>

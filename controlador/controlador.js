@@ -98,29 +98,36 @@ function contenidoInicio() {
                     barra_aplicaciones.style.display = "none"
                     placerMenu(menu_opciones,barra_aplicaciones)
 
-                        let opcion_aplicaciones_imagenes = mkObjImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_imagenes","./vista/img/imagen.png")
+                        // let opcion_aplicaciones_imagenes = mkObjImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_imagenes","./vista/img/imagen.png")
 
-                            opcion_aplicaciones_imagenes.addEventListener("click", function () {
-                                ventana_imagenes.style.display = "flex";
-                                contenidoImagenes(ventana_imagenes)
-                            });
+                        //     opcion_aplicaciones_imagenes.addEventListener("click", function () {
+                        //         ventana_imagenes.style.display = "flex";
+                        //         contenidoImagenes(ventana_imagenes)
+                        //     });
 
-                            let ventana_imagenes = mkObj(cuerpo,"ventana","ventana_imagenes")
-                            ventana_imagenes.style.display="none"
+                        //     let ventana_imagenes = mkObj(cuerpo,"ventana","ventana_imagenes")
+                        //     ventana_imagenes.style.display="none"
 
-                            flexWindow(ventana_imagenes)
+                        //     flexWindow(ventana_imagenes)
 
-                            document.addEventListener("mouseup", function (event) {
-                                if (!ventana_imagenes.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
-                                    ventana_imagenes.style.display = "none";
-                                }
-                            });
+                        //     document.addEventListener("mouseup", function (event) {
+                        //         if (!ventana_imagenes.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
+                        //             ventana_imagenes.style.display = "none";
+                        //         }
+                            // });
 
-                        let opcion_aplicaciones_estatus_unidades = mkObjImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_estatus_unidades","./vista/img/estatus.png")
+                        let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
 
-                            opcion_aplicaciones_estatus_unidades.addEventListener("click", function () {
-                                ventana_estatus.style.display = "flex";
-                                contenidoEstatus(ventana_estatus)
+                        let window_x = mkObj(contenido_imagen_ciudad,"window","window_x",)
+                        window_x.style.display = "none"
+                        window_x.innerHTML = `
+                            <iframe  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid07snHtXrqkxz28USgNe1ttyvcfRFG2SXZvDL6TD28quMpVPuqbCPGbod3YNA3pkRol%26id%3D100009658868380&show_text=true&width=500" style="cursor:pointer;" width="500" height="615" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></body>
+                        `
+                        flexWindow(window_x)
+
+
+                            opcion_screen_x.addEventListener("click", function () {
+                                window_x.style.display = "flex"
                             });
 
                             let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
@@ -295,7 +302,8 @@ function contenidoInicio() {
         }
         initMapa(inicio_mapa);
 
-    
+        // let contenido_linkedin_oublicacion = mkObj(cuerpo_inicio,"contenido_linkedin_oublicacion","contenido_linkedin_oublicacion",
+        //     '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7210490409691566080" height="465" width="504" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>')
     
         let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
             "Experiencia General.",
@@ -517,7 +525,8 @@ function contenidoInicio() {
 
         let contenido_habilidades_software_github = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_github")
             let descripcion_habilidades_github = mkTextList(contenido_habilidades_software_github,"descripcion_habilidades","descripcion_habilidades",
-                "Hablidades Github:",
+                "Habilidades Github:",
+                "[Proyecto] mkDom.js - Respositorio de Libreria (abierta al público en general).",
                 "Control de versiones.",
                 "Documentación (.md).",
                 "Github Pages.",
@@ -530,7 +539,8 @@ function contenidoInicio() {
             )
     
         let contenido_infografia_github = mkObj(cuerpo_inicio,"contenido_infografia_github","contenido_infografia_github")
-            let curpo_infografia_github = mkObj(contenido_infografia_github,"markdown-body","readme-content")
+            let cuerpo_infografia_github = mkObj(contenido_infografia_github,"markdown-body","readme-content")
+
             async function loadReadme() {
                 const response = await fetch('https://raw.githubusercontent.com/kinichdev/mkDom.js/main/README.md');
                 const text = await response.text();
@@ -538,7 +548,7 @@ function contenidoInicio() {
                 const converter = new showdown.Converter();
                 const html = converter.makeHtml(text);
                 
-                curpo_infografia_github.innerHTML = html;
+                cuerpo_infografia_github.innerHTML = html;
             }
 
             loadReadme();

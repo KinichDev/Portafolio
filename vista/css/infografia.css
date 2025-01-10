@@ -1,0 +1,134 @@
+:root {
+    --colorBtnClose: rgb(230, 44, 81);
+    --colorTextWhite: white;
+    --colorVerde: #7cdac9;
+    --colordark: #0e0e0e;
+    --colorlight: #f8f8f8;
+    --colorHover: #c1ffff;
+    --colorHoverDark: #3d3d3d;
+    --colorRed: #f04141;
+    --colorRedHover: #ff6969;
+    --colorGreenW: #0bc20b;
+    --colorGreenWHover: #60bc60;
+    --colorPink: #f45f85;
+    --colorAzul: #0e3d5d;
+    --colorBlueLetra: #103eb9;
+    --colorBlueLight: #1aa8e5;
+    --placeIn: fadeIn .5s forwards;
+    --distDisc: 22px;
+    --paddingDisc: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+/* Scrollbar styles */
+*::-webkit-scrollbar {
+    width: 3px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--colorAzul);
+    border-radius: 6px;
+    border: 3px solid #fff;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+* {
+    scrollbar-color: #3498db #f0f0f0;
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #2ecc71;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: var(--colorlight);
+    color: var(--colordark);
+}
+
+.contenedor_infografia {
+    display: block;
+    padding: var(--paddingDisc);
+    background-color: var(--colorlight);
+}
+
+h1 {
+    text-align: center;
+    color: var(--colorBlueLetra);
+    margin: 20px 0;
+}
+
+.section {
+    width: 80%;
+    background-color: var(--colorlight);
+    border: 1px solid var(--colordark);
+    border-radius: 8px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    flex-direction: column;
+    margin: 5px;
+    justify-content: space-between;
+}
+
+.section:hover {
+    background-color: var(--colorHover);
+}
+
+h2 {
+    color: var(--colorAzul);
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+ul {
+    margin-left: 20px;
+    list-style: disc;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.highlight {
+    background-color: var(--colorPink);
+    color: var(--colorTextWhite);
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    height: min-content;
+    margin: 15px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--colordark);
+    color: var(--colorTextWhite);
+    font-size: 0.9em;
+    position: relative;
+    width: 100%;
+}

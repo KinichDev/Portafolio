@@ -9,10 +9,10 @@
 
 @keyframes fadeOut{
     0%{
-        height: 100%;
+        opacity: 0;
     }
     100%{
-        height: 0%;
+        opacity: 1;
     }
 }
 
@@ -20,30 +20,17 @@
     
 }
 
-
-
-
-        /* Estilo base del div */
-        /* .mi-div {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-            position: relative;
-            animation: deslizar 2s ease-in-out infinite; 
-        } */
-
-        /* Definición de la animación */
-        @keyframes parpadear {
-            0% {
-                opacity: 0; /* Inicia desde la izquierda */
-            }
-            50%{
-                opacity: 1;
-            }
-            100% {
-                left: 0%; /* Finaliza en el lado derecho */
-            }
-        }
+@keyframes parpadear {
+    0% {
+        opacity: 0; /* Inicia desde la izquierda */
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        left: 0%; /* Finaliza en el lado derecho */
+    }
+}
 
 :root{
     --colorBtnClose: rgb(230, 44, 81);
@@ -52,7 +39,7 @@
 
     /* --colorFondo: rgb(161, 237, 242); */
     --colorVerde: #7cdac9;
-    --colordark: #1e1e1e;
+    --colordark: #0e0e0e;
     --colorlight: #f8f8f8;
     --colorHover: #c1ffff;
     --colorHoverDark: #3d3d3d;
@@ -63,15 +50,16 @@
     --colorGreenWHover:#60bc60;
     --colorPink:#f45f85;
     --colorAzul:#0e3d5d;
-
+    --colorblue: #1e3a8a ;
+    
     --colorBlueLetra: #103eb9;
 
     --placeIn: fadeIn .5s forwards;
 
-    --colorBlueLight:#1aa8e5;
+    --colorBlueLight:#007bff;
 
-    --distDisc: 20px;
-    --paddingDisc: 4px;
+    --distDisc: 22px;
+    --paddingDisc: 12px;
 
 }
 
@@ -86,7 +74,7 @@
 
 /* Estilo del scrollbar */
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 2px;
   }
 
   /* Estilo del thumb (la barra de desplazamiento) */
@@ -94,11 +82,13 @@
     background-color: var(--colorAzul);
     border-radius: 6px;
     border: 3px solid #fff;
+
   }
 
   /* Estilo del track (el área del scrollbar) */
   *::-webkit-scrollbar-track {
     background-color: #f0f0f0;
+    
   }
 
   /* Estilo del scrollbar para Firefox */
@@ -130,18 +120,20 @@ img{
 }
 
 .contenedor_principal{
-    background-color: var(--colorFondo);
+    /* background-color: var(--colorFondo); */
     background-color: var(--colordark);
     flex-direction: column;
 }
 
 .header{
-    height: 65px;
+    height: 38px;
     position: relative;
     padding: 3px;
     padding-left: 12px;
     align-items: center;
-    padding: 12px;
+    padding: 3px;
+    animation: fadeIn .5s forwards;
+    background-color: var(--colorblue) ;
 }
 
 .cont_img_header{
@@ -202,8 +194,8 @@ img{
 }
 
 .c_disc {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background: conic-gradient(from -90deg, transparent 0%, white 20%, white 80%, transparent 100%);
     border-radius: 50%;
     display: flex;
@@ -279,7 +271,7 @@ img{
 .pestaña_menu_header{
     background-color: white;
     position: absolute;
-    top: 78px;
+    top: 50px;
     box-shadow: 0 0 12px var(--colordark);
     padding: 12px;
     opacity: 0.92;
@@ -288,9 +280,10 @@ img{
     animation: fadeIn .5s forwards;
     z-index: 255;
     width: min-content;
-    right: 0;
+    right: 15px;
     flex-direction: column;
     padding: 6px;
+    z-index: 1000;
 }
 
 .cont_header_opcion{
@@ -301,14 +294,14 @@ img{
     align-items: center;
     /* justify-content: center; */
     margin-right: 6px;
-    background-color: var(--colorAzul);
+    background-color: #0056b3 ;
     color: var(--colorlight);
     cursor: pointer;
     user-select: none;
     padding: 6px;
-    margin-bottom: 3px;
+    margin-bottom: 7px;
 }.cont_header_opcion:hover{
-    background-color: var(--colorGreenWHover);
+    background-color: #4a7fb9 ;
 }
 
 .header_opcion{
@@ -331,6 +324,7 @@ img{
 
 #cuerpo_inicio{
     scroll-behavior: smooth;
+    padding: 0px;
 }
 
 .contenido_habilidades_software{
@@ -339,6 +333,8 @@ img{
     padding: 65px;
     padding-left: 6px;
     padding-right: 6px;
+    background-color: white;
+    z-index: 1;
 }
 
 .cont_img_habilidades_software{
@@ -1182,6 +1178,7 @@ img{
 
 .cont_sub_text_text_{
     justify-content: center;
+    align-items: center;
 }
 
 .sub_text_text_{
@@ -1215,7 +1212,7 @@ img{
     padding: 20px;
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 400px;
+    min-height: 400px;
     width: 280px;
     margin: 10px;
     cursor: pointer;
@@ -1271,6 +1268,8 @@ img{
     flex-wrap: wrap;
     padding: 12px;
     height: min-content;
+    z-index: 1;
+    background-color: white;
 }
 
 .hipercapa_etiqueta_actividades{
@@ -1359,7 +1358,7 @@ img{
 }
 
 .cont_ventana_descripcion_actividad_header_cerrar{
-    width: min-content;
+    width: 50px;
     padding: 3px;
     border-radius: 7px;
     transition: background-color .25s ease;
@@ -1388,11 +1387,11 @@ img{
   }
 
   .circle {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     border-radius: 50%;
-    border: 6px solid white;
+    border: 2px solid white;
     border-top:none;
     border-bottom: none;
     animation: flash 2s infinite;
@@ -1438,61 +1437,10 @@ img{
     opacity: 1;
   }
 
-  /* ? */  /* ? */  /* ? */
-  /* ! */  /* ! */  /* ! */
-  /* Estilo para el contenedor principal */
-.cont_contenido_experiencia_destacada {
-    background-color: #f0f0f0; /* Cambia el color de fondo según tu preferencia */
-    padding: 20px; /* Añade relleno según sea necesario */
-    border-radius: 10px; /* Añade esquinas redondeadas según sea necesario */
-    flex-direction: column;
-    height: min-content;
+
+  .cont_contenido_imagen_ciudad{
+    background-color: var(--colordark);
   }
-
-  .cont_sub_text_contenido_experiencia_destacada{
-    height: min-content;
-    padding: 4px;
-  }
-  
-  /* Estilo para los elementos de texto dentro del contenedor */
-  .sub_text_contenido_experiencia_destacada {
-    font-size: 16px; /* Cambia el tamaño de fuente según tu preferencia */
-    color: #333; /* Cambia el color del texto según tu preferencia */
-    margin: 0; /* Elimina el margen predeterminado del párrafo */
-    font-family: Helvetica, sans-serif;
-
-    padding-left: 20px; /* Añade un margen a la izquierda según sea necesario */
-
-  }
-  
-  /* Estilo adicional para el texto "Experiencia Destacada" */
-  #sub_text_contenido_experiencia_destacada_0,
-  #sub_text_habilidades_destacadas_web_0,
-  #sub_text_habilidades_destacadas_administracion_0,
-  #cont_sub_text_descripcion_inicio_0,
-  #sub_text_contenido_habilidades_destacadas_0,
-  #sub_text_contenido_dominio_lenguajes_html_0,
-  #cont_sub_text_contenido_dominio_lenguajes_css_0,
-  #cont_sub_text_contenido_dominio_lenguajes_js_0,
-  #cont_sub_text_descripcion_mapa_0,
-
-  #cont_sub_text_contenido_dominio_lenguajes_php_0,
-
-  #cont_sub_text_contenido_constancias_0 {
-    font-weight: bold; /* Hace que este texto sea más destacado, puedes ajustar según sea necesario */
-    color: #007bff; /* Cambia el color según tu preferencia */
-    padding-left: 0px; /* Añade un margen a la izquierda según sea necesario */
-    font-family: Helvetica, sans-serif;
-
-  }
-  
-  /* Estilo adicional para los elementos de lista */
-  /* #sub_text_contenido_experiencia_destacada_1,
-  #sub_text_contenido_experiencia_destacada_2,
-  #sub_text_contenido_experiencia_destacada_3 {
-    list-style-type: square; /* Cambia el estilo de la viñeta según tu preferencia 
-  } */
-  
 
   .ventana_calendarios{
     height: min-content;
@@ -1563,6 +1511,7 @@ img{
   .contenedor_calendario{
     padding: 6px;
     overflow: auto;
+    background-color: white;
   }
 
   .cont_texto_actualizacion{
@@ -1617,6 +1566,8 @@ img{
     justify-content: center;
     height: min-content;
     flex-wrap: wrap;
+    background-color: white ;
+    z-index: 0;
   }
 
   .cont_img_pc{
@@ -1687,6 +1638,7 @@ img{
     padding-right: 55px;
     justify-content: center;
     align-items: center;
+    background-color: white;
   }
 
   /* .mapa{
@@ -1726,7 +1678,7 @@ img{
   }
 
   .contenedor_carrusel{
-        
+        background-color: white;
   }
 
   .carrusel_{
@@ -1739,7 +1691,6 @@ img{
     overflow: hidden;
     min-height: min-content;
     max-height: 80%;
-    padding-bottom: 32px;
     position: relative;
 }#carrusel_guia_mapas{
     height: min-content;
@@ -1748,7 +1699,8 @@ img{
 .contenedor_imagenes_carrusel {
     transition: transform 0.5s ease-in-out;
     overflow: visible; 
-    padding: 36px;
+    /* padding: 36px; */
+    background-color: white;
 }
 
 .cont_img_carrusel_carrusel {
@@ -1810,32 +1762,34 @@ img{
 .contenido_square{
     height: min-content;
     justify-content: center;
-    padding: 40px;
+    background-color: var(--colordark);
+    z-index: 1;
 }
 
 .contenedor_square {
     position: relative;
     max-width:600px;
-    height: 70px;
+    height: 60px;
+    background-color: white;
 }
 .square {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.8);
+    width: 5px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
     animation: rotateFractal 6s infinite linear;
 }
 .square:nth-child(2) {
     animation-delay: -2s;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .square:nth-child(3) {
     animation-delay: -4s;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 .square:nth-child(4) {
     animation-delay: -6s;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 @keyframes rotateFractal {
     0% {
@@ -1864,48 +1818,659 @@ img{
 
 .contenido_colage{
     padding: 10px;
-    max-height: 175px;
-    margin-bottom: 30px;
+    /* max-height: 175px; */
+    /* margin-bottom: 30px; */
 }
 
 .contenedor_colage {
     position: relative;
-    max-height: 400px;
 
 }
 .colage {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 6px;
+    height: 6px;
     border-radius: 60%;
-    animation: pulseFractal 3s infinite ease-in-out;
+    animation: pulseFractal 1s infinite ease-in-out;
 }
 @keyframes pulseFractal {
     0%, 100% {
-        transform: scale(0.8);
+        transform: scale(0.2);
     }
     50% {
         transform: scale(1.5);
     }
 }
-/* Distribuir círculos de manera más desordenada y asignar colores */
-/* .colage:nth-child(1) { top: 18%; left: 5%; background-color: #ff5733; animation-delay: 0s; }
-.colage:nth-child(2) { top: 67%; left: 92%; background-color: #33ff57; animation-delay: 0.1s; }
-.colage:nth-child(3) { top: 25%; left: 73%; background-color: #3357ff; animation-delay: 0.2s; }
-.colage:nth-child(4) { top: 80%; left: 35%; background-color: #ff33a8; animation-delay: 0.3s; }
-.colage:nth-child(5) { top: 45%; left: 88%; background-color: #ffbd33; animation-delay: 0.4s; }
-.colage:nth-child(6) { top: 75%; left: 12%; background-color: #33a8ff; animation-delay: 0.5s; }
-.colage:nth-child(7) { top: 53%; left: 62%; background-color: #f0e68c; animation-delay: 0.6s; }
-.colage:nth-child(8) { top: 9%; left: 15%; background-color: #ff6347; animation-delay: 0.7s; }
-.colage:nth-child(9) { top: 34%; left: 52%; background-color: #adff2f; animation-delay: 0.8s; }
-.colage:nth-child(10) { top: 60%; left: 27%; background-color: #8a2be2; animation-delay: 0.9s; }
-.colage:nth-child(11) { top: 72%; left: 42%; background-color: #ff1493; animation-delay: 1s; }
-.colage:nth-child(12) { top: 15%; left: 51%; background-color: #20b2aa; animation-delay: 1.1s; }
-.colage:nth-child(13) { top: 50%; left: 24%; background-color: #d2691e; animation-delay: 1.2s; }
-.colage:nth-child(14) { top: 40%; left: 82%; background-color: #ff4500; animation-delay: 1.3s; }
-.colage:nth-child(15) { top: 25%; left: 17%; background-color: #9370db; animation-delay: 1.4s; }
-.colage:nth-child(16) { top: 58%; left: 78%; background-color: #ffa07a; animation-delay: 1.5s; }
-.colage:nth-child(17) { top: 10%; left: 84%; background-color: #7fff00; animation-delay: 1.6s; }
-.colage:nth-child(18) { top: 65%; left: 31%; background-color: #00bfff; animation-delay: 1.7s; }
-.colage:nth-child(19) { top: 48%; left: 67%; background-color: #f08080; animation-delay: 1.8s; }
-.colage:nth-child(20) { top: 35%; left: 18%; background-color: #00fa9a; animation-delay: 1.9s; } */
+.contenido_imagen_ciudad{
+    z-index: 0;
+}
+.capa_difuminado{
+    background: linear-gradient(to bottom, var(--colordark), transparent,var(--colordark));
+    position: absolute;
+    z-index: 50;
+}
+
+.cont_text{
+    position: absolute;
+    width: max-content;
+    height: min-content;
+    /* background-color: white; */
+    z-index: 51;
+    flex-direction: column;
+    top: 35px;
+    right: 25px;
+}
+
+.sub_text_text{
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: right;
+
+}
+
+          .sub_text_text {
+              overflow: hidden;
+              white-space: nowrap;
+              margin: 0 auto;
+              letter-spacing: .15em;
+              border-right: .15em solid white;
+              display: none; /* Ocultar inicialmente */
+              color: white;
+          }
+  
+          @keyframes typing {
+              from { width: 0; }
+              to { width: 100%; }
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          .mapa {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #ffffffe8;
+            border: 2px solid #2d3436;
+            overflow: hidden; /* Asegura que ningún elemento se desborde */
+            border-radius: 8px;
+            opacity: .5;
+        }
+
+        .ruta {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .ruta svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .edificio {
+            position: absolute;
+            background-color: #000000;
+            border: 2px solid #636e72;
+        }
+
+        .ubicacion {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            transform: translate(-50%, -50%);
+            animation: seguirRuta 5s linear infinite;
+        }
+
+        .ubicacion svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes seguirRuta {
+            0% {
+                offset-distance: 0%;
+            }
+            100% {
+                offset-distance: 100%;
+            }
+        }
+
+
+        .inicio_mapa{
+            position: absolute;
+            bottom: 35px;
+            right: 15px;
+            z-index: 51;
+            width: min-content;
+            height: min-content;
+        }
+
+.cont_img_ciudad{
+    height: min-content;
+    position: relative;
+}
+
+.img_ciudad{
+    height: min-content;
+}
+
+.cont_img_escritorio{
+    height: min-content;
+    position: relative;
+}
+.img_escritorio{
+    height: 200px;
+}
+
+.cont_img_graficas{
+    height: min-content;
+    position: relative;
+}
+.img_graficas{
+    height: 200px;
+}
+
+.cont_img_fondo{
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    background-color: var(--colordark);
+    height: 100%;
+}
+.img_fondo{
+    /* position: absolute; */
+    z-index: 0;
+    height: 100%;
+    max-width: none;
+}
+.cont_img_seguridad{
+    height: min-content;
+    position: relative;
+}
+.img_seguridad{
+    height: 350px;
+}
+
+.contenido_infografia{
+    background-color: white;
+    height: initial;
+    padding: 7px;
+    z-index: 1;
+    border-bottom: solid 20px white;
+}
+
+.cont_contenido_experiencia_destacada {
+    /* background-color: var(--colorlight);
+    border: 1px solid var(--colorHover); */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    height: min-content;
+    background-color: white;
+    z-index: 1;
+}
+
+.cont_sub_text_contenido_experiencia_destacada {
+    padding: 4px 16px;
+    height: min-content;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.sub_text_contenido_experiencia_destacada {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--colordark);
+}
+
+#sub_text_contenido_experiencia_destacada_0 {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--colorBlueLetra);
+}
+
+#sub_text_contenido_experiencia_destacada_1,
+#sub_text_contenido_experiencia_destacada_2,
+#sub_text_contenido_experiencia_destacada_3,
+#sub_text_contenido_experiencia_destacada_4 {
+    font-style: italic;
+}
+
+
+.cont_video_web{
+    justify-content: end;
+    background-color: white;
+    height: min-content;
+    z-index: 1;
+}
+
+.video_web{
+    height: 370px;
+}
+.cont_video_programacion{
+    background-color: white;
+    height: min-content;
+    padding: 5px;
+    z-index: 1;
+    justify-content: center;
+}
+
+.video_programacion{
+    height: 370px;
+    box-shadow: 0 0 9px var(--colordark);
+    border-radius: 6px;
+}
+
+
+.cont_diagrama{
+    justify-content: center;
+    height: 70%;
+    z-index: 1;
+    background-color: white;
+    padding: 15px 0px ;
+}
+
+.diagrama{
+}
+
+
+
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+
+
+.barra_herramientas {
+    color: var(--colorTextWhite);
+    background-color: #394463 ;
+    box-shadow: 0 0 3px white;
+    align-items: center;
+    justify-content: space-between;
+    height: min-content;
+    position: absolute;
+    bottom: 11px;
+    z-index: 1000;
+    border-radius: 15px;
+    animation: fadeIn .5s forwards;
+}
+
+.aviso_usuario {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--colorRedHover);
+    color: var(--colorTextWhite);
+    text-align: center;
+    border-radius: 4px;
+    animation: fadeIn 1s;
+}
+
+
+.ventana {
+    position: absolute;
+    background-color: var(--colorlight);
+    border-radius: 8px;
+    box-shadow: 0 0 19px rgba(0, 0, 0, 0.514);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-out;
+    width: min-content;
+    height: min-content;
+}
+
+.cont_menu_opciones{
+    width: min-content;
+    height: 40px;
+    width: 40px;
+
+}
+
+.menu_opciones {
+    padding: 2px;
+    cursor: pointer;
+    transition: padding 0.15s ease;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.menu_opciones:hover {
+    padding: 3px;
+}
+
+.barra_aplicaciones{
+    position: absolute;
+    flex-direction: column;
+    border-radius: 20px;
+    width: min-content;
+    min-width: 50px;
+    min-height: 150px;
+    height: min-content;
+    box-shadow: 0 0 19px rgba(0, 0, 0, 0.514);
+    bottom: 100px;
+    left: 40px;
+    padding: 6px;
+    background-color: white;
+}
+
+.img_opcion_aplicaciones{
+    cursor: pointer;
+}.img_opcion_aplicaciones:hover{
+    background-color: var(--colorAzulHover);
+
+}
+
+.pestaña{
+    /* position: relative; */
+    flex-direction: column;
+    min-height: 400px;
+}
+
+.contenedor_opcion_aplicaciones{
+    /* background-color: black; */
+}
+
+.img_minimizar_pestaña{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}.img_minimizar_pestaña:hover{
+    opacity: .6;
+}
+
+.contenedor_minimizar_pestaña{
+    top: 10px;
+    right: 10px;
+    justify-content: end;
+}
+
+.hipercapa{
+    height: 100%;
+    width: 100%;
+}
+
+.header_pestaña{
+    height: 50px;
+    position: relative;
+    padding: 10px;
+}
+
+.cuerpo_pestaña{
+    flex-direction: column;
+    background-color: white;
+    min-width: 600px;
+    overflow: auto;
+    max-height: 90%;
+}
+
+.cont_btn{
+    height: min-content ;
+    padding: 12px;
+    justify-content: center;
+}
+
+.cont_formulario_imagenes{
+    padding: 6px;
+    height: min-content;
+}
+
+/* Contenedor principal */
+.cont_tittle_header_pestaña {
+    background-color: #f8f9fa; /* Fondo claro */
+    border-radius: 8px;
+    box-shadow: 0 0px 4px black; /* Sombra sutil */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transiciones suaves */
+    position: relative;
+    justify-content: center;
+  }
+  
+  /* Estilo del texto */
+  .tittle_header_pestaña {
+    font-family: 'Roboto', sans-serif; /* Fuente similar a Google */
+    font-size: 16px;
+    color: #202124; /* Color oscuro estándar */
+    font-weight: 500; /* Peso medio */
+  }
+  
+  /* Efecto hover */
+  .cont_tittle_header_pestaña:hover {
+    background-color: #e8f0fe; /* Fondo azul claro en hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Mayor sombra en hover */
+  }
+  
+  /* Efecto activo */
+  .cont_tittle_header_pestaña:active {
+    background-color: #d2e3fc; /* Fondo más oscuro en clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más marcada */
+  }
+  
+/* Menú desplegable */
+.menu_header_pestaña {
+    position: absolute;
+    background-color: white;
+    display: none; /* Inicialmente oculto */
+    top: 70px; /* Ajusta según la ubicación deseada */
+    left: 10px; /* Ajusta según la ubicación deseada */
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Sombra con mayor suavidad */
+    flex-direction: column;
+    min-width: 200px; /* Tamaño mínimo del menú */
+    z-index: 1000; /* Para asegurarse de que quede encima de otros elementos */
+    height: max-content;
+  }
+  
+  /* Contenedor de las opciones */
+  .cont_option_menu_header {
+    padding: 12px 16px; /* Espaciado interno */
+    border-bottom: 1px solid #e0e0e0; /* Separador entre opciones */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Última opción sin borde inferior */
+  .cont_option_menu_header:last-child {
+    border-bottom: none;
+  }
+  
+  /* Estilo de las opciones */
+  .option_menu_header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #202124; /* Color oscuro */
+    font-weight: 400; /* Peso normal */
+  }
+  
+  /* Efecto hover en las opciones */
+  .cont_option_menu_header:hover {
+    background-color: #f1f3f4; /* Fondo claro en hover */
+  }
+  
+  /* Efecto activo (clic) */
+  .cont_option_menu_header:active {
+    background-color: #e8f0fe; /* Fondo azul claro en clic */
+    color: #1a73e8; /* Color azul para el texto */
+  }
+  
+  /* Contenedor principal del input */
+.input {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #dce6f1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:hover {
+    border-color: #0073b1;
+    box-shadow: 0 4px 8px rgba(0, 115, 177, 0.2);
+}
+
+/* Contenido del input */
+.contenido_input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Contenedor del título */
+.contenedor_titulo_input {
+    display: flex;
+    align-items: center;
+}
+
+/* Título del input */
+.titulo_input {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 4px;
+}
+
+/* Contenido del campo de texto */
+.contenido_input_input {
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor_input_input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Campo de entrada */
+.input_input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #dce6f1;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #f9fafb;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input_input:focus {
+    border-color: #0073b1;
+    background-color: #ffffff;
+}
+
+.input_input::placeholder {
+    color: #a6a6a6;
+}
+
+.input_input:hover::placeholder {
+    color: #0073b1;
+}
+
+
+/* Contenedor principal */
+.cont_estatus {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff; /* Fondo blanco para profesionalismo */
+    border: 1px solid #d6d9dc; /* Borde ligero */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 16px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo */
+    margin: 16px auto; /* Centramos el contenedor */
+    cursor: pointer;
+}.cont_estatus:hover{
+    background-color: var(--colorAzulClaro);
+}
+
+/* Texto general */
+.cont_estatus .estatus {
+    color: #333333; /* Color oscuro para el texto */
+    font-size: 14px; /* Tamaño estándar */
+    line-height: 1.6; /* Altura de línea agradable */
+}
+
+/* Destacar títulos */
+.cont_estatus .estatus strong {
+    color: #0073b1; /* Azul profesional estilo LinkedIn */
+    font-weight: 600; /* Resaltamos el título */
+}
+
+/* Espaciado entre líneas */
+.cont_estatus .estatus br {
+    margin-bottom: 8px; /* Espacio entre líneas */
+}
+
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+/* ----------------------- */
+
+
+
+.contenido_documentos{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido_infografia_windows{
+    height: max-content;
+    padding: 12px;
+    z-index: 1;
+    background-color: white;
+}
+
+/* #contenido_infografia_github{
+    min-height: 100px;
+    background-color: #000000;
+} */
+
+.contenido_infografia_github{
+    background-color: white;
+    padding: 10px ;
+    z-index: 2;
+    height: max-content;
+    justify-content: center;
+    max-height: 50%;
+    overflow: auto;
+    margin: 5px 25%;
+    box-shadow: 0 0 4px black;
+}
+
+.markdown-body{
+    flex-direction: column;
+    height: max-content;
+    padding: 12px;
+    margin: 5px;
+    max-width: 900px;
+    border-radius: 6px;
+    box-shadow: 0 0 9px black;
+}
+
+.markdown-body h2{
+    color: #007bff;
+}
+
+.markdown-body h1{
+    color: #007bff;
+}

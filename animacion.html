@@ -3,194 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habilidades y Herramientas en Windows</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Animación Fractal con 20 Círculos de Colores</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
         }
         .container {
-            padding: 2rem;
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
-        .skill-section, .tool-section {
-            margin-bottom: 2rem;
+        .circle {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            animation: pulseFractal 3s infinite ease-in-out;
         }
-        h1, h2, h3 {
-            color: #333;
+        @keyframes pulseFractal {
+            0%, 100% {
+                transform: scale(0.8);
+            }
+            50% {
+                transform: scale(1.5);
+            }
         }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
+        /* Distribuir círculos aleatoriamente y darles colores */
+        .circle:nth-child(1) { top: 18%; left: 5%; background-color: #ff5733; animation-delay: 0s; }
+        .circle:nth-child(2) { top: 67%; left: 92%; background-color: #33ff57; animation-delay: 0.1s; }
+        .circle:nth-child(3) { top: 25%; left: 73%; background-color: #3357ff; animation-delay: 0.2s; }
+        .circle:nth-child(4) { top: 80%; left: 35%; background-color: #ff33a8; animation-delay: 0.3s; }
+        .circle:nth-child(5) { top: 45%; left: 88%; background-color: #ffbd33; animation-delay: 0.4s; }
+        .circle:nth-child(6) { top: 75%; left: 12%; background-color: #33a8ff; animation-delay: 0.5s; }
+        .circle:nth-child(7) { top: 53%; left: 62%; background-color: #f0e68c; animation-delay: 0.6s; }
+        .circle:nth-child(8) { top: 9%; left: 15%; background-color: #ff6347; animation-delay: 0.7s; }
+        .circle:nth-child(9) { top: 34%; left: 52%; background-color: #adff2f; animation-delay: 0.8s; }
+        .circle:nth-child(10) { top: 60%; left: 27%; background-color: #8a2be2; animation-delay: 0.9s; }
+        .circle:nth-child(11) { top: 72%; left: 42%; background-color: #ff1493; animation-delay: 1s; }
+        .circle:nth-child(12) { top: 15%; left: 51%; background-color: #20b2aa; animation-delay: 1.1s; }
+        .circle:nth-child(13) { top: 50%; left: 24%; background-color: #d2691e; animation-delay: 1.2s; }
+        .circle:nth-child(14) { top: 40%; left: 82%; background-color: #ff4500; animation-delay: 1.3s; }
+        .circle:nth-child(15) { top: 25%; left: 17%; background-color: #9370db; animation-delay: 1.4s; }
+        .circle:nth-child(16) { top: 58%; left: 78%; background-color: #ffa07a; animation-delay: 1.5s; }
+        .circle:nth-child(17) { top: 10%; left: 84%; background-color: #7fff00; animation-delay: 1.6s; }
+        .circle:nth-child(18) { top: 65%; left: 31%; background-color: #00bfff; animation-delay: 1.7s; }
+        .circle:nth-child(19) { top: 48%; left: 67%; background-color: #f08080; animation-delay: 1.8s; }
+        .circle:nth-child(20) { top: 35%; left: 18%; background-color: #00fa9a; animation-delay: 1.9s; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Las Mejores Habilidades y Herramientas Disponibles en Windows</h1>
-    </header>
     <div class="container">
-        <section class="skill-section">
-            <h2>Habilidades en Windows</h2>
-            <p>Windows ofrece una serie de habilidades poderosas que facilitan la productividad y mejoran la experiencia del usuario. Aquí te presentamos algunas de las más destacadas:</p>
-            <ul>
-                <li><b>Multitarea:</b> Windows permite la gestión eficiente de múltiples tareas con su funcionalidad de escritorio virtual y la capacidad de dividir la pantalla en varias ventanas.</li>
-                <li><b>Seguridad:</b> Con Windows Defender y otras características de seguridad avanzadas, tu dispositivo se mantiene protegido contra amenazas.</li>
-                <li><b>Integración con la Nube:</b> OneDrive facilita el acceso a tus archivos desde cualquier lugar, sincronizándolos automáticamente con la nube.</li>
-                <li><b>Actualizaciones Continuas:</b> Windows recibe actualizaciones regulares que mejoran el rendimiento y añaden nuevas funcionalidades.</li>
-            </ul>
-        </section>
-    
-        <section class="tool-section">
-            <h2>Herramientas en Windows</h2>
-            <p>A continuación, algunas de las herramientas más útiles disponibles en Windows que pueden mejorar tu productividad y facilidad de uso:</p>
-            <ul>
-                <li><b>Microsoft Office:</b> Una suite de aplicaciones que incluye Word, Excel, PowerPoint y más, esenciales para el trabajo diario.</li>
-                <li><b>Microsoft Edge:</b> Un navegador web rápido y seguro con características de productividad como Colecciones y Pestañas Verticales.</li>
-                <li><b>Windows Terminal:</b> Una poderosa herramienta para desarrolladores que facilita el uso de la línea de comandos con soporte para múltiples pestañas y personalización.</li>
-                <li><b>Visual Studio Code:</b> Un editor de código fuente ligero y potente con soporte para extensiones, ideal para programación en múltiples lenguajes.</li>
-            </ul>
-        </section>
-    
-        <section class="accessibility-section">
-            <h2>Accesibilidad en Windows</h2>
-            <p>Windows incluye características diseñadas para hacer que el sistema operativo sea accesible para todos los usuarios:</p>
-            <ul>
-                <li><b>Narrador:</b> Una herramienta integrada que lee texto en la pantalla para usuarios con discapacidades visuales.</li>
-                <li><b>Ampliador de Pantalla:</b> Permite aumentar el contenido de la pantalla para facilitar su visualización.</li>
-                <li><b>Reconocimiento de Voz:</b> Funcionalidad que permite controlar el dispositivo y escribir usando comandos de voz.</li>
-                <li><b>Teclado en Pantalla:</b> Ideal para usuarios con dificultades para usar teclados físicos.</li>
-            </ul>
-        </section>
-    
-        <section class="gaming-section">
-            <h2>Características para Gamers</h2>
-            <p>Windows ofrece varias características que mejoran la experiencia de juego:</p>
-            <ul>
-                <li><b>Modo de Juego:</b> Optimiza el rendimiento del sistema para una experiencia de juego más fluida.</li>
-                <li><b>Xbox Game Bar:</b> Una barra integrada para grabar, transmitir y acceder rápidamente a herramientas mientras juegas.</li>
-                <li><b>DirectX:</b> Tecnología avanzada para gráficos de alta calidad y rendimiento mejorado.</li>
-                <li><b>Compatibilidad:</b> Soporte para una amplia variedad de juegos y hardware.</li>
-            </ul>
-        </section>
-    
-        <section class="customization-section">
-            <h2>Opciones de Personalización</h2>
-            <p>Haz que tu experiencia con Windows sea única con estas opciones de personalización:</p>
-            <ul>
-                <li><b>Temas:</b> Cambia el aspecto de tu escritorio con temas que incluyen fondos, colores y sonidos.</li>
-                <li><b>Modo Oscuro:</b> Reduce la fatiga visual con un esquema de colores oscuros.</li>
-                <li><b>Widgets:</b> Acceso rápido a información como el clima, calendario y noticias directamente desde el escritorio.</li>
-                <li><b>Menú Inicio:</b> Organiza aplicaciones y accesos directos según tus necesidades.</li>
-            </ul>
-        </section>
-    
-        <section class="developer-section">
-            <h2>Características para Desarrolladores</h2>
-            <p>Windows proporciona herramientas y plataformas para desarrolladores:</p>
-            <ul>
-                <li><b>Subsistema de Windows para Linux (WSL):</b> Permite ejecutar distribuciones de Linux directamente en Windows.</li>
-                <li><b>Hyper-V:</b> Una herramienta para crear y administrar máquinas virtuales.</li>
-                <li><b>PowerShell:</b> Un potente lenguaje de scripting para la administración de sistemas.</li>
-                <li><b>Microsoft Store:</b> Distribución fácil de aplicaciones para usuarios de Windows.</li>
-            </ul>
-        </section>
-    
-        <section class="productivity-section">
-            <h2>Productividad en Windows</h2>
-            <p>Características diseñadas para ayudarte a hacer más en menos tiempo:</p>
-            <ul>
-                <li><b>Vista de Tareas:</b> Gestiona ventanas y tareas abiertas con facilidad.</li>
-                <li><b>Atajos de Teclado:</b> Realiza acciones rápidamente usando combinaciones de teclas.</li>
-                <li><b>Historial del Portapapeles:</b> Accede a elementos copiados recientemente para pegarlos en cualquier momento.</li>
-                <li><b>Focus Assist:</b> Minimiza las distracciones mientras trabajas.</li>
-            </ul>
-        </section>
-    
-        <section class="multimedia-section">
-            <h2>Multimedia en Windows</h2>
-            <p>Disfruta de contenido multimedia con estas herramientas y características:</p>
-            <ul>
-                <li><b>Fotos:</b> Una aplicación para organizar, editar y compartir tus imágenes.</li>
-                <li><b>Media Player:</b> Reproduce música y videos con facilidad.</li>
-                <li><b>Herramienta de Recorte:</b> Captura y edita capturas de pantalla.</li>
-                <li><b>Soporte para HDR:</b> Ofrece una experiencia visual más vívida en pantallas compatibles.</li>
-            </ul>
-        </section>
-    
-        <section class="security-section">
-            <h2>Seguridad Avanzada</h2>
-            <p>Protege tu dispositivo y tus datos con estas características de seguridad:</p>
-            <ul>
-                <li><b>BitLocker:</b> Cifra tus unidades para proteger la información contra accesos no autorizados.</li>
-                <li><b>Windows Hello:</b> Inicia sesión con reconocimiento facial o huella digital.</li>
-                <li><b>Cortafuegos:</b> Protege tu red contra accesos no deseados.</li>
-                <li><b>Control de Aplicaciones:</b> Ejecuta solo aplicaciones confiables.</li>
-            </ul>
-        </section>
-    
-        <section class="cloud-integration-section">
-            <h2>Integración con la Nube</h2>
-            <p>Aprovecha las capacidades de la nube para maximizar la conectividad:</p>
-            <ul>
-                <li><b>OneDrive:</b> Almacenamiento y sincronización de archivos en la nube.</li>
-                <li><b>Azure:</b> Plataforma en la nube para desarrolladores y empresas.</li>
-                <li><b>Office 365:</b> Acceso en línea a tus aplicaciones favoritas.</li>
-                <li><b>Copias de Seguridad:</b> Respalda automáticamente tus datos importantes.</li>
-            </ul>
-        </section>
-    
-        <section class="collaboration-section">
-            <h2>Colaboración en Equipo</h2>
-            <p>Facilita el trabajo en equipo con estas herramientas:</p>
-            <ul>
-                <li><b>Microsoft Teams:</b> Comunicación y colaboración en tiempo real.</li>
-                <li><b>Compartir Pantalla:</b> Muestra tu pantalla para presentaciones y soporte técnico.</li>
-                <li><b>Edición Colaborativa:</b> Trabaja en documentos en tiempo real con otras personas.</li>
-                <li><b>Acceso Remoto:</b> Controla dispositivos de forma remota para resolver problemas o trabajar desde cualquier lugar.</li>
-            </ul>
-        </section>
-    
-        <section class="education-section">
-            <h2>Educación con Windows</h2>
-            <p>Herramientas que potencian el aprendizaje:</p>
-            <ul>
-                <li><b>Immersive Reader:</b> Facilita la lectura con opciones como texto a voz y tamaño de fuente ajustable.</li>
-                <li><b>Microsoft Whiteboard:</b> Colabora en ideas visuales en tiempo real.</li>
-                <li><b>Flipgrid:</b> Una plataforma para discusiones en video en entornos educativos.</li>
-                <li><b>Accessibilidad para Estudiantes:</b> Funciones diseñadas para ayudar a estudiantes con necesidades especiales.</li>
-            </ul>
-        </section>
-    
-        <section class="networking-section">
-            <h2>Redes y Conectividad</h2>
-            <p>Conéctate y administra tus redes con facilidad:</p>
-            <ul>
-                <li><b>Configuración de Red:</b> Herramientas intuitivas para configurar conexiones a internet.</li>
-                <li><b>Hotspot Móvil:</b> Comparte tu conexión a internet con otros dispositivos.</li>
-                <li><b>VPN Integrado:</b> Navega de manera segura en redes públicas.</li>
-                <li><b>Wi-Fi Direct:</b> Comparte archivos rápidamente entre dispositivos cercanos.</li>
-            </ul>
-        </section>
-    
-        <section class="backup-section">
-            <h2>Respaldo y Recuperación</h2>
-            <p>Protege tus datos y restaura tu sistema cuando sea necesario:</p>
-            <ul>
-                <li><b>Historial de Archivos:</b> Realiza copias de seguridad de tus documentos automáticamente.</li>
-                <li><b>Restauración del Sistema:</b> Repara problemas devolviendo el sistema a un punto anterior.</li>
-                <li><b>Reinicio de Windows:</b> Restaura la configuración de fábrica cuando sea necesario.</li>
-                <li><b>Recuperación de Datos:</b> Recupera archivos eliminados accidentalmente con herramientas integradas.</li>
-            </ul>
-        </section>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
     </div>
-    </body>
+</body>
 </html>

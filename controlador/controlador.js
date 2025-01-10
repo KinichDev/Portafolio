@@ -116,14 +116,14 @@ function contenidoInicio() {
                         //         }
                             // });
 
-                        let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
+                        let opcion_screen_facebook = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
 
-                        let window_x = mkObj(contenido_imagen_ciudad,"window","window_x",)
-                        window_x.style.display = "none"
-                        window_x.innerHTML = `
-                            <iframe  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fweb.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid07snHtXrqkxz28USgNe1ttyvcfRFG2SXZvDL6TD28quMpVPuqbCPGbod3YNA3pkRol%26id%3D100009658868380&show_text=true&width=500" style="cursor:pointer;" width="500" height="615" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></body>
-                        `
-                        flexWindow(window_x)
+                        // let window_x = mkObj(contenido_imagen_ciudad,"window","window_x",)
+                        // window_x.style.display = "none"
+                        // window_x.innerHTML = `
+                        //     <blockquote class="twitter-tweet"><p lang="es" dir="ltr">Ante adversidades crea tus propias herramientas, no solo resuelves problemas, sino que diseñas el futuro de tu proyecto con tus propias manos.</p>&mdash; Leonardo (@Leonard85961498) <a href="https://twitter.com/Leonard85961498/status/1877655224598347868?ref_src=twsrc%5Etfw">January 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        // `
+                        // flexWindow(window_x)
 
 
                             opcion_screen_x.addEventListener("click", function () {
@@ -148,6 +148,14 @@ function contenidoInicio() {
     let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/ciudad.jpg")
     contenido_imagen_ciudad.style.position = "relative"
     contenido_imagen_ciudad.querySelector("img").entradaSuave()
+
+    let window_x = mkObj(contenido_imagen_ciudad,"window","window_x",)
+    window_x.style.display = "none"
+    window_x.innerHTML = `
+        <blockquote class="twitter-tweet"><p lang="es" dir="ltr">Ante adversidades crea tus propias herramientas, no solo resuelves problemas, sino que diseñas el futuro de tu proyecto con tus propias manos.</p>&mdash; Leonardo (@Leonard85961498) <a href="https://twitter.com/Leonard85961498/status/1877655224598347868?ref_src=twsrc%5Etfw">January 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    `
+    flexWindow(window_x)
+
 
     contenidoDesktopScreen(contenido_imagen_ciudad)
 
@@ -439,7 +447,7 @@ function contenidoInicio() {
 
         let contenido_habilidades_software_windows = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_windows")
             let descripcion_habilidades_windows = mkTextList(contenido_habilidades_software_windows,"descripcion_habilidades","descripcion_habilidades",
-                "Hablidades Microsoft Windows:",
+                "Habilidades Microsoft Windows:",
                 "Solución de problemas comunes.",
                 "Mantenimiento general del equipo físico.",
                 "Administración y consultoría remota.",
@@ -455,7 +463,7 @@ function contenidoInicio() {
         let contenido_habilidades_software_debian = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_debian")
             let img_debian = mkObjImg(contenido_habilidades_software_debian,"img_habilidades_software","img_debian","./vista/img/img_debian.svg")
             let descripcion_habilidades_debian = mkTextList(contenido_habilidades_software_debian,"descripcion_habilidades","descripcion_habilidades",
-                "Hablidades Debian:",
+                "Habilidades Debian:",
                 "Instalación y configuración.",
                 "Shell Script.",
                 "Virtualización.",
@@ -472,7 +480,7 @@ function contenidoInicio() {
 
         let contenido_habilidades_software_ubuntu = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_ubuntu")
             let descripcion_habilidades_ubuntu = mkTextList(contenido_habilidades_software_ubuntu,"descripcion_habilidades","descripcion_habilidades",
-                "Hablidades Ubuntu:",
+                "Habilidades Ubuntu:",
                 "Instalación y configuración.",
                 "Shell Script.",
                 "Virtualización.",
@@ -481,6 +489,8 @@ function contenidoInicio() {
                 "Soporte general.",
             )
             let img_ubuntu = mkObjImg(contenido_habilidades_software_ubuntu,"img_habilidades_software","img_ubuntu","./vista/img/img_ubuntu.svg")
+
+        let video_ubuntu = mkObjVideoLoop(cuerpo_inicio,"video_programacion","video_ubuntu","./vista/video/ubuntu.mp4")
 
         let contenido_infografia_ubuntu = mkObj(cuerpo_inicio,"contenido_infografia_windows","contenido_infografia_ubuntu")
             contenido_infografia_ubuntu.contenidoInfografiaUbuntu()
@@ -491,7 +501,7 @@ function contenidoInicio() {
         let contenido_habilidades_software_gimp = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_gimp")
             let img_gimp = mkObjImg(contenido_habilidades_software_gimp,"img_habilidades_software","img_gimp","./vista/img/img_gimp.svg")
             let descripcion_habilidades_gimp = mkTextList(contenido_habilidades_software_gimp,"descripcion_habilidades","descripcion_habilidades",
-                "Hablidades Gimp:",
+                "Habilidades Gimp:",
                 "Diseño Gráfico.",
                 "Familiaridad de interfáz.",
                 "Eliminación de fondos.",
@@ -503,7 +513,7 @@ function contenidoInicio() {
 
         let contenido_habilidades_software_mastrack = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_mastrack")
             let descripcion_habilidades_mastrack = mkTextList(contenido_habilidades_software_mastrack,"descripcion_habilidades","descripcion_habilidades",
-                "Hablidades Mastrack:",
+                "Habilidades Mastrack:",
                 "Localización.",
                 "Generación de reportes.",
                 "Alertas y notificaciones.",
@@ -515,7 +525,7 @@ function contenidoInicio() {
         let contenido_habilidades_software_pase_tag = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_pase_tag")
             let img_pase_tag = mkObjImg(contenido_habilidades_software_pase_tag,"img_habilidades_software","img_pase_tag","./vista/img/img_pase_tag.svg")
             let descripcion_habilidades_pase_tag = mkTextList(contenido_habilidades_software_pase_tag,"descripcion_habilidades","descripcion_habilidades",
-                "Hablidades Pase Tag:",
+                "Habilidades Pase Tag:",
                 "Sistema corporativo Pase Tag App.",
                 "Automatización de recarga.",
                 "Gestión de aclaraciones.",

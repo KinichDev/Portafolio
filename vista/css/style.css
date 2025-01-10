@@ -1,3 +1,15 @@
+@keyframes fadeInShot {
+    0%{
+        opacity: 0;
+    }
+    90%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 @keyframes fadeIn {
     0%{
         opacity: 0;
@@ -2598,7 +2610,16 @@ img{
     background-color: white;
     border-radius: 6px;
     box-shadow: 0 0 12px var(--colorlight);
-    max-width: max-content;
-    max-height: max-content;
+    max-width: min-content;
+    /* max-height: 80%; */
+    height: min-content;
     padding: 30px;
+}
+
+.window blockquote{
+    animation: fadeIn 1.5s forwards;
+}
+
+.twitter-tweet{
+    height: min-content;
 }

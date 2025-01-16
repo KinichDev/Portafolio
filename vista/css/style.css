@@ -29,7 +29,7 @@
 }
 
 @keyframes identifier {
-    
+
 }
 
 @keyframes parpadear {
@@ -63,7 +63,7 @@
     --colorPink:#f45f85;
     --colorAzul:#0e3d5d;
     --colorblue: #1e3a8a ;
-    
+
     --colorBlueLetra: #103eb9;
 
     --placeIn: fadeIn .5s forwards;
@@ -84,36 +84,43 @@
     user-select: none;
 }
 
-/* Estilo del scrollbar */
+/* Estilo minimalista del scrollbar para Webkit (Chrome, Safari) */
 *::-webkit-scrollbar {
-    width: 2px;
-  }
+    width: 10px;
+}
 
-  /* Estilo del thumb (la barra de desplazamiento) */
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--colorAzul);
-    border-radius: 6px;
-    border: 3px solid #fff;
+*::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.7); /* Color gris opaco */
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Espacio entre el thumb y el track */
+}
 
-  }
+*::-webkit-scrollbar-track {
+    background: rgba(240, 240, 240, 0.9); /* Fondo gris claro */
+}
 
-  /* Estilo del track (el área del scrollbar) */
-  *::-webkit-scrollbar-track {
-    background-color: #f0f0f0;
-    
-  }
+/* Estilo del scrollbar para Firefox */
+* {
+    scrollbar-color: rgba(136, 255, 210, 0.7) rgba(240, 240, 240, 0.9);
+    scrollbar-width: thin; /* Scrollbar delgado */
+}
 
-  /* Estilo del scrollbar para Firefox */
-  * {
-    scrollbar-color: #3498db #f0f0f0;
-    scrollbar-width: thin;
-  }
+/* Efecto hover en el thumb para Webkit */
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 100, 100, 0.7); /* Cambio a gris más oscuro al hacer hover */
+}
 
-  /* Cambia el cursor al pasar sobre el scrollbar (opcional) */
-  *::-webkit-scrollbar-thumb:hover {
-    background-color: #2ecc71;
-  }
+/* Estilo minimalista del scrollbar para Internet Explorer y Edge */
+* {
+    -ms-overflow-style: auto; /* Para versiones anteriores de IE */
+}
 
+/* Asegurar que el scrollbar esté encima de todos los elementos */
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-track {
+    z-index: 9999;
+}
 
 html,body{
     width: 100%;
@@ -159,7 +166,7 @@ img{
     font-size: 18px;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .contenedor_menu_header{
@@ -233,7 +240,7 @@ img{
     bottom: var(--paddingDisc);
     right: var(--distDisc);
     transition: bottom 0.3s ease;
-    
+
 }
 
 
@@ -260,9 +267,9 @@ img{
 }
 
 .disc {
-    width: 4px; 
+    width: 4px;
     height: 4px;
-    background-color: var(--colora); 
+    background-color: var(--colora);
     border-radius: 50%;
     position: absolute;
 }
@@ -354,6 +361,7 @@ img{
     padding: 12px;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.596)); /* Ajusta los valores para el efecto deseado */
 }
 
 .cont_sub_text_descripcion_habilidades{
@@ -384,7 +392,7 @@ img{
 }
 
 .descripcion_habilidades{
-    
+
 }
 
 .cont_texto_contenido{
@@ -1386,8 +1394,8 @@ img{
 
 }
 
-  
-  
+
+
 .container {
     width: 55px;
     height: 55px;
@@ -1418,7 +1426,7 @@ img{
     border-bottom: none;
     animation: flash 2s infinite;
   }
-  
+
   @keyframes rotation {
     0% {
       transform: rotate(0deg);
@@ -1433,7 +1441,7 @@ img{
       transform: rotate(360deg);
     }
   }
-  
+
   @keyframes flash {
     0% {
       opacity: 1;
@@ -1444,7 +1452,7 @@ img{
     100% {
       opacity: 1;
     }
-  } 
+  }
 
   .in_view{
     opacity: 1;
@@ -1472,13 +1480,13 @@ img{
     padding: 6px;
     margin-bottom: 12px;
   }
-  
+
   .cont_input_calendario_input {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cont_tittle_calendario_input {
     background-color: var(--colorAzul);
     color: #fff;
@@ -1490,16 +1498,16 @@ img{
     font-weight: bold;
     align-items: center;
   }
-  
+
   .tittle_calendario_input {
     margin: 0;
   }
-  
+
   .nodo_cont_input_calendario_input {
     padding: 10px;
     box-sizing: border-box;
   }
-  
+
   .in_calendario_input {
     padding: 8px;
     width: 100%;
@@ -1509,17 +1517,17 @@ img{
     font-size: 14px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
   .in_calendario_input:focus {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 5px rgba(52, 152, 219, 0.7);
   }
-  
+
   .calendario_input:focus-within {
     box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
   }
-  
+
 
   .contenedor_calendario{
     padding: 6px;
@@ -1550,7 +1558,7 @@ img{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     height: min-content;
   }
-  
+
   /* Estilo para los subtextos dentro del contenedor */
   .cont_sub_text_descripcion_inicio {
     /* margin-bottom: 15px; */
@@ -1570,10 +1578,10 @@ img{
     flex-direction: column;
     height: min-content;
     padding: 8px;
-    
+
   }
 
-  
+
 
   .contenido_etiquetas_actividades_catalogo{
     justify-content: center;
@@ -1601,7 +1609,7 @@ img{
 
   #cont_sub_text_contenido_diseño_responsivo_0{
     background-color: var(--colorHoverDark);
-    
+
     color: white;
     font-size: 26px;
     font-weight: bold;
@@ -1679,7 +1687,7 @@ img{
   .mapa{
     width: 800px;
   }
-  
+
   .cont_img_escritorio_trabajo{
     justify-content: center;
     height: 70%;
@@ -1711,7 +1719,7 @@ img{
 
 .contenedor_imagenes_carrusel {
     transition: transform 0.5s ease-in-out;
-    overflow: visible; 
+    overflow: visible;
     /* padding: 36px; */
     background-color: white;
 }
@@ -1722,7 +1730,7 @@ img{
     justify-content: center;
     margin-right: 72px;
 }
-    
+
 
 .img_carrusel_carrusel {
     height: min-content;
@@ -1894,7 +1902,7 @@ img{
               display: none; /* Ocultar inicialmente */
               color: white;
           }
-  
+
           @keyframes typing {
               from { width: 0; }
               to { width: 100%; }
@@ -2004,21 +2012,23 @@ img{
     position: absolute;
     z-index: 0;
     width: 100%;
-    background-color: var(--colordark);
+    /* background-color: var(--colordark); */
     height: 100%;
 }
 .img_fondo{
     /* position: absolute; */
     z-index: 0;
-    height: 100%;
-    max-width: none;
+    object-fit: cover;
+    /* height: 100%; */
+    width: 100%;
+    /* min-height: none; */
 }
 .cont_img_seguridad{
     height: min-content;
     position: relative;
 }
 .img_seguridad{
-    height: 350px;
+    height: 185px;
 }
 
 .contenido_infografia{
@@ -2070,12 +2080,12 @@ img{
 .cont_video_web{
     justify-content: end;
     background-color: white;
-    height: min-content;
+    height: 33%;
     z-index: 1;
 }
 
 .video_web{
-    height: 370px;
+    /* height: 06; */
 }
 .cont_video_programacion{
     background-color: white;
@@ -2257,7 +2267,7 @@ img{
     position: relative;
     justify-content: center;
   }
-  
+
   /* Estilo del texto */
   .tittle_header_pestaña {
     font-family: 'Roboto', sans-serif; /* Fuente similar a Google */
@@ -2265,19 +2275,19 @@ img{
     color: #202124; /* Color oscuro estándar */
     font-weight: 500; /* Peso medio */
   }
-  
+
   /* Efecto hover */
   .cont_tittle_header_pestaña:hover {
     background-color: #e8f0fe; /* Fondo azul claro en hover */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Mayor sombra en hover */
   }
-  
+
   /* Efecto activo */
   .cont_tittle_header_pestaña:active {
     background-color: #d2e3fc; /* Fondo más oscuro en clic */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra más marcada */
   }
-  
+
 /* Menú desplegable */
 .menu_header_pestaña {
     position: absolute;
@@ -2292,7 +2302,7 @@ img{
     z-index: 1000; /* Para asegurarse de que quede encima de otros elementos */
     height: max-content;
   }
-  
+
   /* Contenedor de las opciones */
   .cont_option_menu_header {
     padding: 12px 16px; /* Espaciado interno */
@@ -2300,12 +2310,12 @@ img{
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
-  
+
   /* Última opción sin borde inferior */
   .cont_option_menu_header:last-child {
     border-bottom: none;
   }
-  
+
   /* Estilo de las opciones */
   .option_menu_header {
     font-family: 'Roboto', sans-serif;
@@ -2313,18 +2323,18 @@ img{
     color: #202124; /* Color oscuro */
     font-weight: 400; /* Peso normal */
   }
-  
+
   /* Efecto hover en las opciones */
   .cont_option_menu_header:hover {
     background-color: #f1f3f4; /* Fondo claro en hover */
   }
-  
+
   /* Efecto activo (clic) */
   .cont_option_menu_header:active {
     background-color: #e8f0fe; /* Fondo azul claro en clic */
     color: #1a73e8; /* Color azul para el texto */
   }
-  
+
   /* Contenedor principal del input */
 .input {
     width: 100%;
@@ -2471,7 +2481,7 @@ img{
     max-height: 50%;
     overflow: auto;
     margin: 5px;
-    box-shadow: 0 0 4px black;
+    /* box-shadow: 0 0 4px black; */
     min-width: 600px;
     position: relative;
 }
@@ -2591,15 +2601,15 @@ img{
 }
 
 .markdown-body pre code, .markdown-body pre tt{
-    color: darkorange;
+    color: rgb(255, 175, 77);
 }
 
 .markdown-body h3 {
-    color: yellow;
+    color: rgb(195, 195, 15);
 }
 
 .markdown-body strong {
-    color: rgb(47, 255, 0);
+    color: rgb(0, 234, 255);
 }
 
 .window{

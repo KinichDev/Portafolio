@@ -313,12 +313,18 @@ function contenidoInicio() {
         // let contenido_linkedin_oublicacion = mkObj(cuerpo_inicio,"contenido_linkedin_oublicacion","contenido_linkedin_oublicacion",
         //     '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7210490409691566080" height="465" width="504" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>')
     
-        let contenido_experiencia_destacada = mkTextList(cuerpo_inicio,"contenido_experiencia_destacada","contenido_experiencia_destacada",
-            "Experiencia General.",
-            "11 años de experiencia en entornos empresariales.",
-            "Control y automatización de Inventarios -> Administración Logística -> Bitácora y Monitoreo -> Desarrollo de software.",
-        )
-
+        let contenido_experiencia_destacada = mkTextList(
+            cuerpo_inicio,
+            "contenido_experiencia_destacada",
+            "contenido_experiencia_destacada",
+            "Experiencia Profesional Destacada",
+            "Más de 11 años de experiencia en diversos entornos empresariales.",
+            "Especialización en Control y Automatización de Inventarios.",
+            "Experiencia en Administración Logística y Gestión de Operaciones.",
+            "Competencias en Bitácora y Monitoreo de Procesos.",
+            "Desarrollo de Software: Diseño, Implementación y Mantenimiento."
+        );
+        
         let contenido_etiquetas_actividades = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
         contenido_etiquetas_actividades.style.borderBottom = "solid 1px rgba(0, 0, 0, 0.33)"
 
@@ -329,10 +335,13 @@ function contenidoInicio() {
 
 
             let etiqueta_actividades_formularios = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Formularios.","./vista/img/actividades_formularios.png",
-                "Formularios con validaciones de datos...")
+                "Crear formularios con validaciones de datos puede ser muy útil para asegurar que la información ingresada sea precisa y correcta."
+            )
 
 
-            let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Encuestas  y cajas de sujerencias.","./vista/img/actividades_encuestas_sugerencias.png","Encuestas y caja de sugerencias personalizadas para validaciones de datos...")
+            let etiqueta_actividades_encuestas_sugerencias = etiquetaElemento(contenido_etiquetas_actividades,"etiqueta_actividades","etiqueta_actividades_forumularios","Encuestas  y cajas de sujerencias.","./vista/img/actividades_encuestas_sugerencias.png",
+                "Crear encuestas y cajas de sugerencias es una excelente manera de obtener opiniones y retroalimentación."
+            )
 
         let video_web = mkObjVideoLoop(cuerpo_inicio,"video_web","video_web","./vista/video/web.mp4")
 
@@ -376,8 +385,12 @@ function contenidoInicio() {
 
         let contenido_etiquetas_actividades_ = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
 
-            let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png","Tablas de cálculo dinámicas en navegador completamente personalizadas, ...")
-            let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png","Reportes automaticos con bases de datos...")
+            let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png",
+                "Herramientas utilizadas para realizar operaciones matemáticas, analizar datos y automatizar cálculos repetitivos."
+            )
+            let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png",
+                "Es una excelente manera de mantener la información actualizada y accesible."
+            )
 
 
 

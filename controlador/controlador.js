@@ -119,6 +119,7 @@ function contenidoInicio() {
                         let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
                         let opcion_screen_curriculum = mkObj(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","cv.pdf")
                         let opcion_screen_linkedin = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/linkedin.png")
+                        opcion_screen_linkedin.style.display = "none"
 
                         // let window_x = mkObj(contenido_imagen_ciudad,"window","window_x",)
                         // window_x.style.display = "none"
@@ -140,16 +141,16 @@ function contenidoInicio() {
                             window_linkedin.style.display = "flex"
                         });
 
-                    let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
-                            ventana_estatus.style.display="none"
+                    // let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
+                    //         ventana_estatus.style.display="none"
 
-                            flexWindow(ventana_estatus)
+                    //         flexWindow(ventana_estatus)
 
-                            document.addEventListener("mouseup", function (event) {
-                                if (!ventana_estatus.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
-                                    ventana_estatus.style.display = "none";
-                                }
-                            });
+                    //         document.addEventListener("mouseup", function (event) {
+                    //             if (!ventana_estatus.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
+                    //                 ventana_estatus.style.display = "none";
+                    //             }
+                    //         });
         }
 
 
@@ -179,7 +180,7 @@ function contenidoInicio() {
     let window_linkedin = mkObj(contenido_imagen_ciudad,"window","window_linkedin",)
     window_linkedin.style.display = "none"
     window_linkedin.innerHTML = `
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7280446658373472256" frameborder="0" allowfullscreen="" width="800px" height="550px"></iframe>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7210490409691566080" height="465" width="504" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>
     `
     flexWindow(window_linkedin)
 
@@ -201,9 +202,9 @@ function contenidoInicio() {
 
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
             "Leonardo K. Luna",
-            "Pasión y creatividad por soluciones digitales.",
-            "Informático Administrativo profesional y dedicado.",
-            "Desarrollo de Software y Administración Operativa.",
+            "Pasión y creatividad por soluciones digitales",
+            "Informático Administrativo profesional y dedicado",
+            "Desarrollo de Software y Administración Operativa",
         )
 
         function animateText(texts) {

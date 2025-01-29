@@ -6,7 +6,7 @@ let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_princip
         let  = mkObj(header,"contenedor_img_header","contenedor_img_header")
 
             let container = mkObj(contenedor_img_header,"container")
-                let circle = mkObj(container,"circle")
+                let circle = mkObj(container,"cheader_opcion_xircle")
 
         contenedor_img_header.addEventListener("mouseenter",function () {
             circle.className="circle_white"
@@ -116,7 +116,9 @@ function contenidoInicio() {
                         //         }
                             // });
 
-                        let opcion_screen_facebook = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
+                        let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
+                        let opcion_screen_curriculum = mkObj(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","cv.pdf")
+                        let opcion_screen_linkedin = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/linkedin.png")
 
                         // let window_x = mkObj(contenido_imagen_ciudad,"window","window_x",)
                         // window_x.style.display = "none"
@@ -126,11 +128,19 @@ function contenidoInicio() {
                         // flexWindow(window_x)
 
 
-                            opcion_screen_x.addEventListener("click", function () {
-                                window_x.style.display = "flex"
-                            });
+                        opcion_screen_x.addEventListener("click", function () {
+                            window_x.style.display = "flex"
+                        });
 
-                            let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
+                        opcion_screen_curriculum.addEventListener("click", function () {
+                            window_cv.style.display = "flex"
+                        });
+
+                        opcion_screen_linkedin.addEventListener("click", function () {
+                            window_linkedin.style.display = "flex"
+                        });
+
+                    let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
                             ventana_estatus.style.display="none"
 
                             flexWindow(ventana_estatus)
@@ -145,7 +155,8 @@ function contenidoInicio() {
 
 
 
-    let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/ciudad.jpg")
+    // let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/ciudad.jpg")octopus-8562474_1920
+    let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/octopus-8562474_1920.jpg")
     contenido_imagen_ciudad.style.position = "relative"
     contenido_imagen_ciudad.querySelector("img").entradaSuave()
 
@@ -156,8 +167,28 @@ function contenidoInicio() {
     `
     flexWindow(window_x)
 
+    
+    let window_cv = mkObj(contenido_imagen_ciudad,"window","window_cv",)
+    window_cv.style.display = "none"
+    window_cv.innerHTML = `
+        <iframe src="./vista/pdf/cv.pdf" width="800px" height="550px"></iframe>
+    `
+    flexWindow(window_cv)
+    // contenidoDesktopScreen(contenido_imagen_ciudad)
 
+    let window_linkedin = mkObj(contenido_imagen_ciudad,"window","window_linkedin",)
+    window_linkedin.style.display = "none"
+    window_linkedin.innerHTML = `
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7280446658373472256" frameborder="0" allowfullscreen="" width="800px" height="550px"></iframe>
+    `
+    flexWindow(window_linkedin)
+
+    
     contenidoDesktopScreen(contenido_imagen_ciudad)
+
+
+
+    
 
 
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
@@ -166,25 +197,13 @@ function contenidoInicio() {
     contenido_colage.style.position = "absolute"
 
     let contenedor_colage = mkObj(contenido_colage,"contenedor_colage","contenedor_colage")
-    // contenedor_colage.contenidoColage("1000")
-    contenedor_colage.contenidoColage(750)
+    contenedor_colage.contenidoColage(90)
 
-        // let contenido_perfil = mkTextList(contenido_imagen_ciudad,"contenido_experiencia_destacada","contenido_experiencia_destacada_perfil_personal",
-        //     "Perfil.",
-        //     "Leonardo K. Luna",
-        //     "Informática, monitoreo, logística y desarrollo",
-        //     "México D.F. (CDMX) - 2025.",
-        //     "Especialista en desarrollo Web.",
-        //     "Fullstack Development.",
-        //     "Logística.",
-        //     "Diseño.",
-        // );contenido_perfil.style.position = "absolute"
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
-            "Gracias por visitar mi portafolio.",
-            "Cada trabajo refleja mi pasión y creatividad.",
-            "Estoy abierto a nuevos desafíos y colaboraciones.",
-            "Espero que disfrutes navegando y contactes pronto.",
-            "Aquí encontrarás mis proyectos y habilidades destacadas.",
+            "Leonardo K. Luna",
+            "Pasión y creatividad por soluciones digitales.",
+            "Informático Administrativo profesional y dedicado.",
+            "Desarrollo de Software y Administración Operativa.",
         )
 
         function animateText(texts) {
@@ -204,6 +223,7 @@ function contenidoInicio() {
                 delay += 4000; // Aumenta el tiempo para cada línea en 4 segundos
             });
         }
+
 
         animateText(texto_code);
 
@@ -348,8 +368,20 @@ function contenidoInicio() {
         let contenido_etiquetas_actividades_catalogo = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades_catalogo","contenido_etiquetas_actividades_catalogo")
         contenido_etiquetas_actividades_catalogo.style.borderTop = "solid 1px rgba(0, 0, 0, 0.33)"
 
+            let etiqueta_actividades_catalogo_sistemas_de_alarmado = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_sistemas_de_alarmado","Sistemas de agenda con alarmado.","./vista/img/ota.png","Software para control de tablas con sistema de alarmado.")
             let etiqueta_actividades_catalogo_fichas_tecnicas = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_fichas_tecnicas","Catálogos y fichas técnicas.","./vista/img/catalogo_fichas_tecnicas.png","Catágos con fichas técnicas, sistema de pedidos")
             let etiqueta_actividades_catalogo_cotizacion = etiquetaElemento(contenido_etiquetas_actividades_catalogo,"etiqueta_actividades","etiqueta_actividades_catalogo_cotizacion","Sistema de Cotizaciones.","./vista/img/catalogo_cotizacion.png","Catágos con fichas técnicas, sistema de pedidos ")
+
+        let contenido_etiquetas_actividades_ = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
+
+            let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png",
+                "Herramientas utilizadas para realizar operaciones matemáticas, analizar datos y automatizar cálculos repetitivos."
+            )
+            let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png",
+                "Es una excelente manera de mantener la información actualizada y accesible."
+            )
+
+
 
 
         let img_escritorio = mkObjImg(cuerpo_inicio,"img_escritorio","img_escritorio",)
@@ -359,13 +391,16 @@ function contenidoInicio() {
                   console.log('The element is visible:', entry.target);
                   img_fondo.querySelector("img").setAttribute("src","./vista/img/escritorio.jpg" + "?" + new Date().getTime())
                   img_fondo.style.display = "flex"; // Show the element
-                } else {
-                  console.log('The element is out of view:', entry.target);
-                  img_fondo.style.display = "none"
-                  setTimeout(() => {
-                    img_fondo.querySelector("img").setAttribute("src","")
-                }, 500);
-                }
+                  header.style.backgroundColor = "#c41515"
+
+                } 
+                // else {
+                //   console.log('The element is out of view:', entry.target);
+                //   img_fondo.style.display = "none"
+                //   setTimeout(() => {
+                //     img_fondo.querySelector("img").setAttribute("src","")
+                // }, 500);
+                // }
               });
 
               
@@ -381,18 +416,9 @@ function contenidoInicio() {
             )
 
 
-        let diagrama_js = mkObjImg(cuerpo_inicio,"diagrama","diagrama_js","./vista/img/diagrama_js.png")
-
-        let contenido_etiquetas_actividades_ = mkObj(cuerpo_inicio,"contenido_etiquetas_actividades","contenido_etiquetas_actividades")
-
-            let etiqueta_actividades_tablas_calculo = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Tablas de Cálculo.","./vista/img/actividades_tablas_calculo.png",
-                "Herramientas utilizadas para realizar operaciones matemáticas, analizar datos y automatizar cálculos repetitivos."
-            )
-            let etiqueta_actividades_reportes_automaticos = etiquetaElemento(contenido_etiquetas_actividades_,"etiqueta_actividades","etiqueta_actividades_tablas_calculo","Reportes automáticos.","./vista/img/actividades_reportes_automaticos.png",
-                "Es una excelente manera de mantener la información actualizada y accesible."
-            )
 
 
+            let diagrama_js = mkObjImg(cuerpo_inicio,"diagrama","diagrama_js","./vista/img/diagrama_js.png")
 
 
             let contenido_habilidades_software_php = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_php")
@@ -411,14 +437,16 @@ function contenidoInicio() {
                     console.log('The element is visible:', entry.target);
                     img_fondo.querySelector("img").setAttribute("src","./vista/img/seguridad.jpg")
                     img_fondo.style.display = "flex"; // Show the element
-                    } else {
-                    console.log('The element is out of view:', entry.target);
-                    img_fondo.style.display = "none"
-                    setTimeout(() => {
-                      img_fondo.querySelector("img").setAttribute("src","")
-                  }, 500);
+                    header.style.backgroundColor = "#2a584d"
+                    } 
+                //     else {
+                //     console.log('The element is out of view:', entry.target);
+                //     img_fondo.style.display = "none"
+                //     setTimeout(() => {
+                //       img_fondo.querySelector("img").setAttribute("src","")
+                //   }, 500);
 
-                    }
+                //     }
                 });
 
             let contenido_seguridad_informatica = mkObj(cuerpo_inicio,"contenido_infografia","contenido_seguridad_informatica")
@@ -446,16 +474,12 @@ function contenidoInicio() {
                   console.log('The element is visible:', entry.target);
                   img_fondo.querySelector("img").setAttribute("src","./vista/img/graficas.jpg")
                   img_fondo.style.display = "flex"; // Show the element
-                } else {
-                  console.log('The element is out of view:', entry.target);
-                  img_fondo.style.display = "none"
-                  setTimeout(() => {
-                    img_fondo.querySelector("img").setAttribute("src","")
-                }, 500);
+                  header.style.backgroundColor = "#002a51"
 
-                }
+                } 
               });
 
+        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/logo_logistic.png")
 
 
         let contenido_habilidades_software_windows = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_windows")
@@ -467,6 +491,20 @@ function contenidoInicio() {
                 "Gestión de software y actualizaciones.",
             )
             let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_habilidades_software","img_windows","./vista/img/img_windows.svg")
+
+            let img_windows_fondo = mkObj(cuerpo_inicio,"img_windows_fondo","img_windows_fondo")
+            let capa_difuminado_windows = mkObj(img_windows_fondo,"capa_difuminado","capa_difuminado_windows")
+            img_windows_fondo.onScrollIntoView((entry) => {
+                if (entry.isIntersecting) {
+                console.log('The element is visible:', entry.target);
+                img_fondo.querySelector("img").setAttribute("src","./vista/img/digital.jpg")
+                img_fondo.style.display = "flex"; // Show the element
+                header.style.backgroundColor = "black"
+
+                } 
+            });
+
+
 
         let contenido_infografia_windows = mkObj(cuerpo_inicio,"contenido_infografia_windows","contenido_infografia_windows")
         displayScroll(contenido_infografia_windows)
@@ -487,9 +525,21 @@ function contenidoInicio() {
 
         let video_programacion = mkObjVideoLoop(cuerpo_inicio,"video_programacion","video_programacion","./vista/video/programming.mp4")
 
+        let img_debian_fondo = mkObjImg(cuerpo_inicio,"img_debian_fondo","img_debian_fondo",)
+            let capa_difuminado_debian = mkObj(img_debian_fondo,"capa_difuminado","capa_difuminado_debian")
+            img_debian_fondo.onScrollIntoView((entry) => {
+                if (entry.isIntersecting) {
+                console.log('The element is visible:', entry.target);
+                img_fondo.querySelector("img").setAttribute("src","./vista/img/servers.jpg")
+                img_fondo.style.display = "flex"; // Show the element
+                header.style.backgroundColor = "black"
+
+                } 
+            });
+
+
         let contenido_infografia_debian = mkObj(cuerpo_inicio,"contenido_infografia_windows","contenido_infografia_debian")
         contenido_infografia_debian.contenidoInfografiaDebian()
-
 
         let contenido_habilidades_software_ubuntu = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_ubuntu")
             let descripcion_habilidades_ubuntu = mkTextList(contenido_habilidades_software_ubuntu,"descripcion_habilidades","descripcion_habilidades",
@@ -504,6 +554,20 @@ function contenidoInicio() {
             let img_ubuntu = mkObjImg(contenido_habilidades_software_ubuntu,"img_habilidades_software","img_ubuntu","./vista/img/img_ubuntu.svg")
 
         let video_ubuntu = mkObjVideoLoop(cuerpo_inicio,"video_programacion","video_ubuntu","./vista/video/ubuntu.mp4")
+
+        let img_ubuntu_fondo = mkObjImg(cuerpo_inicio,"img_ubuntu_fondo","img_ubuntu_fondo",)
+            let capa_difuminado_ubuntu = mkObj(img_ubuntu_fondo,"capa_difuminado","capa_difuminado_ubuntu")
+            img_ubuntu_fondo.onScrollIntoView((entry) => {
+                if (entry.isIntersecting) {
+                console.log('The element is visible:', entry.target);
+                img_fondo.querySelector("img").setAttribute("src","./vista/img/ubuntu_deco.jpg")
+                img_fondo.style.display = "flex"; // Show the element
+                header.style.backgroundColor = "black"
+
+                } 
+            });
+
+
 
         let contenido_infografia_ubuntu = mkObj(cuerpo_inicio,"contenido_infografia_windows","contenido_infografia_ubuntu")
             contenido_infografia_ubuntu.contenidoInfografiaUbuntu()
@@ -629,29 +693,29 @@ function contenidoInicio() {
             "Almacenamiento de información relevante en bases de datos.",
         )
 
-        let carrusel_guia_mapas = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_guia_mapas",
-            "vista/img/kml_guide_1_mymaps.svg",
-            "vista/img/kml_guide_2_indicaciones.svg",
-            "vista/img/kml_guide_3_ruta.svg",
-            "vista/img/kml_guide_4_opciones.svg",
-            "vista/img/kml_guide_5_archivo.svg",
-            "vista/img/kml_guide_6_reporte.svg",
-        )
+        // let carrusel_guia_mapas = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_guia_mapas",
+        //     "vista/img/kml_guide_1_mymaps.svg",
+        //     "vista/img/kml_guide_2_indicaciones.svg",
+        //     "vista/img/kml_guide_3_ruta.svg",
+        //     "vista/img/kml_guide_4_opciones.svg",
+        //     "vista/img/kml_guide_5_archivo.svg",
+        //     "vista/img/kml_guide_6_reporte.svg",
+        // )
 
 
 
-        let contenido_mapas = mkObj(cuerpo_inicio,"contenido_mapas","contenido_mapas")
+        // let contenido_mapas = mkObj(cuerpo_inicio,"contenido_mapas","contenido_mapas")
 
 
-            let input_mapa = mkObjInput(contenido_mapas,"calendario_input","input_mapa","file","Crea una ruta en Google MyMaps, exporta la informacion en KML e inserta aqui el archivo .kml","INSERTA AQUI EL ARCHIVO KML","helvetica","13px","black");
-            let mapa = mkObj(contenido_mapas,"mapa","mapa");
+        //     let input_mapa = mkObjInput(contenido_mapas,"calendario_input","input_mapa","file","Crea una ruta en Google MyMaps, exporta la informacion en KML e inserta aqui el archivo .kml","INSERTA AQUI EL ARCHIVO KML","helvetica","13px","black");
+        //     let mapa = mkObj(contenido_mapas,"mapa","mapa");
 
-            // Escuchar el evento 'change' del input
-            let in_mapa = input_mapa.querySelector("input")
-            //console.log(in_mapa)
+        //     // Escuchar el evento 'change' del input
+        //     let in_mapa = input_mapa.querySelector("input")
+        //     //console.log(in_mapa)
 
 
-            in_mapa.addEventListener('change', mapaRuta);
+        //     in_mapa.addEventListener('change', mapaRuta);
 
 
         let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_constancias",
@@ -712,7 +776,6 @@ function contenidoInicio() {
             "vista/img/diagrama_php.png",
         )
 
-        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/logo_logistic.png")
 
         let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",
 
@@ -764,7 +827,5 @@ function contenidoInicio() {
             "Buenas prácticas",
         )
         displayScroll(cuerpo_inicio)
-
 return cuerpo_inicio
 }
-

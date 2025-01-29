@@ -1,23 +1,4 @@
-:root {
-    --colorBtnClose: rgb(230, 44, 81);
-    --colorTextWhite: white;
-    --colorVerde: #7cdac9;
-    --colordark: #0e0e0e;
-    --colorlight: #f8f8f8;
-    --colorHover: #c1ffff;
-    --colorHoverDark: #3d3d3d;
-    --colorRed: #f04141;
-    --colorRedHover: #ff6969;
-    --colorGreenW: #0bc20b;
-    --colorGreenWHover: #60bc60;
-    --colorPink: #f45f85;
-    --colorAzul: #0e3d5d;
-    --colorBlueLetra: #103eb9;
-    --colorBlueLight: #1aa8e5;
-    --placeIn: fadeIn .5s forwards;
-    --distDisc: 22px;
-    --paddingDisc: 12px;
-}
+
 
 * {
     margin: 0;
@@ -38,7 +19,7 @@ html, body {
 .contenedor_infografia {
     display: block;
     padding: var(--paddingDisc);
-    background-color: var(--colorlight);
+    /* background-color: var(--colorlight); */
 }
 
 h1 {
@@ -49,7 +30,7 @@ h1 {
 
 .section {
     width: 80%;
-    background-color: var(--colorlight);
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid var(--colordark);
     border-radius: 8px;
     margin: 20px auto;
@@ -62,7 +43,7 @@ h1 {
 }
 
 .section:hover {
-    background-color: var(--colorHover);
+    background-color: white;
 }
 
 h2 {

@@ -213,7 +213,6 @@ HTMLElement.prototype.contenidoInfografiaWindows = function() {
                 padding: 20px;
                 line-height: 1.8;
                 flex-direction: column;
-                background-color: #ffffff;
                 color: #2c3e50;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 border-radius: 10px;
@@ -242,7 +241,7 @@ HTMLElement.prototype.contenidoInfografiaWindows = function() {
             .contenedor_infografia_windows section {
                 margin-bottom: 40px;
                 padding: 20px;
-                background-color: #ecf0f1;
+                background-color: #fff;
                 border-radius: 8px;
                 transition: transform 0.3s;
             }
@@ -313,7 +312,6 @@ HTMLElement.prototype.contenidoInfografiaDebian = function() {
                 padding: 20px;
                 line-height: 1.8;
                 flex-direction: column;
-                background-color: #ffffff;
                 color: #333333;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 border-radius: 10px;
@@ -342,7 +340,7 @@ HTMLElement.prototype.contenidoInfografiaDebian = function() {
             .contenedor_infografia_debian section {
                 margin-bottom: 40px;
                 padding: 20px;
-                background-color: #F8F9FA;
+                background-color: #ffffff;
                 border-radius: 8px;
                 transition: transform 0.3s;
             }
@@ -413,7 +411,6 @@ HTMLElement.prototype.contenidoInfografiaUbuntu = function() {
                 padding: 20px;
                 line-height: 1.8;
                 flex-direction: column;
-                background-color: #ffffff;
                 color: #333333;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 border-radius: 10px;
@@ -442,7 +439,7 @@ HTMLElement.prototype.contenidoInfografiaUbuntu = function() {
             .contenedor_infografia_ubuntu section {
                 margin-bottom: 40px;
                 padding: 20px;
-                background-color: #F7F7F7;
+                background-color: #fff;
                 border-radius: 8px;
                 transition: transform 0.3s;
             }

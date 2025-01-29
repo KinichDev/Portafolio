@@ -1,3 +1,9 @@
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+
 @keyframes fadeInShot {
     0%{
         opacity: 0;
@@ -61,14 +67,17 @@
     --colorGreenW:#0bc20b;
     --colorGreenWHover:#60bc60;
     --colorPink:#f45f85;
+    --colorPinkHover:#f45f8491;
+    
     --colorAzul:#0e3d5d;
+    
     --colorblue: #1e3a8a ;
 
-    --colorBlueLetra: #103eb9;
+    --colorBlueLetra: #f0050586;
 
     --placeIn: fadeIn .5s forwards;
 
-    --colorBlueLight:#007bff;
+    --colorBlueLight:#2f82ff;
 
     --distDisc: 22px;
     --paddingDisc: 12px;
@@ -152,7 +161,8 @@ img{
     align-items: center;
     padding: 3px;
     animation: fadeIn .5s forwards;
-    background-color: var(--colorblue) ;
+    background-color: #c41515 ;
+    transform: background-color 1s;
 }
 
 .cont_img_header{
@@ -345,6 +355,11 @@ img{
 #cuerpo_inicio{
     scroll-behavior: smooth;
     padding: 0px;
+    background-color: black;
+    scrollbar-width: none;
+}
+#cuerpo_inicio > *{
+    z-index: 1;
 }
 
 .contenido_habilidades_software{
@@ -1460,7 +1475,7 @@ img{
 
 
   .cont_contenido_imagen_ciudad{
-    background-color: var(--colordark);
+    background-color: black;
   }
 
   .ventana_calendarios{
@@ -1557,6 +1572,7 @@ img{
     background-color: #f8f8f8; /* Color de fondo */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     height: min-content;
+    
   }
 
   /* Estilo para los subtextos dentro del contenedor */
@@ -1593,14 +1609,18 @@ img{
 
   .cont_img_pc{
     padding: 16px;
-    height: 60%;
+    /* height: 60%; */
     justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, var(--colordark), transparent,transparent,transparent);
+    
   }
 
   .img_pc{
     border-radius: 6px;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 30%;
+    box-shadow: 2px 2px 15px white;
   }
 
   #cont_contenido_diseño_responsivo{
@@ -1866,13 +1886,18 @@ img{
     z-index: 0;
 }
 .capa_difuminado{
-    background: linear-gradient(to bottom, var(--colordark), transparent,var(--colordark));
+    background: linear-gradient(to bottom, var(--colordark), transparent);
     position: absolute;
     z-index: 50;
 }
 
 #capa_difuminado_github{
     background: linear-gradient(to bottom, var(--colorlight), transparent,var(--colorlight));
+}
+
+#capa_difuminado_graficas{
+    background: linear-gradient(to bottom, var(--colordark), transparent);
+
 }
 
 .cont_text{
@@ -1885,25 +1910,31 @@ img{
     top: 35px;
     right: 25px;
 }
-
+.cont_sub_text_text{
+    justify-content: end;
+}
 .sub_text_text{
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: right;
-
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: .15em;
+    border-right: .15em solid white;
+    display: none;
+    color: white;
+    text-align: end;
 }
 
-          .sub_text_text {
+          /* .sub_text_text {
               overflow: hidden;
               white-space: nowrap;
               margin: 0 auto;
               letter-spacing: .15em;
               border-right: .15em solid white;
-              display: none; /* Ocultar inicialmente */
+              display: none;
               color: white;
-          }
+          } */
 
-          @keyframes typing {
+          #cuerpo_inicio > *yping {
               from { width: 0; }
               to { width: 100%; }
           }
@@ -1927,11 +1958,10 @@ img{
             position: relative;
             width: 300px;
             height: 200px;
-            background-color: #ffffffe8;
+            background-color: #ffffff;
             border: 2px solid #2d3436;
             overflow: hidden; /* Asegura que ningún elemento se desborde */
             border-radius: 8px;
-            opacity: .5;
         }
 
         .ruta {
@@ -1976,7 +2006,7 @@ img{
 
         .inicio_mapa{
             position: absolute;
-            bottom: 35px;
+            bottom: 175px;
             right: 15px;
             z-index: 51;
             width: min-content;
@@ -1986,6 +2016,7 @@ img{
 .cont_img_ciudad{
     height: min-content;
     position: relative;
+    background-color: black;
 }
 
 .img_ciudad{
@@ -1997,15 +2028,16 @@ img{
     position: relative;
 }
 .img_escritorio{
-    height: 200px;
+    height: 130px;
 }
 
 .cont_img_graficas{
     height: min-content;
+    height: 0%;
     position: relative;
 }
 .img_graficas{
-    height: 200px;
+    height: 100%;
 }
 
 .cont_img_fondo{
@@ -2028,15 +2060,15 @@ img{
     position: relative;
 }
 .img_seguridad{
-    height: 185px;
+    height: 385px;
 }
 
 .contenido_infografia{
-    background-color: white;
+    /* background-color: white; */
     height: initial;
     padding: 7px;
     z-index: 1;
-    border-bottom: solid 20px white;
+    margin-bottom: 20px ;
 }
 
 .cont_contenido_experiencia_destacada {
@@ -2111,6 +2143,8 @@ img{
 }
 
 .diagrama{
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.822)); 
+
 }
 
 
@@ -2123,15 +2157,17 @@ img{
 
 .barra_herramientas {
     color: var(--colorTextWhite);
-    background-color: #394463 ;
-    box-shadow: 0 0 3px white;
+    background-color: var(--colorBlueLetra) ;
+    box-shadow: 1px 1px 9px white;
     align-items: center;
     justify-content: space-between;
     height: min-content;
+    min-height: 65px;
     position: absolute;
     bottom: 11px;
     z-index: 1000;
     border-radius: 15px;
+    padding-left: 6px;
     animation: fadeIn .5s forwards;
 }
 
@@ -2161,27 +2197,40 @@ img{
 }
 
 .cont_menu_opciones{
-    width: min-content;
-    height: 40px;
-    width: 40px;
-
+    height: max-content;
+    width: max-content;
+    background-color: white;
+    box-shadow: 2px 2px 9px black;
+    border-radius: 4px;
+    transition: box-shadow .5s;
+    padding: 4px;
+}.cont_menu_opciones:hover{
+    box-shadow: none;
+}.cont_menu_opciones:hover > *{
+    box-shadow: none;
 }
 
 .menu_opciones {
-    padding: 2px;
     cursor: pointer;
     transition: padding 0.15s ease;
     height: 40px;
     width: 40px;
-    background-color: white;
-    border-radius: 4px;
+    box-shadow: 2px 2px 9px black;
+    transition: box-shadow .5s;
+    border-radius: 50%;
+
 }
 
 .menu_opciones:hover {
-    padding: 3px;
+    box-shadow: none;
+}
+
+.cont_opcion_screen{
+    justify-content: center;
 }
 
 .barra_aplicaciones{
+    align-items: center;
     position: absolute;
     flex-direction: column;
     border-radius: 20px;
@@ -2464,7 +2513,7 @@ img{
     height: max-content;
     padding: 12px;
     z-index: 1;
-    background-color: white;
+    /* background-color: white; */
 }
 
 /* #contenido_infografia_github{
@@ -2623,13 +2672,56 @@ img{
     max-width: min-content;
     /* max-height: 80%; */
     height: min-content;
-    padding: 30px;
+    padding: 17px;
 }
 
 .window blockquote{
     animation: fadeIn 1.5s forwards;
+    border-radius: solid 1px black;
 }
 
 .twitter-tweet{
     height: min-content;
+}
+
+.opcion_screen{
+    max-width: 50px;
+    cursor: pointer;
+    border-radius: 6px;
+}.opcion_screen:hover{
+    padding: 4px;
+    box-shadow: 1px 1px 9px black;
+}
+
+#opcion_screen_x{
+    width: 25px;
+}
+
+#opcion_screen_curriculum{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--colorPink);
+    cursor: pointer;
+    color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font: 'Roboto';
+    align-items: center;
+    justify-content: center;
+}#opcion_screen_curriculum:hover{
+    background-color: var(--colorPinkHover);
+    color: black;
+}
+
+#window_cv{
+    user-select: none;
+}
+iframe{
+    user-select: none;
+}
+
+#img_windows_fondo,
+#cont_img_ubuntu_fondo,
+#cont_img_debian_fondo{
+    height: 45%;
 }

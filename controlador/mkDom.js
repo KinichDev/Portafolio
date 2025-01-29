@@ -187,24 +187,24 @@ HTMLElement.prototype.entradaSuave = function () {
     let animacionEstilos = `
         @keyframes tomasCinematicasLentas {
             0% {
-                filter: brightness(0.9) blur(10px);
-                transform: scale(1) translate(0, 0);
+                filter: brightness(1) blur(0px);
+                transform: scale(2.6) translate(0, 0);
             }
             25% {
-                filter: brightness(0.4) blur(8px);
-                transform: scale(1.2) translate(10%, -10%);
-            }
+                filter: brightness(0.8) blur(6px);
+                transform: scale(2.2) translate(10%, -10%);
+            }   
             50% {
-                filter: brightness(0.3) blur(6px);
-                transform: scale(1.3) translate(20%, -12%);
+                filter: brightness(0.3) blur(0px);
+                transform: scale(2.3) translate(20%, -12%);
             }
             75% {
-                filter: brightness(0.8) blur(3px);
-                transform: scale(1.2) translate(10%, 10%);
+                filter: brightness(0.8) blur(6px);
+                transform: scale(1.8) translate(10%, 10%);
             }
             100% {
-                filter: brightness(1) blur(0);
-                transform: scale(1) translate(0, 0);
+                filter: brightness(1) blur(0px);
+                transform: scale(2.6) translate(0, 0);
             }
         }
     `;
@@ -293,7 +293,8 @@ HTMLElement.prototype.contenidoColage = function(numColage) {
     for (let i = 0; i < numColage; i++) {
         let top = Math.random() * 90 + '%';
         let left = Math.random() * 100 + '%';
-        let color = "#0e0e0e";  // Fixed color, uncomment for random colors
+        let color = "#000";  // Fixed color, uncomment for random colors
+        let box_shadow = "#fffff666";  // Fixed color, uncomment for random colors
         // let color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
         let delay = (i * 0.1) + 's';  // Delay for animation
 
@@ -303,6 +304,7 @@ HTMLElement.prototype.contenidoColage = function(numColage) {
                 left: ${left};
                 background-color: ${color};
                 animation-delay: ${delay};
+                box-shadow: ${Math.random()}px ${Math.random()}px ${Math.random()}px ${box_shadow};
             }
         `;
 
@@ -1338,7 +1340,7 @@ function displayScroll(parentContainer) {
     console.log(elements);
 
     elements.forEach(element => {
-        element.style.transition = "opacity .3s";
+        element.style.transition = "opacity .2s";
         element.style.opacity = "0"; // Establecer la opacidad inicial en 0
     });
 
@@ -1407,8 +1409,13 @@ function flexWindow(div) {
         div.style.top = `${newTop}px`;
     });
 
-    document.addEventListener("mouseup", () => {
+    document.addEventListener("mouseup", (n) => {
         isDragging = false;
         div.style.cursor = "move";
+        if (!div.contains(n.tarjet)) {
+            div.style.display = "none"
+        }
     });
+
+    document.addEventListener
 }

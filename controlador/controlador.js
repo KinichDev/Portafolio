@@ -84,10 +84,13 @@ function contenidoInicio() {
                     // barra_herramientas.displayFlex()
                     barra_herramientas.style.display = "flex"
                     header.style.display = "none"
+                    cuerpo_inicio.style.scrollbarWidth = "inherit"
+                    img_fondo.querySelector("img").src = ""
                 } else {
                     // barra_herramientas.displayNone()
                     barra_herramientas.style.display = "none"
                     header.style.display = "flex"
+                    cuerpo_inicio.style.scrollbarWidth = "none"
                 }
 
             });
@@ -187,18 +190,13 @@ function contenidoInicio() {
     
     contenidoDesktopScreen(contenido_imagen_ciudad)
 
-
-
-    
-
-
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
 
     let contenido_colage = mkObj(contenido_imagen_ciudad,'contenido_colage','contenido_colage')
     contenido_colage.style.position = "absolute"
 
     let contenedor_colage = mkObj(contenido_colage,"contenedor_colage","contenedor_colage")
-    contenedor_colage.contenidoColage(90)
+    contenedor_colage.contenidoColage(10)
 
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
             "Leonardo K. Luna",
@@ -210,7 +208,6 @@ function contenidoInicio() {
         function animateText(texts) {
             let lines = texts.querySelectorAll("p");
             let delay = 0;
-
             lines.forEach((line, index) => {
                 setTimeout(() => {
                     line.style.display = "inline";

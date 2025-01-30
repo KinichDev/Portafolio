@@ -356,7 +356,7 @@ img{
     scroll-behavior: smooth;
     padding: 0px;
     background-color: black;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
 }
 #cuerpo_inicio > *{
     z-index: 1;
@@ -2724,4 +2724,10 @@ iframe{
 #cont_img_ubuntu_fondo,
 #cont_img_debian_fondo{
     height: 45%;
+}
+
+@media (max-width: 500px) {
+    .sub_text_text{
+        font-size: 9px;
+    }
 }

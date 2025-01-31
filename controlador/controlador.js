@@ -428,7 +428,7 @@ function contenidoInicio() {
                     "Seguridad en la manipulación de datos y prevención de vulnerabilidades.",
                 )
                 let img_php = mkObjImg(contenido_habilidades_software_php,"img_habilidades_software","img_php","./vista/img/img_php.png")
-            let img_seguridad = mkObjImg(cuerpo_inicio,"img_seguridad","img_seguridad")
+            let img_seguridad = mkObj(cuerpo_inicio,"img_seguridad","img_seguridad")
                 let capa_difuminado_seguridad = mkObj(img_seguridad,"capa_difuminado","capa_difuminado_seguridad")
                 img_seguridad.onScrollIntoView((entry) => {
                     if (entry.isIntersecting) {
@@ -465,7 +465,7 @@ function contenidoInicio() {
         contenido_excel.contenidoInfografiaExcel()
 
 
-        let img_graficas = mkObjImg(cuerpo_inicio,"img_graficas","img_graficas",)
+        let img_graficas = mkObj(cuerpo_inicio,"img_graficas","img_graficas",)
             let capa_difuminado_graficas = mkObj(img_graficas,"capa_difuminado","capa_difuminado_graficas")
             img_graficas.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {
@@ -477,7 +477,6 @@ function contenidoInicio() {
                 } 
               });
 
-        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/logo_logistic.png")
 
 
         let contenido_habilidades_software_windows = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_software_windows")
@@ -489,6 +488,9 @@ function contenidoInicio() {
                 "Gestión de software y actualizaciones.",
             )
             let img_windows = mkObjImg(contenido_habilidades_software_windows,"img_habilidades_software","img_windows","./vista/img/img_windows.svg")
+
+        let img_pc = mkObjImg(cuerpo_inicio,"img_pc","img_pc","./vista/img/red.png")
+
 
             let img_windows_fondo = mkObj(cuerpo_inicio,"img_windows_fondo","img_windows_fondo")
             let capa_difuminado_windows = mkObj(img_windows_fondo,"capa_difuminado","capa_difuminado_windows")
@@ -523,7 +525,7 @@ function contenidoInicio() {
 
         let video_programacion = mkObjVideoLoop(cuerpo_inicio,"video_programacion","video_programacion","./vista/video/programming.mp4")
 
-        let img_debian_fondo = mkObjImg(cuerpo_inicio,"img_debian_fondo","img_debian_fondo",)
+        let img_debian_fondo = mkObj(cuerpo_inicio,"img_debian_fondo","img_debian_fondo",)
             let capa_difuminado_debian = mkObj(img_debian_fondo,"capa_difuminado","capa_difuminado_debian")
             img_debian_fondo.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {
@@ -553,7 +555,7 @@ function contenidoInicio() {
 
         let video_ubuntu = mkObjVideoLoop(cuerpo_inicio,"video_programacion","video_ubuntu","./vista/video/ubuntu.mp4")
 
-        let img_ubuntu_fondo = mkObjImg(cuerpo_inicio,"img_ubuntu_fondo","img_ubuntu_fondo",)
+        let img_ubuntu_fondo = mkObj(cuerpo_inicio,"img_ubuntu_fondo","img_ubuntu_fondo",)
             let capa_difuminado_ubuntu = mkObj(img_ubuntu_fondo,"capa_difuminado","capa_difuminado_ubuntu")
             img_ubuntu_fondo.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {

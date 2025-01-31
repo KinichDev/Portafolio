@@ -225,108 +225,108 @@ function contenidoInicio() {
 
         animateText(texto_code);
 
-        let inicio_mapa = mkObj(contenido_imagen_ciudad,"inicio_mapa","inicio_mapa")
+        // let inicio_mapa = mkObj(contenido_imagen_ciudad,"inicio_mapa","inicio_mapa")
 
-        function initMapa(div) {
-            const mapaDiv = document.createElement('div');
-            mapaDiv.className = 'mapa';
+        // function initMapa(div) {
+        //     const mapaDiv = document.createElement('div');
+        //     mapaDiv.className = 'mapa';
 
-            // Crear la ruta
-            const rutaDiv = document.createElement('div');
-            rutaDiv.className = 'ruta';
-            const svgRuta = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svgRuta.setAttribute('id', 'svgRuta');
-            rutaDiv.appendChild(svgRuta);
-            mapaDiv.appendChild(rutaDiv);
+        //     // Crear la ruta
+        //     const rutaDiv = document.createElement('div');
+        //     rutaDiv.className = 'ruta';
+        //     const svgRuta = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        //     svgRuta.setAttribute('id', 'svgRuta');
+        //     rutaDiv.appendChild(svgRuta);
+        //     mapaDiv.appendChild(rutaDiv);
 
-            // Crear la ubicación
-            const ubicacionDiv = document.createElement('div');
-            ubicacionDiv.className = 'ubicacion';
-            const svgUbicacion = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svgUbicacion.setAttribute('viewBox', '0 0 24 24');
-            svgUbicacion.setAttribute('fill', 'none');
-            svgUbicacion.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-            svgUbicacion.innerHTML = '<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C8.13401 2 5 5.13401 5 9C5 13.25 8 19 12 22C16 19 19 13.25 19 9C19 5.13401 15.866 2 12 2ZM12 11.5C10.6193 11.5 9.5 10.3807 9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.3807 13.3807 11.5 12 11.5Z" fill="#0984e3"/>';
-            ubicacionDiv.appendChild(svgUbicacion);
-            mapaDiv.appendChild(ubicacionDiv);
+        //     // Crear la ubicación
+        //     const ubicacionDiv = document.createElement('div');
+        //     ubicacionDiv.className = 'ubicacion';
+        //     const svgUbicacion = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        //     svgUbicacion.setAttribute('viewBox', '0 0 24 24');
+        //     svgUbicacion.setAttribute('fill', 'none');
+        //     svgUbicacion.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        //     svgUbicacion.innerHTML = '<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C8.13401 2 5 5.13401 5 9C5 13.25 8 19 12 22C16 19 19 13.25 19 9C19 5.13401 15.866 2 12 2ZM12 11.5C10.6193 11.5 9.5 10.3807 9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.3807 13.3807 11.5 12 11.5Z" fill="#0984e3"/>';
+        //     ubicacionDiv.appendChild(svgUbicacion);
+        //     mapaDiv.appendChild(ubicacionDiv);
 
-            // Crear contenedor de edificios
-            const edificiosContainer = document.createElement('div');
-            edificiosContainer.setAttribute('id', 'edificios');
-            mapaDiv.appendChild(edificiosContainer);
+        //     // Crear contenedor de edificios
+        //     const edificiosContainer = document.createElement('div');
+        //     edificiosContainer.setAttribute('id', 'edificios');
+        //     mapaDiv.appendChild(edificiosContainer);
 
-            // Añadir el mapa al div proporcionado
-            div.appendChild(mapaDiv);
+        //     // Añadir el mapa al div proporcionado
+        //     div.appendChild(mapaDiv);
 
-            // Funciones para generar y animar la ruta
-            let edificios = [];
+        //     // Funciones para generar y animar la ruta
+        //     let edificios = [];
 
-            function getRandomPoint(maxX, maxY) {
-                return `${Math.floor(Math.random() * maxX)},${Math.floor(Math.random() * maxY)}`;
-            }
+        //     function getRandomPoint(maxX, maxY) {
+        //         return `${Math.floor(Math.random() * maxX)},${Math.floor(Math.random() * maxY)}`;
+        //     }
 
-            function generarRutaAleatoria() {
-                const puntos = [
-                    `M${getRandomPoint(300, 200)}`,
-                    `C${getRandomPoint(300, 200)}`,
-                    `${getRandomPoint(300, 200)}`,
-                    `${getRandomPoint(300, 200)}`
-                ].join(' ');
-                svgRuta.innerHTML = `<path id="path" d="${puntos}" stroke="#74b9ff" stroke-width="4" stroke-linecap="round" fill="none"/>`;
-            }
+        //     function generarRutaAleatoria() {
+        //         const puntos = [
+        //             `M${getRandomPoint(300, 200)}`,
+        //             `C${getRandomPoint(300, 200)}`,
+        //             `${getRandomPoint(300, 200)}`,
+        //             `${getRandomPoint(300, 200)}`
+        //         ].join(' ');
+        //         svgRuta.innerHTML = `<path id="path" d="${puntos}" stroke="#74b9ff" stroke-width="4" stroke-linecap="round" fill="none"/>`;
+        //     }
 
-            function checkOverlap(top, left, width, height) {
-                return edificios.some(edificio => {
-                    return !(top + height < edificio.top ||
-                             top > edificio.top + edificio.height ||
-                             left + width < edificio.left ||
-                             left > edificio.left + edificio.width);
-                });
-            }
+        //     function checkOverlap(top, left, width, height) {
+        //         return edificios.some(edificio => {
+        //             return !(top + height < edificio.top ||
+        //                      top > edificio.top + edificio.height ||
+        //                      left + width < edificio.left ||
+        //                      left > edificio.left + edificio.width);
+        //         });
+        //     }
 
-            function generarEdificiosAleatorios() {
-                edificiosContainer.innerHTML = '';
-                edificios = [];
-                const numeroEdificios = 6;
-                for (let i = 0; i < numeroEdificios; i++) {
-                    let width, height, top, left;
-                    do {
-                        width = Math.floor(Math.random() * 30) + 20;
-                        height = Math.floor(Math.random() * 80) + 40;
-                        top = Math.min(Math.floor(Math.random() * 160) + 20, 200 - height);
-                        left = Math.min(Math.floor(Math.random() * 280), 300 - width);
-                    } while (checkOverlap(top, left, width, height));
+        //     function generarEdificiosAleatorios() {
+        //         edificiosContainer.innerHTML = '';
+        //         edificios = [];
+        //         const numeroEdificios = 6;
+        //         for (let i = 0; i < numeroEdificios; i++) {
+        //             let width, height, top, left;
+        //             do {
+        //                 width = Math.floor(Math.random() * 30) + 20;
+        //                 height = Math.floor(Math.random() * 80) + 40;
+        //                 top = Math.min(Math.floor(Math.random() * 160) + 20, 200 - height);
+        //                 left = Math.min(Math.floor(Math.random() * 280), 300 - width);
+        //             } while (checkOverlap(top, left, width, height));
 
-                    const edificio = { top, left, width, height };
-                    edificios.push(edificio);
+        //             const edificio = { top, left, width, height };
+        //             edificios.push(edificio);
 
-                    const divEdificio = document.createElement('div');
-                    divEdificio.className = 'edificio';
-                    divEdificio.style.width = `${width}px`;
-                    divEdificio.style.height = `${height}px`;
-                    divEdificio.style.top = `${top}px`;
-                    divEdificio.style.left = `${left}px`;
-                    edificiosContainer.appendChild(divEdificio);
-                }
-            }
+        //             const divEdificio = document.createElement('div');
+        //             divEdificio.className = 'edificio';
+        //             divEdificio.style.width = `${width}px`;
+        //             divEdificio.style.height = `${height}px`;
+        //             divEdificio.style.top = `${top}px`;
+        //             divEdificio.style.left = `${left}px`;
+        //             edificiosContainer.appendChild(divEdificio);
+        //         }
+        //     }
 
-            function moveIcon() {
-                const path = document.querySelector('#path');
-                ubicacionDiv.style.offsetPath = `path('${path.getAttribute('d')}')`;
-                ubicacionDiv.style.offsetDistance = '0%';
-                ubicacionDiv.style.animation = 'seguirRuta 5s linear infinite';
-                ubicacionDiv.addEventListener('animationiteration', () => {
-                    generarRutaAleatoria();
-                    generarEdificiosAleatorios();
-                    moveIcon();
-                }, { once: true });
-            }
+        //     function moveIcon() {
+        //         const path = document.querySelector('#path');
+        //         ubicacionDiv.style.offsetPath = `path('${path.getAttribute('d')}')`;
+        //         ubicacionDiv.style.offsetDistance = '0%';
+        //         ubicacionDiv.style.animation = 'seguirRuta 5s linear infinite';
+        //         ubicacionDiv.addEventListener('animationiteration', () => {
+        //             generarRutaAleatoria();
+        //             generarEdificiosAleatorios();
+        //             moveIcon();
+        //         }, { once: true });
+        //     }
 
-            generarRutaAleatoria();
-            generarEdificiosAleatorios();
-            moveIcon();
-        }
-        initMapa(inicio_mapa);
+        //     generarRutaAleatoria();
+        //     generarEdificiosAleatorios();
+        //     moveIcon();
+        // }
+        // initMapa(inicio_mapa);
 
         // let contenido_linkedin_oublicacion = mkObj(cuerpo_inicio,"contenido_linkedin_oublicacion","contenido_linkedin_oublicacion",
         //     '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7210490409691566080" height="465" width="504" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>')

@@ -56,10 +56,10 @@
     --colorTextWhite: white;
 
     /* --colorFondo: rgb(161, 237, 242); */
-    --colorVerde: #7cdac9;
+    --colorVerde: #6bff6b;
     --colordark: #0e0e0e;
     --colorlight: #f8f8f8;
-    --colorHover: #c1ffff;
+    --colorHover: #31ff61;
     --colorHoverDark: #3d3d3d;
     --colorRed: #f04141;
     --colorRedHover: #ff6969;
@@ -73,7 +73,7 @@
     
     --colorblue: #1e3a8a ;
 
-    --colorBlueLetra: #0257ffbb;
+    --colorBlueLetra: #022cff6d;
 
     --placeIn: fadeIn .5s forwards;
 
@@ -110,7 +110,7 @@
 
 /* Estilo del scrollbar para Firefox */
 * {
-    scrollbar-color: rgba(136, 255, 210, 0.7) rgba(240, 240, 240, 0.9);
+    scrollbar-color: rgba(74, 37, 255, 0.7) rgba(240, 240, 240, 0.9);
     scrollbar-width: thin; /* Scrollbar delgado */
 }
 
@@ -1615,13 +1615,13 @@ img{
     /* background: linear-gradient(to top, var(--colordark), transparent,transparent,transparent); */
     background-color: white;
     width: 100%;
-    height: min-content;
+    height: 60%;
     
   }
 
   .img_pc{
     border-radius: 6px;
-    height: 60%;
+    height: 40%;
     box-shadow: 2px 2px 15px white;
   }
 

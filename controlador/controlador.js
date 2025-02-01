@@ -646,135 +646,90 @@ function contenidoInicio() {
 
 
 
-        let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
-            "Habilidades Destacadas en Desarrollo Web",
-            "Diseño responsivo y adaptativo.",
-            "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript).",
-            "Integración de APIs y servicios web.",
-            "Optimización de rendimiento y velocidad del sitio.",
-            "Manejo de control de versiones (Git).",
-            "Conocimientos en seguridad web.",
-            "Creación de biblioteca orientada a programación funcional - mkDom.",
-            "Diseño de contenido.",
-        );
+        // let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
+        //     "Habilidades Destacadas en Desarrollo Web",
+        //     "Diseño responsivo y adaptativo.",
+        //     "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript).",
+        //     "Integración de APIs y servicios web.",
+        //     "Optimización de rendimiento y velocidad del sitio.",
+        //     "Manejo de control de versiones (Git).",
+        //     "Conocimientos en seguridad web.",
+        //     "Creación de biblioteca orientada a programación funcional - mkDom.",
+        //     "Diseño de contenido.",
+        // );
 
 
 
-        let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
-            "Habilidades Destacadas en Administracion",
+        // let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
+        //     "Habilidades Destacadas en Administracion",
 
-            "Mecanografía fluida.",
-            "Aplicaciones de sistemas excel para empresas.",
-            "Diseño y control de reportes.",
-            "Diseño de formularios.",
-            "Control de bases de datos.",
-            "Graficación Javascrip - CSS.",
-        );
+        //     "Mecanografía fluida.",
+        //     "Aplicaciones de sistemas excel para empresas.",
+        //     "Diseño y control de reportes.",
+        //     "Diseño de formularios.",
+        //     "Control de bases de datos.",
+        //     "Graficación Javascrip - CSS.",
+        // );
 
-
-
-
-        let contenido_diseño_responsivo = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_diseño_responsivo",
-            "Diseños Responsivos",
-        )
-
-        let contenido_catalogo_ficha_tecnica = mkTextList(cuerpo_inicio,"descripcion_inicio","descripcion_inicio",
-            "Catágolos y Fichas Técnicas.",
-            "Sistema de pedidos y almacenamiento en base de datos.",
-            "Automatización de formatos para pedidos",
-            "",
-            "",
-        )
-
-
-        let descripcion_mapa = mkTextList(cuerpo_inicio,"descripcion_inicio","descripcion_mapa",
-            "Elaboración de reportes con rutas en KML",
-            "KML es un estándar de codificación XML utilizado para representar datos geoespaciales, incluidas rutas y puntos de interés.",
-            "Almacenamiento de información relevante en bases de datos.",
-        )
-
-        // let carrusel_guia_mapas = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_guia_mapas",
-        //     "vista/img/kml_guide_1_mymaps.svg",
-        //     "vista/img/kml_guide_2_indicaciones.svg",
-        //     "vista/img/kml_guide_3_ruta.svg",
-        //     "vista/img/kml_guide_4_opciones.svg",
-        //     "vista/img/kml_guide_5_archivo.svg",
-        //     "vista/img/kml_guide_6_reporte.svg",
+        // let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_constancias",
+        //     "Estudios Educativas.",
+        //     "Introducción al Plan de Negocios. CECATI.",
+        //     "Mantenimiento Básico a PC. CECATI.",
+        //     "Mantenimiento Básico a Laptop. CECATI.",
+        //     "Instituto de Educación Avanzada Plantel Prados.",
+        //     "Casa de la Música Méxicana.",
         // )
 
+        // let contenido_habilidades_destacadas = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_habilidades_destacadas",
+        //     "Habilidades Destacadas.",
+        //     "Programación Funcional. (JavaScript)",
+        //     "Programación orientada a objetos. (php)",
+        //     "Automatización bases de datos. (php,SQL)",
+        //     "Diseño de imágenes. (GIMP, Adobe Ilustrator)",
+        //     "Diseño de Formatos. (PDF, GIMP, Adobe Ilustrator)",
+        // )
 
+        // let contenido_dominio_lenguajes_html = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_html",
+        //     "HTML",
+        //     "Maquetación dinámica con JS",
+        //     "Uso exclusivo de scripts para dinámica de DOM",
+        //     "Optimización de rendimiento",
+        //     "Diseño personalizado y cómodo.",
+        //     "Formularios para captura de datos, registro de usuarios/productos/clientes/trabajadores.",
+        //     "Documentación web para publicitar productos o servicios, información personal, opinion pública, CV o Carpetas de Trabajo.",
+        //     "Sistema web automatizada con tareas.",
+        // )
 
-        // let contenido_mapas = mkObj(cuerpo_inicio,"contenido_mapas","contenido_mapas")
+        // let contenido_dominio_lenguajes_css = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_css",
+        //     "CSS",
+        //     "Diseño dinámico.",
+        //     "Completa personalizacion de diseño.",
+        //     "Animaciones.",
+        // )
 
+        // let carrusel_programacion = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
+        //     "vista/img/diagrama_html.png",
+        //     "vista/img/diagrama_css.png",
+        // )
 
-        //     let input_mapa = mkObjInput(contenido_mapas,"calendario_input","input_mapa","file","Crea una ruta en Google MyMaps, exporta la informacion en KML e inserta aqui el archivo .kml","INSERTA AQUI EL ARCHIVO KML","helvetica","13px","black");
-        //     let mapa = mkObj(contenido_mapas,"mapa","mapa");
+        // let contenido_dominio_lenguajes_js = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_js",
+        //     "Java Script",
+        //     "Diseño dinámico.",
+        //     "Completa personalizacion de diseño.",
+        //     "Animaciones.",
+        // )
 
-        //     // Escuchar el evento 'change' del input
-        //     let in_mapa = input_mapa.querySelector("input")
-        //     //console.log(in_mapa)
+        // let contenido_dominio_lenguajes_php = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_php",
+        //     "PHP",
+        //     "Diseño dinámico.",
+        //     "Completa personalizacion de diseño.",
+        //     "Animaciones.",
+        // )
 
-
-        //     in_mapa.addEventListener('change', mapaRuta);
-
-
-        let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_constancias",
-            "Capacitaciones Educativas.",
-            "Introducción al Plan de Negocios. CECATI.",
-            "Mantenimiento Básico a PC. CECATI.",
-            "Mantenimiento Básico a Laptop. CECATI.",
-        )
-
-        let contenido_habilidades_destacadas = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_habilidades_destacadas",
-            "Habilidades Destacadas.",
-            "Programación Funcional. (JavaScript)",
-            "Programación orientada a objetos. (php)",
-            "Automatización bases de datos. (php,SQL)",
-            "Diseño de imágenes. (GIMP, Adobe Ilustrator)",
-            "Diseño de Formatos. (PDF, GIMP, Adobe Ilustrator)",
-        )
-
-        let contenido_dominio_lenguajes_html = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_html",
-            "HTML",
-            "Maquetación dinámica con JS",
-            "Uso exclusivo de scripts para dinámica de DOM",
-            "Optimización de rendimiento",
-            "Diseño personalizado y cómodo.",
-            "Formularios para captura de datos, registro de usuarios/productos/clientes/trabajadores.",
-            "Documentación web para publicitar productos o servicios, información personal, opinion pública, CV o Carpetas de Trabajo.",
-            "Sistema web automatizada con tareas.",
-        )
-
-        let contenido_dominio_lenguajes_css = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_css",
-            "CSS",
-            "Diseño dinámico.",
-            "Completa personalizacion de diseño.",
-            "Animaciones.",
-        )
-
-        let carrusel_programacion = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
-            "vista/img/diagrama_html.png",
-            "vista/img/diagrama_css.png",
-        )
-
-        let contenido_dominio_lenguajes_js = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_js",
-            "Java Script",
-            "Diseño dinámico.",
-            "Completa personalizacion de diseño.",
-            "Animaciones.",
-        )
-
-        let contenido_dominio_lenguajes_php = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_php",
-            "PHP",
-            "Diseño dinámico.",
-            "Completa personalizacion de diseño.",
-            "Animaciones.",
-        )
-
-        let carrusel_programacion_sec = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
-            "vista/img/diagrama_js.png",
-            "vista/img/diagrama_php.png",
-        )
+        // let carrusel_programacion_sec = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
+        //     "vista/img/diagrama_js.png",
+        //     "vista/img/diagrama_php.png",
+        // )
 
 
         let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",

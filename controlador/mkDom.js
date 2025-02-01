@@ -190,17 +190,9 @@ HTMLElement.prototype.entradaSuave = function () {
                 filter: brightness(1) blur(0px);
                 transform: scale(2.6) translate(0, 0);
             }
-            25% {
-                filter: brightness(0.8) blur(6px);
-                transform: scale(2.2) translate(10%, -10%);
-            }   
             50% {
                 filter: brightness(0.3) blur(0px);
                 transform: scale(2.3) translate(20%, -12%);
-            }
-            75% {
-                filter: brightness(0.8) blur(6px);
-                transform: scale(1.8) translate(10%, 10%);
             }
             100% {
                 filter: brightness(1) blur(0px);

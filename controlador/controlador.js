@@ -122,17 +122,10 @@ function contenidoInicio() {
                         let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
                         let opcion_screen_curriculum = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
                         let opcion_screen_github = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_github","./vista/img/github.png")
+                        let opcion_screen_catalogos = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_catalogos","./vista/img/catalogo.png")
                         // let opcion_screen_facebook = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
                         let opcion_screen_linkedin = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/linkedin.png")
-                        opcion_screen_linkedin.style.display = "none"
-
-                        // let window_x = mkObj(contenido_imagen_ciudad,"window","window_x",)
-                        // window_x.style.display = "none"
-                        // window_x.innerHTML = `
-                        //     <blockquote class="twitter-tweet"><p lang="es" dir="ltr">Ante adversidades crea tus propias herramientas, no solo resuelves problemas, sino que diseñas el futuro de tu proyecto con tus propias manos.</p>&mdash; Leonardo (@Leonard85961498) <a href="https://twitter.com/Leonard85961498/status/1877655224598347868?ref_src=twsrc%5Etfw">January 10, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        // `
-                        // flexWindow(window_x)
-
+                        // opcion_screen_linkedin.style.display = "none"
 
                         opcion_screen_x.addEventListener("click", function () {
                             window_x.style.display = "flex"
@@ -144,6 +137,10 @@ function contenidoInicio() {
 
                         opcion_screen_linkedin.addEventListener("click", function () {
                             window_linkedin.style.display = "flex"
+                        });
+
+                        opcion_screen_catalogos.addEventListener("click", function () {
+                            window_catalogos.style.display = "flex"
                         });
 
                     // let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
@@ -182,12 +179,35 @@ function contenidoInicio() {
     flexWindow(window_cv)
     // contenidoDesktopScreen(contenido_imagen_ciudad)
 
-    let window_linkedin = mkObj(contenido_imagen_ciudad,"window","window_linkedin",)
-    window_linkedin.style.display = "none"
-    window_linkedin.innerHTML = `
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7210490409691566080" height="465" width="504" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>
-    `
+    function isChromeOrBrave() {
+        let userAgent = navigator.userAgent.toLowerCase();
+        return userAgent.includes("chrome") && !userAgent.includes("edg");
+    }
+    
+    let window_linkedin = mkObj(contenido_imagen_ciudad, "window", "window_linkedin");
+    window_linkedin.style.display = "none";
+    
+    if (!isChromeOrBrave()) {
+        window_linkedin.innerHTML = `
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7168083707671633921" 
+                height="418" width="504" frameborder="0" allowfullscreen="" 
+                title="Publicación integrada"></iframe>
+        `;
+    } else {
+        window_linkedin.innerHTML = `
+            <p>Esta publicación no puede mostrarse en Chrome o Brave. 
+            <a href="https://www.linkedin.com/feed/update/urn:li:share:7168083707671633921" target="_blank">
+            Ver en LinkedIn</a></p>
+        `;
+    }
     flexWindow(window_linkedin)
+
+    let window_catalogos = mkObj(contenido_imagen_ciudad,"window","window_catalogos",)
+    window_catalogos.style.display = "none"
+    window_catalogos.contenidoCatalogos()
+    flexWindow(window_catalogos)
+
+    
 
     
     contenidoDesktopScreen(contenido_imagen_ciudad)

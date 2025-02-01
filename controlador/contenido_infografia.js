@@ -710,3 +710,173 @@ console.log('Porcentaje de scroll:', porcentaje);</code></pre>
         </div>
     `;
 };
+
+HTMLElement.prototype.contenidoCatalogos = function() {
+    this.innerHTML = `
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+            header {
+                background: #007BFF;
+                color: white;
+                padding: 60px 20px;
+                margin-bottom: 40px;
+            }
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            h2 {
+                font-size: 2rem;
+                color: #007BFF;
+            }
+            section {
+                padding: 40px 20px;
+                margin: 20px auto;
+                max-width: 800px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+            .cta-button {
+                display: inline-block;
+                margin: 20px 0;
+                padding: 15px 30px;
+                background: #007BFF;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                transition: background 0.3s ease;
+            }
+            .cta-button:hover {
+                background: #0056b3;
+            }
+            footer {
+                background: #333;
+                color: white;
+                padding: 20px;
+                margin-top: 40px;
+            }
+            .catalogo-container {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 20px;
+                margin-top: 20px;
+            }
+            .producto {
+                background: #fff;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                padding: 20px;
+                width: 200px;
+                height: 360px;
+                text-align: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                flex-direction: column;
+            }
+            .producto:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            }
+            .producto-imagen {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+            .precio {
+                font-size: 1.2rem;
+                color: #007BFF;
+                font-weight: bold;
+            }
+            .boton-comprar {
+                background: #007BFF;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+            .boton-comprar:hover {
+                background: #0056b3;
+            }
+        </style>
+        <header>
+            <h1>Catálogos Web para Pequeños Locales</h1>
+            <p>Impulsa tu negocio con una presencia en línea profesional y accesible.</p>
+        </header>
+
+        <section id="beneficios">
+            <h2>Beneficios de un Catálogo Web</h2>
+            <p>Un catálogo web te permite:</p>
+            <ul>
+                <li>✅ Aumentar tu visibilidad en línea.</li>
+                <li>✅ Atraer más clientes locales.</li>
+                <li>✅ Mostrar tus productos o servicios de manera profesional.</li>
+                <li>✅ Actualizar tu información fácilmente.</li>
+            </ul>
+        </section>
+
+        <section id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <p>Ofrecemos soluciones adaptadas a tus necesidades:</p>
+            <ul>
+                <li>🌐 Diseño de catálogos web personalizados.</li>
+                <li>📱 Optimización para dispositivos móviles.</li>
+                <li>🔍 Integración con redes sociales y SEO básico.</li>
+                <li>🛠️ Soporte técnico y capacitación.</li>
+            </ul>
+        </section>
+
+        <section id="catalogo-ejemplo">
+            <h2>Catálogo Web de Ejemplo</h2>
+            <p>Así podría verse tu catálogo web:</p>
+            <div class="catalogo-container">
+                <div class="producto">
+                    <img src="./vista/img/cosmeticos.jpg" alt="Cosmeticos" class="producto-imagen">
+                    <h3>Cosmeticos</h3>
+                    <p>Productos de Belleza.</p>
+                    <p class="precio">$3.99</p>
+                    <button class="boton-comprar">Ver más</button>
+                </div>
+                <div class="producto">
+                    <img src="./vista/img/clavos.jpg" alt="Clavos" class="producto-imagen">
+                    <h3>Clavos</h3>
+                    <p>Productos Ferretería.</p>
+                    <p class="precio">$4.99</p>
+                    <button class="boton-comprar">Ver más</button>
+                </div>
+                <div class="producto">
+                    <img src="./vista/img/productos_y_servicios.jpg" alt="Productos y Servicios" class="producto-imagen">
+                    <h3>Productos y Servicios</h3>
+                    <p>Catálogos y pedidos.</p>
+                    <p class="precio">$19.49</p>
+                    <button class="boton-comprar">Ver más</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>¿Listo para comenzar?</h2>
+            <p>Contáctanos hoy mismo y lleva tu negocio al siguiente nivel.</p>
+            <a href="mailto:kinich.development@gmail.com" class="cta-button">Enviar un correo</a>
+        </section>
+
+        <footer>
+            <p>Leonardo Luna. Desarrollo de Software.</p>
+        </footer>
+    `;
+};

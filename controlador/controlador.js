@@ -120,7 +120,9 @@ function contenidoInicio() {
                             // });
 
                         let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
-                        let opcion_screen_curriculum = mkObj(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","cv.pdf")
+                        let opcion_screen_curriculum = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
+                        let opcion_screen_github = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_github","./vista/img/github.png")
+                        // let opcion_screen_facebook = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
                         let opcion_screen_linkedin = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/linkedin.png")
                         opcion_screen_linkedin.style.display = "none"
 
@@ -387,7 +389,7 @@ function contenidoInicio() {
             img_escritorio.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {
                   console.log('The element is visible:', entry.target);
-                  img_fondo.querySelector("img").setAttribute("src","./vista/img/escritorio.jpg" + "?" + new Date().getTime())
+                  img_fondo.querySelector("img").setAttribute("src","./vista/img/js_letters.jpg" + "?" + new Date().getTime())
                   img_fondo.style.display = "flex"; // Show the element
                   header.style.backgroundColor = "#c41515"
 
@@ -738,48 +740,28 @@ function contenidoInicio() {
 
         "Bloquera Vac",
         "<a href='https://bloqueravac.com'>bloqueraVac.com</a>",
-        "Ecommerce para proveedora materialista.",
-        "Sistema de pedidos.",
-        "Validación de pedido.",
-        "Sistema de correos.",
-        "Sistema de sugerencias.",
 
         "Tranportes Aldoli.",
         "<a href='https://transportesaldoli.com.mx'>https://transportesaldoli.com.mx</a>",
-        "Plataforma administrava de logística empresarial.",
-        "Agenda de viajes.",
-        "Control de reportes de kilometrajes, diesel, rendimineto de unidades, nominas, recuperaciones y utilidades.",
-        "Sistema automatico de alertas de mantenimiento por kilometraje.",
-        "Sistema jerárquico de usuarios.",
 
         "LunaKar.",
         "<a href='https://lunakarcp.github.io/LunaKar'>https://lunakarcp.github.io/LunaKar.github.io/LunaKar</a>",
-        "Pagina informativa, red de trabajo para consultoría y desarrollo digital.",
-        "Red de trabajo freelance orientado al desarrollo de software logístico.",
-        "Asistensia CFDI con complemento carta porte.",
-        "Asistencia y orientación en programación de gestión seguros.",
-        "Transición de información excel a bases de datos más potentes y centralizadas.",
 
         "Refacciones La Barata",
         "<a href='https://labaratamr.com'>https://labaratamr.com</a>",
-        "Mantenimiento general de la página.",
-        "Optimización de contenido",
-        "Sistema de identificación de refacciones",
 
         "Un Mundo de Cancelería",
         "<a href='https://cristalesycanceles.com'>https://cristalesycanceles.com</a>",
-        "Ecommerce básico para negocio de vidrios y canceles.",
-        "Sistema de administración de pedidos.",
-        "Sistema de usuarios.",
-        )
+
+    )
 
 
 
-        let contenido_footer = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_footer",
-            "Completa personalización del contenido",
-            "Codigo limpio",
-            "Rendimiento - Seguridad",
-            "Buenas prácticas",
+        let contenido_footer = mkTextList(cuerpo_inicio,"descripcion_inicio_footer","contenido_footer",
+            "Diseño",
+            "Programación",
+            "Administración",
+            "Seguridad Informática",
         )
         displayScroll(cuerpo_inicio)
 return cuerpo_inicio

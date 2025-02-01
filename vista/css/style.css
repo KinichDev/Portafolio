@@ -1565,30 +1565,6 @@ img{
   }
 
   /* Estilo para el contenedor principal */
-.cont_descripcion_inicio {
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 10px; /* Bordes redondeados */
-    background-color: #f8f8f8; /* Color de fondo */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    height: min-content;
-    
-  }
-
-  /* Estilo para los subtextos dentro del contenedor */
-  .cont_sub_text_descripcion_inicio {
-    /* margin-bottom: 15px; */
-    font-family: Helvetica, sans-serif;
-    height: min-content;
-    padding: 9px;
-  }
-
-  /* #cont_sub_text_descripcion_inicio_0{
-    color: #007bff;
-    padding-left: 0px;
-    font-size: 28px;
-  } */
-
 
   .cont_contenido_catalogo_ficha_tecnica{
     flex-direction: column;
@@ -1597,7 +1573,89 @@ img{
 
   }
 
+/* Contenedor principal */
+.cont_descripcion_inicio {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transition: opacity 0.2s;
+    flex-direction: column;
+}
 
+/* Contenedor de texto */
+.cont_sub_text_descripcion_inicio {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: max-content;
+}
+
+/* Efecto hover en los contenedores de texto */
+.cont_sub_text_descripcion_inicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Texto dentro de los contenedores */
+.sub_text_descripcion_inicio {
+    font-size: 16px;
+    color: #333333;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover en el texto */
+.sub_text_descripcion_inicio:hover {
+    color: #007bff;
+}
+
+/* Estilos para los enlaces */
+.sub_text_descripcion_inicio a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover en los enlaces */
+.sub_text_descripcion_inicio a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Animación de entrada */
+@keyframes fadeInY {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar animación a los contenedores de texto */
+.cont_sub_text_descripcion_inicio {
+    animation: fadeInY 0.5s ease-out;
+}
+
+/* Retraso en la animación para cada elemento */
+.cont_sub_text_descripcion_inicio:nth-child(1) { animation-delay: 0.1s; }
+.cont_sub_text_descripcion_inicio:nth-child(2) { animation-delay: 0.2s; }
+.cont_sub_text_descripcion_inicio:nth-child(3) { animation-delay: 0.3s; }
+.cont_sub_text_descripcion_inicio:nth-child(4) { animation-delay: 0.4s; }
+.cont_sub_text_descripcion_inicio:nth-child(5) { animation-delay: 0.5s; }
+.cont_sub_text_descripcion_inicio:nth-child(6) { animation-delay: 0.6s; }
+.cont_sub_text_descripcion_inicio:nth-child(7) { animation-delay: 0.7s; }
+.cont_sub_text_descripcion_inicio:nth-child(8) { animation-delay: 0.8s; }
+.cont_sub_text_descripcion_inicio:nth-child(9) { animation-delay: 0.9s; }
+.cont_sub_text_descripcion_inicio:nth-child(10) { animation-delay: 1s; }
 
   .contenido_etiquetas_actividades_catalogo{
     justify-content: center;
@@ -1621,7 +1679,7 @@ img{
 
   .img_pc{
     border-radius: 6px;
-    height: 40%;
+    height: 100%;
     box-shadow: 2px 2px 15px white;
   }
 
@@ -1637,29 +1695,6 @@ img{
     font-weight: bold;
     font-family: Helvetica;
     border-radius: 6px;
-  }
-
-  #cont_contenido_footer{
-    flex-direction: row;
-    background-color: #0e3d5d;
-    color: white;
-    border-radius: 0;
-  }
-
-  #cont_sub_text_contenido_footer_0{
-    justify-content: center;
-  }
-
-  #cont_sub_text_contenido_footer_1{
-    justify-content: center;
-  }
-
-  #cont_sub_text_contenido_footer_2{
-    justify-content: center;
-  }
-
-  #cont_sub_text_contenido_footer_3{
-    justify-content: center;
   }
 
   .cont_img_dominio_lenguaje{
@@ -1787,11 +1822,6 @@ img{
     justify-content: flex-end;
 }
 
-#cont_sub_text_contenido_proyectos_0{
-    background-color: var(--colorAzul);
-    color: white;
-    border-radius: 6px;
-}
 
 #cont_sub_text_contenido_proyectos_1,
 #cont_sub_text_contenido_proyectos_8,
@@ -1891,6 +1921,11 @@ img{
     background: linear-gradient(to bottom, var(--colordark), transparent);
     position: absolute;
     z-index: 50;
+}
+
+#capa_difuminado_escritorio{
+    background: linear-gradient(to bottom, var(--colordark), transparent,var(--colordark));
+
 }
 
 #capa_difuminado_github{
@@ -2237,7 +2272,7 @@ img{
     flex-direction: column;
     border-radius: 20px;
     width: min-content;
-    min-width: 50px;
+    min-width: 130px;
     min-height: 150px;
     height: min-content;
     box-shadow: 0 0 19px rgba(0, 0, 0, 0.514);
@@ -2691,18 +2726,16 @@ img{
 }
 
 .opcion_screen{
-    max-width: 50px;
+    max-width: 60px;
     cursor: pointer;
     border-radius: 6px;
+    padding: 5px;
+
 }.opcion_screen:hover{
-    padding: 4px;
-    box-shadow: 1px 1px 9px black;
+    padding: 10px;
 }
 
-#opcion_screen_x{
-    width: 25px;
-}
-
+/* 
 #opcion_screen_curriculum{
     padding: 5px;
     border-radius: 5px;
@@ -2717,13 +2750,21 @@ img{
 }#opcion_screen_curriculum:hover{
     background-color: var(--colorPinkHover);
     color: black;
-}
+} */
 
 #window_cv{
     user-select: none;
 }
 iframe{
     user-select: none;
+}
+
+.cont_img_escritorio{
+    height: 35%;
+}
+.img_windows_fondo,
+.img_debian_fondo{
+    height: 75%;
 }
 
 #img_windows_fondo,
@@ -2737,3 +2778,82 @@ iframe{
         font-size: 9px;
     }
 }
+
+#cont_sub_text_contenido_proyectos_0{
+    background-color: var(--colorAzul);
+    color: white;
+    border-radius: 6px;
+}
+
+#sub_text_contenido_proyectos_0{
+    color: white;
+}
+
+/* Contenedor principal del footer */
+.cont_descripcion_inicio_footer {
+    font-family: 'Arial', sans-serif;
+    background-color: #2c3e50; /* Fondo oscuro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transition: opacity 0.2s;
+    text-align: center;
+}
+
+/* Contenedor de texto en el footer */
+.cont_sub_text_descripcion_inicio_footer {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #34495e; /* Fondo un poco más claro */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en los contenedores de texto */
+.cont_sub_text_descripcion_inicio_footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Texto dentro de los contenedores */
+.sub_text_descripcion_inicio_footer {
+    font-size: 16px;
+    color: #ecf0f1; /* Texto claro */
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover en el texto */
+.sub_text_descripcion_inicio_footer:hover {
+    color: #1abc9c; /* Color verde claro al pasar el ratón */
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cont_descripcion_inicio_footer{
+    height: min-content;
+}
+
+/* Aplicar animación a los contenedores de texto */
+.cont_sub_text_descripcion_inicio_footer {
+    animation: fadeIn 0.5s ease-out;
+    height: min-content;
+}
+
+/* Retraso en la animación para cada elemento */
+.cont_sub_text_descripcion_inicio_footer:nth-child(1) { animation-delay: 0.1s; }
+.cont_sub_text_descripcion_inicio_footer:nth-child(2) { animation-delay: 0.2s; }
+.cont_sub_text_descripcion_inicio_footer:nth-child(3) { animation-delay: 0.3s; }
+.cont_sub_text_descripcion_inicio_footer:nth-child(4) { animation-delay: 0.4s; }

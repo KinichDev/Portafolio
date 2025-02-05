@@ -552,7 +552,7 @@ function contenidoInicio() {
             img_debian_fondo.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {
                 console.log('The element is visible:', entry.target);
-                img_fondo.querySelector("img").setAttribute("src","./vista/img/servers.jpg")
+                img_fondo.querySelector("img").setAttribute("src","./vista/img/servers.jpg" + "?" + new Date().getTime())
                 img_fondo.style.display = "flex"; // Show the element
                 header.style.backgroundColor = "black"
 
@@ -582,7 +582,7 @@ function contenidoInicio() {
             img_ubuntu_fondo.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {
                 console.log('The element is visible:', entry.target);
-                img_fondo.querySelector("img").setAttribute("src","./vista/img/ubuntu_deco.jpg")
+                img_fondo.querySelector("img").setAttribute("src","./vista/img/ubuntu_deco.jpg" + "?" + new Date().getTime())
                 img_fondo.style.display = "flex"; // Show the element
                 header.style.backgroundColor = "black"
 

@@ -731,6 +731,7 @@ HTMLElement.prototype.contenidoCatalogos = function() {
             h1 {
                 font-size: 2.5rem;
                 margin-bottom: 10px;
+                color: white;
             }
             h2 {
                 font-size: 2rem;
@@ -738,7 +739,7 @@ HTMLElement.prototype.contenidoCatalogos = function() {
             }
             section {
                 padding: 40px 20px;
-                margin: 20px auto;
+                margin: auto;
                 max-width: 800px;
                 background: white;
                 border-radius: 10px;
@@ -869,6 +870,118 @@ HTMLElement.prototype.contenidoCatalogos = function() {
             </div>
         </section>
 
+        <section id="catalogo-moderno">
+            <h2 class="titulo-destacado">Catálogo Moderno</h2>
+            <p class="descripcion-catalogo">Descubre nuestro catálogo con un diseño fresco y moderno:</p>
+            <div class="catalogo-grid">
+                <div class="producto-card">
+                    <img src="./vista/img/cosmeticos.jpg" alt="Cosmeticos" class="producto-imagen-estilizada">
+                    <h3 class="producto-titulo">Cosméticos</h3>
+                    <p class="producto-descripcion">Productos de belleza para resaltar tu estilo.</p>
+                    <p class="precio-destacado">$3.99</p>
+                    <button class="boton-accion">Ver detalles</button>
+                </div>
+                <div class="producto-card">
+                    <img src="./vista/img/clavos.jpg" alt="Clavos" class="producto-imagen-estilizada">
+                    <h3 class="producto-titulo">Clavos</h3>
+                    <p class="producto-descripcion">Materiales de ferretería de alta calidad.</p>
+                    <p class="precio-destacado">$4.99</p>
+                    <button class="boton-accion">Ver detalles</button>
+                </div>
+                <div class="producto-card">
+                    <img src="./vista/img/productos_y_servicios.jpg" alt="Productos y Servicios" class="producto-imagen-estilizada">
+                    <h3 class="producto-titulo">Productos y Servicios</h3>
+                    <p class="producto-descripcion">Catálogos personalizados y pedidos en línea.</p>
+                    <p class="precio-destacado">$19.49</p>
+                    <button class="boton-accion">Ver detalles</button>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Estilos para la sección moderna */
+            #catalogo-moderno {
+                background-color: #f9f9f9;
+                padding: 40px 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .titulo-destacado {
+                font-size: 2.5rem;
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            .descripcion-catalogo {
+                font-size: 1.2rem;
+                color: #666;
+                margin-bottom: 30px;
+            }
+
+            .catalogo-grid {
+                padding: 20px;
+                flex-direction: column;
+                height: min-content;
+            }
+
+            .producto-card {
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                flex-direction: column ;
+                margin-bottom: 45px;
+            }
+
+            .producto-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .producto-imagen-estilizada {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .producto-titulo {
+                font-size: 1.5rem;
+                color: #444;
+                margin: 15px 0 10px;
+            }
+
+            .producto-descripcion {
+                font-size: 1rem;
+                color: #777;
+                padding: 0 15px;
+            }
+
+            .precio-destacado {
+                font-size: 1.4rem;
+                color: #e91e63;
+                font-weight: bold;
+                margin: 15px 0;
+            }
+
+            .boton-accion {
+                background-color: #e91e63;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .boton-accion:hover {
+                background-color: #d81b60;
+            }
+        </style>
+
         <section id="contacto">
             <h2>¿Listo para comenzar?</h2>
             <p>Contáctanos hoy mismo y lleva tu negocio al siguiente nivel.</p>
@@ -876,7 +989,7 @@ HTMLElement.prototype.contenidoCatalogos = function() {
         </section>
 
         <footer>
-            <p>Leonardo Luna. Desarrollo de Software.</p>
+            <p>Leonardo K. Luna. <br>kinich.development@gmail.com <br>Desarrollo de Software.</p>
         </footer>
     `;
 };

@@ -2112,7 +2112,7 @@ img{
 .cont_contenido_experiencia_destacada {
     /* background-color: var(--colorlight);
     border: 1px solid var(--colorHover); */
-    border-radius: 8px;
+    /* border-radius: 8px; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     height: min-content;
@@ -2776,6 +2776,7 @@ iframe{
     height: 35%;
 }
 .img_windows_fondo,
+.img_ubuntu_fondo,
 .img_debian_fondo{
     height: 75%;
 }

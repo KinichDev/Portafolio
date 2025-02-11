@@ -816,12 +816,12 @@ HTMLElement.prototype.contenidoCatalogos = function() {
             }
         </style>
         <header>
-            <h1>Catálogos Web para Pequeños Locales</h1>
-            <p>Impulsa tu negocio con una presencia en línea profesional y accesible.</p>
+            <h1>Servicios de Desarrollo Web</h1>
+            <p>Formaliza tus habilidades con una presencia en línea profesional y accesible.</p>
         </header>
 
         <section id="beneficios">
-            <h2>Beneficios de un Catálogo Web</h2>
+            <h2>Catálogos Web y Beneficios</h2>
             <p>Un catálogo web te permite:</p>
             <ul>
                 <li>✅ Aumentar tu visibilidad en línea.</li>

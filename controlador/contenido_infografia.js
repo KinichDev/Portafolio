@@ -832,7 +832,7 @@ HTMLElement.prototype.contenidoCatalogos = function() {
         </section>
 
         <section id="servicios">
-            <h2>Nuestros Servicios</h2>
+            <h2>Soluciones digitales</h2>
             <p>Ofrecemos soluciones adaptadas a tus necesidades:</p>
             <ul>
                 <li>🌐 Diseño de catálogos web personalizados.</li>

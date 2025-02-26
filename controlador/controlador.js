@@ -125,6 +125,7 @@ function contenidoInicio() {
                         let opcion_screen_catalogos = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_catalogos","./vista/img/catalogo.png")
                         // let opcion_screen_facebook = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
                         let opcion_screen_linkedin = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/linkedin.png")
+                        let opcion_screen_portafolio = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_portafolio","./vista/img/desplazarse.png")
                         // opcion_screen_linkedin.style.display = "none"
 
                         opcion_screen_x.addEventListener("click", function () {
@@ -141,6 +142,15 @@ function contenidoInicio() {
 
                         opcion_screen_catalogos.addEventListener("click", function () {
                             window_catalogos.style.display = "flex"
+                        });
+
+                        opcion_screen_portafolio.addEventListener("click", function () {
+                            cuerpo_inicio.scrollBy({
+                                top: cuerpo_inicio.clientHeight,
+                                behavior: 'smooth'
+                              });
+                              barra_aplicaciones.style.display = "none"
+                              
                         });
 
                     // let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización de Desarrollo para Sistema de Gestión de Librería</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            background-color: #e2e3e5;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        p {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            overflow: auto;
+            padding: 0 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background: #004494;
+        }
+        .hidden {
+            display: none;
+        }
+        .password-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .password-form input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        .password-form button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #0056b3;
+            color: #fff;
+            cursor: pointer;
+        }
+        .password-form button:hover {
+            background-color: #004494;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="password-form">
+            <input type="password" id="passwordInput" placeholder="Ingrese la contraseña">
+            <button onclick="checkPassword()">Acceder</button>
+            <p id="errorMessage" class="error-message hidden">Contraseña incorrecta. Inténtelo de nuevo.</p>
+        </div>
+
+        <div id="content" class="hidden">
+            <h1>Cotización de Desarrollo para Sistema de Gestión de Librería</h1>
+            <p>Se requiere un sistema de gestión para una librería que se dedica a la venta de libros físicos a través de plataformas e-commerce.</p>
+            
+            <h2>Funcionalidades Requeridas</h2>
+            <ul>
+                <li>Control de inventario</li>
+                <li>Consulta de ventas por plataforma</li>
+                <li>Realización de pedidos a proveedores</li>
+                <li>Ventas físicas con registro automático de venta y desglose del inventario</li>
+            </ul>
+
+            <h2>Tecnologías</h2>
+            <ul>
+                <li>Frontend: HTML5, CSS3, JavaScript</li>
+                <li>Backend: PHP</li>
+                <li>Base de Datos: MySQL</li>
+            </ul>
+
+            <h2>Requisitos Funcionales</h2>
+            <h3>Control de Inventario</h3>
+            <ul>
+                <li>Registrar y actualizar stock de libros</li>
+                <li>Consultar stock disponible por título</li>
+                <li>Notificar cuando el stock se acerca a cero</li>
+            </ul>
+
+            <h3>Consulta de Ventas por Plataforma</h3>
+            <ul>
+                <li>Registrar ventas por cada plataforma</li>
+                <li>Consultar ventas totales por plataforma y por título</li>
+                <li>Generar informes de ventas por plataforma y por título</li>
+            </ul>
+
+            <h3>Realización de Pedidos a Proveedores</h3>
+            <ul>
+                <li>Registrar proveedores y sus contactos</li>
+                <li>Realizar pedidos a proveedores para restockar productos más vendidos</li>
+                <li>Consultar pedidos pendientes y realizados</li>
+            </ul>
+
+            <h3>Ventas Físicas</h3>
+            <ul>
+                <li>Registrar ventas físicas con fecha, hora y cantidad vendida</li>
+                <li>Descontar automáticamente el stock del inventario</li>
+                <li>Generar factura electrónica o papel</li>
+            </ul>
+
+            <h2>Requisitos No Funcionales</h2>
+            <ul>
+                <li>Seguridad: Autenticación de usuarios</li>
+                <li>Usabilidad: Interfaz de usuario intuitiva</li>
+                <li>Escalabilidad: Capacidad para manejar un gran volumen de ventas y pedidos</li>
+            </ul>
+
+            <a href="#" class="btn">Solicitar Cotización</a>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "1234"; // Contraseña en texto plano
+            const inputPassword = document.getElementById("passwordInput").value;
+            const content = document.getElementById("content");
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (inputPassword === correctPassword) {
+                content.classList.remove("hidden");
+                errorMessage.classList.add("hidden");
+            } else {
+                errorMessage.classList.remove("hidden");
+                content.classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+</html>

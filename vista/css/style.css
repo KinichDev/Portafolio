@@ -350,6 +350,42 @@ img{
     background-color: var(--colorlight);
     border-radius: 8px;
     max-width: 100%;
+    position: relative;
+}
+
+.hipercapa{
+    position: absolute;
+    z-index: 999;
+    background-color: #00000088;
+    padding: 30px;
+    justify-content: end;
+    align-items: end;
+}
+
+.ventana_enlaces{
+    flex-direction: column;
+    width: min-content;
+    height: min-content;
+    overflow: auto;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.titulo_enlaces{
+    height: min-content;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: helvetica;
+}
+
+.cont_enlaces{
+    flex-direction: column;
+}
+
+.enlaces{
+    height: min-content;
+    font-size: 14px;
+    
 }
 
 #cuerpo_inicio{

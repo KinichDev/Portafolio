@@ -65,6 +65,15 @@ function contenidoInicio() {
 
     cuerpo.innerHTML=""
 
+    let hipercapa = mkObj(cuerpo,"hipercapa","hipercapa")
+        let ventana_enlaces = mkObj(hipercapa,"ventana_enlaces","ventana_enlaces")
+            let titulo_enlaces = mkText(ventana_enlaces,"titulo_enlaces","titulo_enlaces",
+                "Temas de interés. Relación, Contaminación de isótopos, riesgos y areas de oportunidad.")
+            let enlaces = mkTextList(ventana_enlaces,"enlaces","enlaces",
+                "1 ... isotopos radiactivos en la industria... <a href='https://www.osti.gov/etdeweb/biblio/21222105'>https://www.osti.gov/etdeweb/biblio/21222105</a>",
+                "2 ... estudios de biodistribución de nanopartículas de albúmina con recubrimientos poliméricos... <a href='https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287'>https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287</a>",
+                "3 ... máquina Blow Spining para encapsulado con nanofibras... <a href='https://riunet.upv.es/handle/10251/135436'>https://riunet.upv.es/handle/10251/135436</a>",
+            )
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
 
         let img_fondo = mkObjImg(cuerpo_inicio,"img_fondo","img_fondo")
@@ -232,9 +241,7 @@ function contenidoInicio() {
 
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
             "Leonardo K. Luna",
-            "Pasión y creatividad por soluciones digitales",
-            "Informático Administrativo profesional y dedicado",
-            "Desarrollo de Software y Administración Operativa",
+            "Informática, software y logística.",
         )
 
         function animateText(texts) {

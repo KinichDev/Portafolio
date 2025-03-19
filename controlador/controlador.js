@@ -65,16 +65,8 @@ function contenidoInicio() {
 
     cuerpo.innerHTML=""
 
-    let hipercapa = mkObj(cuerpo,"hipercapa","hipercapa")
-        let ventana_enlaces = mkObj(hipercapa,"ventana_enlaces","ventana_enlaces")
-            let titulo_enlaces = mkText(ventana_enlaces,"titulo_enlaces","titulo_enlaces",
-                "Temas de interés. Relación, Contaminación de isótopos, riesgos y areas de oportunidad.")
-            let enlaces = mkTextList(ventana_enlaces,"enlaces","enlaces",
-                "1 ... isotopos radiactivos en la industria... <a href='https://www.osti.gov/etdeweb/biblio/21222105'>https://www.osti.gov/etdeweb/biblio/21222105</a>",
-                "2 ... estudios de biodistribución de nanopartículas de albúmina con recubrimientos poliméricos... <a href='https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287'>https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287</a>",
-                "3 ... máquina Blow Spining para encapsulado con nanofibras... <a href='https://riunet.upv.es/handle/10251/135436'>https://riunet.upv.es/handle/10251/135436</a>",
-            )
     let cuerpo_inicio = mkObj(cuerpo,"cuerpo","cuerpo_inicio")
+
 
         let img_fondo = mkObjImg(cuerpo_inicio,"img_fondo","img_fondo")
         img_fondo.style.display = "none"
@@ -232,6 +224,14 @@ function contenidoInicio() {
     contenidoDesktopScreen(contenido_imagen_ciudad)
 
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
+        let ventana_enlaces = mkObj(capa_difuminado,"ventana_enlaces","ventana_enlaces")
+            let titulo_enlaces = mkText(ventana_enlaces,"titulo_enlaces","titulo_enlaces",
+                "Temas de interés. Relación, Contaminación de isótopos, riesgos y areas de oportunidad.")
+            let enlaces = mkTextList(ventana_enlaces,"enlaces","enlaces",
+                "1 ... isotopos radiactivos en la industria... <a href='https://www.osti.gov/etdeweb/biblio/21222105'>https://www.osti.gov/etdeweb/biblio/21222105</a>",
+                "2 ... estudios de biodistribución de nanopartículas de albúmina con recubrimientos poliméricos... <a href='https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287'>https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287</a>",
+                "3 ... máquina Blow Spining para encapsulado con nanofibras... <a href='https://riunet.upv.es/handle/10251/135436'>https://riunet.upv.es/handle/10251/135436</a>",
+            )
 
     let contenido_colage = mkObj(contenido_imagen_ciudad,'contenido_colage','contenido_colage')
     contenido_colage.style.position = "absolute"

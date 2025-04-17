@@ -90,7 +90,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    user-select: none;
+    /* user-select: none; */
 }
 
 /* Estilo minimalista del scrollbar para Webkit (Chrome, Safari) */
@@ -615,7 +615,7 @@ img{
     padding: 6px;
     font-size: 13px;
     font-family: courier;
-    user-select: none;
+    /* user-select: none; */
 }.cont_sub_text_texto_vision:hover{
     background-color: var(--colorHover);
     color: royalblue;
@@ -642,7 +642,7 @@ img{
     align-items: end;
     justify-content: center;
     padding: 6px;
-    user-select: none;
+    /* user-select: none; */
 }
 
 .mostrar_login{
@@ -911,7 +911,7 @@ img{
     font-size: 12px;
     padding: 4px;
     text-align: center;
-    user-select: none;
+    /* user-select: none; */
     color: var(--colordark);
     font-family: Arial, Helvetica;
   }
@@ -1017,7 +1017,7 @@ img{
 .calendario_celda_titulo_fila_mainELEMENTO_1_O_ELEMENTO_2_columna_main{
     text-align: center;
     /* background-color: #2980b9; */
-    user-select: none;
+    /* user-select: none; */
 }
 
 /* Estilo del texto en las celdas del calendario para ELEMENTO 1 O ELEMENTO 2 */
@@ -2850,7 +2850,7 @@ img{
 
 
 #window_cv{
-    user-select: none;
+    /* user-select: none; */
 }
 iframe{
     user-select: none;
@@ -2955,3 +2955,17 @@ iframe{
 .cont_sub_text_descripcion_inicio_footer:nth-child(2) { animation-delay: 0.2s; }
 .cont_sub_text_descripcion_inicio_footer:nth-child(3) { animation-delay: 0.3s; }
 .cont_sub_text_descripcion_inicio_footer:nth-child(4) { animation-delay: 0.4s; }
+
+.cont_sub_text_enlaces{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    user-select: text;
+}
+
+.cont_sub_text_enlaces p{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* user-select: text; */
+}

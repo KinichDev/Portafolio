@@ -228,9 +228,11 @@ function contenidoInicio() {
             let titulo_enlaces = mkText(ventana_enlaces,"titulo_enlaces","titulo_enlaces",
                 "Propagación de luz en tejidos orgánicos y la interacción general del organismo.")
             let enlaces = mkTextList(ventana_enlaces,"enlaces","enlaces",
-                "1 ... isotopos radiactivos en la industria... <a href='https://www.osti.gov/etdeweb/biblio/21222105'>https://www.osti.gov/etdeweb/biblio/21222105</a>",
-                "2 ... estudios de biodistribución de nanopartículas de albúmina con recubrimientos poliméricos... <a href='https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287'>https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287</a>",
-                "3 ... máquina Blow Spining para encapsulado con nanofibras... <a href='https://riunet.upv.es/handle/10251/135436'>https://riunet.upv.es/handle/10251/135436</a>",
+                // "1 ... isotopos radiactivos en la industria... <a href='https://www.osti.gov/etdeweb/biblio/21222105'>https://www.osti.gov/etdeweb/biblio/21222105</a>",
+                // "2 ... estudios de biodistribución de nanopartículas de albúmina con recubrimientos poliméricos... <a href='https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287'>https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287</a>",
+                // "3 ... máquina Blow Spining para encapsulado con nanofibras... <a href='https://riunet.upv.es/handle/10251/135436'>https://riunet.upv.es/handle/10251/135436</a>",
+                "Estudio de la difusión de la luz en medios multicapas y sus aplicaciones en Óptica Biomédica: <a href='https://dialnet.unirioja.es/servlet/dctes?codigo=359340'>https://dialnet.unirioja.es/servlet/dctes?codigo=359340</a>",
+                "Fitocromos y desarrollo vegetal: <a href='https://d1wqtxts1xzle7.cloudfront.net/52142092/Fitocromos_y_desarrollo_vegetal-libre.pdf?1489451294=&response-content-disposition=inline%3B+filename%3DFitocromos_y_desarrollo_vegetal_DIRECCIO.pdf&Expires=1744921849&Signature=f~nHSB99~1JNrF7y0lcAge6r3sOS1GmcH2cGay4oPJnNWOiXDcIqczTkkEHVKBpQz0JaKkrwibHa2kDzdZuHL9cwt8KQVO7WDfZEGjZVCSbJSGyqeQ0jLxvJFqdbIUCWK3ybJWXVg7fIFFH9IMyBqdS6OUNEaTC4qK6cNUuDGoda3Llb19XPqhyWfthoK2K6ZqeNKioL2noQKOEzahMxr8FP6iT3atEbkP7UZP7EtdrwLU2iDSL~vCA5jGXkEFNQvvJWYw88Hz7gSM-WjME3EhAPMGhylo2ME6GaBgQ59VuCcH1CWor~z2PQfz8IEvoyiQqFU9Z-71tnjQn-YBUTKw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA'>Ir al enlace</a>"
             )
 
     let contenido_colage = mkObj(contenido_imagen_ciudad,'contenido_colage','contenido_colage')

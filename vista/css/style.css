@@ -149,7 +149,7 @@ img{
 
 .contenedor_principal{
     /* background-color: var(--colorFondo); */
-    background-color: var(--colordark);
+    /* background-color: var(--colordark); */
     flex-direction: column;
 }
 
@@ -410,7 +410,9 @@ img{
     padding-right: 6px;
     background-color: white;
     z-index: 1;
+    /* display: none; */
 }
+
 
 .cont_img_habilidades_software{
     padding: 12px;
@@ -2119,11 +2121,12 @@ img{
 }
 
 .cont_img_fondo{
-    position: absolute;
+    position: fixed;
     z-index: 0;
     width: 100%;
     /* background-color: var(--colordark); */
     height: 100%;
+    
 }
 .img_fondo{
     /* position: absolute; */

@@ -226,7 +226,7 @@ function contenidoInicio() {
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
         let ventana_enlaces = mkObj(capa_difuminado,"ventana_enlaces","ventana_enlaces")
             let titulo_enlaces = mkText(ventana_enlaces,"titulo_enlaces","titulo_enlaces",
-                "Temas de interés. Relación, Contaminación de isótopos, riesgos y areas de oportunidad.")
+                "Propagación de luz en tejidos orgánicos y la interacción general del organismo.")
             let enlaces = mkTextList(ventana_enlaces,"enlaces","enlaces",
                 "1 ... isotopos radiactivos en la industria... <a href='https://www.osti.gov/etdeweb/biblio/21222105'>https://www.osti.gov/etdeweb/biblio/21222105</a>",
                 "2 ... estudios de biodistribución de nanopartículas de albúmina con recubrimientos poliméricos... <a href='https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287'>https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287</a>",
@@ -241,6 +241,7 @@ function contenidoInicio() {
 
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
             "Leonardo K. Luna",
+            "Dirección Nocturna de Operaciones y Desarrollo Logístico",
             "Informática, software y logística.",
         )
 

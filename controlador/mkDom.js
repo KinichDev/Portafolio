@@ -1263,70 +1263,133 @@ function mkObjVideoLoop(n,c,i,s,inner) {
     return obj_temp
 }
                 
-function mkCarrusel(nodo,clase,id,...url_imagenes) {
-    nodo = nodo || "";
-    clase = clase || "";
-    id = id || "";
+function mkCarrusel(nodo, clase, id, ...url_imagenes) {
+    nodo = nodo || document.body;
+    clase = clase || "carrusel";
+    id = id || "carrusel";
 
-    let carrusel = mkObj(nodo,clase,id)
-    carrusel.style.flexDirection="column"
-    carrusel.style.position="relative"
+    // Crear el contenedor del carrusel
+    const carrusel = document.createElement("div");
+    carrusel.className = clase;
+    carrusel.id = id;
+    Object.assign(carrusel.style, {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        overflow: "hidden",
+        height: "300px",
+        boxSizing: "border-box"
+    });
+    nodo.appendChild(carrusel);
 
-        let contenedor_imagenes = mkObj(carrusel,"contenedor_imagenes_"+clase,"contenedor_imagenes_"+id)
-            url_imagenes.forEach(url => {
-                console.log(url)
-                let formato = url.split(".")[1]
-                console.log(formato)
-                if (formato==="png"||formato==="svg") {
-                    let img = mkObjImg(contenedor_imagenes,"img_carrusel_"+clase,"img_carrusel_"+id,url)
-                }
-                if (formato==="mp4") {
-                    let video = mkObjVideoLoop(contenedor_imagenes,"img_carrusel_"+clase,"img_carrusel_"+id,url)
-                }
+    // Contenedor de las imágenes/videos
+    const contenedorImagenes = document.createElement("div");
+    Object.assign(contenedorImagenes.style, {
+        display: "flex",
+        flexWrap: "nowrap",
+        transition: "transform 0.5s ease-in-out",
+        height: "100%",
+        width: "100%", // Important: same width as carrusel
+        boxSizing: "border-box"
+    });
+    carrusel.appendChild(contenedorImagenes);
+
+    url_imagenes.forEach(url => {
+        const formato = url.split(".").pop().toLowerCase();
+
+        const slide = document.createElement("div");
+        Object.assign(slide.style, {
+            width: "100%",
+            height: "100%",
+            flexShrink: "0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "#000",
+            boxSizing: "border-box"
+        });
+
+        if (["png", "jpg", "jpeg", "gif", "svg", "webp"].includes(formato)) {
+            const img = document.createElement("img");
+            img.src = url;
+            Object.assign(img.style, {
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "contain"
             });
+            slide.appendChild(img);
+        } else if (formato === "mp4") {
+            const video = document.createElement("video");
+            video.src = url;
+            video.autoplay = true;
+            video.loop = true;
+            video.muted = true;
+            Object.assign(video.style, {
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "contain"
+            });
+            slide.appendChild(video);
+        }
 
-        let contenedor_controles = mkObj(carrusel,"contenedor_controles_"+clase,"contenedor_controles_"+id)
-        contenedor_controles.style.position="absolute"
+        contenedorImagenes.appendChild(slide);
+    });
 
-            let btn_control_carrusel_anterior = mkObjButton(contenedor_controles,"btn_control_carrusel_"+clase,"btn_control_carrusel_anterior_"+id,"<")
-            let btn_control_carrusel_siguiente = mkObjButton(contenedor_controles,"btn_control_carrusel_"+clase,"btn_control_carrusel_siguiente_"+id,">")
-            btn_control_carrusel_siguiente.style.justifyContent="end"
+    // Controles del carrusel
+    const controles = document.createElement("div");
+    Object.assign(controles.style, {
+        position: "absolute",
+        top: "50%",
+        left: "0",
+        right: "0",
+        display: "flex",
+        justifyContent: "space-between",
+        transform: "translateY(-50%)",
+        padding: "0 10px",
+        pointerEvents: "none",
+        zIndex: 10
+    });
 
-            let imagenActual = 1;
-            let numero_imagenes = url_imagenes.length
-            let intervaloCarrusel;
+    const btnAnterior = document.createElement("button");
+    btnAnterior.innerHTML = "<";
+    const btnSiguiente = document.createElement("button");
+    btnSiguiente.innerHTML = ">";
+    [btnAnterior, btnSiguiente].forEach(btn => {
+        Object.assign(btn.style, {
+            background: "rgba(255,255,255,0.7)",
+            border: "none",
+            fontSize: "24px",
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            pointerEvents: "auto",
+            cursor: "pointer"
+        });
+        controles.appendChild(btn);
+    });
 
+    carrusel.appendChild(controles);
 
-            function cambiarImagen(direccion) {
-                imagenActual += direccion;
+    // Lógica del carrusel
+    let actual = 0;
+    const total = url_imagenes.length;
 
-                // Ajustar la imagen actual si se llega al límite
-                if (imagenActual > numero_imagenes) {
-                    imagenActual = 1;
-                } else if (imagenActual < 1) {
-                    imagenActual = numero_imagenes;
-                }
+    function cambiar(direccion) {
+        actual += direccion;
+        if (actual >= total) actual = 0;
+        if (actual < 0) actual = total - 1;
+        contenedorImagenes.style.transform = `translateX(${-actual * 100}%)`;
+    }
 
-                // Calcular la posición de la transformación
-                let posicionTransform = -100 * (imagenActual - 1);
-                contenedor_imagenes.style.transform = `translateX(${posicionTransform}%)`;
-            }
+    btnAnterior.addEventListener("click", () => cambiar(-1));
+    btnSiguiente.addEventListener("click", () => cambiar(1));
 
-            function iniciarIntervalo() {
-                intervaloCarrusel = setInterval(() => cambiarImagen(1), 6000);
-            }
-
-            btn_control_carrusel_anterior.addEventListener('click', function () {
-                cambiarImagen(-1);
-                // clearInterval(intervaloCarrusel); // Detener el intervalo al hacer clic
-                // iniciarIntervalo(); // Volver a iniciar el intervalo después de cambiar la imagen manualmente
-            })
-            btn_control_carrusel_siguiente.addEventListener('click', function () {
-                cambiarImagen(1);
-                // clearInterval(intervaloCarrusel); // Detener el intervalo al hacer clic
-                // iniciarIntervalo(); // Volver a iniciar el intervalo después de cambiar la imagen manualmente
-            })
+    setInterval(() => cambiar(1), 6000);
 }
+
+
 function displayScroll(parentContainer) {
     var elements = Array.from(parentContainer.children);
     console.log(elements);

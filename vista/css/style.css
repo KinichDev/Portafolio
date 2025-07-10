@@ -90,41 +90,35 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    /* user-select: none; */
 }
 
-/* Estilo minimalista del scrollbar para Webkit (Chrome, Safari) */
 *::-webkit-scrollbar {
     width: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: rgba(128, 128, 128, 0.7); /* Color gris opaco */
+    background: rgba(128, 128, 128, 0.7); 
     border-radius: 5px;
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Espacio entre el thumb y el track */
+    border: 2px solid rgba(255, 255, 255, 0.5); 
 }
 
 *::-webkit-scrollbar-track {
-    background: rgba(240, 240, 240, 0.9); /* Fondo gris claro */
+    background: rgba(240, 240, 240, 0.9); 
 }
 
-/* Estilo del scrollbar para Firefox */
 * {
     scrollbar-color: rgba(74, 37, 255, 0.7) rgba(240, 240, 240, 0.9);
-    scrollbar-width: thin; /* Scrollbar delgado */
+    scrollbar-width: thin; 
 }
 
-/* Efecto hover en el thumb para Webkit */
 *::-webkit-scrollbar-thumb:hover {
-    background: rgba(100, 100, 100, 0.7); /* Cambio a gris más oscuro al hacer hover */
+    background: rgba(100, 100, 100, 0.7);
 }
 
-/* Estilo minimalista del scrollbar para Internet Explorer y Edge */
 * {
-    -ms-overflow-style: auto; /* Para versiones anteriores de IE */
+    -ms-overflow-style: auto; 
 }
 
-/* Asegurar que el scrollbar esté encima de todos los elementos */
 *::-webkit-scrollbar,
 *::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-track {
@@ -148,7 +142,6 @@ img{
 }
 
 .contenedor_principal{
-    /* background-color: var(--colorFondo); */
     background-color: var(--colordark);
     flex-direction: column;
 }
@@ -454,6 +447,9 @@ img{
     padding-right: 6px;
     background-color: white;
     z-index: 1;
+    margin: 28px 35px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px white;
 }
 
 .cont_img_habilidades_software{
@@ -1844,68 +1840,10 @@ img{
         background-color: white;
   }
 
-  .carrusel_{
+  /* .carrusel_{
     height: 78%;
-}
-
-.carrusel{
-    flex-direction: column;
-    /* width: 300px; */
-    overflow: hidden;
-    min-height: min-content;
-    max-height: 80%;
-    position: relative;
-}#carrusel_guia_mapas{
-    height: min-content;
-}
-
-.contenedor_imagenes_carrusel {
-    transition: transform 0.5s ease-in-out;
-    overflow: visible;
-    /* padding: 36px; */
     background-color: white;
-}
-
-.cont_img_carrusel_carrusel {
-    min-width: 100%;
-    height: auto;
-    justify-content: center;
-    margin-right: 72px;
-}
-
-
-.img_carrusel_carrusel {
-    height: min-content;
-    border-radius: 12px;
-    box-shadow: 0 0 9px black;
-    width: min-content;
-    max-height: 80%;
-}
-
-.contenedor_controles_carrusel{
-    position: absolute;
-    z-index: 3;
-}
-
-.cont_btn_control_carrusel_carrusel{
-    align-items: center;
-    padding: 38px;
-}
-
-.btn_control_carrusel_carrusel {
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-    height: 50px;
-    background-color: #333;
-    padding: 10px;
-    outline: none;
-}
-
-
-#cont_btn_control_carrusel_siguiente {
-    justify-content: flex-end;
-}
+} */
 
 
 #cont_sub_text_contenido_proyectos_1,
@@ -2002,12 +1940,12 @@ img{
 .contenido_imagen_ciudad{
     z-index: 0;
 }
-.capa_difuminado{
+/* .capa_difuminado{
     background: linear-gradient(to bottom, var(--colordark), transparent);
     position: absolute;
     z-index: 50;
-}
-
+} */
+/* 
 #capa_difuminado_escritorio{
     background: linear-gradient(to bottom, var(--colordark), transparent,var(--colordark));
 
@@ -2020,7 +1958,7 @@ img{
 #capa_difuminado_graficas{
     background: linear-gradient(to bottom, var(--colordark), transparent);
 
-}
+} */
 
 .cont_text{
     position: absolute;
@@ -2031,6 +1969,11 @@ img{
     flex-direction: column;
     top: 35px;
     right: 25px;
+    font-weight: bold;
+    background: #000000b8;
+    border-radius: 6px;
+    padding: 9px;
+    box-shadow: 0 0 17px #ffffff4a;
 }
 .cont_sub_text_text{
     justify-content: end;

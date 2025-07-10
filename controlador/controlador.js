@@ -102,32 +102,12 @@ function contenidoInicio() {
                     barra_aplicaciones.style.display = "none"
                     placerMenu(menu_opciones,barra_aplicaciones)
 
-                        // let opcion_aplicaciones_imagenes = mkObjImg(barra_aplicaciones,"opcion_aplicaciones","opcion_aplicaciones_imagenes","./vista/img/imagen.png")
-
-                        //     opcion_aplicaciones_imagenes.addEventListener("click", function () {
-                        //         ventana_imagenes.style.display = "flex";
-                        //         contenidoImagenes(ventana_imagenes)
-                        //     });
-
-                        //     let ventana_imagenes = mkObj(cuerpo,"ventana","ventana_imagenes")
-                        //     ventana_imagenes.style.display="none"
-
-                        //     flexWindow(ventana_imagenes)
-
-                        //     document.addEventListener("mouseup", function (event) {
-                        //         if (!ventana_imagenes.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
-                        //             ventana_imagenes.style.display = "none";
-                        //         }
-                            // });
-
                         let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
                         let opcion_screen_curriculum = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
                         let opcion_screen_github = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_github","./vista/img/github.png")
                         let opcion_screen_catalogos = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_catalogos","./vista/img/catalogo.png")
-                        // let opcion_screen_facebook = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
                         let opcion_screen_linkedin = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/linkedin.png")
                         let opcion_screen_portafolio = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_portafolio","./vista/img/desplazarse.png")
-                        // opcion_screen_linkedin.style.display = "none"
 
                         opcion_screen_x.addEventListener("click", function () {
                             window_x.style.display = "flex"
@@ -153,23 +133,11 @@ function contenidoInicio() {
                               barra_aplicaciones.style.display = "none"
                               
                         });
-
-                    // let ventana_estatus = mkObj(cuerpo,"ventana","ventana_estatus")
-                    //         ventana_estatus.style.display="none"
-
-                    //         flexWindow(ventana_estatus)
-
-                    //         document.addEventListener("mouseup", function (event) {
-                    //             if (!ventana_estatus.contains(event.target) && !opcion_aplicaciones_imagenes.contains(event.target)) {
-                    //                 ventana_estatus.style.display = "none";
-                    //             }
-                    //         });
         }
 
 
 
 
-    // let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/ciudad.jpg")octopus-8562474_1920
     let contenido_imagen_ciudad = mkObjImg(cuerpo_inicio,"contenido_imagen_ciudad","contenido_imagen_ciudad","./vista/img/octopus-8562474_1920.jpg")
     contenido_imagen_ciudad.style.position = "relative"
     contenido_imagen_ciudad.querySelector("img").entradaSuave()
@@ -188,7 +156,6 @@ function contenidoInicio() {
         <iframe src="./vista/pdf/cv.pdf" width="800px" height="550px"></iframe>
     `
     flexWindow(window_cv)
-    // contenidoDesktopScreen(contenido_imagen_ciudad)
 
     function isChromeOrBrave() {
         let userAgent = navigator.userAgent.toLowerCase();
@@ -224,16 +191,13 @@ function contenidoInicio() {
     contenidoDesktopScreen(contenido_imagen_ciudad)
 
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
-        let ventana_enlaces = mkObj(capa_difuminado,"ventana_enlaces","ventana_enlaces")
-            let titulo_enlaces = mkText(ventana_enlaces,"titulo_enlaces","titulo_enlaces",
-                "Tema de interés: Propagación de luz en tejidos orgánicos y la interacción general del organismo.")
-            let enlaces = mkTextList(ventana_enlaces,"enlaces","enlaces",
-                // "1 ... isotopos radiactivos en la industria... <a href='https://www.osti.gov/etdeweb/biblio/21222105'>https://www.osti.gov/etdeweb/biblio/21222105</a>",
-                // "2 ... estudios de biodistribución de nanopartículas de albúmina con recubrimientos poliméricos... <a href='https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287'>https://www.sciencedirect.com/science/article/abs/pii/S2253654X20300287</a>",
-                // "3 ... máquina Blow Spining para encapsulado con nanofibras... <a href='https://riunet.upv.es/handle/10251/135436'>https://riunet.upv.es/handle/10251/135436</a>",
-                "Estudio de la difusión de la luz en medios multicapas y sus aplicaciones en Óptica Biomédica: <a href='https://dialnet.unirioja.es/servlet/dctes?codigo=359340'>https://dialnet.unirioja.es/servlet/dctes?codigo=359340</a>",
-                "Fitocromos y desarrollo vegetal: <a href='https://d1wqtxts1xzle7.cloudfront.net/52142092/Fitocromos_y_desarrollo_vegetal-libre.pdf?1489451294=&response-content-disposition=inline%3B+filename%3DFitocromos_y_desarrollo_vegetal_DIRECCIO.pdf&Expires=1744921849&Signature=f~nHSB99~1JNrF7y0lcAge6r3sOS1GmcH2cGay4oPJnNWOiXDcIqczTkkEHVKBpQz0JaKkrwibHa2kDzdZuHL9cwt8KQVO7WDfZEGjZVCSbJSGyqeQ0jLxvJFqdbIUCWK3ybJWXVg7fIFFH9IMyBqdS6OUNEaTC4qK6cNUuDGoda3Llb19XPqhyWfthoK2K6ZqeNKioL2noQKOEzahMxr8FP6iT3atEbkP7UZP7EtdrwLU2iDSL~vCA5jGXkEFNQvvJWYw88Hz7gSM-WjME3EhAPMGhylo2ME6GaBgQ59VuCcH1CWor~z2PQfz8IEvoyiQqFU9Z-71tnjQn-YBUTKw__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA'>Ir al enlace</a>"
-            )
+        // let ventana_enlaces = mkObj(capa_difuminado,"ventana_enlaces","ventana_enlaces")
+            // let titulo_enlaces = mkText(ventana_enlaces,"titulo_enlaces","titulo_enlaces",
+            //     "")
+            // let enlaces = mkTextList(ventana_enlaces,"enlaces","enlaces",
+            //     ""
+            // )
+            // let 
 
     let contenido_colage = mkObj(contenido_imagen_ciudad,'contenido_colage','contenido_colage')
     contenido_colage.style.position = "absolute"
@@ -242,9 +206,11 @@ function contenidoInicio() {
     contenedor_colage.contenidoColage(10)
 
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
-            "Leonardo K. Luna",
-            "Dirección Nocturna de Operaciones y Desarrollo Logístico",
-            "Informática, software y logística.",
+            "Leonardo Kinich",
+            "Desarrollador Full Stack | Especialista en Soluciones Tecnológicas y Logísticas",
+            "Enfoque en JavaScript, PHP y SQL",
+            "Director de Operaciones y Desarrollo Logístico Estratégico",
+            "Innovación en sistemas informáticos y optimización de procesos logísticos"
         )
 
         function animateText(texts) {
@@ -267,112 +233,6 @@ function contenidoInicio() {
 
         animateText(texto_code);
 
-        // let inicio_mapa = mkObj(contenido_imagen_ciudad,"inicio_mapa","inicio_mapa")
-
-        // function initMapa(div) {
-        //     const mapaDiv = document.createElement('div');
-        //     mapaDiv.className = 'mapa';
-
-        //     // Crear la ruta
-        //     const rutaDiv = document.createElement('div');
-        //     rutaDiv.className = 'ruta';
-        //     const svgRuta = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        //     svgRuta.setAttribute('id', 'svgRuta');
-        //     rutaDiv.appendChild(svgRuta);
-        //     mapaDiv.appendChild(rutaDiv);
-
-        //     // Crear la ubicación
-        //     const ubicacionDiv = document.createElement('div');
-        //     ubicacionDiv.className = 'ubicacion';
-        //     const svgUbicacion = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        //     svgUbicacion.setAttribute('viewBox', '0 0 24 24');
-        //     svgUbicacion.setAttribute('fill', 'none');
-        //     svgUbicacion.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-        //     svgUbicacion.innerHTML = '<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C8.13401 2 5 5.13401 5 9C5 13.25 8 19 12 22C16 19 19 13.25 19 9C19 5.13401 15.866 2 12 2ZM12 11.5C10.6193 11.5 9.5 10.3807 9.5 9C9.5 7.61929 10.6193 6.5 12 6.5C13.3807 6.5 14.5 7.61929 14.5 9C14.5 10.3807 13.3807 11.5 12 11.5Z" fill="#0984e3"/>';
-        //     ubicacionDiv.appendChild(svgUbicacion);
-        //     mapaDiv.appendChild(ubicacionDiv);
-
-        //     // Crear contenedor de edificios
-        //     const edificiosContainer = document.createElement('div');
-        //     edificiosContainer.setAttribute('id', 'edificios');
-        //     mapaDiv.appendChild(edificiosContainer);
-
-        //     // Añadir el mapa al div proporcionado
-        //     div.appendChild(mapaDiv);
-
-        //     // Funciones para generar y animar la ruta
-        //     let edificios = [];
-
-        //     function getRandomPoint(maxX, maxY) {
-        //         return `${Math.floor(Math.random() * maxX)},${Math.floor(Math.random() * maxY)}`;
-        //     }
-
-        //     function generarRutaAleatoria() {
-        //         const puntos = [
-        //             `M${getRandomPoint(300, 200)}`,
-        //             `C${getRandomPoint(300, 200)}`,
-        //             `${getRandomPoint(300, 200)}`,
-        //             `${getRandomPoint(300, 200)}`
-        //         ].join(' ');
-        //         svgRuta.innerHTML = `<path id="path" d="${puntos}" stroke="#74b9ff" stroke-width="4" stroke-linecap="round" fill="none"/>`;
-        //     }
-
-        //     function checkOverlap(top, left, width, height) {
-        //         return edificios.some(edificio => {
-        //             return !(top + height < edificio.top ||
-        //                      top > edificio.top + edificio.height ||
-        //                      left + width < edificio.left ||
-        //                      left > edificio.left + edificio.width);
-        //         });
-        //     }
-
-        //     function generarEdificiosAleatorios() {
-        //         edificiosContainer.innerHTML = '';
-        //         edificios = [];
-        //         const numeroEdificios = 6;
-        //         for (let i = 0; i < numeroEdificios; i++) {
-        //             let width, height, top, left;
-        //             do {
-        //                 width = Math.floor(Math.random() * 30) + 20;
-        //                 height = Math.floor(Math.random() * 80) + 40;
-        //                 top = Math.min(Math.floor(Math.random() * 160) + 20, 200 - height);
-        //                 left = Math.min(Math.floor(Math.random() * 280), 300 - width);
-        //             } while (checkOverlap(top, left, width, height));
-
-        //             const edificio = { top, left, width, height };
-        //             edificios.push(edificio);
-
-        //             const divEdificio = document.createElement('div');
-        //             divEdificio.className = 'edificio';
-        //             divEdificio.style.width = `${width}px`;
-        //             divEdificio.style.height = `${height}px`;
-        //             divEdificio.style.top = `${top}px`;
-        //             divEdificio.style.left = `${left}px`;
-        //             edificiosContainer.appendChild(divEdificio);
-        //         }
-        //     }
-
-        //     function moveIcon() {
-        //         const path = document.querySelector('#path');
-        //         ubicacionDiv.style.offsetPath = `path('${path.getAttribute('d')}')`;
-        //         ubicacionDiv.style.offsetDistance = '0%';
-        //         ubicacionDiv.style.animation = 'seguirRuta 5s linear infinite';
-        //         ubicacionDiv.addEventListener('animationiteration', () => {
-        //             generarRutaAleatoria();
-        //             generarEdificiosAleatorios();
-        //             moveIcon();
-        //         }, { once: true });
-        //     }
-
-        //     generarRutaAleatoria();
-        //     generarEdificiosAleatorios();
-        //     moveIcon();
-        // }
-        // initMapa(inicio_mapa);
-
-        // let contenido_linkedin_oublicacion = mkObj(cuerpo_inicio,"contenido_linkedin_oublicacion","contenido_linkedin_oublicacion",
-        //     '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7210490409691566080" height="465" width="504" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>')
-    
         let contenido_experiencia_destacada = mkTextList(
             cuerpo_inicio,
             "contenido_experiencia_destacada",
@@ -662,10 +522,18 @@ function contenidoInicio() {
             )
             let img_github = mkObjImg(contenido_habilidades_software_github,"img_habilidades_software","img_github","./vista/img/img_github.svg")
 
+        let contenido_habilidades_mkdom = mkObj(cuerpo_inicio,"contenido_habilidades_software","contenido_habilidades_mkdom")
+            let descripcion_habilidades_mkdom = mkTextList(contenido_habilidades_mkdom,"descripcion_habilidades","descripcion_habilidades_mkdom",
+                "<span style='font-size: 26px;'>Proyecto: Libreria Personal</span>",
+                "Librería para manipulación y creación de contenido front-end.",
+            )
+
+
         let carrusel_mkDom = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_mkDom",
             "vista/img/mkDom.png",
             "vista/img/mkDomDinamico.png",
             )
+
     
         let contenido_infografia_github = mkObj(cuerpo_inicio,"contenido_infografia_github","contenido_infografia_github")
             let cuerpo_infografia_github = mkObj(contenido_infografia_github,"markdown-body","readme-content")

@@ -207,10 +207,10 @@ function contenidoInicio() {
 
         let texto_code = mkTextList(contenido_imagen_ciudad,"text","text",
             "Leonardo Kinich",
-            "Desarrollador Full Stack | Especialista en Soluciones Tecnológicas y Logísticas",
-            "Enfoque en JavaScript, PHP y SQL",
-            "Director de Operaciones y Desarrollo Logístico Estratégico",
-            "Innovación en sistemas informáticos y optimización de procesos logísticos"
+            "Desarrollador Full Stack | Soluciones Tecnológicas y Logísticas",
+            "Director General - Logística y Transporte",
+            "Innovación en sistemas informáticos y Optimización de Procesos Logísticos",
+            "Enfoque JavaScript, PHP y SQL"
         )
 
         function animateText(texts) {

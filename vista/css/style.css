@@ -1940,65 +1940,144 @@ img{
 .contenido_imagen_ciudad{
     z-index: 0;
 }
-/* .capa_difuminado{
-    background: linear-gradient(to bottom, var(--colordark), transparent);
+
+.cont_text {
     position: absolute;
-    z-index: 50;
-} */
-/* 
-#capa_difuminado_escritorio{
-    background: linear-gradient(to bottom, var(--colordark), transparent,var(--colordark));
-
-}
-
-#capa_difuminado_github{
-    background: linear-gradient(to bottom, var(--colorlight), transparent,var(--colorlight));
-}
-
-#capa_difuminado_graficas{
-    background: linear-gradient(to bottom, var(--colordark), transparent);
-
-} */
-
-.cont_text{
-    position: absolute;
-    width: max-content;
-    height: min-content;
-    /* background-color: white; */
-    z-index: 51;
-    flex-direction: column;
     top: 35px;
     right: 25px;
-    font-weight: bold;
-    background: #000000b8;
-    border-radius: 6px;
-    padding: 9px;
-    box-shadow: 0 0 17px #ffffff4a;
+    z-index: 51;
+
+    width: max-content;
+    min-height: min-content;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+
+    padding: 11px 14px;
+
+    color: #f8fafc;
+    font-weight: 600;
+    line-height: 1.35;
+
+    background: rgba(15, 23, 42, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.35),
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    height: min-content;
 }
-.cont_sub_text_text{
-    justify-content: end;
+
+.cont_text::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.07),
+            transparent 45%
+        );
+
+    opacity: 0.8;
 }
-.sub_text_text{
+
+.cont_text:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(255, 255, 255, 0.2);
+
+    box-shadow:
+        0 16px 42px rgba(0, 0, 0, 0.45),
+        0 0 20px rgba(56, 189, 248, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cont_sub_text_text {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    min-width: 0;
+}
+
+.sub_text_text {
+    display: none;
+
+    max-width: 100%;
+
+    margin: 0;
+
     overflow: hidden;
     white-space: nowrap;
-    margin: 0;
-    letter-spacing: .15em;
-    border-right: .15em solid white;
-    display: none;
-    color: white;
-    text-align: end;
+    text-overflow: ellipsis;
+
+    color: #f8fafc;
+    text-align: right;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+
+    border-right: 2px solid #38bdf8;
+
+    text-shadow:
+        0 0 8px rgba(56, 189, 248, 0.25);
+
+    animation:
+        textGlow 2.5s ease-in-out infinite alternate;
 }
 
-          /* .sub_text_text {
-              overflow: hidden;
-              white-space: nowrap;
-              margin: 0 auto;
-              letter-spacing: .15em;
-              border-right: .15em solid white;
-              display: none;
-              color: white;
-          } */
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 5px rgba(56, 189, 248, 0.15);
+    }
 
+    to {
+        text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+}
+
+@media (max-width: 600px) {
+    .cont_text {
+        top: 20px;
+        right: 15px;
+
+        width: calc(100vw - 30px);
+        max-width: none;
+
+        padding: 9px 11px;
+        border-radius: 10px;
+    }
+
+    .sub_text_text {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+    }
+}
           #cuerpo_inicio > *yping {
               from { width: 0; }
               to { width: 100%; }
@@ -2820,15 +2899,6 @@ iframe{
     }
 }
 
-#cont_sub_text_contenido_proyectos_0{
-    background-color: var(--colorAzul);
-    color: white;
-    border-radius: 6px;
-}
-
-#sub_text_contenido_proyectos_0{
-    color: white;
-}
 
 /* Contenedor principal del footer */
 .cont_descripcion_inicio_footer {
@@ -2911,4 +2981,8 @@ iframe{
     align-items: center;
     text-align: center;
     /* user-select: text; */
+}
+
+#contenido_seguridad_informatica{
+    overflow: auto;
 }

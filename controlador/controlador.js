@@ -552,97 +552,6 @@ function contenidoInicio() {
 
             loadReadme();
 
-        
-
-
-
-
-
-        // let habilidades_destacadas_web = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_web",
-        //     "Habilidades Destacadas en Desarrollo Web",
-        //     "Diseño responsivo y adaptativo.",
-        //     "Desarrollo front-end con tecnologías modernas (HTML5, CSS3, JavaScript).",
-        //     "Integración de APIs y servicios web.",
-        //     "Optimización de rendimiento y velocidad del sitio.",
-        //     "Manejo de control de versiones (Git).",
-        //     "Conocimientos en seguridad web.",
-        //     "Creación de biblioteca orientada a programación funcional - mkDom.",
-        //     "Diseño de contenido.",
-        // );
-
-
-
-        // let habilidades_destacadas_administracion = mkTextList(cuerpo_inicio, "contenido_experiencia_destacada", "habilidades_destacadas_administracion",
-        //     "Habilidades Destacadas en Administracion",
-
-        //     "Mecanografía fluida.",
-        //     "Aplicaciones de sistemas excel para empresas.",
-        //     "Diseño y control de reportes.",
-        //     "Diseño de formularios.",
-        //     "Control de bases de datos.",
-        //     "Graficación Javascrip - CSS.",
-        // );
-
-        // let contenido_constancias = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_constancias",
-        //     "Estudios Educativas.",
-        //     "Introducción al Plan de Negocios. CECATI.",
-        //     "Mantenimiento Básico a PC. CECATI.",
-        //     "Mantenimiento Básico a Laptop. CECATI.",
-        //     "Instituto de Educación Avanzada Plantel Prados.",
-        //     "Casa de la Música Méxicana.",
-        // )
-
-        // let contenido_habilidades_destacadas = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_habilidades_destacadas",
-        //     "Habilidades Destacadas.",
-        //     "Programación Funcional. (JavaScript)",
-        //     "Programación orientada a objetos. (php)",
-        //     "Automatización bases de datos. (php,SQL)",
-        //     "Diseño de imágenes. (GIMP, Adobe Ilustrator)",
-        //     "Diseño de Formatos. (PDF, GIMP, Adobe Ilustrator)",
-        // )
-
-        // let contenido_dominio_lenguajes_html = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_html",
-        //     "HTML",
-        //     "Maquetación dinámica con JS",
-        //     "Uso exclusivo de scripts para dinámica de DOM",
-        //     "Optimización de rendimiento",
-        //     "Diseño personalizado y cómodo.",
-        //     "Formularios para captura de datos, registro de usuarios/productos/clientes/trabajadores.",
-        //     "Documentación web para publicitar productos o servicios, información personal, opinion pública, CV o Carpetas de Trabajo.",
-        //     "Sistema web automatizada con tareas.",
-        // )
-
-        // let contenido_dominio_lenguajes_css = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_css",
-        //     "CSS",
-        //     "Diseño dinámico.",
-        //     "Completa personalizacion de diseño.",
-        //     "Animaciones.",
-        // )
-
-        // let carrusel_programacion = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
-        //     "vista/img/diagrama_html.png",
-        //     "vista/img/diagrama_css.png",
-        // )
-
-        // let contenido_dominio_lenguajes_js = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_js",
-        //     "Java Script",
-        //     "Diseño dinámico.",
-        //     "Completa personalizacion de diseño.",
-        //     "Animaciones.",
-        // )
-
-        // let contenido_dominio_lenguajes_php = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_dominio_lenguajes_php",
-        //     "PHP",
-        //     "Diseño dinámico.",
-        //     "Completa personalizacion de diseño.",
-        //     "Animaciones.",
-        // )
-
-        // let carrusel_programacion_sec = mkCarrusel(cuerpo_inicio,"carrusel","carrusel_programacion",
-        //     "vista/img/diagrama_js.png",
-        //     "vista/img/diagrama_php.png",
-        // )
-
 
         let contenido_proyectos = mkTextList(cuerpo_inicio,"descripcion_inicio","contenido_proyectos",
 
@@ -865,7 +774,7 @@ function contenidoEvaluacion(elemento) {
         position: "absolute",
         right: "20px",
         bottom: "80px",
-        zIndex: "9999",
+        zIndex: "9990",
 
     });
 

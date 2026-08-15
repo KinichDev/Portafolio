@@ -1464,13 +1464,14 @@ function flexWindow(div) {
         div.style.top = `${newTop}px`;
     });
 
-    document.addEventListener("mouseup", (n) => {
+    document.addEventListener("mouseup", (e) => {
+        const estabaArrastrando = isDragging;
         isDragging = false;
         div.style.cursor = "move";
-        if (!div.contains(n.tarjet)) {
-            div.style.display = "none"
+
+        // Solo se cierra si NO se estaba arrastrando y se soltó fuera de la ventana
+        if (!estabaArrastrando && !div.contains(e.target)) {
+            div.style.display = "none";
         }
     });
-
-    document.addEventListener
 }

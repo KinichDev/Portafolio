@@ -202,6 +202,8 @@ function contenidoInicio() {
     let contenido_colage = mkObj(contenido_imagen_ciudad,'contenido_colage','contenido_colage')
     contenido_colage.style.position = "absolute"
 
+    contenidoEvaluacion(contenido_colage)
+
     let contenedor_colage = mkObj(contenido_colage,"contenedor_colage","contenedor_colage")
     contenedor_colage.contenidoColage(10)
 
@@ -673,4 +675,442 @@ function contenidoInicio() {
         )
         displayScroll(cuerpo_inicio)
 return cuerpo_inicio
+}
+
+function contenidoEvaluacion(elemento) {
+    const areas = [
+        { nombre: "Desarrollo de Software y Aplicaciones", puntuacion: 90, nivel: "Avanzado" },
+        { nombre: "IA y Ciencia de Datos", puntuacion: 70, nivel: "Intermedio" },
+        { nombre: "Computación en la Nube y DevOps", puntuacion: 35, nivel: "Básico" },
+        { nombre: "Ciberseguridad", puntuacion: 65, nivel: "Intermedio" },
+        { nombre: "Metodologías Ágiles y Gestión de Proyectos", puntuacion: 50, nivel: "Intermedio" },
+        { nombre: "Habilidades blandas (Power Skills)", puntuacion: 80, nivel: "Intermedio" },
+        { nombre: "Inglés técnico", puntuacion: 40, nivel: "Básico" }
+    ];
+
+    if (!document.getElementById("estilos-evaluacion")) {
+        const style = document.createElement("style");
+        style.id = "estilos-evaluacion";
+        style.textContent = `
+            @keyframes evFade {
+                from { opacity: 0; transform: translateY(8px) scale(.98) }
+                to { opacity: 1; transform: none }
+            }
+
+            .evaluacion-contenedor {
+                margin: 0 auto !important;
+                padding: 14px !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 12px !important;
+                overflow: hidden !important;
+                color: #e5e7eb !important;
+                background: rgba(15, 23, 42, .96) !important;
+                border: 1px solid rgba(148, 163, 184, .18) !important;
+                border-radius: 16px !important;
+                box-shadow: 0 12px 35px rgba(0, 0, 0, .45) !important;
+                backdrop-filter: blur(14px) !important;
+                -webkit-backdrop-filter: blur(14px) !important;
+                font-family: system-ui, sans-serif !important;
+                animation: evFade .35s ease-out both;
+                width: max-content;
+                height: min-content;
+            }
+
+            .evaluacion-titulo {
+                margin: 0 !important;
+                color: #f8fafc !important;
+                font-size: 17px !important;
+                font-weight: 700 !important;
+                line-height: 1.2 !important;
+                text-align: center !important;
+            }
+
+            .grafico-leyenda {
+                width: 100% !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-wrap: wrap !important;
+                gap: 12px !important;
+                overflow: hidden !important;
+            }
+
+            .canvas-wrapper {
+                flex: 0 1 220px !important;
+                width: min(220px, 100%) !important;
+                max-width: 220px !important;
+                min-width: 0 !important;
+                padding: 5px !important;
+                box-sizing: border-box !important;
+                background: #111827 !important;
+                border: 1px solid rgba(148, 163, 184, .12) !important;
+                border-radius: 13px !important;
+                box-shadow: 0 5px 18px rgba(0, 0, 0, .3) !important;
+                animation: evFade .4s .08s ease-out both;
+            }
+
+            #radarCanvas {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                aspect-ratio: 1 !important;
+                background: #0f172a !important;
+                border-radius: 9px !important;
+            }
+
+            .leyenda-contenedor {
+                flex: 1 1 160px !important;
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+                padding: 10px 12px !important;
+                box-sizing: border-box !important;
+                background: rgba(30, 41, 59, .72) !important;
+                border: 1px solid rgba(148, 163, 184, .14) !important;
+                border-radius: 13px !important;
+                overflow: hidden !important;
+                animation: evFade .4s .12s ease-out both;
+                flex-direction: column;
+            }
+
+            .leyenda-titulo {
+                margin: 0 0 7px !important;
+                color: #f1f5f9 !important;
+                font-size: 13px !important;
+                font-weight: 700 !important;
+            }
+
+            .leyenda-fila {
+                width: 100% !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
+                padding: 4px 0 !important;
+                box-sizing: border-box !important;
+                border-bottom: 1px solid rgba(148, 163, 184, .09) !important;
+                animation: evFade .35s ease-out both;
+            }
+
+            .leyenda-fila:last-child {
+                border-bottom: 0 !important;
+            }
+
+            .leyenda-nombre {
+                flex: 1 1 auto !important;
+                min-width: 0 !important;
+                overflow: hidden !important;
+                color: #cbd5e1 !important;
+                font-size: 10px !important;
+                font-weight: 500 !important;
+                line-height: 1.25 !important;
+                white-space: nowrap !important;
+                text-overflow: ellipsis !important;
+            }
+
+            .leyenda-nivel {
+                flex: 0 0 auto !important;
+                padding: 2px 6px !important;
+                border-radius: 8px !important;
+                font-size: 9px !important;
+                font-weight: 700 !important;
+                line-height: 1.2 !important;
+                white-space: nowrap !important;
+            }
+
+            .leyenda-punt {
+                flex: 0 0 30px !important;
+                color: #f8fafc !important;
+                font-size: 11px !important;
+                font-weight: 700 !important;
+                text-align: right !important;
+                white-space: nowrap !important;
+            }
+
+            @media(max-width:480px) {
+                .evaluacion-contenedor {
+                    padding: 12px !important;
+                }
+
+                .grafico-leyenda {
+                    flex-direction: column !important;
+                }
+
+                .canvas-wrapper {
+                    width: min(200px, 100%) !important;
+                    max-width: 200px !important;
+                }
+
+                .leyenda-contenedor {
+                    flex: none !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    const contenedor = mkObj(
+        elemento,
+        "evaluacion-contenedor",
+        "evaluacion-contenedor-id"
+    );
+
+    contenedor.className = "evaluacion-contenedor";
+    Object.assign(contenedor.style, {
+        position: "absolute",
+        right: "20px",
+        bottom: "80px",
+        zIndex: "9999",
+
+    });
+
+    const titulo = mkText(
+        contenedor,
+        "evaluacion-titulo",
+        "evaluacion-titulo-id",
+        "Habilidades"
+    );
+
+    const graficoYleyenda = mkObj(
+        contenedor,
+        "grafico-leyenda",
+        "grafico-leyenda-id"
+    );
+
+    const canvasWrapper = document.createElement("div");
+    canvasWrapper.className = "canvas-wrapper";
+
+    const canvas = document.createElement("canvas");
+    canvas.id = "radarCanvas";
+    canvas.width = 400;
+    canvas.height = 400;
+
+    canvasWrapper.appendChild(canvas);
+    graficoYleyenda.appendChild(canvasWrapper);
+
+    const contLeyenda = mkObj(
+        graficoYleyenda,
+        "leyenda-contenedor",
+        "leyenda-contenedor-id"
+    );
+
+    mkText(
+        contLeyenda,
+        "leyenda-titulo",
+        "leyenda-titulo-id",
+        "🔹 Áreas"
+    );
+
+    const colores = {
+        Inicial: "#f97316",
+        Básico: "#eab308",
+        Intermedio: "#22c55e",
+        Avanzado: "#38bdf8"
+    };
+
+    areas.forEach((area, index) => {
+        const fila = mkObj(
+            contLeyenda,
+            "leyenda-fila",
+            `leyenda-fila-${index}`
+        );
+
+        fila.style.animationDelay = `${.15 + index * .04}s`;
+
+        mkText(
+            fila,
+            "leyenda-nombre",
+            "",
+            area.nombre
+        );
+
+        const nivel = mkText(
+            fila,
+            "leyenda-nivel",
+            "",
+            area.nivel
+        );
+
+        const color = colores[area.nivel] || "#94a3b8";
+
+        Object.assign(nivel.style, {
+            color,
+            background: `${color}20`
+        });
+
+        mkText(
+            fila,
+            "leyenda-punt",
+            "",
+            `${area.puntuacion}%`
+        );
+    });
+
+    function dibujarRadar(ctx, w, h, datos, progreso) {
+        const cx = w / 2;
+        const cy = h / 2;
+        const radio = Math.min(w, h) * .36;
+        const total = datos.length;
+        const inicio = -Math.PI / 2;
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.lineCap = "round";
+
+        [0, 20, 40, 60, 80, 100].forEach(valor => {
+            const r = radio * valor / 100;
+
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, 0, Math.PI * 2);
+            ctx.strokeStyle = "#334155";
+            ctx.lineWidth = .8;
+            ctx.stroke();
+
+            ctx.fillStyle = "#64748b";
+            ctx.font = "8px system-ui";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "bottom";
+            ctx.fillText(`${valor}%`, cx + 4, cy - r - 2);
+        });
+
+        datos.forEach((area, i) => {
+            const angulo = inicio + i / total * Math.PI * 2;
+            const x = cx + radio * Math.cos(angulo);
+            const y = cy + radio * Math.sin(angulo);
+
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = "#293548";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            const lx = cx + (radio + 20) * Math.cos(angulo);
+            const ly = cy + (radio + 20) * Math.sin(angulo);
+            const nombre = area.nombre.length > 11
+                ? `${area.nombre.slice(0, 10)}…`
+                : area.nombre;
+
+            ctx.save();
+            ctx.translate(lx, ly);
+            ctx.rotate(angulo);
+
+            ctx.font = "600 8px system-ui";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            const ancho = ctx.measureText(nombre).width + 8;
+
+            ctx.fillStyle = "rgba(30,41,59,.92)";
+            ctx.beginPath();
+            ctx.roundRect(
+                -ancho / 2,
+                -8,
+                ancho,
+                16,
+                4
+            );
+            ctx.fill();
+
+            ctx.fillStyle = "#cbd5e1";
+            ctx.fillText(nombre, 0, 0);
+            ctx.restore();
+        });
+
+        if (progreso <= 0) return;
+
+        ctx.beginPath();
+
+        datos.forEach((area, i) => {
+            const angulo = inicio + i / total * Math.PI * 2;
+            const valor = Math.max(
+                0,
+                Math.min(100, area.puntuacion)
+            ) * progreso;
+
+            const r = radio * valor / 100;
+            const x = cx + r * Math.cos(angulo);
+            const y = cy + r * Math.sin(angulo);
+
+            i
+                ? ctx.lineTo(x, y)
+                : ctx.moveTo(x, y);
+        });
+
+        ctx.closePath();
+        ctx.fillStyle = "rgba(56,189,248,.18)";
+        ctx.fill();
+
+        ctx.strokeStyle = "#38bdf8";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        datos.forEach((area, i) => {
+            const angulo = inicio + i / total * Math.PI * 2;
+            const valor = Math.max(
+                0,
+                Math.min(100, area.puntuacion)
+            ) * progreso;
+
+            const r = radio * valor / 100;
+            const x = cx + r * Math.cos(angulo);
+            const y = cy + r * Math.sin(angulo);
+
+            ctx.beginPath();
+            ctx.arc(x, y, 3.5, 0, Math.PI * 2);
+            ctx.fillStyle = "#38bdf8";
+            ctx.fill();
+
+            ctx.strokeStyle = "#e2e8f0";
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            ctx.fillStyle = "#f1f5f9";
+            ctx.font = "700 9px system-ui";
+            ctx.textAlign = x >= cx ? "left" : "right";
+            ctx.textBaseline = "bottom";
+
+            ctx.fillText(
+                `${Math.round(area.puntuacion * progreso)}%`,
+                x + (x >= cx ? 6 : -6),
+                y + (y >= cy ? -6 : 6)
+            );
+        });
+    }
+
+    const ctx = canvas.getContext("2d");
+    const { width: w, height: h } = canvas;
+    const duration = 1000;
+    let inicio = null;
+
+    function animar(timestamp) {
+        inicio ??= timestamp;
+
+        const progreso = Math.min(
+            1,
+            (timestamp - inicio) / duration
+        );
+
+        const ease = 1 - Math.pow(1 - progreso, 3);
+
+        dibujarRadar(
+            ctx,
+            w,
+            h,
+            areas,
+            ease
+        );
+
+        if (progreso < 1) {
+            requestAnimationFrame(animar);
+        }
+    }
+
+    requestAnimationFrame(animar);
+
+    return contenedor;
 }

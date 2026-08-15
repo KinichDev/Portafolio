@@ -104,7 +104,6 @@ function contenidoInicio() {
 
                         let opcion_screen_x = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/x.png")
                         let opcion_screen_curriculum = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_curriculum","./vista/img/cv.png")
-                        let opcion_screen_github = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_github","./vista/img/github.png")
                         let opcion_screen_catalogos = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_catalogos","./vista/img/catalogo.png")
                         let opcion_screen_linkedin = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_x","./vista/img/linkedin.png")
                         let opcion_screen_portafolio = mkObjImg(barra_aplicaciones,"opcion_screen","opcion_screen_portafolio","./vista/img/desplazarse.png")
@@ -574,15 +573,11 @@ function contenidoInicio() {
 
     )
 
-
-
         let contenido_footer = mkTextList(cuerpo_inicio,"descripcion_inicio_footer","contenido_footer",
-            "Diseño",
-            "Programación",
-            "Administración",
-            "Seguridad Informática",
+            "Leonardo Kinich Luna Lugo - Desarrollo de Software Orientado a Logísitica",
         )
         displayScroll(cuerpo_inicio)
+
 return cuerpo_inicio
 }
 

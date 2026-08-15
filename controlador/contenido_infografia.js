@@ -817,7 +817,7 @@ HTMLElement.prototype.contenidoCatalogos = function() {
         </style>
         <header>
             <h1>Servicios de Desarrollo Web</h1>
-            <p>Formaliza tus habilidades con una presencia en línea profesional y accesible.</p>
+            <p>Formaliza tus negocios con una presencia en línea profesional y accesible.</p>
         </header>
 
         <section id="beneficios">
@@ -983,7 +983,6 @@ HTMLElement.prototype.contenidoCatalogos = function() {
         </style>
 
         <section id="contacto">
-            <h2>¿Listo para comenzar?</h2>
             <p>Contáctanos hoy mismo y lleva tu negocio al siguiente nivel.</p>
             <a href="mailto:kinich.development@gmail.com" class="cta-button">Enviar un correo</a>
         </section>

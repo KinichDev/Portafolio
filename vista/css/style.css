@@ -108,7 +108,7 @@
 
 * {
     scrollbar-color: rgba(74, 37, 255, 0.7) rgba(240, 240, 240, 0.9);
-    scrollbar-width: thin; 
+    scrollbar-width: 50px; 
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -1846,14 +1846,6 @@ img{
 } */
 
 
-#cont_sub_text_contenido_proyectos_1,
-#cont_sub_text_contenido_proyectos_8,
-#cont_sub_text_contenido_proyectos_15,
-#cont_sub_text_contenido_proyectos_22,
-#cont_sub_text_contenido_proyectos_28
-{
-    font-size: 20px;
-}
 
 .contenido_square{
     height: min-content;
@@ -2985,4 +2977,71 @@ iframe{
 
 #contenido_seguridad_informatica{
     overflow: auto;
+}
+
+
+
+
+/* Contenedor principal */
+#cont_contenido_proyectos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título "Proyectos." */
+#cont_sub_text_contenido_proyectos_0 .sub_text_descripcion_inicio {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+/* Nombres de los proyectos (posiciones impares) */
+#cont_sub_text_contenido_proyectos_1 .sub_text_descripcion_inicio,
+#cont_sub_text_contenido_proyectos_3 .sub_text_descripcion_inicio,
+#cont_sub_text_contenido_proyectos_5 .sub_text_descripcion_inicio,
+#cont_sub_text_contenido_proyectos_7 .sub_text_descripcion_inicio,
+#cont_sub_text_contenido_proyectos_9 .sub_text_descripcion_inicio {
+    font-weight: 600;
+    color: #2980b9;
+    margin: 5px 0 2px;
+    font-size: 1.1em;
+}
+
+/* Enlaces de los proyectos (posiciones pares) */
+#cont_sub_text_contenido_proyectos_2 .sub_text_descripcion_inicio a,
+#cont_sub_text_contenido_proyectos_4 .sub_text_descripcion_inicio a,
+#cont_sub_text_contenido_proyectos_6 .sub_text_descripcion_inicio a,
+#cont_sub_text_contenido_proyectos_8 .sub_text_descripcion_inicio a,
+#cont_sub_text_contenido_proyectos_10 .sub_text_descripcion_inicio a {
+    color: #3498db;
+    text-decoration: none;
+    word-break: break-all;
+    font-size: 0.95em;
+}
+
+/* Efecto hover para los enlaces */
+#cont_sub_text_contenido_proyectos_2 .sub_text_descripcion_inicio a:hover,
+#cont_sub_text_contenido_proyectos_4 .sub_text_descripcion_inicio a:hover,
+#cont_sub_text_contenido_proyectos_6 .sub_text_descripcion_inicio a:hover,
+#cont_sub_text_contenido_proyectos_8 .sub_text_descripcion_inicio a:hover,
+#cont_sub_text_contenido_proyectos_10 .sub_text_descripcion_inicio a:hover {
+    text-decoration: underline;
+    color: #1abc9c;
+}
+
+/* Espaciado adicional entre bloques */
+#cont_sub_text_contenido_proyectos_1,
+#cont_sub_text_contenido_proyectos_3,
+#cont_sub_text_contenido_proyectos_5,
+#cont_sub_text_contenido_proyectos_7,
+#cont_sub_text_contenido_proyectos_9 {
+    margin-top: 8px;
 }

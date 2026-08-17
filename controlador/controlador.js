@@ -2,7 +2,7 @@ const body = document.body
 // let ejemplo.mkObj()
 let contenedor_principal = mkObj(body,"contenedor_principal","contenedor_principal")
     let header = mkObj(contenedor_principal,"header","header")
-    header.style.display = "none"
+    // header.style.display = "none"
         let  = mkObj(header,"contenedor_img_header","contenedor_img_header")
 
             let container = mkObj(contenedor_img_header,"container")
@@ -187,7 +187,7 @@ function contenidoInicio() {
     
 
     
-    contenidoDesktopScreen(contenido_imagen_ciudad)
+    // contenidoDesktopScreen(contenido_imagen_ciudad)
 
     let capa_difuminado = mkObj(contenido_imagen_ciudad,"capa_difuminado","capa_difuminado")
         // let ventana_enlaces = mkObj(capa_difuminado,"ventana_enlaces","ventana_enlaces")
@@ -285,14 +285,13 @@ function contenidoInicio() {
 
 
 
-        let img_escritorio = mkObjImg(cuerpo_inicio,"img_escritorio","img_escritorio",)
+        let img_escritorio = mkObj(cuerpo_inicio,"img_escritorio","img_escritorio")
             let capa_difuminado_escritorio = mkObj(img_escritorio,"capa_difuminado","capa_difuminado_escritorio")
             img_escritorio.onScrollIntoView((entry) => {
                 if (entry.isIntersecting) {
                   console.log('The element is visible:', entry.target);
                   img_fondo.querySelector("img").setAttribute("src","./vista/img/js_letters.jpg" + "?" + new Date().getTime())
                   img_fondo.style.display = "flex"; // Show the element
-                  header.style.backgroundColor = "#c41515"
 
                 } 
                 // else {
@@ -338,7 +337,6 @@ function contenidoInicio() {
                     console.log('The element is visible:', entry.target);
                     img_fondo.querySelector("img").setAttribute("src","./vista/img/seguridad.jpg")
                     img_fondo.style.display = "flex"; // Show the element
-                    header.style.backgroundColor = "#2a584d"
                     } 
                 //     else {
                 //     console.log('The element is out of view:', entry.target);
@@ -375,7 +373,6 @@ function contenidoInicio() {
                   console.log('The element is visible:', entry.target);
                   img_fondo.querySelector("img").setAttribute("src","./vista/img/graficas.jpg")
                   img_fondo.style.display = "flex"; // Show the element
-                  header.style.backgroundColor = "#002a51"
 
                 } 
               });
@@ -402,7 +399,6 @@ function contenidoInicio() {
                 console.log('The element is visible:', entry.target);
                 img_fondo.querySelector("img").setAttribute("src","./vista/img/digital.jpg")
                 img_fondo.style.display = "flex"; // Show the element
-                header.style.backgroundColor = "black"
 
                 } 
             });
@@ -435,7 +431,6 @@ function contenidoInicio() {
                 console.log('The element is visible:', entry.target);
                 img_fondo.querySelector("img").setAttribute("src","./vista/img/servers.jpg" + "?" + new Date().getTime())
                 img_fondo.style.display = "flex"; // Show the element
-                header.style.backgroundColor = "black"
 
                 } 
             });
@@ -465,7 +460,6 @@ function contenidoInicio() {
                 console.log('The element is visible:', entry.target);
                 img_fondo.querySelector("img").setAttribute("src","./vista/img/ubuntu_deco.jpg" + "?" + new Date().getTime())
                 img_fondo.style.display = "flex"; // Show the element
-                header.style.backgroundColor = "black"
 
                 } 
             });

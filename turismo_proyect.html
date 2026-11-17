@@ -1,0 +1,2878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu plataforma turística · Propuesta escalable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* =========================================================
+       TOKENS — paleta ampliada, elegante y cálida
+       ========================================================= */
+    :root {
+      --ink:        #0f1424;
+      --ink-2:      #2b3040;
+      --ink-3:      #5a6172;
+      --ink-4:      #959aab;
+      --line:       #e8e5df;
+      --line-2:     #d6d2c8;
+      --paper:      #fdfbf7;
+      --paper-2:    #f6f1e8;
+      --white:      #ffffff;
+
+      /* Acentos vivos pero elegantes */
+      --terra:      #c4623a;   /* terracota — CTA principal */
+      --terra-dark: #a34e2b;
+      --terra-soft: #fbeee6;
+      --teal:       #2d6a6a;   /* verde azulado — secundario */
+      --teal-soft:  #e3efed;
+      --gold:       #c89b3c;   /* dorado — highlights */
+      --gold-soft:  #f7edd6;
+      --plum:       #6b3f6b;   /* ciruela — acentos */
+      --plum-soft:  #f0e5f0;
+      --sky:        #3d7db8;   /* azul — info */
+      --sky-soft:   #e6eff8;
+      --sage:       #6b8f5e;   /* salvia — éxito */
+      --sage-soft:  #eaf0e5;
+
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+      --font-mono:    'SF Mono', Menlo, Consolas, monospace;
+
+      --fs-xs:   0.72rem;
+      --fs-sm:   0.86rem;
+      --fs-base: 1rem;
+      --fs-md:   1.15rem;
+      --fs-lg:   1.5rem;
+      --fs-xl:   2rem;
+      --fs-2xl:  2.75rem;
+      --fs-3xl:  clamp(2.4rem, 6vw, 4.5rem);
+
+      --sp-1: 0.25rem;
+      --sp-2: 0.5rem;
+      --sp-3: 0.75rem;
+      --sp-4: 1rem;
+      --sp-5: 1.5rem;
+      --sp-6: 2.5rem;
+      --sp-7: 4rem;
+      --sp-section: clamp(4rem, 8vw, 7rem);
+
+      --radius-sm: 10px;
+      --radius:    18px;
+      --radius-lg: 28px;
+      --radius-xl: 40px;
+
+      --maxw: 1180px;
+      --gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      font-weight: 400;
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 0 0 var(--sp-3);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    p { margin: 0 0 var(--sp-4); color: var(--ink-3); }
+    a { color: var(--ink); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.86em;
+      background: var(--paper-2);
+      padding: 2px 8px;
+      border-radius: 6px;
+      color: var(--ink-2);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes donutFill {
+      to { stroke-dasharray: 310.4 66.6; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+    .section { padding-block: var(--sp-section); position: relative; }
+    .section--alt { background: var(--paper-2); }
+    .section--dark {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .section--dark h1, .section--dark h2, .section--dark h3, .section--dark h4 { color: var(--white); }
+    .section--dark p { color: var(--ink-4); }
+
+    .section__head {
+      max-width: 780px;
+      margin-bottom: var(--sp-6);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: var(--sp-4);
+    }
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--terra);
+    }
+    .section__title {
+      font-size: var(--fs-xl);
+      color: var(--ink);
+      margin-bottom: var(--sp-4);
+    }
+    .section__lead {
+      font-size: var(--fs-md);
+      color: var(--ink-3);
+      max-width: 700px;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero {
+      position: relative;
+      padding-block: clamp(5rem, 12vw, 9rem) clamp(4rem, 8vw, 6rem);
+      overflow: hidden;
+      background:
+        radial-gradient(70% 60% at 85% 10%, var(--terra-soft) 0%, transparent 60%),
+        radial-gradient(50% 50% at 10% 90%, var(--teal-soft) 0%, transparent 65%),
+        var(--paper);
+    }
+    .hero__inner { position: relative; z-index: 1; max-width: 900px; }
+    .hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      padding: var(--sp-2) var(--sp-4);
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      background: var(--white);
+      margin-bottom: var(--sp-5);
+      animation: fadeIn 1s var(--ease) both;
+    }
+    .hero__kicker::before {
+      content: "";
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--sage);
+      animation: fadeIn 2s var(--ease) both;
+    }
+    .hero__title {
+      font-size: var(--fs-3xl);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: var(--sp-5);
+      animation: fadeUp 1s var(--ease) both;
+    }
+    .hero__title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--terra);
+      font-family: var(--font-display);
+    }
+    .hero__lead {
+      font-size: var(--fs-md);
+      color: var(--ink-3);
+      max-width: 640px;
+      animation: fadeUp 1s 0.15s var(--ease) both;
+    }
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-5);
+      margin-top: var(--sp-6);
+      padding-top: var(--sp-6);
+      border-top: 1px solid var(--line);
+      animation: fadeUp 1s 0.3s var(--ease) both;
+    }
+    .hero__meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero__meta-value {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .hero__meta-label {
+      font-size: var(--fs-xs);
+      color: var(--ink-4);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-anchors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      margin-top: var(--sp-6);
+      animation: fadeIn 1s 0.5s var(--ease) both;
+    }
+    .nav-anchors a {
+      font-size: var(--fs-sm);
+      color: var(--ink-3);
+      padding: var(--sp-2) var(--sp-4);
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      transition: all 0.3s var(--ease);
+    }
+    .nav-anchors a:hover {
+      border-color: var(--terra);
+      color: var(--terra);
+      transform: translateY(-1px);
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      transition: transform 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--terra);
+    }
+    .card__title {
+      font-size: var(--fs-md);
+      margin-bottom: var(--sp-2);
+    }
+    .card__text { font-size: var(--fs-sm); margin: 0; }
+
+    .grid { display: grid; gap: var(--sp-5); }
+    .grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .grid--4 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 900px) {
+      .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+    }
+
+    .pillar {
+      padding: var(--sp-6);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      position: relative;
+      transition: all 0.4s var(--ease);
+    }
+    .pillar:hover {
+      border-color: var(--terra);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(196, 98, 58, 0.08);
+    }
+    .pillar__num {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--terra);
+      margin-bottom: var(--sp-4);
+    }
+    .pillar__title {
+      font-size: var(--fs-md);
+      margin-bottom: var(--sp-3);
+    }
+    .pillar__text {
+      font-size: var(--fs-sm);
+      margin: 0;
+      color: var(--ink-3);
+    }
+
+    .arch { display: grid; gap: var(--sp-2); }
+    .arch__layer {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: var(--sp-5);
+      align-items: start;
+      padding: var(--sp-5);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--teal);
+      border-radius: var(--radius);
+      transition: all 0.4s var(--ease);
+    }
+    .arch__layer:nth-child(2) { border-left-color: var(--sky); }
+    .arch__layer:nth-child(3) { border-left-color: var(--plum); }
+    .arch__layer:nth-child(4) { border-left-color: var(--gold); }
+    .arch__layer:nth-child(5) { border-left-color: var(--terra); }
+    .arch__layer:hover {
+      transform: translateX(4px);
+    }
+    .arch__label {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      padding-top: 2px;
+    }
+    .arch__content {
+      font-size: var(--fs-sm);
+      color: var(--ink-3);
+    }
+    .arch__content strong { color: var(--ink); }
+    @media (max-width: 640px) {
+      .arch__layer { grid-template-columns: 1fr; gap: var(--sp-2); }
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-sm);
+      min-width: 720px;
+    }
+    .table th {
+      text-align: left;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      background: var(--paper-2);
+      padding: var(--sp-4) var(--sp-5);
+      border-bottom: 1px solid var(--line);
+    }
+    .table td {
+      padding: var(--sp-4) var(--sp-5);
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-3);
+    }
+    .table td strong { color: var(--ink); font-weight: 500; }
+    .table tbody tr:last-child td { border-bottom: none; }
+    .table tbody tr { transition: background 0.3s var(--ease); }
+    .table tbody tr:hover td { background: var(--paper); }
+
+    .callout {
+      display: flex;
+      gap: var(--sp-4);
+      padding: var(--sp-5);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--terra);
+      border-radius: var(--radius);
+      margin-top: var(--sp-5);
+    }
+    .callout--teal { border-left-color: var(--teal); background: var(--teal-soft); }
+    .callout--gold { border-left-color: var(--gold); background: var(--gold-soft); }
+    .callout--plum { border-left-color: var(--plum); background: var(--plum-soft); }
+    .callout__icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--paper-2);
+      color: var(--terra);
+      font-size: var(--fs-sm);
+    }
+    .callout--teal .callout__icon { color: var(--teal); }
+    .callout--gold .callout__icon { color: var(--gold); }
+    .callout--plum .callout__icon { color: var(--plum); }
+    .callout__title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--fs-base);
+      margin-bottom: var(--sp-2);
+      color: var(--ink);
+    }
+    .callout__body p { margin: 0; font-size: var(--fs-sm); }
+
+    .steps { display: grid; gap: var(--sp-3); counter-reset: step; }
+    .step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: var(--sp-5);
+      align-items: start;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: var(--sp-5) var(--sp-6);
+      transition: all 0.4s var(--ease);
+    }
+    .step:hover { border-color: var(--teal); }
+    .step__num {
+      counter-increment: step;
+      width: 48px; height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--sky));
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--fs-md);
+    }
+    .step__num::before { content: "0" counter(step); }
+    .step__title { font-size: var(--fs-md); margin: 0 0 var(--sp-2); }
+    .step__text { font-size: var(--fs-sm); margin: 0; }
+    .step__deliverable {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: var(--fs-xs);
+      color: var(--ink-2);
+      background: var(--sage-soft);
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: 999px;
+      margin-top: var(--sp-3);
+    }
+    .step__deliverable::before {
+      content: "";
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    /* =========================================================
+       SEGUIMIENTO
+       ========================================================= */
+    .tracking-hero {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: var(--sp-4);
+      align-items: stretch;
+      margin-bottom: var(--sp-5);
+    }
+    @media (max-width: 720px) {
+      .tracking-hero { grid-template-columns: 1fr; }
+    }
+
+    .tracking-donut {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-3);
+      transition: border-color 0.4s var(--ease);
+    }
+    .tracking-donut:hover { border-color: var(--terra); }
+    .tracking-donut svg { width: 170px; height: 170px; }
+    .tracking-donut__label {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      text-align: center;
+    }
+    .donut-progress { stroke-dasharray: 0 377; }
+    .tracking-hero.is-visible .donut-progress {
+      animation: donutFill 1.4s var(--ease) 0.2s forwards;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+    }
+    @media (max-width: 480px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+    }
+    .kpi {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      transition: all 0.4s var(--ease);
+    }
+    .kpi:hover {
+      border-color: var(--terra);
+      transform: translateY(-2px);
+    }
+    .kpi__label {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .kpi__value {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .kpi__meta {
+      font-size: var(--fs-xs);
+      color: var(--ink-3);
+    }
+    .kpi__meta--warn { color: var(--gold); }
+    .kpi__meta--ok { color: var(--sage); }
+
+    .chart-block {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      margin-bottom: var(--sp-5);
+    }
+    .chart-block__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-4);
+    }
+    .chart-block__title {
+      font-size: var(--fs-md);
+      margin: 0;
+    }
+    .chart-block__hint {
+      font-size: var(--fs-xs);
+      color: var(--ink-4);
+    }
+    .chart-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .chart-wrap svg {
+      width: 100%;
+      height: auto;
+      min-width: 560px;
+      display: block;
+    }
+
+    .process-bars {
+      display: grid;
+      gap: var(--sp-3);
+    }
+    .process-row {
+      display: grid;
+      grid-template-columns: 170px 1fr 70px;
+      gap: var(--sp-4);
+      align-items: center;
+      padding: var(--sp-3) 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .process-row:last-child { border-bottom: none; }
+    .process-row__name {
+      font-family: var(--font-display);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .process-row__name span {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: var(--fs-xs);
+      color: var(--ink-4);
+      margin-top: 3px;
+    }
+    .process-row__bars { display: grid; gap: 5px; }
+    .process-bar-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+    }
+    .process-bar-row__tag {
+      width: 26px;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      flex-shrink: 0;
+    }
+    .process-bar-row__track {
+      flex: 1;
+      height: 8px;
+      background: var(--paper-2);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+    .process-bar-row__fill {
+      height: 100%;
+      border-radius: 999px;
+      width: 0;
+      transition: width 1.4s var(--ease);
+    }
+    .chart-block.is-visible .process-bar-row__fill {
+      width: var(--fill, 0%);
+    }
+    .process-bar-row__fill--est {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--gold) 0,
+        var(--gold) 4px,
+        transparent 4px,
+        transparent 8px
+      );
+      opacity: 0.9;
+    }
+    .process-bar-row__fill--real {
+      background: linear-gradient(90deg, var(--teal), var(--ink));
+    }
+    .process-bar-row__value {
+      width: 40px;
+      text-align: right;
+      font-size: 11px;
+      font-family: var(--font-display);
+      color: var(--ink-2);
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .process-row__delta {
+      text-align: right;
+      font-size: var(--fs-xs);
+      font-family: var(--font-display);
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 999px;
+      justify-self: end;
+      font-variant-numeric: tabular-nums;
+    }
+    .process-row__delta--ok {
+      color: var(--sage);
+      background: var(--sage-soft);
+    }
+    .process-row__delta--warn {
+      color: #a37020;
+      background: var(--gold-soft);
+    }
+    .process-row__delta--danger {
+      color: #b03434;
+      background: #fdeaea;
+    }
+    @media (max-width: 640px) {
+      .process-row { grid-template-columns: 1fr; gap: var(--sp-2); }
+      .process-row__delta { justify-self: start; text-align: left; }
+    }
+
+    .tracking-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: var(--white);
+    }
+    .tracking-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-sm);
+      min-width: 860px;
+    }
+    .tracking-table th {
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      background: var(--paper-2);
+      padding: var(--sp-3) var(--sp-2);
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .tracking-table th.tracking-table__process {
+      text-align: left;
+      padding-left: var(--sp-4);
+      min-width: 170px;
+    }
+    .tracking-table td {
+      padding: var(--sp-3) var(--sp-2);
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+      text-align: center;
+    }
+    .tracking-table td.tracking-table__process {
+      text-align: left;
+      padding-left: var(--sp-4);
+      padding-right: var(--sp-3);
+    }
+    .tracking-table td.tracking-table__process strong {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--ink);
+      font-size: var(--fs-sm);
+      line-height: 1.2;
+    }
+    .tracking-table td.tracking-table__process span {
+      display: block;
+      font-size: var(--fs-xs);
+      color: var(--ink-4);
+      margin-top: 3px;
+    }
+    .tracking-table tbody tr { transition: background 0.3s var(--ease); }
+    .tracking-table tbody tr:hover td { background: var(--paper); }
+    .tracking-table tbody tr:last-child td { border-bottom: none; }
+
+    .cell {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      align-items: center;
+    }
+    .cell__est {
+      font-size: 10px;
+      color: var(--ink-4);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .cell__real {
+      font-size: 12px;
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums;
+    }
+    .cell__real--ok { color: var(--sage); }
+    .cell__real--warn { color: #a37020; }
+    .cell__real--danger { color: #b03434; }
+    .cell__real--neutral { color: var(--ink-4); }
+
+    .tracking-table__delta {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--fs-xs);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* =========================================================
+       INVERSIÓN — escalable desde emprendedor
+       ========================================================= */
+    .invest-hero {
+      background: linear-gradient(135deg, var(--ink) 0%, #1e2a3a 100%);
+      color: var(--paper);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-7) var(--sp-6);
+      margin-bottom: var(--sp-6);
+      position: relative;
+      overflow: hidden;
+    }
+    .invest-hero::before {
+      content: "";
+      position: absolute;
+      bottom: -150px; right: -150px;
+      width: 450px; height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--terra) 0%, transparent 70%);
+      opacity: 0.18;
+    }
+    .invest-hero::after {
+      content: "";
+      position: absolute;
+      top: -120px; left: -120px;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--teal) 0%, transparent 70%);
+      opacity: 0.2;
+    }
+    .invest-hero__inner { position: relative; z-index: 1; max-width: 820px; }
+    .invest-hero h3 {
+      color: var(--white);
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: var(--sp-5);
+      letter-spacing: -0.02em;
+    }
+    .invest-hero h3 em {
+      font-style: italic;
+      color: var(--terra);
+      font-weight: 500;
+    }
+    .invest-hero p {
+      color: var(--ink-4);
+      font-size: var(--fs-md);
+      margin-bottom: var(--sp-4);
+    }
+    .invest-hero p strong { color: var(--paper); font-weight: 500; }
+
+    /* Escalera de planes */
+    .plan-ladder {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-6);
+      align-items: stretch;
+    }
+    @media (max-width: 1024px) {
+      .plan-ladder { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .plan-ladder { grid-template-columns: 1fr; }
+    }
+
+    .plan {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      transition: all 0.4s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .plan::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--line-2);
+      transition: background 0.4s var(--ease);
+    }
+    .plan--starter::before { background: var(--sage); }
+    .plan--basic::before   { background: var(--sky); }
+    .plan--growth::before  { background: var(--gold); }
+    .plan--corporate::before { background: var(--plum); }
+    .plan:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-2);
+      box-shadow: 0 16px 40px rgba(15, 20, 36, 0.08);
+    }
+    .plan--growth {
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(200, 155, 60, 0.15);
+    }
+    .plan__badge {
+      display: inline-block;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      align-self: flex-start;
+      margin-bottom: var(--sp-1);
+    }
+    .plan--starter .plan__badge { background: var(--sage-soft); color: var(--sage); }
+    .plan--basic .plan__badge   { background: var(--sky-soft); color: var(--sky); }
+    .plan--growth .plan__badge  { background: var(--gold-soft); color: #8b6a1a; }
+    .plan--corporate .plan__badge { background: var(--plum-soft); color: var(--plum); }
+
+    .plan__name {
+      font-family: var(--font-display);
+      font-size: var(--fs-md);
+      font-weight: 500;
+      margin: 0;
+      color: var(--ink);
+    }
+    .plan__desc {
+      font-size: var(--fs-xs);
+      color: var(--ink-4);
+      margin: 0;
+      min-height: 2.4em;
+    }
+    .plan__price {
+      font-family: var(--font-display);
+      font-size: var(--fs-xl);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1;
+      margin: var(--sp-2) 0;
+    }
+    .plan__price span {
+      font-size: var(--fs-xs);
+      font-weight: 400;
+      color: var(--ink-4);
+      letter-spacing: 0;
+    }
+    .plan__time {
+      font-size: var(--fs-xs);
+      color: var(--ink-3);
+      margin: 0 0 var(--sp-2);
+    }
+    .plan__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--sp-1);
+      font-size: var(--fs-xs);
+      flex: 1;
+    }
+    .plan__list li {
+      padding-left: 1.2rem;
+      position: relative;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+    .plan__list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--sage);
+      font-weight: 700;
+      font-size: 0.85em;
+    }
+    .plan__list li.li--future {
+      color: var(--ink-4);
+    }
+    .plan__list li.li--future::before {
+      content: "→";
+      color: var(--ink-4);
+    }
+    .plan__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-2) var(--sp-4);
+      border-radius: 999px;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--paper-2);
+      color: var(--ink-2);
+      transition: all 0.3s var(--ease);
+      margin-top: var(--sp-3);
+    }
+    .plan--starter .plan__cta { background: var(--sage); color: var(--white); }
+    .plan--basic .plan__cta   { background: var(--sky); color: var(--white); }
+    .plan--growth .plan__cta  { background: var(--gold); color: var(--white); }
+    .plan--corporate .plan__cta { background: var(--plum); color: var(--white); }
+    .plan__cta:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+    /* Fases ampliadas / desglose */
+    .phase-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      transition: all 0.4s var(--ease);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .phase-card:hover {
+      border-color: var(--terra);
+      transform: translateY(-4px);
+    }
+    .phase-card__label {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+    }
+    .phase-card__title {
+      font-size: var(--fs-md);
+      margin: 0;
+    }
+    .phase-card__price {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      color: var(--terra);
+      line-height: 1;
+      margin: var(--sp-2) 0;
+    }
+    .phase-card__price span {
+      font-size: var(--fs-sm);
+      font-weight: 400;
+      color: var(--ink-4);
+      letter-spacing: 0;
+    }
+    .phase-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--sp-2);
+      font-size: var(--fs-sm);
+    }
+    .phase-card__list li {
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--ink-3);
+    }
+    .phase-card__list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--terra);
+      font-weight: 500;
+    }
+
+    .cost-breakdown {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      margin-top: var(--sp-5);
+    }
+    .cost-breakdown__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: var(--sp-3) 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: var(--fs-sm);
+      gap: var(--sp-4);
+    }
+    .cost-breakdown__row:last-child { border-bottom: none; }
+    .cost-breakdown__row span:first-child { color: var(--ink-2); }
+    .cost-breakdown__row span:last-child {
+      font-family: var(--font-display);
+      color: var(--ink);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .cost-breakdown__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: var(--sp-4);
+      margin-top: var(--sp-2);
+      border-top: 2px solid var(--ink);
+      font-size: var(--fs-base);
+      gap: var(--sp-4);
+    }
+    .cost-breakdown__total span:first-child {
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .cost-breakdown__total span:last-child {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 500;
+      color: var(--terra);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    /* Tabla de escalado */
+    .scale-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-sm);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .scale-table th {
+      text-align: left;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      background: var(--paper-2);
+      padding: var(--sp-4) var(--sp-5);
+      border-bottom: 1px solid var(--line);
+    }
+    .scale-table td {
+      padding: var(--sp-4) var(--sp-5);
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-3);
+    }
+    .scale-table td strong { color: var(--ink); font-weight: 500; }
+    .scale-table td:last-child {
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--terra);
+      text-align: right;
+      white-space: nowrap;
+    }
+    .scale-table tbody tr:last-child td { border-bottom: none; }
+    .scale-table tbody tr { transition: background 0.3s var(--ease); }
+    .scale-table tbody tr:hover td { background: var(--paper); }
+
+    .bonus-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-sm);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .bonus-table th {
+      text-align: left;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      background: var(--paper-2);
+      padding: var(--sp-4) var(--sp-5);
+      border-bottom: 1px solid var(--line);
+    }
+    .bonus-table td {
+      padding: var(--sp-4) var(--sp-5);
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-3);
+    }
+    .bonus-table td strong { color: var(--ink); font-weight: 500; }
+    .bonus-table td:last-child {
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--terra);
+      text-align: right;
+    }
+    .bonus-table tbody tr:last-child td { border-bottom: none; }
+    .bonus-table tbody tr { transition: background 0.3s var(--ease); }
+    .bonus-table tbody tr:hover td { background: var(--paper); }
+
+    .justify-block {
+      background: var(--paper-2);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      margin-top: var(--sp-5);
+      border-left: 3px solid var(--gold);
+    }
+    .justify-block h4 {
+      font-size: var(--fs-md);
+      margin-bottom: var(--sp-4);
+    }
+    .justify-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--sp-3);
+    }
+    .justify-block li {
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: var(--fs-sm);
+      color: var(--ink-2);
+    }
+    .justify-block li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1;
+      top: 0.1rem;
+    }
+
+    /* Roadmap de conexiones futuras */
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+    @media (max-width: 900px) { .future-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .future-grid { grid-template-columns: 1fr; } }
+
+    .future-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: var(--sp-5);
+      transition: all 0.4s var(--ease);
+      position: relative;
+    }
+    .future-item:hover {
+      border-color: var(--teal);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(45, 106, 106, 0.08);
+    }
+    .future-item__icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: var(--fs-md);
+      color: var(--white);
+      margin-bottom: var(--sp-3);
+    }
+    .future-item:nth-child(1) .future-item__icon { background: var(--teal); }
+    .future-item:nth-child(2) .future-item__icon { background: var(--sky); }
+    .future-item:nth-child(3) .future-item__icon { background: var(--plum); }
+    .future-item:nth-child(4) .future-item__icon { background: var(--gold); }
+    .future-item:nth-child(5) .future-item__icon { background: var(--terra); }
+    .future-item:nth-child(6) .future-item__icon { background: var(--sage); }
+    .future-item__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-base);
+      font-weight: 500;
+      margin-bottom: var(--sp-2);
+      color: var(--ink);
+    }
+    .future-item__text {
+      font-size: var(--fs-xs);
+      color: var(--ink-3);
+      margin: 0;
+    }
+    .future-item__phase {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-top: var(--sp-3);
+      padding: 2px 8px;
+      background: var(--paper-2);
+      border-radius: 999px;
+    }
+
+    .risk {
+      display: flex;
+      gap: var(--sp-3);
+      padding: var(--sp-5);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: all 0.4s var(--ease);
+    }
+    .risk:hover { border-color: var(--terra); }
+    .risk__icon {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      color: #a37020;
+      display: grid;
+      place-items: center;
+      font-weight: 500;
+      font-size: var(--fs-xs);
+    }
+    .risk__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-base);
+      font-weight: 500;
+      margin: 0 0 var(--sp-1);
+      color: var(--ink);
+    }
+    .risk__text {
+      font-size: var(--fs-sm);
+      margin: 0;
+      color: var(--ink-3);
+    }
+
+    .footer {
+      padding-block: var(--sp-6);
+      border-top: 1px solid var(--line);
+      font-size: var(--fs-sm);
+      color: var(--ink-4);
+      text-align: center;
+      background: var(--paper);
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+    }
+    @media (max-width: 640px) {
+      .footer__inner { justify-content: center; text-align: center; }
+    }
+
+    .mt-5 { margin-top: var(--sp-5); }
+    .mt-6 { margin-top: var(--sp-6); }
+    .mb-4 { margin-bottom: var(--sp-4); }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <header class="hero">
+    <div class="container hero__inner">
+      <span class="hero__kicker">Propuesta · emprendedor turístico</span>
+      <h1 class="hero__title">
+        Tu plataforma de turismo,<br />
+        <em>construida a tu ritmo</em> y a tu presupuesto.
+      </h1>
+      <p class="hero__lead">
+        Una plataforma web propia para publicar, buscar y conectar viajeros con
+        proveedores locales. Empieza con una interfaz simple por una inversión mínima
+        y escala por fases hacia mensajería, comunidad y eventos — solo cuando el
+        negocio lo justifique.
+      </p>
+
+      <div class="hero__meta">
+        <div class="hero__meta-item">
+          <span class="hero__meta-value">Desde $10k MXN</span>
+          <span class="hero__meta-label">Interfaz inicial</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-value">1–2 semanas</span>
+          <span class="hero__meta-label">Primer entregable</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-value">Código nativo</span>
+          <span class="hero__meta-label">Sin dependencias pesadas</span>
+        </div>
+        <div class="hero__meta-item">
+          <span class="hero__meta-value">Pago por fases</span>
+          <span class="hero__meta-label">Inversión escalonada</span>
+        </div>
+      </div>
+
+      <nav class="nav-anchors" aria-label="Índice de secciones">
+        <a href="#enfoque">Enfoque</a>
+        <a href="#arquitectura">Arquitectura</a>
+        <a href="#stack">Base técnica</a>
+        <a href="#datos">Modelo de datos</a>
+        <a href="#roadmap">Fases</a>
+        <a href="#seguimiento">Seguimiento</a>
+        <a href="#inversion">Inversión</a>
+        <a href="#futuro">Conexiones futuras</a>
+        <a href="#riesgos">Riesgos</a>
+        <a href="#cierre">Siguiente paso</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       01 · ENFOQUE
+       ============================================================ -->
+  <section class="section" id="enfoque">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">01 · Enfoque</span>
+        <h2 class="section__title">Empezar pequeño, crecer con base firme.</h2>
+        <p class="section__lead">
+          La plataforma arranca con un marketplace público de alta conversión —donde
+          la atención del visitante se captura con interfaz clara y catálogo atractivo—
+          y escala hacia capas de comunidad, mensajería en tiempo real y reservas
+          transaccionales cuando el flujo de clientes lo justifique.
+        </p>
+      </div>
+
+      <div class="grid grid--3 reveal">
+        <article class="pillar">
+          <div class="pillar__num">— 01</div>
+          <h3 class="pillar__title">Primero captar, después escalar</h3>
+          <p class="pillar__text">
+            El primer objetivo no es construir una red social de viajeros. Es construir
+            un punto de contacto donde el visitante encuentre lo que busca y el proveedor
+            publique su oferta. Esa base captura atención y datos reales de uso.
+          </p>
+        </article>
+        <article class="pillar">
+          <div class="pillar__num">— 02</div>
+          <h3 class="pillar__title">Arquitectura preparada para crecer</h3>
+          <p class="pillar__text">
+            Aunque la primera fase sea acotada, el diseño del sistema contempla desde
+            el inicio los módulos de mensajería, reservas y comunidad. Cuando llegue
+            el momento, se activan sin reescribir el núcleo.
+          </p>
+        </article>
+        <article class="pillar">
+          <div class="pillar__num">— 03</div>
+          <h3 class="pillar__title">Riesgo controlado</h3>
+          <p class="pillar__text">
+            No comprometer el presupuesto completo antes de tener tracción. Cada fase
+            se financia con los resultados de la anterior. Si el mercado responde, el
+            sistema escala; si no, la inversión se detuvo a tiempo.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout callout--teal reveal mt-6">
+        <div class="callout__icon">◎</div>
+        <div class="callout__body">
+          <div class="callout__title">Sobre el "Facebook del turismo"</div>
+          <p>
+            Construir un ecosistema social completo de viajeros (feed algorítmico, grafos
+            sociales, mensajería en tiempo real a escala, perfiles enriquecidos) implica
+            una inversión entre <strong>3 y 4 veces mayor</strong> que la de un marketplace
+            público, y su retorno depende de una masa crítica de usuarios que aún no existe.
+            La ruta inteligente es <strong>construir primero la capa pública de atracción</strong>
+            con interfaz de alto impacto y catálogo curado, y añadir las capas sociales
+            como evolución sobre esa base ya validada.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       02 · ARQUITECTURA
+       ============================================================ -->
+  <section class="section section--alt" id="arquitectura">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">02 · Arquitectura</span>
+        <h2 class="section__title">Sistema modular preparado para crecer.</h2>
+        <p class="section__lead">
+          Arquitectura en capas con frontend desacoplado, API propia y servicios satélite
+          solo para lo esencial. Se implementa como monolito modular para reducir el
+          costo operativo del inicio, y está diseñada para extraer servicios cuando el
+          tráfico o el equipo lo exijan.
+        </p>
+      </div>
+
+      <div class="arch reveal">
+        <div class="arch__layer">
+          <div class="arch__label">Cliente</div>
+          <div class="arch__content">
+            Interfaz pública para visitantes (buscador, fichas, contacto) y panel para
+            proveedores (publicaciones, disponibilidad, métricas). Construida sin
+            frameworks de UI pesados: HTML, CSS y JavaScript nativo con componentes
+            propios, para máximo control del rendimiento.
+          </div>
+        </div>
+        <div class="arch__layer">
+          <div class="arch__label">API propia</div>
+          <div class="arch__content">
+            API REST versionada (<code>/api/v1</code>) con autenticación por tokens de
+            corta duración, control de acceso por recurso y validación estricta de
+            entrada en cada endpoint. Documentación interna generada automáticamente.
+          </div>
+        </div>
+        <div class="arch__layer">
+          <div class="arch__label">Módulos de dominio</div>
+          <div class="arch__content">
+            Módulos independientes y desacoplados: <strong>Auth</strong>,
+            <strong>Proveedores</strong>, <strong>Publicaciones</strong>,
+            <strong>Buscador</strong>, <strong>Media</strong>,
+            <strong>Mensajería</strong> y <strong>Administración</strong>.
+            Cada uno con lógica aislada, pruebas propias y contratos claros.
+          </div>
+        </div>
+        <div class="arch__layer">
+          <div class="arch__label">Persistencia</div>
+          <div class="arch__content">
+            Base de datos relacional principal, con soporte para campos flexibles
+            y búsqueda por texto. Almacenamiento de objetos para imágenes con
+            entrega por red de distribución global.
+          </div>
+        </div>
+        <div class="arch__layer">
+          <div class="arch__label">Externos</div>
+          <div class="arch__content">
+            Solo los servicios imprescindibles en fase inicial: autenticación gestionada,
+            envío de correos transaccionales y monitoreo de errores. Los pagos se integran
+            únicamente cuando llegue la fase transaccional.
+          </div>
+        </div>
+      </div>
+
+      <div class="callout reveal mt-6">
+        <div class="callout__icon">◇</div>
+        <div class="callout__body">
+          <div class="callout__title">Código nativo, no frameworks</div>
+          <p>
+            Cada capa se implementa con <strong>código propio sobre estándares nativos</strong>
+            del lenguaje y del navegador. Evitar la dependencia de librerías de terceros
+            en el núcleo garantiza mayor control sobre el rendimiento, actualizaciones
+            sin romper la plataforma, menor superficie de ataque y un sistema que no
+            envejece al ritmo de un framework externo. El costo de esto se traduce en
+            <strong>menos deuda técnica y más vida útil</strong> de la plataforma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       03 · BASE TÉCNICA
+       ============================================================ -->
+  <section class="section" id="stack">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">03 · Base técnica</span>
+        <h2 class="section__title">Tecnologías elegidas por rendimiento y vida útil.</h2>
+        <p class="section__lead">
+          La selección prioriza tecnologías maduras, con ecosistema sólido y disponibles
+          en el mercado mexicano. Se evita depender de herramientas propietarias o de
+          moda que obliguen a reescribir la plataforma en pocos años.
+        </p>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Capa</th>
+              <th>Base tecnológica</th>
+              <th>Por qué conviene</th>
+              <th>Alternativas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Interfaz pública</strong></td>
+              <td>HTML, CSS y JavaScript nativo</td>
+              <td>Máximo rendimiento, sin frameworks pesados, control total de la experiencia.</td>
+              <td>Preact, Svelte (si el equipo lo prefiere).</td>
+            </tr>
+            <tr>
+              <td><strong>Lógica del servidor</strong></td>
+              <td>Node.js con módulos propios</td>
+              <td>Ejecución rápida, enorme ecosistema, alineado con el frontend.</td>
+              <td>Python, Go (si se requiere mayor concurrencia).</td>
+            </tr>
+            <tr>
+              <td><strong>Base de datos</strong></td>
+              <td>PostgreSQL</td>
+              <td>Relacional robusta, soporte para búsqueda de texto y datos flexibles.</td>
+              <td>MySQL, Supabase gestionado.</td>
+            </tr>
+            <tr>
+              <td><strong>Almacenamiento</strong></td>
+              <td>Buckets S3-compatibles con CDN</td>
+              <td>Costo bajo por GB, entrega global rápida, URLs firmadas para subidas.</td>
+              <td>Cloudflare R2, Backblaze B2.</td>
+            </tr>
+            <tr>
+              <td><strong>Buscador</strong></td>
+              <td>Búsqueda nativa de PostgreSQL (MVP) → motor dedicado (fase 2)</td>
+              <td>Sin costo adicional en el arranque; migración planificada cuando crezca el catálogo.</td>
+              <td>Meilisearch, Typesense.</td>
+            </tr>
+            <tr>
+              <td><strong>Autenticación</strong></td>
+              <td>Gestión con JWT propio + proveedor externo opcional</td>
+              <td>Control del flujo de registro y roles sin depender de terceros.</td>
+              <td>Auth0, Clerk, Supabase Auth.</td>
+            </tr>
+            <tr>
+              <td><strong>Pagos (fase 3)</strong></td>
+              <td>Stripe Connect o equivalente local</td>
+              <td>Manejo de comisiones y dispersión a proveedores sin desarrollar la pasarela.</td>
+              <td>MercadoPago, Conekta (LATAM).</td>
+            </tr>
+            <tr>
+              <td><strong>Infraestructura</strong></td>
+              <td>Hosting gestionado con autoescalado</td>
+              <td>Sin DevOps dedicado en el arranque; se escala con la demanda.</td>
+              <td>AWS, GCP, Hetzner con contenedores.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout reveal mt-6">
+        <div class="callout__icon">◆</div>
+        <div class="callout__body">
+          <div class="callout__title">Regla de oro</div>
+          <p>
+            Nada que un servicio gestionado resuelva mejor que desarrollarlo internamente.
+            La inversión real de desarrollo se concentra en
+            <strong>publicaciones, buscador y panel de proveedor</strong>, donde está la
+            diferenciación del negocio. Todo lo demás se integra.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       04 · MODELO DE DATOS
+       ============================================================ -->
+  <section class="section section--alt" id="datos">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">04 · Modelo de datos</span>
+        <h2 class="section__title">Un núcleo pequeño, flexible y bien pensado.</h2>
+        <p class="section__lead">
+          La plataforma necesita muy pocas entidades para empezar a operar. Los campos
+          específicos de cada tipo de publicación (una experiencia no es igual a un hotel)
+          se guardan en columnas flexibles, así el sistema crece sin migraciones por
+          cada nuevo tipo de oferta.
+        </p>
+      </div>
+
+      <div class="grid grid--3 reveal">
+        <div class="card">
+          <h3 class="card__title">Usuario</h3>
+          <p class="card__text">
+            Identidad única con rol (visitante, proveedor, administrador), estado de la
+            cuenta y datos mínimos de contacto. Aloja tanto a quien busca como a quien ofrece.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Proveedor</h3>
+          <p class="card__text">
+            Perfil público del negocio: nombre, tipo (hotel, anfitrión, operador),
+            ubicación, estado de verificación y datos de contacto. Vinculado a un usuario.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Publicación</h3>
+          <p class="card__text">
+            La oferta en sí: título, descripción, categoría, precio indicativo, atributos
+            propios del tipo (duración, idiomas, capacidad) y estado (borrador, publicado,
+            archivado).
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Categoría</h3>
+          <p class="card__text">
+            Jerárquica. Permite organizar el catálogo por destino, tipo de experiencia
+            y alojamiento sin tocar la lógica del buscador.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Media</h3>
+          <p class="card__text">
+            Imágenes asociadas a publicaciones, con orden, miniatura, estado de
+            moderación y metadatos limpios por privacidad.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Disponibilidad</h3>
+          <p class="card__text">
+            Rangos de fechas con cupo y notas. En fase inicial es informativa;
+            en fase transaccional se convierte en la base del calendario de reservas.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Mensaje</h3>
+          <p class="card__text">
+            Comunicación entre visitante y proveedor sobre una publicación. Es la
+            base sobre la que se construye la mensajería en tiempo real en fases
+            posteriores.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Vista de publicación</h3>
+          <p class="card__text">
+            Registro anónimo de cada visita, particionado por mes para no degradar el
+            rendimiento. Alimenta las métricas que el proveedor ve en su panel.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="card__title">Auditoría administrativa</h3>
+          <p class="card__text">
+            Registro de acciones sensibles (suspender, verificar, eliminar). Requisito
+            de confianza y trazabilidad desde el primer día.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout reveal mt-6">
+        <div class="callout__icon">▣</div>
+        <div class="callout__body">
+          <div class="callout__title">Decisiones de diseño</div>
+          <p>
+            Los atributos variables viven en columnas flexibles para no migrar el esquema
+            con cada tipo de publicación. Las URLs de cada publicación usan identificadores
+            legibles para mejorar posicionamiento en buscadores. Las vistas se particionan
+            por mes para que el crecimiento del tráfico no degrade la plataforma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       05 · FASES
+       ============================================================ -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">05 · Fases</span>
+        <h2 class="section__title">Un camino por etapas, con entregables claros.</h2>
+        <p class="section__lead">
+          Cada fase termina con una demo funcional en un entorno de pruebas y un
+          entregable verificable. Usted decide si avanza a la siguiente cuando los
+          resultados de la anterior lo justifiquen.
+        </p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step__num"></div>
+          <div>
+            <h3 class="step__title">Discovery y diseño</h3>
+            <p class="step__text">
+              Definición del alcance exacto, mapa del sitio, wireframes de las pantallas
+              clave, contrato técnico de la API, modelo de datos final y preparación del
+              entorno de desarrollo con integración continua.
+            </p>
+            <span class="step__deliverable">Figma + API documentada + pipeline funcionando</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num"></div>
+          <div>
+            <h3 class="step__title">Interfaz simple con perfiles estáticos</h3>
+            <p class="step__text">
+              Landing pública, catálogo de publicaciones con fichas estáticas, perfiles
+              de proveedores y formulario de contacto. Sin inicio de sesión ni paneles
+              dinámicos: el objetivo es validar la propuesta visual y captar los primeros
+              interesados.
+            </p>
+            <span class="step__deliverable">Sitio publicado con catálogo real</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num"></div>
+          <div>
+            <h3 class="step__title">MVP dinámico</h3>
+            <p class="step__text">
+              Registro y autenticación con roles, creación y edición de publicaciones,
+              subida de imágenes con procesamiento automático, buscador con filtros
+              por destino y categoría, panel de proveedor con métricas básicas y panel
+              de administración con moderación.
+            </p>
+            <span class="step__deliverable">MVP navegable en staging con datos de prueba</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num"></div>
+          <div>
+            <h3 class="step__title">Mensajería y endurecimiento</h3>
+            <p class="step__text">
+              Mensajería entre visitante y proveedor, notificaciones por correo,
+              límites de uso por usuario, registro de auditoría, monitoreo de errores,
+              pruebas de carga y SEO técnico de las fichas públicas.
+            </p>
+            <span class="step__deliverable">MVP listo para lanzamiento público</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num"></div>
+          <div>
+            <h3 class="step__title">Capa transaccional</h3>
+            <p class="step__text">
+              Reservas con calendario real, integración con pasarela de pagos con
+              dispersión a proveedores, comisiones configurables, gestión de
+              cancelaciones y facturación.
+            </p>
+            <span class="step__deliverable">Reservas con pago funcionando en producción</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num"></div>
+          <div>
+            <h3 class="step__title">Escala y comunidad</h3>
+            <p class="step__text">
+              Migración a motor de búsqueda dedicado, extracción de servicios satélite,
+              capas de comunidad (perfiles enriquecidos, reseñas, feed, eventos) y
+              aplicación móvil si el flujo lo justifica.
+            </p>
+            <span class="step__deliverable">Plataforma escalable con capa social activa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       06 · SEGUIMIENTO DE AVANCE
+       ============================================================ -->
+  <section class="section section--alt" id="seguimiento">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">06 · Seguimiento</span>
+        <h2 class="section__title">Control de avance, semana a semana.</h2>
+        <p class="section__lead">
+          Cada proceso del desarrollo se mide contra su estimación. El tablero muestra
+          tres capas: el avance global acumulado, el avance por proceso y la tabla
+          detallada semana por semana. Si algo se desvía de la estimación, se detecta
+          antes de que se convierta en problema.
+        </p>
+      </div>
+
+      <div class="tracking-hero reveal">
+        <div class="tracking-donut">
+          <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avance real global 82%">
+            <circle cx="80" cy="80" r="60" fill="none" stroke="#e8e5df" stroke-width="14"/>
+            <circle class="donut-progress" cx="80" cy="80" r="60" fill="none"
+                    stroke="url(#donutGrad)" stroke-width="14" stroke-linecap="round"
+                    transform="rotate(-90 80 80)"/>
+            <defs>
+              <linearGradient id="donutGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#2d6a6a"/>
+                <stop offset="100%" stop-color="#c4623a"/>
+              </linearGradient>
+            </defs>
+            <text x="80" y="78" text-anchor="middle" font-size="28" font-weight="500"
+                  fill="#0f1424" font-family="'Space Grotesk', sans-serif"
+                  letter-spacing="-1">82%</text>
+            <text x="80" y="98" text-anchor="middle" font-size="9" fill="#959aab"
+                  letter-spacing="2" font-family="Inter, sans-serif">REAL</text>
+          </svg>
+          <span class="tracking-donut__label">Avance global · semana 6</span>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <span class="kpi__label">Estimado acumulado</span>
+            <span class="kpi__value">88%</span>
+            <span class="kpi__meta">Proyección del plan original</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">Real acumulado</span>
+            <span class="kpi__value">82%</span>
+            <span class="kpi__meta kpi__meta--warn">-6 pts vs estimación</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">Procesos en rango</span>
+            <span class="kpi__value">4 / 6</span>
+            <span class="kpi__meta">Tolerancia ±10% por proceso</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">Velocidad media</span>
+            <span class="kpi__value">13.7 pts/sem</span>
+            <span class="kpi__meta kpi__meta--ok">Ritmo sostenido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-block reveal">
+        <div class="chart-block__head">
+          <h3 class="chart-block__title">Curva de avance acumulado</h3>
+          <span class="chart-block__hint">Estimado vs real · medido al cierre de cada semana</span>
+        </div>
+        <div class="chart-wrap">
+          <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img"
+               aria-label="Curva de avance acumulado estimado versus real">
+            <defs>
+              <linearGradient id="fillReal" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2d6a6a" stop-opacity="0.12"/>
+                <stop offset="100%" stop-color="#2d6a6a" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="lineReal" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2d6a6a"/>
+                <stop offset="100%" stop-color="#c4623a"/>
+              </linearGradient>
+            </defs>
+
+            <g stroke="#e8e5df" stroke-width="1">
+              <line x1="50" y1="40" x2="690" y2="40"/>
+              <line x1="50" y1="97.5" x2="690" y2="97.5"/>
+              <line x1="50" y1="155" x2="690" y2="155"/>
+              <line x1="50" y1="212.5" x2="690" y2="212.5"/>
+              <line x1="50" y1="270" x2="690" y2="270" stroke="#d6d2c8"/>
+            </g>
+
+            <g fill="#959aab" font-size="10" font-family="Inter, sans-serif" text-anchor="end">
+              <text x="42" y="44">100%</text>
+              <text x="42" y="101">75%</text>
+              <text x="42" y="159">50%</text>
+              <text x="42" y="216">25%</text>
+              <text x="42" y="274">0%</text>
+            </g>
+
+            <g fill="#959aab" font-size="10" font-family="Inter, sans-serif" text-anchor="middle">
+              <text x="50" y="290">Inicio</text>
+              <text x="156" y="290">S1</text>
+              <text x="263" y="290">S2</text>
+              <text x="370" y="290">S3</text>
+              <text x="477" y="290">S4</text>
+              <text x="583" y="290">S5</text>
+              <text x="690" y="290">S6</text>
+            </g>
+
+            <path d="M50,270 L156,222.6 L263,196.9 L370,163.7 L477,131.3 L583,98.9 L690,80.5 L690,270 Z"
+                  fill="url(#fillReal)"/>
+
+            <path d="M50,270 L156,220.6 L263,191.8 L370,158.2 L477,123.3 L583,90.8 L690,68.1"
+                  fill="none" stroke="#c89b3c" stroke-width="1.8"
+                  stroke-dasharray="5,5" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <path d="M50,270 L156,222.6 L263,196.9 L370,163.7 L477,131.3 L583,98.9 L690,80.5"
+                  fill="none" stroke="url(#lineReal)" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+
+            <g fill="#ffffff" stroke="#c89b3c" stroke-width="2">
+              <circle cx="156" cy="220.6" r="3.5"/>
+              <circle cx="263" cy="191.8" r="3.5"/>
+              <circle cx="370" cy="158.2" r="3.5"/>
+              <circle cx="477" cy="123.3" r="3.5"/>
+              <circle cx="583" cy="90.8" r="3.5"/>
+              <circle cx="690" cy="68.1" r="3.5"/>
+            </g>
+
+            <g fill="#2d6a6a" stroke="#ffffff" stroke-width="2">
+              <circle cx="156" cy="222.6" r="4"/>
+              <circle cx="263" cy="196.9" r="4"/>
+              <circle cx="370" cy="163.7" r="4"/>
+              <circle cx="477" cy="131.3" r="4"/>
+              <circle cx="583" cy="98.9" r="4"/>
+              <circle cx="690" cy="80.5" r="4"/>
+            </g>
+
+            <g font-family="'Space Grotesk', sans-serif" text-anchor="middle">
+              <text x="690" y="56" font-size="12" font-weight="500" fill="#c89b3c">88%</text>
+              <text x="690" y="72" font-size="12" font-weight="500" fill="#c4623a">82%</text>
+            </g>
+
+            <g font-family="Inter, sans-serif" font-size="11" fill="#2b3040">
+              <line x1="480" y1="18" x2="512" y2="18" stroke="#c89b3c" stroke-width="1.8" stroke-dasharray="5,5"/>
+              <text x="518" y="22">Estimado</text>
+              <line x1="596" y1="18" x2="628" y2="18" stroke="#2d6a6a" stroke-width="2.6"/>
+              <text x="634" y="22">Real</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="chart-block reveal">
+        <div class="chart-block__head">
+          <h3 class="chart-block__title">Avance por proceso</h3>
+          <span class="chart-block__hint">Estado al cierre de la semana 6 · estimado vs real</span>
+        </div>
+
+        <div class="process-bars">
+          <div class="process-row">
+            <div class="process-row__name">Discovery &amp; UX<span>15% del esfuerzo</span></div>
+            <div class="process-row__bars">
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Est</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--est" style="--fill:100%"></div>
+                </div>
+                <span class="process-bar-row__value">100%</span>
+              </div>
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Real</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--real" style="--fill:100%"></div>
+                </div>
+                <span class="process-bar-row__value">100%</span>
+              </div>
+            </div>
+            <div class="process-row__delta process-row__delta--ok">0 pts</div>
+          </div>
+
+          <div class="process-row">
+            <div class="process-row__name">Backend core<span>25% del esfuerzo</span></div>
+            <div class="process-row__bars">
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Est</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--est" style="--fill:95%"></div>
+                </div>
+                <span class="process-bar-row__value">95%</span>
+              </div>
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Real</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--real" style="--fill:88%"></div>
+                </div>
+                <span class="process-bar-row__value">88%</span>
+              </div>
+            </div>
+            <div class="process-row__delta process-row__delta--warn">-7 pts</div>
+          </div>
+
+          <div class="process-row">
+            <div class="process-row__name">Frontend público<span>20% del esfuerzo</span></div>
+            <div class="process-row__bars">
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Est</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--est" style="--fill:95%"></div>
+                </div>
+                <span class="process-bar-row__value">95%</span>
+              </div>
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Real</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--real" style="--fill:93%"></div>
+                </div>
+                <span class="process-bar-row__value">93%</span>
+              </div>
+            </div>
+            <div class="process-row__delta process-row__delta--ok">-2 pts</div>
+          </div>
+
+          <div class="process-row">
+            <div class="process-row__name">Panel proveedor<span>15% del esfuerzo</span></div>
+            <div class="process-row__bars">
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Est</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--est" style="--fill:85%"></div>
+                </div>
+                <span class="process-bar-row__value">85%</span>
+              </div>
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Real</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--real" style="--fill:78%"></div>
+                </div>
+                <span class="process-bar-row__value">78%</span>
+              </div>
+            </div>
+            <div class="process-row__delta process-row__delta--warn">-7 pts</div>
+          </div>
+
+          <div class="process-row">
+            <div class="process-row__name">Media &amp; auth<span>10% del esfuerzo</span></div>
+            <div class="process-row__bars">
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Est</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--est" style="--fill:90%"></div>
+                </div>
+                <span class="process-bar-row__value">90%</span>
+              </div>
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Real</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--real" style="--fill:88%"></div>
+                </div>
+                <span class="process-bar-row__value">88%</span>
+              </div>
+            </div>
+            <div class="process-row__delta process-row__delta--ok">-2 pts</div>
+          </div>
+
+          <div class="process-row">
+            <div class="process-row__name">QA &amp; despliegue<span>15% del esfuerzo</span></div>
+            <div class="process-row__bars">
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Est</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--est" style="--fill:55%"></div>
+                </div>
+                <span class="process-bar-row__value">55%</span>
+              </div>
+              <div class="process-bar-row">
+                <span class="process-bar-row__tag">Real</span>
+                <div class="process-bar-row__track">
+                  <div class="process-bar-row__fill process-bar-row__fill--real" style="--fill:42%"></div>
+                </div>
+                <span class="process-bar-row__value">42%</span>
+              </div>
+            </div>
+            <div class="process-row__delta process-row__delta--danger">-13 pts</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tracking-table-wrap reveal">
+        <table class="tracking-table">
+          <thead>
+            <tr>
+              <th class="tracking-table__process">Proceso</th>
+              <th>Inicio</th>
+              <th>Semana 1</th>
+              <th>Semana 2</th>
+              <th>Semana 3</th>
+              <th>Semana 4</th>
+              <th>Semana 5</th>
+              <th>Semana 6</th>
+              <th>Δ S6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tracking-table__process">
+                <strong>Discovery &amp; UX</strong>
+                <span>15% del esfuerzo</span>
+              </td>
+              <td><div class="cell"><span class="cell__est">—</span><span class="cell__real cell__real--neutral">—</span></div></td>
+              <td><div class="cell"><span class="cell__est">100%</span><span class="cell__real cell__real--ok">100%</span></div></td>
+              <td><div class="cell"><span class="cell__est">100%</span><span class="cell__real cell__real--ok">100%</span></div></td>
+              <td><div class="cell"><span class="cell__est">100%</span><span class="cell__real cell__real--ok">100%</span></div></td>
+              <td><div class="cell"><span class="cell__est">100%</span><span class="cell__real cell__real--ok">100%</span></div></td>
+              <td><div class="cell"><span class="cell__est">100%</span><span class="cell__real cell__real--ok">100%</span></div></td>
+              <td><div class="cell"><span class="cell__est">100%</span><span class="cell__real cell__real--ok">100%</span></div></td>
+              <td class="tracking-table__delta" style="color: var(--sage);">0</td>
+            </tr>
+
+            <tr>
+              <td class="tracking-table__process">
+                <strong>Backend core</strong>
+                <span>25% del esfuerzo</span>
+              </td>
+              <td><div class="cell"><span class="cell__est">—</span><span class="cell__real cell__real--neutral">—</span></div></td>
+              <td><div class="cell"><span class="cell__est">10%</span><span class="cell__real cell__real--ok">8%</span></div></td>
+              <td><div class="cell"><span class="cell__est">28%</span><span class="cell__real cell__real--ok">25%</span></div></td>
+              <td><div class="cell"><span class="cell__est">48%</span><span class="cell__real cell__real--ok">45%</span></div></td>
+              <td><div class="cell"><span class="cell__est">68%</span><span class="cell__real cell__real--ok">63%</span></div></td>
+              <td><div class="cell"><span class="cell__est">85%</span><span class="cell__real cell__real--ok">80%</span></div></td>
+              <td><div class="cell"><span class="cell__est">95%</span><span class="cell__real cell__real--warn">88%</span></div></td>
+              <td class="tracking-table__delta" style="color: #a37020;">-7</td>
+            </tr>
+
+            <tr>
+              <td class="tracking-table__process">
+                <strong>Frontend público</strong>
+                <span>20% del esfuerzo</span>
+              </td>
+              <td><div class="cell"><span class="cell__est">—</span><span class="cell__real cell__real--neutral">—</span></div></td>
+              <td><div class="cell"><span class="cell__est">12%</span><span class="cell__real cell__real--ok">10%</span></div></td>
+              <td><div class="cell"><span class="cell__est">30%</span><span class="cell__real cell__real--ok">28%</span></div></td>
+              <td><div class="cell"><span class="cell__est">50%</span><span class="cell__real cell__real--ok">47%</span></div></td>
+              <td><div class="cell"><span class="cell__est">68%</span><span class="cell__real cell__real--ok">65%</span></div></td>
+              <td><div class="cell"><span class="cell__est">85%</span><span class="cell__real cell__real--ok">82%</span></div></td>
+              <td><div class="cell"><span class="cell__est">95%</span><span class="cell__real cell__real--ok">93%</span></div></td>
+              <td class="tracking-table__delta" style="color: var(--sage);">-2</td>
+            </tr>
+
+            <tr>
+              <td class="tracking-table__process">
+                <strong>Panel proveedor</strong>
+                <span>15% del esfuerzo</span>
+              </td>
+              <td><div class="cell"><span class="cell__est">—</span><span class="cell__real cell__real--neutral">—</span></div></td>
+              <td><div class="cell"><span class="cell__est">5%</span><span class="cell__real cell__real--ok">5%</span></div></td>
+              <td><div class="cell"><span class="cell__est">18%</span><span class="cell__real cell__real--ok">15%</span></div></td>
+              <td><div class="cell"><span class="cell__est">35%</span><span class="cell__real cell__real--ok">32%</span></div></td>
+              <td><div class="cell"><span class="cell__est">55%</span><span class="cell__real cell__real--ok">50%</span></div></td>
+              <td><div class="cell"><span class="cell__est">72%</span><span class="cell__real cell__real--warn">68%</span></div></td>
+              <td><div class="cell"><span class="cell__est">85%</span><span class="cell__real cell__real--warn">78%</span></div></td>
+              <td class="tracking-table__delta" style="color: #a37020;">-7</td>
+            </tr>
+
+            <tr>
+              <td class="tracking-table__process">
+                <strong>Media &amp; auth</strong>
+                <span>10% del esfuerzo</span>
+              </td>
+              <td><div class="cell"><span class="cell__est">—</span><span class="cell__real cell__real--neutral">—</span></div></td>
+              <td><div class="cell"><span class="cell__est">8%</span><span class="cell__real cell__real--ok">8%</span></div></td>
+              <td><div class="cell"><span class="cell__est">25%</span><span class="cell__real cell__real--ok">22%</span></div></td>
+              <td><div class="cell"><span class="cell__est">45%</span><span class="cell__real cell__real--ok">42%</span></div></td>
+              <td><div class="cell"><span class="cell__est">62%</span><span class="cell__real cell__real--ok">60%</span></div></td>
+              <td><div class="cell"><span class="cell__est">78%</span><span class="cell__real cell__real--ok">75%</span></div></td>
+              <td><div class="cell"><span class="cell__est">90%</span><span class="cell__real cell__real--ok">88%</span></div></td>
+              <td class="tracking-table__delta" style="color: var(--sage);">-2</td>
+            </tr>
+
+            <tr>
+              <td class="tracking-table__process">
+                <strong>QA &amp; despliegue</strong>
+                <span>15% del esfuerzo</span>
+              </td>
+              <td><div class="cell"><span class="cell__est">—</span><span class="cell__real cell__real--neutral">—</span></div></td>
+              <td><div class="cell"><span class="cell__est">0%</span><span class="cell__real cell__real--neutral">0%</span></div></td>
+              <td><div class="cell"><span class="cell__est">5%</span><span class="cell__real cell__real--ok">3%</span></div></td>
+              <td><div class="cell"><span class="cell__est">12%</span><span class="cell__real cell__real--ok">10%</span></div></td>
+              <td><div class="cell"><span class="cell__est">25%</span><span class="cell__real cell__real--warn">20%</span></div></td>
+              <td><div class="cell"><span class="cell__est">40%</span><span class="cell__real cell__real--warn">35%</span></div></td>
+              <td><div class="cell"><span class="cell__est">55%</span><span class="cell__real cell__real--danger">42%</span></div></td>
+              <td class="tracking-table__delta" style="color: #b03434;">-13</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout reveal mt-5">
+        <div class="callout__icon">◐</div>
+        <div class="callout__body">
+          <div class="callout__title">Cómo leer esta tabla</div>
+          <p>
+            Cada celda tiene dos valores: <strong>Est</strong> (arriba, gris) es el avance
+            planificado al cierre de esa semana; <strong>Real</strong> (abajo) es el avance
+            efectivamente entregado. El color indica la desviación:
+            <span style="color:var(--sage);font-weight:500;">verde</span> dentro de tolerancia
+            (hasta -5 pts), <span style="color:#a37020;font-weight:500;">ámbar</span>
+            desviación moderada (-6 a -10 pts) y
+            <span style="color:#b03434;font-weight:500;">rojo</span> desviación a corregir
+            (más de -10 pts). La columna <strong>Δ S6</strong> resume la brecha al cierre
+            del periodo mostrado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       07 · INVERSIÓN
+       ============================================================ -->
+  <section class="section" id="inversion">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">07 · Inversión</span>
+        <h2 class="section__title">Desde $10 mil pesos. Escalas cuando lo necesites.</h2>
+        <p class="section__lead">
+          La escalera de planes está diseñada para emprendedores: empieza con una interfaz
+          simple por una inversión mínima y sube de nivel solo cuando el negocio lo
+          justifique. Cada plan incluye el trabajo de la fase anterior más las nuevas
+          capacidades. Los montos son rangos orientativos en pesos mexicanos, no precios
+          cerrados: la cifra final se ajusta al alcance acordado.
+        </p>
+      </div>
+
+      <div class="invest-hero reveal">
+        <div class="invest-hero__inner">
+          <h3>
+            Construir todo de una sola vez cuesta más.<br />
+            <em>Empezar con $10k y crecer por fases cuesta menos y produce antes.</em>
+          </h3>
+          <p>
+            La primera opción entrega una <strong>interfaz simple con perfiles estáticos</strong>
+            —sin inicio de sesión— por una inversión mínima, suficiente para validar la
+            propuesta visual y captar los primeros interesados. A partir de esa base, cada
+            nivel agrega capacidad real: primero identidad y paneles dinámicos, después
+            mensajería y comunidad, y finalmente herramientas de red social (feed, eventos,
+            reseñas, notificaciones).
+          </p>
+          <p>
+            El presupuesto total por fases es <strong>menor que contratar toda la
+            plataforma de golpe</strong>, porque se evita el sobrediseño y se construye
+            solo lo que el negocio realmente usa. Los planes corporativos al final de
+            la escalera están pensados para operadores establecidos que necesitan todo
+            el ecosistema desde el inicio.
+          </p>
+        </div>
+      </div>
+
+      <!-- Escalera de planes -->
+      <div class="plan-ladder reveal">
+        <article class="plan plan--starter">
+          <span class="plan__badge">Nivel 1</span>
+          <h3 class="plan__name">Interfaz simple</h3>
+          <p class="plan__desc">Perfiles estáticos, sin inicio de sesión. Para validar y captar.</p>
+          <div class="plan__price">$10k – $18k <span>MXN</span></div>
+          <p class="plan__time">1–2 semanas</p>
+          <ul class="plan__list">
+            <li>Landing pública con identidad visual</li>
+            <li>Catálogo de publicaciones estáticas</li>
+            <li>Perfiles de proveedores (estáticos)</li>
+            <li>Formulario de contacto por correo</li>
+            <li>Publicación en dominio propio</li>
+            <li>Enlaces preparados para escalar</li>
+          </ul>
+          <a href="#cierre" class="plan__cta">Empezar aquí</a>
+        </article>
+
+        <article class="plan plan--basic">
+          <span class="plan__badge">Nivel 2</span>
+          <h3 class="plan__name">MVP dinámico</h3>
+          <p class="plan__desc">Cuentas, paneles y buscador. La plataforma empieza a operar sola.</p>
+          <div class="plan__price">$28k – $38k <span>MXN</span></div>
+          <p class="plan__time">+4–6 semanas</p>
+          <ul class="plan__list">
+            <li>Registro y login con roles</li>
+            <li>Panel de proveedor con métricas</li>
+            <li>CRUD de publicaciones + media</li>
+            <li>Buscador con filtros</li>
+            <li>Panel de administración</li>
+            <li>Moderación básica</li>
+          </ul>
+          <a href="#cierre" class="plan__cta">Escalar al MVP</a>
+        </article>
+
+        <article class="plan plan--growth">
+          <span class="plan__badge">Nivel 3 · Recomendado</span>
+          <h3 class="plan__name">Crecimiento</h3>
+          <p class="plan__desc">Mensajería, endurecimiento y base de comunidad.</p>
+          <div class="plan__price">$42k – $58k <span>MXN</span></div>
+          <p class="plan__time">+3–4 semanas</p>
+          <ul class="plan__list">
+            <li>Mensajería visitante ↔ proveedor</li>
+            <li>Notificaciones por correo</li>
+            <li>Auditoría y límites de uso</li>
+            <li>Monitoreo y observabilidad</li>
+            <li>SEO técnico de fichas</li>
+            <li>Base para reseñas y eventos</li>
+          </ul>
+          <a href="#cierre" class="plan__cta">Escalar a comunidad</a>
+        </article>
+
+        <article class="plan plan--corporate">
+          <span class="plan__badge">Nivel 4</span>
+          <h3 class="plan__name">Corporativo</h3>
+          <p class="plan__desc">Ecosistema completo: transaccional, red social, móvil.</p>
+          <div class="plan__price">$85k – $140k <span>MXN</span></div>
+          <p class="plan__time">+8–14 semanas</p>
+          <ul class="plan__list">
+            <li>Reservas y pagos integrados</li>
+            <li>Comisiones y dispersión</li>
+            <li>Feed social y perfiles enriquecidos</li>
+            <li>Eventos y reseñas</li>
+            <li>App móvil (iOS + Android)</li>
+            <li>Soporte prioritario y SLA</li>
+          </ul>
+          <a href="#cierre" class="plan__cta">Cotizar corporativo</a>
+        </article>
+      </div>
+
+      <!-- Desglose detallado de cada nivel -->
+      <div class="cost-breakdown reveal">
+        <h3 class="card__title" style="margin-bottom: var(--sp-4);">Desglose por conceptos · Nivel 1 · Interfaz simple</h3>
+        <div class="cost-breakdown__row">
+          <span>Discovery mínimo y mapa del sitio</span>
+          <span>$1,500 – $2,500</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Diseño visual de landing, catálogo y perfil</span>
+          <span>$3,000 – $5,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Maquetación HTML/CSS/JS nativo de 3–5 plantillas</span>
+          <span>$3,000 – $5,500</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Estructura de datos y contenido inicial</span>
+          <span>$1,000 – $2,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Formulario de contacto + dominio y despliegue</span>
+          <span>$1,500 – $3,000</span>
+        </div>
+        <div class="cost-breakdown__total">
+          <span>Total Nivel 1</span>
+          <span>$10,000 – $18,000 MXN</span>
+        </div>
+      </div>
+
+      <div class="cost-breakdown reveal">
+        <h3 class="card__title" style="margin-bottom: var(--sp-4);">Desglose por conceptos · Nivel 2 · MVP dinámico</h3>
+        <div class="cost-breakdown__row">
+          <span>Auth con roles + paneles base</span>
+          <span>$6,000 – $8,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>CRUD de publicaciones y media</span>
+          <span>$9,000 – $12,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Buscador con filtros y panel de proveedor</span>
+          <span>$7,000 – $9,500</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Panel de administración y moderación</span>
+          <span>$4,000 – $5,500</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>QA, pruebas y despliegue a staging</span>
+          <span>$2,000 – $3,000</span>
+        </div>
+        <div class="cost-breakdown__total">
+          <span>Total Nivel 2</span>
+          <span>$28,000 – $38,000 MXN</span>
+        </div>
+      </div>
+
+      <div class="cost-breakdown reveal">
+        <h3 class="card__title" style="margin-bottom: var(--sp-4);">Desglose por conceptos · Nivel 3 · Crecimiento</h3>
+        <div class="cost-breakdown__row">
+          <span>Mensajería entre usuarios (backend + frontend)</span>
+          <span>$12,000 – $17,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Notificaciones por correo y plantillas</span>
+          <span>$5,000 – $7,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Auditoría, límites de uso y endurecimiento</span>
+          <span>$10,000 – $14,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Monitoreo, alertas y pruebas de carga</span>
+          <span>$6,000 – $8,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>SEO técnico y base para reseñas / eventos</span>
+          <span>$9,000 – $12,000</span>
+        </div>
+        <div class="cost-breakdown__total">
+          <span>Total Nivel 3</span>
+          <span>$42,000 – $58,000 MXN</span>
+        </div>
+      </div>
+
+      <div class="cost-breakdown reveal">
+        <h3 class="card__title" style="margin-bottom: var(--sp-4);">Desglose por conceptos · Nivel 4 · Corporativo</h3>
+        <div class="cost-breakdown__row">
+          <span>Calendario, reservas y lógica transaccional</span>
+          <span>$25,000 – $40,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Pasarela de pagos, comisiones y dispersión</span>
+          <span>$20,000 – $32,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>Feed social, perfiles enriquecidos y eventos</span>
+          <span>$18,000 – $30,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>App móvil (iOS + Android) o PWA avanzada</span>
+          <span>$15,000 – $25,000</span>
+        </div>
+        <div class="cost-breakdown__row">
+          <span>QA transaccional, SLA y soporte prioritario</span>
+          <span>$7,000 – $13,000</span>
+        </div>
+        <div class="cost-breakdown__total">
+          <span>Total Nivel 4</span>
+          <span>$85,000 – $140,000 MXN</span>
+        </div>
+      </div>
+
+      <!-- Tabla resumen de escalado -->
+      <div class="mt-6 reveal">
+        <h3 class="card__title" style="margin-bottom: var(--sp-4);">Inversión acumulada por nivel</h3>
+        <div style="overflow-x: auto;">
+          <table class="scale-table">
+            <thead>
+              <tr>
+                <th>Plan contratado</th>
+                <th>Alcance</th>
+                <th>Inversión acumulada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Nivel 1 · Interfaz simple</strong></td>
+                <td>Solo la base visual con perfiles estáticos</td>
+                <td>$10,000 – $18,000</td>
+              </tr>
+              <tr>
+                <td><strong>Nivel 2 · MVP dinámico</strong></td>
+                <td>Nivel 1 + cuentas, paneles, buscador</td>
+                <td>$38,000 – $56,000</td>
+              </tr>
+              <tr>
+                <td><strong>Nivel 3 · Crecimiento</strong></td>
+                <td>Nivel 2 + mensajería, auditoría, SEO, base social</td>
+                <td>$80,000 – $114,000</td>
+              </tr>
+              <tr>
+                <td><strong>Nivel 4 · Corporativo</strong></td>
+                <td>Ecosistema completo: transaccional, red social, móvil</td>
+                <td>$165,000 – $254,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Bonificaciones por compromiso -->
+      <div class="mt-6 reveal">
+        <h3 class="card__title" style="margin-bottom: var(--sp-4);">Bonificaciones por compromiso anticipado</h3>
+        <p style="margin-bottom: var(--sp-4); font-size: var(--fs-sm); color: var(--ink-3); max-width: 760px;">
+          Si el proyecto se contrata nivel por nivel, cada uno tiene su costo individual.
+          Cuando el cliente <strong>se compromete desde el inicio a subir varios niveles</strong>,
+          se aplica un descuento acumulativo. La bonificación no reduce el precio real del
+          desarrollo: se financia con el ahorro operativo de planear el proyecto completo
+          (menos rondas de venta, menos reincorporación de equipo, mejor asignación de recursos).
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="bonus-table">
+            <thead>
+              <tr>
+                <th>Compromiso</th>
+                <th>Bonificación acumulada</th>
+                <th>Ahorro estimado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Nivel 1 solo</strong> · pago por nivel</td>
+                <td>Precio individual de cada nivel</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Nivel 1 + 2</strong> · compromiso al inicio</td>
+                <td>5% sobre Nivel 2</td>
+                <td>~$1,400 – $1,900 MXN</td>
+              </tr>
+              <tr>
+                <td><strong>Nivel 1 + 2 + 3</strong> · compromiso al inicio</td>
+                <td>8% acumulado sobre Nivel 2 y 3</td>
+                <td>~$5,000 – $7,000 MXN</td>
+              </tr>
+              <tr>
+                <td><strong>Plan completo (1 → 4)</strong></td>
+                <td>12% acumulado + prioridad de agenda</td>
+                <td>~$18,000 – $28,000 MXN</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout--gold mt-5">
+          <div class="callout__icon">✓</div>
+          <div class="callout__body">
+            <div class="callout__title">Por qué esta estructura protege a ambas partes</div>
+            <p>
+              El cliente accede a un <strong>costo total menor</strong> al comprometerse a un
+              plan completo, y puede pagar por niveles sin desembolsar todo al inicio. El
+              equipo de desarrollo gana previsibilidad de agenda, reduce el costo comercial
+              de captar y reincorporar al cliente en cada nivel, y mantiene márgenes justos
+              porque la bonificación sale de ese ahorro operativo, no del trabajo técnico.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="justify-block reveal">
+        <h4>¿Por qué estos rangos son justos en el mercado mexicano?</h4>
+        <ul>
+          <li>
+            Los rangos corresponden a tarifas competitivas para equipos de 1–3 desarrolladores
+            mid-level en México (CDMX, Guadalajara, Monterrey y remoto nacional). El Nivel 1
+            se puede atender con un solo perfil senior; el Nivel 4 requiere al menos dos
+            full-stack más diseño dedicado.
+          </li>
+          <li>
+            Cada nivel incluye <strong>diseño, desarrollo, pruebas, despliegue y acompañamiento
+            post-lanzamiento</strong>. No son precios "solo de código": contemplan la entrega
+            completa y funcionando.
+          </li>
+          <li>
+            El desglose permite ver con transparencia cuánto corresponde a cada concepto.
+            Nada está inflado por "paquetes cerrados" ni por licencias de terceros que la
+            plataforma no necesita.
+          </li>
+          <li>
+            El ahorro de evitar frameworks y dependencias externas en el núcleo se traduce
+            en <strong>menos mantenimiento futuro</strong> y por lo tanto menor costo total
+            de propiedad para usted.
+          </li>
+          <li>
+            Si se compara con construir todo el ecosistema (red social completa + reservas +
+            móvil) de una sola vez, el ahorro por fases puede representar entre un
+            <strong>20% y 35% del presupuesto total</strong>, sin sacrificar funcionalidad
+            a largo plazo.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       08 · CONEXIONES FUTURAS
+       ============================================================ -->
+  <section class="section section--alt" id="futuro">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">08 · Conexiones futuras</span>
+        <h2 class="section__title">La base ya está preparada para esto.</h2>
+        <p class="section__lead">
+          Aunque el Nivel 1 no incluye estas capacidades, la arquitectura se construye
+          con los enlaces y puntos de extensión listos. Cuando el negocio lo justifique,
+          se activan sin reescribir el núcleo ni empezar de cero.
+        </p>
+      </div>
+
+      <div class="future-grid reveal">
+        <div class="future-item">
+          <div class="future-item__icon">M</div>
+          <h3 class="future-item__title">Mensajería en tiempo real</h3>
+          <p class="future-item__text">
+            Conversación directa entre visitante y proveedor, con notificaciones y
+            estado de lectura. Base para consultas y cotizaciones.
+          </p>
+          <span class="future-item__phase">Nivel 3</span>
+        </div>
+        <div class="future-item">
+          <div class="future-item__icon">F</div>
+          <h3 class="future-item__title">Feed e inicio</h3>
+          <p class="future-item__text">
+            Página de inicio personalizada con publicaciones recientes, proveedores
+            seguidos y recomendaciones. El "muro" del turismo.
+          </p>
+          <span class="future-item__phase">Nivel 4</span>
+        </div>
+        <div class="future-item">
+          <div class="future-item__icon">E</div>
+          <h3 class="future-item__title">Eventos</h3>
+          <p class="future-item__text">
+            Calendario de experiencias con fecha, cupo y registro. Los proveedores
+            publican y los visitantes se inscriben.
+          </p>
+          <span class="future-item__phase">Nivel 3–4</span>
+        </div>
+        <div class="future-item">
+          <div class="future-item__icon">R</div>
+          <h3 class="future-item__title">Reseñas y reputación</h3>
+          <p class="future-item__text">
+            Valoraciones verificadas de visitantes sobre proveedores, con puntuación
+            y comentarios moderados.
+          </p>
+          <span class="future-item__phase">Nivel 4</span>
+        </div>
+        <div class="future-item">
+          <div class="future-item__icon">P</div>
+          <h3 class="future-item__title">Perfiles enriquecidos</h3>
+          <p class="future-item__text">
+            Páginas personales con historial, favoritos y actividad pública. La capa
+            social sobre la base del marketplace.
+          </p>
+          <span class="future-item__phase">Nivel 4</span>
+        </div>
+        <div class="future-item">
+          <div class="future-item__icon">N</div>
+          <h3 class="future-item__title">Notificaciones y follows</h3>
+          <p class="future-item__text">
+            Seguir proveedores, recibir alertas de nuevas publicaciones y gestionar
+            un centro de notificaciones propio.
+          </p>
+          <span class="future-item__phase">Nivel 3–4</span>
+        </div>
+      </div>
+
+      <div class="callout callout--plum reveal mt-6">
+        <div class="callout__icon">✦</div>
+        <div class="callout__body">
+          <div class="callout__title">Estrategia de escalado</div>
+          <p>
+            Nada de esto se construye al inicio. Cada capacidad se activa cuando hay
+            usuarios reales que la pidan. La ventaja de esta arquitectura es que
+            <strong>los enlaces y puntos de extensión ya existen</strong> desde el
+            Nivel 1: agregar mensajería o feed no implica reescribir la plataforma,
+            solo activar un módulo ya previsto.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       09 · RIESGOS
+       ============================================================ -->
+  <section class="section" id="riesgos">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow">09 · Riesgos</span>
+        <h2 class="section__title">Lo que puede salir mal y cómo se mitiga.</h2>
+        <p class="section__lead">
+          Estos son los riesgos técnicos y de negocio más comunes en plataformas
+          similares. Todos tienen una mitigación integrada desde el diseño.
+        </p>
+      </div>
+
+      <div class="grid grid--2 reveal">
+        <div class="risk">
+          <div class="risk__icon">!</div>
+          <div>
+            <h3 class="risk__title">Sobre-ingeniería inicial</h3>
+            <p class="risk__text">
+              Adoptar microservicios o infraestructura compleja el día uno retrasa el
+              lanzamiento meses y dispara el costo. Mitigación: monolito modular y
+              hosting gestionado hasta que el tráfico lo exija.
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div class="risk__icon">!</div>
+          <div>
+            <h3 class="risk__title">Modelo de datos rígido</h3>
+            <p class="risk__text">
+              Un esquema pensado solo para un tipo de oferta obliga a migrar cuando
+              aparecen otros. Mitigación: atributos flexibles + categorías jerárquicas
+              desde el inicio.
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div class="risk__icon">!</div>
+          <div>
+            <h3 class="risk__title">Deuda en manejo de imágenes</h3>
+            <p class="risk__text">
+              Servir imágenes sin optimización degrada el rendimiento y sube costos
+              de infraestructura. Mitigación: CDN + conversión a formatos modernos
+              + miniaturas desde el primer despliegue.
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div class="risk__icon">!</div>
+          <div>
+            <h3 class="risk__title">Buscador lento al crecer</h3>
+            <p class="risk__text">
+              La búsqueda nativa de la base de datos es suficiente para miles de
+              publicaciones, no para millones. Mitigación: plan de migración a motor
+              dedicado documentado desde el Nivel 3.
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div class="risk__icon">!</div>
+          <div>
+            <h3 class="risk__title">Autorización incompleta</h3>
+            <p class="risk__text">
+              Confiar en el frontend para validar propiedad permite que un proveedor
+              modifique publicaciones ajenas. Mitigación: validación de propiedad
+              obligatoria en cada endpoint sensible y pruebas automatizadas.
+            </p>
+          </div>
+        </div>
+        <div class="risk">
+          <div class="risk__icon">!</div>
+          <div>
+            <h3 class="risk__title">Dependencia de un proveedor externo</h3>
+            <p class="risk__text">
+              Atar la plataforma a un hosting o servicio único encarece migrar después.
+              Mitigación: abstracciones propias sobre servicios externos y despliegue
+              portable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10 · SIGUIENTE PASO
+       ============================================================ -->
+  <section class="section section--dark" id="cierre">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="eyebrow" style="color: var(--gold);">10 · Siguiente paso</span>
+        <h2 class="section__title" style="color: var(--white);">
+          Empezar con $10k, con presupuesto claro y alcance cerrado.
+        </h2>
+        <p class="section__lead" style="color: var(--ink-4);">
+          La plataforma es alcanzable desde una inversión mínima. El punto de partida
+          es definir el alcance del Nivel 1 y avanzar con hitos medibles. Los niveles
+          superiores se evalúan cuando el negocio lo justifique.
+        </p>
+      </div>
+
+      <div class="steps reveal" style="counter-reset: step;">
+        <div class="step" style="background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1);">
+          <div class="step__num" style="background: linear-gradient(135deg, var(--terra), var(--gold)); color: var(--white);"></div>
+          <div>
+            <h3 class="step__title" style="color: var(--white);">Cerrar el alcance del Nivel 1</h3>
+            <p class="step__text" style="color: var(--ink-4);">
+              Firmar la lista de pantallas, contenidos y funcionalidades que entran en
+              la interfaz simple con perfiles estáticos. Este documento es la base del
+              presupuesto definitivo.
+            </p>
+          </div>
+        </div>
+        <div class="step" style="background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1);">
+          <div class="step__num" style="background: linear-gradient(135deg, var(--sky), var(--teal)); color: var(--white);"></div>
+          <div>
+            <h3 class="step__title" style="color: var(--white);">Definir la estructura de escalado</h3>
+            <p class="step__text" style="color: var(--ink-4);">
+              Documento vivo de enlaces y puntos de extensión que se dejan preparados
+              para los niveles 2, 3 y 4. Es el anclaje entre el nivel actual y los
+              futuros.
+            </p>
+          </div>
+        </div>
+        <div class="step" style="background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1);">
+          <div class="step__num" style="background: linear-gradient(135deg, var(--plum), var(--terra)); color: var(--white);"></div>
+          <div>
+            <h3 class="step__title" style="color: var(--white);">Cotizar con 2–3 equipos técnicos</h3>
+            <p class="step__text" style="color: var(--ink-4);">
+              Comparar propuestas contra este documento. Cualquier oferta muy por
+              debajo del rango de mercado, o que no cubra seguridad y pruebas desde
+              el inicio, es una alerta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout reveal mt-6" style="background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.1); border-left-color: var(--gold);">
+        <div class="callout__icon" style="background: rgba(200, 155, 60, 0.15); color: var(--gold);">✦</div>
+        <div class="callout__body">
+          <div class="callout__title" style="color: var(--white);">Criterio de éxito del Nivel 1</div>
+          <p style="color: var(--ink-4);">
+            El sitio está publicado en un dominio propio, con catálogo y perfiles
+            reales, y <strong style="color: var(--paper);">recibe consultas de
+            visitantes por el formulario de contacto</strong>. Esa es la validación
+            mínima antes de invertir en el Nivel 2.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>Propuesta técnica y económica · Plataforma turística escalable</span>
+      <span>Documento de trabajo · Cifras orientativas en MXN</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>
